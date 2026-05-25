@@ -24,10 +24,17 @@ Render gives you stable HTTPS URLs for the API and Flutter web app.
 5. When prompted, set optional secret:
    - `OPENAI_API_KEY` — only if you want LLM-generated chat (otherwise template RAG answers work).
 
-6. Click **Apply**. Render creates:
-   - `sme-advisor-db` (PostgreSQL)
+6. When prompted for **`DATABASE_URL`**, paste your **existing** Postgres **Internal Database URL**  
+   (Render free tier allows only **one** database — the blueprint no longer creates a second).
+
+7. Click **Apply**. Render creates:
    - `sme-advisor-api` (Docker API)
-   - `sme-advisor-web` (Flutter static site)
+   - `sme-advisor-web` (Flutter static site)  
+   (Uses your existing PostgreSQL — not a new one.)
+
+> **Error: "cannot have more than one active free tier database"**  
+> You already have a Postgres on Render. Use `render.yaml` (default) — it does **not** create a new DB.  
+> Link `DATABASE_URL` manually as in step 6. Optional full stack with new DB: `render-with-db.yaml` only if you have zero databases.
 
 7. Wait **15–25 minutes** for the first deploy (API Docker ~10 min, web Flutter build ~15 min).
 
@@ -114,6 +121,7 @@ Open Swagger on the API and try:
 | 502 / slow first load | Cold start on free tier — open `/health` first, wait 60s |
 | Web app can't reach API | Rebuild web with `API_BASE=https://sme-advisor-api.onrender.com` |
 | Application tracker 500 | Redeploy API after latest push (creates `application_tracker` table on boot) |
+| **cannot have more than one active free tier database** | Delete failed blueprint DB if stuck; use `render.yaml` (no `databases:` block); set `DATABASE_URL` from existing Postgres |
 
 More detail: [`deploy/render/README.md`](deploy/render/README.md)
 

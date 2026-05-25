@@ -1,8 +1,5 @@
-# Render Blueprint — SME Advisor API + Flutter web (uses EXISTING Postgres)
-# Free tier: only ONE PostgreSQL database per account — do not create a second DB here.
-#
-# Before sync: In Render Dashboard → your existing Postgres → copy Internal Database URL
-# After deploy: sme-advisor-api → Environment → set DATABASE_URL (sync: false prompts you)
+# Optional Blueprint — creates NEW Postgres (only if you have ZERO free databases on Render)
+# If you see "cannot have more than one active free tier database", use render.yaml instead.
 
 services:
   - type: web
@@ -27,7 +24,9 @@ services:
       - key: DB_WAIT_INTERVAL
         value: "3"
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: sme-advisor-db
+          property: connectionString
       - key: OPENAI_API_KEY
         sync: false
 
@@ -39,3 +38,10 @@ services:
     envVars:
       - key: API_BASE
         value: https://sme-advisor-api.onrender.com
+
+databases:
+  - name: sme-advisor-db
+    plan: free
+    region: singapore
+    databaseName: bnpl_db
+    user: bnpl
