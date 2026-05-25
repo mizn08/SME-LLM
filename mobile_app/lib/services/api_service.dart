@@ -559,21 +559,7 @@ class ApiService {
     return AgentAdvice.fromJson(res.data ?? {});
   }
 
-  /// Upload CSV from a file path (mobile only — needs dart:io).
-  Future<Map<String, dynamic>> uploadCsv({
-    required int smeId,
-    required String filePath,
-    required String fileName,
-  }) async {
-    final form = FormData.fromMap({
-      'sme_id': smeId,
-      'file': await MultipartFile.fromFile(filePath, filename: fileName),
-    });
-    final res = await _dio.post<Map<String, dynamic>>('/upload-csv', data: form);
-    return res.data ?? {};
-  }
-
-  /// Upload CSV from raw bytes (works on web).
+  /// Upload CSV from raw bytes (works on web and mobile).
   Future<Map<String, dynamic>> uploadCsvBytes({
     required int smeId,
     required Uint8List bytes,

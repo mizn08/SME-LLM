@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -176,14 +175,8 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                       TextButton.icon(
                         onPressed: () async {
                           final bytes = await PdfReportService.buildRecommendationPdfBytes(res, 'SME');
-                          if (kIsWeb) {
-                            await Share.shareXFiles([
-                              XFile.fromData(bytes, name: 'sme_advisor_report.pdf', mimeType: 'application/pdf'),
-                            ], text: 'SME Advisor report');
-                          } else {
-                            final file = await writePdfBytes(bytes, 'sme_advisor_report.pdf');
-                            await Share.shareXFiles([XFile(file.path)], text: 'SME Advisor report');
-                          }
+                          final xFile = await writePdfBytes(bytes, 'sme_advisor_report.pdf');
+                          await Share.shareXFiles([xFile], text: 'SME Advisor report');
                         },
                         icon: const Icon(Icons.share_rounded, size: 18),
                         label: const Text('Share'),
@@ -191,13 +184,7 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                       TextButton.icon(
                         onPressed: () async {
                           final bytes = await PdfReportService.buildRecommendationPdfBytes(res, 'SME');
-                          if (kIsWeb) {
-                            await Share.shareXFiles([
-                              XFile.fromData(bytes, name: 'sme_advisor_report.pdf', mimeType: 'application/pdf'),
-                            ]);
-                          } else {
-                            await writePdfBytes(bytes, 'sme_advisor_report.pdf');
-                          }
+                          await writePdfBytes(bytes, 'sme_advisor_report.pdf');
                           if (ctx.mounted) {
                             ScaffoldMessenger.of(ctx).showSnackBar(
                               const SnackBar(content: Text('PDF ready')),

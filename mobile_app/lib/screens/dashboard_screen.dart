@@ -195,14 +195,8 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
     try {
       final report = await ApiService().fetchReport(d.smeId);
       final bytes = await PdfReportService.buildFullReportBytes(report);
-      if (kIsWeb) {
-        await Share.shareXFiles([
-          XFile.fromData(bytes, name: 'sme_advisor_report.pdf', mimeType: 'application/pdf'),
-        ], text: 'SME Advisor — bank / grant pack');
-      } else {
-        final file = await writePdfBytes(bytes, 'sme_advisor_full_report.pdf');
-        await Share.shareXFiles([XFile(file.path)], text: 'SME Advisor — bank / grant pack');
-      }
+      final xFile = await writePdfBytes(bytes, 'sme_advisor_full_report.pdf');
+      await Share.shareXFiles([xFile], text: 'SME Advisor — bank / grant pack');
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Report ready to share')));
       }

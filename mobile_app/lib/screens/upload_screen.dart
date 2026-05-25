@@ -64,14 +64,14 @@ class _UploadScreenState extends State<UploadScreen> {
       setState(() => progress = 0.45);
       final file = res.files.single;
 
-      Map<String, dynamic> body;
-      if (!kIsWeb && file.path != null) {
-        body = await ApiService().uploadCsv(smeId: sid, filePath: file.path!, fileName: file.name);
-      } else if (file.bytes != null) {
-        body = await ApiService().uploadCsvBytes(smeId: sid, bytes: file.bytes!, fileName: file.name);
-      } else {
-        throw Exception('Could not read the selected file.');
+      if (file.bytes == null) {
+        throw Exception('Could not read the selected file. Try again or use a smaller CSV.');
       }
+      final body = await ApiService().uploadCsvBytes(
+        smeId: sid,
+        bytes: file.bytes!,
+        fileName: file.name,
+      );
 
       setState(() {
         progress = 1;

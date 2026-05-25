@@ -30,7 +30,15 @@ if grep -q flutter_local_notifications pubspec.lock 2>/dev/null; then
   exit 1
 fi
 echo "Building web with API_BASE=${API_BASE}"
-flutter build web --release --dart-define="API_BASE=${API_BASE}"
+set +e
+flutter build web --release --dart-define="API_BASE=${API_BASE}" 2>&1 | tee /tmp/flutter_web_build.log
+BUILD_EXIT=${PIPESTATUS[0]}
+set -e
+if [[ "$BUILD_EXIT" -ne 0 ]]; then
+  echo "=== flutter build web failed (exit $BUILD_EXIT) — last 80 lines ==="
+  tail -n 80 /tmp/flutter_web_build.log || true
+  exit "$BUILD_EXIT"
+fi
 
 # Ensure built index.html points at the API (runtime meta + cache-friendly)
 INDEX_HTML="$ROOT/mobile_app/build/web/index.html"

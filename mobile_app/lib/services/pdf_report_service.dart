@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:cross_file/cross_file.dart';
 import 'package:pdf/widgets.dart' as pw;
 
 import '../models/prediction.dart';
@@ -41,7 +42,7 @@ class PdfReportService {
     return _fullReportDoc(report).save();
   }
 
-  static Future<dynamic> saveFullReport(Map<String, dynamic> report) async {
+  static Future<XFile> saveFullReport(Map<String, dynamic> report) async {
     final bytes = await buildFullReportBytes(report);
     return writePdfBytes(bytes, 'sme_advisor_full_report.pdf');
   }
