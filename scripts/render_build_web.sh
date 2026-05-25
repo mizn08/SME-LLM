@@ -18,8 +18,17 @@ if ! command -v flutter >/dev/null 2>&1; then
 fi
 
 flutter --version
+echo "Git commit: $(git -C "$ROOT" rev-parse --short HEAD 2>/dev/null || echo unknown)"
 cd "$ROOT/mobile_app"
+if grep -q flutter_local_notifications pubspec.yaml 2>/dev/null; then
+  echo "ERROR: flutter_local_notifications must not be in pubspec.yaml (breaks web build)."
+  exit 1
+fi
 flutter pub get
+if grep -q flutter_local_notifications pubspec.lock 2>/dev/null; then
+  echo "ERROR: pubspec.lock still lists flutter_local_notifications — commit dff41e4+ required."
+  exit 1
+fi
 echo "Building web with API_BASE=${API_BASE}"
 flutter build web --release --dart-define="API_BASE=${API_BASE}"
 
