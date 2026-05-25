@@ -9,6 +9,7 @@ import '../providers/session_provider.dart';
 import '../services/api_service.dart';
 import '../services/pdf_report_service.dart' show PdfReportService, writePdfBytes;
 import '../theme/app_theme.dart';
+import '../utils/constants.dart';
 import '../widgets/compliance_countdown_widget.dart';
 import '../widgets/kpi_card.dart';
 import '../models/digest.dart';
@@ -167,6 +168,12 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
                       ),
                       const SizedBox(height: 8),
                       Text(error!, textAlign: TextAlign.center, style: TextStyle(color: Colors.grey.shade500)),
+                      const SizedBox(height: 8),
+                      Text(
+                        'API: ${resolveApiBase()}',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 11, color: Colors.grey.shade400),
+                      ),
                     ],
                   ),
                 ),
