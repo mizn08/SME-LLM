@@ -37,5 +37,6 @@ services:
     buildCommand: chmod +x ./scripts/render_build_web.sh && ./scripts/render_build_web.sh
     staticPublishPath: ./mobile_app/build/web
     envVars:
+      # Set in Render dashboard to your real API URL, e.g. https://sme-advisor-api-38lz.onrender.com
       - key: API_BASE
-        value: https://sme-advisor-api.onrender.com
+        sync: false

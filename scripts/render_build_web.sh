@@ -3,7 +3,9 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# Default: paired API host when web is sme-advisor-web-XXXX.onrender.com
 API_BASE="${API_BASE:-https://sme-advisor-api.onrender.com}"
+# If Render assigned a suffix, set API_BASE in Static Site env to e.g. https://sme-advisor-api-38lz.onrender.com
 
 export FLUTTER_VERSION="${FLUTTER_VERSION:-3.24.5}"
 FLUTTER_DIR="${FLUTTER_DIR:-$HOME/flutter}"

@@ -20,7 +20,15 @@ import '../models/prediction.dart';
 import '../utils/constants.dart';
 
 class ApiService {
-  ApiService() : _dio = Dio(BaseOptions(baseUrl: resolveApiBase(), connectTimeout: const Duration(seconds: 20)));
+  ApiService()
+      : _dio = Dio(
+          BaseOptions(
+            baseUrl: resolveApiBase(),
+            connectTimeout: const Duration(seconds: 90),
+            receiveTimeout: const Duration(seconds: 90),
+            sendTimeout: const Duration(seconds: 60),
+          ),
+        );
 
   final Dio _dio;
 
