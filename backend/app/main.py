@@ -74,6 +74,9 @@ def health():
             "audit_log",
         ],
         "vector_rag": s.USE_VECTOR_RAG,
+        "llm_configured": bool(s.active_llm_api_key),
+        "llm_provider": "chutes" if s.CHUTES_API_KEY else ("openai" if s.OPENAI_API_KEY else "none"),
         "openai_configured": bool(s.OPENAI_API_KEY),
+        "chutes_configured": bool(s.CHUTES_API_KEY),
         "app_env": s.APP_ENV,
     }

@@ -28,6 +28,7 @@ class GrantMatchOut(BaseModel):
     aid_type: str
     max_amount_rm: float | None
     match_reasons: list[str]
+    priority: int
 
 
 class GrantEligibilityResponse(BaseModel):

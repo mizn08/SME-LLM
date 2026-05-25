@@ -28,7 +28,7 @@ def generate_local(prompt: str, max_tokens: int = 256) -> dict[str, Any]:
         return {
             "text": None,
             "mode": "unavailable",
-            "message": "No fine-tuned adapter found. Use RAG chat or set OPENAI_API_KEY.",
+            "message": "No fine-tuned adapter found. Use RAG chat or configure CHUTES_API_KEY / OPENAI_API_KEY.",
         }
     try:
         from transformers import AutoModelForCausalLM, AutoTokenizer

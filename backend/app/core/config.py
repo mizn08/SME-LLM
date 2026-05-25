@@ -29,6 +29,28 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str | None = None
     OPENAI_MODEL: str = "gpt-4o-mini"
 
+    # Chutes.ai — OpenAI-compatible inference (takes priority over OpenAI when set)
+    CHUTES_API_KEY: str | None = None
+    CHUTES_API_KEY_1: str | None = None
+    CHUTES_API_KEY_2: str | None = None
+    CHUTES_BASE_URL: str = "https://llm.chutes.ai/v1"
+    CHUTES_MODEL: str = "deepseek-ai/DeepSeek-V3-0324"
+
+    @property
+    def active_llm_api_key(self) -> str | None:
+        """Returns the active LLM API key: Chutes first, then OpenAI."""
+        return self.CHUTES_API_KEY or self.OPENAI_API_KEY
+
+    @property
+    def active_llm_base_url(self) -> str | None:
+        """Returns the base URL override for Chutes; None falls back to OpenAI default."""
+        return self.CHUTES_BASE_URL if self.CHUTES_API_KEY else None
+
+    @property
+    def active_llm_model(self) -> str:
+        """Returns the model name to use: Chutes model if Chutes key is set, else OpenAI model."""
+        return self.CHUTES_MODEL if self.CHUTES_API_KEY else self.OPENAI_MODEL
+
     # AWS / production hints (used by deploy docs and health)
     AWS_REGION: str = "ap-southeast-1"
     APP_ENV: str = "development"

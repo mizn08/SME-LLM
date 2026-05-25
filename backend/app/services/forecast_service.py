@@ -28,7 +28,6 @@ def forecast_runway(db: Session, sme_id: int, months_ahead: int = 3) -> dict[str
         num = sum((xi - mean_x) * (yi - mean_y) for xi, yi in zip(x, nets))
         den = sum((xi - mean_x) ** 2 for xi in x) or 1.0
         slope = num / den
-        last_month = series[-1]["month"]
         last_net = nets[-1]
         burn = max(kpis.get("burn_rate_monthly_rm", 1.0), 1.0)
         cumulative = 0.0

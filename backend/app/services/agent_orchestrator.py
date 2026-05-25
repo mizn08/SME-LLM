@@ -69,7 +69,7 @@ def _cash_agent(db: Session, sme: SMEProfile) -> str:
 
 def _langchain_agent_run(db: Session, sme_id: int, goal: str, amount: float, category: str) -> str | None:
     settings = get_settings()
-    if not settings.OPENAI_API_KEY:
+    if not settings.active_llm_api_key:
         return None
     try:
         from langchain.agents import AgentExecutor, create_openai_tools_agent
@@ -88,7 +88,12 @@ def _langchain_agent_run(db: Session, sme_id: int, goal: str, amount: float, cat
                 MessagesPlaceholder("agent_scratchpad"),
             ]
         )
-        llm = ChatOpenAI(model=settings.OPENAI_MODEL, temperature=0.2, api_key=settings.OPENAI_API_KEY)
+        llm = ChatOpenAI(
+            model=settings.active_llm_model,
+            temperature=0.2,
+            api_key=settings.active_llm_api_key,
+            base_url=settings.active_llm_base_url,
+        )
         agent = create_openai_tools_agent(llm, tools, prompt)
         executor = AgentExecutor(agent=agent, tools=tools, verbose=False, max_iterations=4)
         user_input = (

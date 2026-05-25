@@ -82,7 +82,7 @@ def _template_answer(question: str, docs: list[Document], persona: str | None = 
 
 def _openai_answer(question: str, docs: list[Document], persona: str | None = None) -> str:
     settings = get_settings()
-    if not settings.OPENAI_API_KEY:
+    if not settings.active_llm_api_key:
         return _template_answer(question, docs, persona)
     try:
         from langchain_openai import ChatOpenAI
@@ -103,17 +103,22 @@ def _openai_answer(question: str, docs: list[Document], persona: str | None = No
                 ("human", "Context:\n{context}\n\nQuestion: {question}"),
             ]
         )
-        chain = prompt | ChatOpenAI(model=settings.OPENAI_MODEL, temperature=0.2, api_key=settings.OPENAI_API_KEY)
+        chain = prompt | ChatOpenAI(
+            model=settings.active_llm_model,
+            temperature=0.2,
+            api_key=settings.active_llm_api_key,
+            base_url=settings.active_llm_base_url,
+        )
         msg = chain.invoke({"context": context, "question": question})
         return str(msg.content)
     except Exception as exc:  # noqa: BLE001
-        return _template_answer(question, docs, persona) + f"\n\n(OpenAI unavailable: {exc})"
+        return _template_answer(question, docs, persona) + f"\n\n(LLM unavailable: {exc})"
 
 
 def rag_query(db: Session, sme_id: int, question: str, persona: str | None = None) -> dict[str, Any]:
     docs, retrieval_mode = _retrieve(db, sme_id, question)
     settings = get_settings()
-    if settings.OPENAI_API_KEY:
+    if settings.active_llm_api_key:
         answer = _openai_answer(question, docs, persona)
         mode = f"{retrieval_mode}+openai"
     else:

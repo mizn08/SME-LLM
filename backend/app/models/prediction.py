@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any
 
 from sqlalchemy import JSON, DateTime, Float, ForeignKey, Integer, String, Text
@@ -21,6 +21,6 @@ class PredictionLog(Base):
     confidence: Mapped[float] = mapped_column(Float, default=0.0)
     shap_values: Mapped[list[dict[str, Any]] | None] = mapped_column(JSON, nullable=True)
     ml_probability: Mapped[float | None] = mapped_column(Float, nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc).replace(tzinfo=None))
 
     sme = relationship("SMEProfile", back_populates="predictions")

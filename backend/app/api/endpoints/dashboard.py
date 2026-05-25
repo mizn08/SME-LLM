@@ -9,6 +9,7 @@ from app.schemas import (
     DashboardKPIs,
     DashboardResponse,
     MonthlySeriesPoint,
+    ForecastMonth,
 )
 from app.services import data_processor, forecast_service, health_score_service, unsupervised_service
 
@@ -30,7 +31,7 @@ def get_dashboard(sme_id: int, db: Session = Depends(get_db)):
         alerts.append(fc["alert"])
     if anomalies.get("total_flagged", 0) > 0:
         alerts.append(f"{anomalies['total_flagged']} unusual transactions detected.")
-    from app.schemas import ForecastMonth
+
 
     health = health_score_service.compute_health_score(
         kpis, fc.get("runway_days_est"), int(anomalies.get("total_flagged") or 0)

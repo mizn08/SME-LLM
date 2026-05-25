@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
@@ -13,7 +13,11 @@ class BanditArmStat(Base):
     arm: Mapped[str] = mapped_column(String(32), unique=True, nullable=False, index=True)
     pulls: Mapped[int] = mapped_column(Integer, default=0)
     total_reward: Mapped[float] = mapped_column(Float, default=0.0)
-    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime,
+        default=lambda: datetime.now(timezone.utc).replace(tzinfo=None),
+        onupdate=lambda: datetime.now(timezone.utc).replace(tzinfo=None),
+    )
 
 
 class BanditFeedback(Base):
@@ -25,4 +29,4 @@ class BanditFeedback(Base):
     arm: Mapped[str] = mapped_column(String(32), nullable=False)
     reward: Mapped[float] = mapped_column(Float, default=0.0)
     accepted: Mapped[bool] = mapped_column(Boolean, default=False)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc).replace(tzinfo=None))

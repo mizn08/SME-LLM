@@ -1,4 +1,4 @@
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 
 from sqlalchemy import Date, DateTime, Float, ForeignKey, Integer
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -18,6 +18,6 @@ class CashFlowSnapshot(Base):
     revenue_mtd_rm: Mapped[float] = mapped_column(Float, default=0.0)
     expense_mtd_rm: Mapped[float] = mapped_column(Float, default=0.0)
     net_operating_cash_rm: Mapped[float] = mapped_column(Float, default=0.0)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc).replace(tzinfo=None))
 
     sme = relationship("SMEProfile", back_populates="snapshots")

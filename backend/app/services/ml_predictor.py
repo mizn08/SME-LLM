@@ -127,7 +127,7 @@ def compute_shap_top3(feature_row: dict[str, float]) -> list[dict[str, Any]]:
         try:
             import shap  # type: ignore
 
-            _, _, xgb_path, _ = _paths()
+            _, _, xgb_path, _, _ = _paths()
             model = joblib.load(xgb_path)
             X = pd.DataFrame([feature_row])[FEATURE_ORDER]
             explainer = shap.TreeExplainer(model)

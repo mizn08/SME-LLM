@@ -12,3 +12,19 @@ python-multipart==0.0.17
 python-dotenv==1.0.1
 python-jose[cryptography]==3.3.0
 slowapi==0.1.9
+
+# LangChain + RAG
+langchain==0.3.14
+langchain-community==0.3.14
+langchain-core==0.3.29
+langchain-openai==0.2.14
+langchain-text-splitters==0.3.4
+rank-bm25==0.2.2
+
+# Vector RAG (ChromaDB)
+chromadb>=0.5.0,<0.6.0
+langchain-chroma>=0.1.4
+fastembed>=0.3.1
+
+# OCR (optional, gracefully degrades if absent)
+# pytesseract>=0.3.10

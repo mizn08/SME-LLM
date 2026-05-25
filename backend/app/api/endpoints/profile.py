@@ -11,7 +11,7 @@ router = APIRouter(tags=["profile"])
 
 
 class OnboardRequest(BaseModel):
-    sme_id: int = 1
+    sme_id: int
     sector: str = Field(min_length=1, max_length=128)
     revenue_rm: float = Field(gt=0)
     employee_count: int = Field(ge=1, le=5000)
