@@ -41,41 +41,22 @@ def seed_reference_data(db: Session) -> None:
     db.add_all(smes)
     db.flush()
 
-    bnpl = [
-        BNPLOffer(
-            name="Atome Pay in 3",
-            provider="Atome",
-            max_amount_rm=80_000,
-            max_tenure_months=3,
-            interest_free_days=90,
-            effective_monthly_rate_pct=0.0,
-        ),
-        BNPLOffer(
-            name="Grab PayLater 4-month",
-            provider="Grab",
-            max_amount_rm=50_000,
-            max_tenure_months=4,
-            interest_free_days=60,
-            effective_monthly_rate_pct=1.2,
-        ),
-        BNPLOffer(
-            name="Shopee SPayLater 12-month",
-            provider="Shopee",
-            max_amount_rm=30_000,
-            max_tenure_months=12,
-            interest_free_days=45,
-            effective_monthly_rate_pct=1.5,
-        ),
-        BNPLOffer(
-            name="Islamic BNPL — PayHalal 6-month",
-            provider="PayHalal",
-            max_amount_rm=40_000,
-            max_tenure_months=6,
-            interest_free_days=30,
-            effective_monthly_rate_pct=0.8,
-        ),
-    ]
-    db.add_all(bnpl)
+    from app.services.bnpl_catalog_service import load_catalog
+
+    if db.query(BNPLOffer).count() == 0:
+        bnpl = [
+            BNPLOffer(
+                name=p["plan_label"],
+                provider=p["provider"],
+                max_amount_rm=float(p["max_amount_rm"]),
+                max_tenure_months=int(p["max_tenure_months"]),
+                interest_free_days=int(p.get("interest_free_days", 0)),
+                effective_monthly_rate_pct=float(p.get("effective_monthly_rate_pct", 0)),
+                notes=p.get("description"),
+            )
+            for p in load_catalog()
+        ]
+        db.add_all(bnpl)
 
     credits = [
         CreditLineOffer(

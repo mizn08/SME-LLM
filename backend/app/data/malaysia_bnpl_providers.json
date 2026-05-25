@@ -1,0 +1,134 @@
+[
+  {
+    "id": "atome",
+    "provider": "Atome",
+    "plan_label": "Atome Pay in 3",
+    "max_amount_rm": 80000,
+    "max_tenure_months": 3,
+    "interest_free_days": 90,
+    "effective_monthly_rate_pct": 0.0,
+    "apply_url": "https://www.atome.my/",
+    "description": "Leading BNPL player in Malaysia — split purchases into 3 interest-free instalments at online and retail merchants."
+  },
+  {
+    "id": "grabpay_later",
+    "provider": "Grab",
+    "plan_label": "Grab PayLater 4-month",
+    "max_amount_rm": 50000,
+    "max_tenure_months": 4,
+    "interest_free_days": 60,
+    "effective_monthly_rate_pct": 1.2,
+    "apply_url": "https://www.grab.com/my/finance/",
+    "description": "Grab ecosystem BNPL — pay over 4 months for transport, food, and partner merchants."
+  },
+  {
+    "id": "spaylater",
+    "provider": "Shopee",
+    "plan_label": "Shopee SPayLater 12-month",
+    "max_amount_rm": 30000,
+    "max_tenure_months": 12,
+    "interest_free_days": 45,
+    "effective_monthly_rate_pct": 1.5,
+    "apply_url": "https://shopee.com.my/",
+    "description": "Shopee checkout BNPL — longer 12-month tenure for marketplace purchases."
+  },
+  {
+    "id": "favepay_later",
+    "provider": "Fave",
+    "plan_label": "FavePay Later",
+    "max_amount_rm": 25000,
+    "max_tenure_months": 3,
+    "interest_free_days": 60,
+    "effective_monthly_rate_pct": 1.0,
+    "apply_url": "https://www.myfave.com/",
+    "description": "One of Malaysia's leading BNPL options alongside Atome, Grab, and SPayLater — tied to the Fave app, widely used at physical merchants."
+  },
+  {
+    "id": "split_pace",
+    "provider": "Pace (Split)",
+    "plan_label": "Split by Pace",
+    "max_amount_rm": 40000,
+    "max_tenure_months": 4,
+    "interest_free_days": 30,
+    "effective_monthly_rate_pct": 1.3,
+    "apply_url": "https://www.pace.my/",
+    "description": "Installment payments for online shopping — commonly integrated with fashion and lifestyle merchants."
+  },
+  {
+    "id": "hoolah",
+    "provider": "hoolah",
+    "plan_label": "hoolah 3-instalment",
+    "max_amount_rm": 35000,
+    "max_tenure_months": 3,
+    "interest_free_days": 45,
+    "effective_monthly_rate_pct": 0.0,
+    "apply_url": "https://www.hoolah.co/",
+    "description": "3-instalment BNPL popular on e-commerce checkouts across Malaysia."
+  },
+  {
+    "id": "kredivo",
+    "provider": "Kredivo",
+    "plan_label": "Kredivo BNPL",
+    "max_amount_rm": 100000,
+    "max_tenure_months": 12,
+    "interest_free_days": 30,
+    "effective_monthly_rate_pct": 2.0,
+    "apply_url": "https://kredivo.com/",
+    "description": "Higher credit-limit BNPL targeting bigger-ticket SME and consumer purchases."
+  },
+  {
+    "id": "aeon_paylater",
+    "provider": "AEON Credit",
+    "plan_label": "AEON Credit PayLater",
+    "max_amount_rm": 45000,
+    "max_tenure_months": 6,
+    "interest_free_days": 30,
+    "effective_monthly_rate_pct": 1.4,
+    "apply_url": "https://www.aeoncredit.com.my/",
+    "description": "Backed by AEON Financial Services — commonly used in AEON stores and partner retailers."
+  },
+  {
+    "id": "hsbc_paylater",
+    "provider": "HSBC",
+    "plan_label": "HSBC PayLater",
+    "max_amount_rm": 60000,
+    "max_tenure_months": 6,
+    "interest_free_days": 0,
+    "effective_monthly_rate_pct": 1.8,
+    "apply_url": "https://www.hsbc.com.my/",
+    "description": "Bank-backed BNPL for existing HSBC credit cardholders — suitable for formal SME expenses."
+  },
+  {
+    "id": "boost_payflex",
+    "provider": "Boost",
+    "plan_label": "Boost PayFlex",
+    "max_amount_rm": 20000,
+    "max_tenure_months": 4,
+    "interest_free_days": 30,
+    "effective_monthly_rate_pct": 1.1,
+    "apply_url": "https://www.myboost.com.my/",
+    "description": "BNPL tied to the Boost e-wallet ecosystem for everyday business and retail spend."
+  },
+  {
+    "id": "postpay",
+    "provider": "PostPay",
+    "plan_label": "PostPay instalments",
+    "max_amount_rm": 15000,
+    "max_tenure_months": 3,
+    "interest_free_days": 14,
+    "effective_monthly_rate_pct": 1.6,
+    "apply_url": "https://postpay.asia/",
+    "description": "Available on select platforms for short-term installment payments."
+  },
+  {
+    "id": "payhalal",
+    "provider": "PayHalal",
+    "plan_label": "Islamic BNPL — PayHalal 6-month",
+    "max_amount_rm": 40000,
+    "max_tenure_months": 6,
+    "interest_free_days": 30,
+    "effective_monthly_rate_pct": 0.8,
+    "apply_url": "https://www.payhalal.com/",
+    "description": "Shariah-compliant BNPL option for Islamic SME financing preferences."
+  }
+]

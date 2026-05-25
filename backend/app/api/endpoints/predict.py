@@ -7,7 +7,7 @@ from app.db.session import get_db
 from app.models.gov_aid import GovFinancialAid
 from app.models.prediction import PredictionLog
 from app.models.sme import SMEProfile
-from app.schemas import GovAidOut, PredictRequest, PredictResponse, ShapItem
+from app.schemas import GovAidOut, PredictRequest, PredictResponse, ShapExplainResponse, ShapItem, ShapWaterfallItem
 from app.services import bandit_service, data_processor, decision_engine, lead_score_service, rl_policy_service
 
 router = APIRouter(tags=["predict"])
@@ -63,6 +63,41 @@ def predict(payload: PredictRequest, db: Session = Depends(get_db)):
         bandit_suggested_arm=bandit["suggested_arm"],
         rl_suggested_action=rl["action"],
         lead_scores=lead_scores,
+    )
+
+
+@router.get("/sme/{sme_id}/shap-explain", response_model=ShapExplainResponse)
+def shap_explain(
+    sme_id: int,
+    purchase_amount: float = 5000,
+    purchase_category: str = "equipment",
+    db: Session = Depends(get_db),
+):
+    sme = db.query(SMEProfile).filter(SMEProfile.id == sme_id).first()
+    if not sme:
+        raise HTTPException(404, "SME not found")
+    df = data_processor.load_transactions_df(db, sme_id)
+    kpis = data_processor.compute_kpis_from_transactions(df)
+    result = decision_engine.decide(db, sme, kpis, purchase_amount, purchase_category, None)
+    baseline = 0.5
+    cumulative = baseline
+    waterfall: list[ShapWaterfallItem] = []
+    for s in result.shap_values:
+        impact = float(s.get("impact", 0))
+        cumulative += impact
+        waterfall.append(
+            ShapWaterfallItem(
+                feature=str(s.get("feature", "")),
+                impact=impact,
+                direction=str(s.get("direction", "neutral")),
+                cumulative=round(cumulative, 4),
+            )
+        )
+    return ShapExplainResponse(
+        sme_id=sme_id,
+        baseline=baseline,
+        prediction=round(cumulative, 4),
+        waterfall=waterfall,
     )
 
 

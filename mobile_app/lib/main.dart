@@ -8,10 +8,12 @@ import 'providers/settings_provider.dart';
 import 'providers/session_provider.dart';
 import 'screens/profile_quiz_screen.dart';
 import 'screens/shell_screen.dart';
+import 'services/push_notification_service.dart';
 import 'theme/app_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await PushNotificationService.instance.initialize();
   final session = SessionProvider();
   final settings = SettingsProvider();
   await session.load();

@@ -6,6 +6,7 @@ from app.api.endpoints import (
     application_tracker,
     auth,
     bandit,
+    bnpl_catalog,
     benchmark,
     catalog,
     chat,
@@ -20,7 +21,9 @@ from app.api.endpoints import (
     lead_score,
     lenders,
     metrics,
-    nudges,
+    goals,
+    enhancements,
+    notifications,
     pitch,
     predict,
     profile,
@@ -45,9 +48,12 @@ api_router.include_router(agent_v2.router)
 api_router.include_router(insights.router)
 api_router.include_router(bandit.router)
 api_router.include_router(advanced.router)
-api_router.include_router(nudges.router)
+api_router.include_router(notifications.router)
+api_router.include_router(goals.router)
+api_router.include_router(enhancements.router)
 api_router.include_router(lead_score.router)
 api_router.include_router(pitch.router)
+api_router.include_router(bnpl_catalog.router)
 api_router.include_router(benchmark.router)
 api_router.include_router(digest.router)
 api_router.include_router(lenders.router)

@@ -14,7 +14,8 @@ import 'insights_screen.dart';
 import 'scenario_planner_screen.dart';
 import 'settings_screen.dart';
 import 'upload_screen.dart';
-import 'nudges_screen.dart';
+import 'notifications_screen.dart';
+import '../services/push_notification_service.dart';
 import 'lender_directory_screen.dart';
 import 'application_tracker_screen.dart';
 import 'bnpl_repayment_screen.dart';
@@ -33,6 +34,17 @@ class ShellScreen extends StatefulWidget {
 class _ShellScreenState extends State<ShellScreen> {
   int _index = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _registerPush());
+  }
+
+  Future<void> _registerPush() async {
+    final sid = context.read<SessionProvider>().smeId;
+    await PushNotificationService.instance.registerForSme(sid);
+  }
 
   List<String> _labels(BuildContext context) {
     final s = AppStrings(context.watch<SettingsProvider>().locale);
@@ -112,7 +124,9 @@ class _ShellScreenState extends State<ShellScreen> {
                 ),
                 child: IconButton(
                   icon: const Icon(Icons.notifications_none_rounded, color: Colors.white70),
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => const NotificationsScreen()),
+                  ),
                 ),
               ),
             ],

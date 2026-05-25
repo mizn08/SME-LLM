@@ -1,4 +1,7 @@
+import json
 from functools import lru_cache
+from pathlib import Path
+from typing import Any
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -69,6 +72,23 @@ class Settings(BaseSettings):
     JWT_ALGORITHM: str = "HS256"
     JWT_EXPIRE_MINUTES: int = 1440
     RATE_LIMIT: str = "120/minute"
+
+    FCM_ENABLED: bool = True
+    FIREBASE_CREDENTIALS_PATH: str | None = None
+    FIREBASE_CREDENTIALS_JSON: str | None = None
+
+    @property
+    def firebase_credentials_dict(self) -> dict[str, Any] | None:
+        if self.FIREBASE_CREDENTIALS_JSON:
+            try:
+                return json.loads(self.FIREBASE_CREDENTIALS_JSON)
+            except json.JSONDecodeError:
+                return None
+        if self.FIREBASE_CREDENTIALS_PATH:
+            path = Path(self.FIREBASE_CREDENTIALS_PATH)
+            if path.is_file():
+                return json.loads(path.read_text(encoding="utf-8"))
+        return None
 
     @property
     def sqlalchemy_database_uri(self) -> str:

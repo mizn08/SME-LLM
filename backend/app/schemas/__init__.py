@@ -118,6 +118,7 @@ class ChatRequest(BaseModel):
         default=None,
         description="Advisor tone: banker | towkay | mdec",
     )
+    language: str | None = Field(default=None, description="en | ms (Bahasa Malaysia)")
 
 
 class ChatSource(BaseModel):
@@ -131,6 +132,7 @@ class ChatResponse(BaseModel):
     answer: str
     mode: str
     sources: list[ChatSource] = []
+    language: str | None = None
 
 
 class AgentAdviseRequest(BaseModel):
@@ -306,6 +308,9 @@ class BenchmarkMetric(BaseModel):
     label: str
     sme_value: float
     industry_median: float
+    industry_p25: float | None = None
+    industry_p75: float | None = None
+    percentile: int | None = None
     unit: str = ""
 
 
@@ -438,6 +443,7 @@ class ChatWithMemoryRequest(BaseModel):
     sme_id: int
     message: str = Field(min_length=1, max_length=2000)
     persona: str | None = None
+    language: str | None = None
     history: list[ChatMemoryTurn] = []
 
 
@@ -509,6 +515,46 @@ class BankStatementSummaryResponse(BaseModel):
     periods: list[dict[str, Any]] = []
     totals: dict[str, Any] = {}
     top_expense_categories: list[dict[str, Any]] = []
+
+
+# ─── v5: Goals, SHAP explain ─────────────────────────────────────────────────
+class GoalCreate(BaseModel):
+    sme_id: int
+    title: str
+    target_amount_rm: float = Field(gt=0)
+    current_amount_rm: float = 0
+    deadline: date | None = None
+    category: str = "savings"
+
+
+class GoalOut(BaseModel):
+    id: int
+    sme_id: int
+    title: str
+    target_amount_rm: float
+    current_amount_rm: float
+    deadline: date | None = None
+    category: str
+    status: str
+    progress_pct: float
+
+
+class GoalProgressUpdate(BaseModel):
+    current_amount_rm: float = Field(ge=0)
+
+
+class ShapWaterfallItem(BaseModel):
+    feature: str
+    impact: float
+    direction: str
+    cumulative: float
+
+
+class ShapExplainResponse(BaseModel):
+    sme_id: int
+    baseline: float
+    prediction: float
+    waterfall: list[ShapWaterfallItem] = []
 
 
 # Resolve forward reference on PredictResponse

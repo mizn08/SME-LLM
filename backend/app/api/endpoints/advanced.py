@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from app.db.session import get_db
 from app.models.sme import SMEProfile
 from app.schemas import RlAdviseRequest, RlAdviseResponse
-from app.services import llm_finetune_service, ocr_service, rl_policy_service
+from app.services import document_ai_service, llm_finetune_service, ocr_service, rl_policy_service
 
 router = APIRouter(tags=["v3-advanced"])
 
@@ -50,7 +50,7 @@ async def upload_invoice(
     if not sme:
         raise HTTPException(404, "SME not found")
     raw = await file.read()
-    result = ocr_service.extract_invoice_text(raw)
+    result = document_ai_service.extract_structured(raw)
     if result.get("error") and not result.get("parsed_rows"):
         raise HTTPException(400, result["error"])
     return {

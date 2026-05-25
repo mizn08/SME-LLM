@@ -1,0 +1,162 @@
+/// Malaysia BNPL catalog for offline UI (mirrors backend malaysia_bnpl_providers.json).
+class MalaysiaBnplPlans {
+  static const List<Map<String, String?>> planChoices = [
+    {'label': 'Auto-select', 'value': null},
+    {'label': 'Atome Pay in 3', 'value': 'Atome Pay in 3'},
+    {'label': 'Grab PayLater 4-month', 'value': 'Grab PayLater 4-month'},
+    {'label': 'Shopee SPayLater 12-month', 'value': 'Shopee SPayLater 12-month'},
+    {'label': 'FavePay Later', 'value': 'FavePay Later'},
+    {'label': 'Split by Pace', 'value': 'Split by Pace'},
+    {'label': 'hoolah 3-instalment', 'value': 'hoolah 3-instalment'},
+    {'label': 'Kredivo BNPL', 'value': 'Kredivo BNPL'},
+    {'label': 'AEON Credit PayLater', 'value': 'AEON Credit PayLater'},
+    {'label': 'HSBC PayLater', 'value': 'HSBC PayLater'},
+    {'label': 'Boost PayFlex', 'value': 'Boost PayFlex'},
+    {'label': 'PostPay instalments', 'value': 'PostPay instalments'},
+    {'label': 'Islamic BNPL — PayHalal 6-month', 'value': 'Islamic BNPL — PayHalal 6-month'},
+  ];
+
+  static List<MapEntry<String, String?>> get dropdownEntries => planChoices
+      .map((c) => MapEntry(c['label'] ?? 'Auto-select', c['value']))
+      .toList();
+
+  static List<Map<String, dynamic>> marketplaceProviders({bool bnplOnly = true}) {
+    final rows = <Map<String, dynamic>>[
+      {
+        'id': 'atome',
+        'name': 'Atome',
+        'plan_label': 'Atome Pay in 3',
+        'type': 'bnpl',
+        'max_amount_rm': 80000,
+        'max_tenure_months': 3,
+        'description':
+            'Leading BNPL player in Malaysia — split purchases into 3 interest-free instalments.',
+        'apply_url': 'https://www.atome.my/',
+      },
+      {
+        'id': 'grabpay_later',
+        'name': 'Grab',
+        'plan_label': 'Grab PayLater 4-month',
+        'type': 'bnpl',
+        'max_amount_rm': 50000,
+        'max_tenure_months': 4,
+        'description': 'Grab ecosystem BNPL — pay over 4 months.',
+        'apply_url': 'https://www.grab.com/my/finance/',
+      },
+      {
+        'id': 'spaylater',
+        'name': 'Shopee',
+        'plan_label': 'Shopee SPayLater 12-month',
+        'type': 'bnpl',
+        'max_amount_rm': 30000,
+        'max_tenure_months': 12,
+        'description': 'Shopee checkout BNPL for marketplace purchases.',
+        'apply_url': 'https://shopee.com.my/',
+      },
+      {
+        'id': 'favepay_later',
+        'name': 'Fave',
+        'plan_label': 'FavePay Later',
+        'type': 'bnpl',
+        'max_amount_rm': 25000,
+        'max_tenure_months': 3,
+        'description': 'Fave app BNPL for physical merchants.',
+        'apply_url': 'https://www.myfave.com/',
+      },
+      {
+        'id': 'split_pace',
+        'name': 'Pace (Split)',
+        'plan_label': 'Split by Pace',
+        'type': 'bnpl',
+        'max_amount_rm': 40000,
+        'max_tenure_months': 4,
+        'description': 'Installments for online shopping.',
+        'apply_url': 'https://www.pace.my/',
+      },
+      {
+        'id': 'hoolah',
+        'name': 'hoolah',
+        'plan_label': 'hoolah 3-instalment',
+        'type': 'bnpl',
+        'max_amount_rm': 35000,
+        'max_tenure_months': 3,
+        'description': '3-instalment BNPL on e-commerce checkouts.',
+        'apply_url': 'https://www.hoolah.co/',
+      },
+      {
+        'id': 'kredivo',
+        'name': 'Kredivo',
+        'plan_label': 'Kredivo BNPL',
+        'type': 'bnpl',
+        'max_amount_rm': 100000,
+        'max_tenure_months': 12,
+        'description': 'Higher credit-limit BNPL.',
+        'apply_url': 'https://kredivo.com/',
+      },
+      {
+        'id': 'aeon_paylater',
+        'name': 'AEON Credit',
+        'plan_label': 'AEON Credit PayLater',
+        'type': 'bnpl',
+        'max_amount_rm': 45000,
+        'max_tenure_months': 6,
+        'description': 'AEON Financial Services PayLater.',
+        'apply_url': 'https://www.aeoncredit.com.my/',
+      },
+      {
+        'id': 'hsbc_paylater',
+        'name': 'HSBC',
+        'plan_label': 'HSBC PayLater',
+        'type': 'bnpl',
+        'max_amount_rm': 60000,
+        'max_tenure_months': 6,
+        'description': 'Bank-backed BNPL for HSBC cardholders.',
+        'apply_url': 'https://www.hsbc.com.my/',
+      },
+      {
+        'id': 'boost_payflex',
+        'name': 'Boost',
+        'plan_label': 'Boost PayFlex',
+        'type': 'bnpl',
+        'max_amount_rm': 20000,
+        'max_tenure_months': 4,
+        'description': 'BNPL via Boost e-wallet.',
+        'apply_url': 'https://www.myboost.com.my/',
+      },
+      {
+        'id': 'postpay',
+        'name': 'PostPay',
+        'plan_label': 'PostPay instalments',
+        'type': 'bnpl',
+        'max_amount_rm': 15000,
+        'max_tenure_months': 3,
+        'description': 'Short-term instalments on select platforms.',
+        'apply_url': 'https://postpay.asia/',
+      },
+      {
+        'id': 'payhalal',
+        'name': 'PayHalal',
+        'plan_label': 'Islamic BNPL — PayHalal 6-month',
+        'type': 'bnpl',
+        'max_amount_rm': 40000,
+        'max_tenure_months': 6,
+        'description': 'Shariah-compliant BNPL.',
+        'apply_url': 'https://www.payhalal.com/',
+      },
+    ];
+    if (bnplOnly) return rows;
+    return [
+      ...rows,
+      {
+        'id': 'tekun',
+        'name': 'TEKUN Mikro',
+        'plan_label': 'TEKUN Mikro',
+        'type': 'micro_credit',
+        'max_amount_rm': 50000,
+        'max_tenure_months': 60,
+        'description': 'Government micro-financing.',
+        'apply_url': 'https://www.tekun.gov.my/',
+      },
+    ];
+  }
+}

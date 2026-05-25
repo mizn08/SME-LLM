@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
@@ -14,6 +15,7 @@ import '../models/lender.dart';
 import '../models/nudge.dart';
 import '../models/spending_category.dart';
 import 'cache_service.dart';
+import '../data/malaysia_bnpl_plans.dart';
 import '../models/dashboard.dart';
 import '../models/gov_aid.dart';
 import '../models/prediction.dart';
@@ -31,6 +33,17 @@ class ApiService {
         );
 
   final Dio _dio;
+
+  static bool isNotFound(DioException e) => e.response?.statusCode == 404;
+
+  static String friendlyError(Object e) {
+    if (e is DioException && isNotFound(e)) {
+      return 'This feature needs API v5. Use a local backend (run_local.ps1) '
+          'or redeploy Render with the latest code.';
+    }
+    if (e is DioException) return e.message ?? e.toString();
+    return e.toString();
+  }
 
   Future<DashboardData> fetchDashboard(int smeId, {bool useCacheOnFail = true}) async {
     try {
@@ -120,12 +133,14 @@ class ApiService {
     required int smeId,
     required String message,
     String? persona,
+    String? language,
     List<Map<String, String>>? history,
   }) async {
     final data = {
       'sme_id': smeId,
       'message': message,
       if (persona != null) 'persona': persona,
+      if (language != null) 'language': language,
     };
     final res = history != null && history.isNotEmpty
         ? await _dio.post<Map<String, dynamic>>(
@@ -141,9 +156,130 @@ class ApiService {
     return ChatResponse.fromJson(res.data ?? {});
   }
 
+  Stream<String> chatStream({
+    required int smeId,
+    required String message,
+    String? persona,
+    String? language,
+  }) async* {
+    final Response<ResponseBody> res;
+    try {
+      res = await _dio.get<ResponseBody>(
+        '/chat/stream',
+        queryParameters: {
+          'sme_id': smeId,
+          'message': message,
+          if (persona != null) 'persona': persona,
+          if (language != null) 'language': language,
+        },
+        options: Options(responseType: ResponseType.stream),
+      );
+    } on DioException catch (e) {
+      if (isNotFound(e)) return;
+      rethrow;
+    }
+    final stream = res.data?.stream;
+    if (stream == null) return;
+    var buffer = '';
+    await for (final chunk in stream) {
+      buffer += String.fromCharCodes(chunk);
+      while (buffer.contains('\n\n')) {
+        final idx = buffer.indexOf('\n\n');
+        final block = buffer.substring(0, idx);
+        buffer = buffer.substring(idx + 2);
+        for (final line in block.split('\n')) {
+          if (!line.startsWith('data: ')) continue;
+          try {
+            final obj = jsonDecode(line.substring(6).trim()) as Map<String, dynamic>;
+            if (obj['type'] == 'token') {
+              final t = obj['text'] as String? ?? '';
+              if (t.isNotEmpty) yield t;
+            }
+          } catch (_) {}
+        }
+      }
+    }
+  }
+
   Future<NudgeResponse> fetchNudges(int smeId) async {
-    final res = await _dio.get<Map<String, dynamic>>('/sme/$smeId/nudges');
-    return NudgeResponse.fromJson(res.data ?? {});
+    try {
+      final res = await _dio.get<Map<String, dynamic>>('/sme/$smeId/nudges');
+      return NudgeResponse.fromJson(res.data ?? {});
+    } on DioException catch (e) {
+      if (isNotFound(e)) return _nudgesFromDashboardAlerts(smeId);
+      rethrow;
+    }
+  }
+
+  Future<NudgeResponse> _nudgesFromDashboardAlerts(int smeId) async {
+    try {
+      final dash = await fetchDashboard(smeId, useCacheOnFail: true);
+      final items = dash.alerts.map((alert) {
+        final critical = alert.toLowerCase().contains('critical');
+        return NudgeItem(
+          severity: critical ? 'critical' : 'warning',
+          title: critical ? 'Critical alert' : 'Advisory',
+          body: alert,
+        );
+      }).toList();
+      return NudgeResponse(smeId: smeId, nudges: items);
+    } catch (_) {
+      return NudgeResponse(smeId: smeId, nudges: []);
+    }
+  }
+
+  Future<Map<String, dynamic>> registerPushDevice({required int smeId, required String token}) async {
+    try {
+      final res = await _dio.post<Map<String, dynamic>>('/notifications/register', data: {
+        'sme_id': smeId,
+        'fcm_token': token,
+        'platform': 'fcm',
+      });
+      return res.data ?? {};
+    } on DioException catch (e) {
+      if (isNotFound(e)) return {'status': 'skipped', 'fcm_configured': false, 'api_v5_required': true};
+      rethrow;
+    }
+  }
+
+  Future<Map<String, dynamic>> fetchNotificationStatus() async {
+    try {
+      final res = await _dio.get<Map<String, dynamic>>('/notifications/status');
+      return res.data ?? {};
+    } on DioException catch (e) {
+      if (isNotFound(e)) return {'fcm_configured': false, 'api_v5_required': true};
+      rethrow;
+    }
+  }
+
+  Future<Map<String, dynamic>> sendTestPush({
+    required int smeId,
+    String title = 'SME Advisor',
+    String body = 'Test push — your alerts are working.',
+  }) async {
+    try {
+      final res = await _dio.post<Map<String, dynamic>>('/notifications/test', data: {
+        'sme_id': smeId,
+        'title': title,
+        'body': body,
+      });
+      return res.data ?? {};
+    } on DioException catch (e) {
+      if (isNotFound(e)) return {'ok': false, 'error': 'api_v5_required', 'hint': friendlyError(e)};
+      rethrow;
+    }
+  }
+
+  Future<Map<String, dynamic>> sendNudgesPush(int smeId) async {
+    try {
+      final res = await _dio.post<Map<String, dynamic>>('/notifications/send', queryParameters: {
+        'sme_id': smeId,
+      });
+      return res.data ?? {};
+    } on DioException catch (e) {
+      if (isNotFound(e)) return {'ok': false, 'error': 'api_v5_required', 'hint': friendlyError(e)};
+      rethrow;
+    }
   }
 
   Future<LeadScoreResponse> fetchLeadScores(int smeId) async {
@@ -237,6 +373,37 @@ class ApiService {
       },
     );
     return ApplicationTrackerItem.fromJson(res.data ?? {});
+  }
+
+  Future<List<Map<String, dynamic>>> fetchMarketplace({bool bnplOnly = false}) async {
+    try {
+      final res = await _dio.get<Map<String, dynamic>>(
+        '/marketplace/providers',
+        queryParameters: if (bnplOnly) {'bnpl_only': true} else null,
+      );
+      final list = (res.data?['providers'] as List<dynamic>? ?? [])
+          .map((e) => e as Map<String, dynamic>)
+          .toList();
+      if (list.length >= 5) return list;
+    } on DioException catch (_) {}
+    return MalaysiaBnplPlans.marketplaceProviders(bnplOnly: bnplOnly);
+  }
+
+  Future<List<Map<String, String?>>> fetchBnplPlanChoices() async {
+    try {
+      final res = await _dio.get<Map<String, dynamic>>('/bnpl/plan-choices');
+      final choices = res.data?['choices'] as List<dynamic>? ?? [];
+      final mapped = choices
+          .map(
+            (c) => {
+              'label': c['label'] as String? ?? '',
+              'value': c['value'] as String?,
+            },
+          )
+          .toList();
+      if (mapped.length >= 5) return mapped;
+    } on DioException catch (_) {}
+    return MalaysiaBnplPlans.planChoices;
   }
 
   Future<BnplRepaymentResponse> simulateBnplRepayment({

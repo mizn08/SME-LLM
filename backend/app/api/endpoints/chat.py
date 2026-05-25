@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
 from app.db.session import get_db
@@ -22,13 +23,14 @@ def _chat_with_memory(
     sme_id: int,
     message: str,
     persona: str | None,
+    language: str | None,
     history: list[ChatMemoryTurn] | None = None,
 ) -> ChatResponse:
     if history:
         chat_memory_service.sync_from_client(sme_id, history)
     prefix = chat_memory_service.context_prefix(sme_id)
     enriched = f"{prefix}Current question: {message}" if prefix else message
-    result = rag_service.rag_query(db, sme_id, enriched, persona)
+    result = rag_service.rag_query(db, sme_id, enriched, persona, language=language)
     chat_memory_service.append_turn(sme_id, "user", message)
     chat_memory_service.append_turn(sme_id, "assistant", result["answer"])
     return ChatResponse(
@@ -37,6 +39,7 @@ def _chat_with_memory(
         answer=result["answer"],
         mode=result["mode"],
         sources=[ChatSource(**s) for s in result["sources"]],
+        language=result.get("language"),
     )
 
 
@@ -45,7 +48,9 @@ def chat(payload: ChatRequest, db: Session = Depends(get_db)):
     sme = db.query(SMEProfile).filter(SMEProfile.id == payload.sme_id).first()
     if not sme:
         raise HTTPException(404, "SME not found")
-    return _chat_with_memory(db, payload.sme_id, payload.message, payload.persona)
+    return _chat_with_memory(
+        db, payload.sme_id, payload.message, payload.persona, payload.language
+    )
 
 
 @router.post("/chat/memory", response_model=ChatResponse)
@@ -54,8 +59,47 @@ def chat_with_memory(payload: ChatWithMemoryRequest, db: Session = Depends(get_d
     if not sme:
         raise HTTPException(404, "SME not found")
     return _chat_with_memory(
-        db, payload.sme_id, payload.message, payload.persona, payload.history
+        db,
+        payload.sme_id,
+        payload.message,
+        payload.persona,
+        payload.language,
+        payload.history,
     )
+
+
+@router.get("/chat/stream")
+def chat_stream(
+    sme_id: int,
+    message: str,
+    persona: str | None = None,
+    language: str | None = None,
+    db: Session = Depends(get_db),
+):
+    sme = db.query(SMEProfile).filter(SMEProfile.id == sme_id).first()
+    if not sme:
+        raise HTTPException(404, "SME not found")
+    prefix = chat_memory_service.context_prefix(sme_id)
+    enriched = f"{prefix}Current question: {message}" if prefix else message
+
+    def generate():
+        full: list[str] = []
+        for line in rag_service.rag_stream(db, sme_id, enriched, persona, language):
+            yield line
+            if line.startswith("data: "):
+                import json
+
+                try:
+                    obj = json.loads(line[6:].strip())
+                    if obj.get("type") == "token":
+                        full.append(obj.get("text", ""))
+                except json.JSONDecodeError:
+                    pass
+        answer = "".join(full).strip()
+        chat_memory_service.append_turn(sme_id, "user", message)
+        chat_memory_service.append_turn(sme_id, "assistant", answer)
+
+    return StreamingResponse(generate(), media_type="text/event-stream")
 
 
 @router.get("/sme/{sme_id}/chat/history", response_model=list[ChatMemoryTurn])

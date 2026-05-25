@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../data/malaysia_bnpl_plans.dart';
 import '../providers/recommendation_provider.dart';
 import '../providers/session_provider.dart';
 import '../services/api_service.dart';
 import '../services/pdf_report_service.dart' show PdfReportService, writePdfBytes;
 import '../theme/app_theme.dart';
-import '../widgets/lead_score_meter.dart';
 import '../widgets/recommendation_result.dart';
-import 'bnpl_repayment_screen.dart';
 
 class SimulatorScreen extends StatefulWidget {
   const SimulatorScreen({super.key});
@@ -24,7 +23,6 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
   String _category = 'Equipment';
   String _bnplChoice = 'Auto-select';
   bool _busy = false;
-  bool _islamicOnly = false;
   String? _err;
 
   static const _categories = [
@@ -37,12 +35,23 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
     'Agri inputs',
   ];
 
-  static const _bnplPlans = <MapEntry<String, String?>>[
-    MapEntry('Auto-select', null),
-    MapEntry('Atome Pay in 3', 'Atome Pay in 3'),
-    MapEntry('Grab PayLater 4-month', 'Grab PayLater 4-month'),
-    MapEntry('Shopee SPayLater 12-month', 'Shopee SPayLater 12-month'),
-  ];
+  List<MapEntry<String, String?>> _bnplPlans = MalaysiaBnplPlans.dropdownEntries;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadBnplPlans();
+  }
+
+  Future<void> _loadBnplPlans() async {
+    final choices = await ApiService().fetchBnplPlanChoices();
+    if (!mounted || choices.length < 5) return;
+    setState(() {
+      _bnplPlans = choices
+          .map((c) => MapEntry(c['label'] ?? 'Auto-select', c['value']))
+          .toList();
+    });
+  }
 
   @override
   void dispose() {
@@ -111,20 +120,6 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                   ),
                 ),
                 RecommendationResultCard(result: res),
-                if (res.leadScores.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Column(
-                      children: [
-                        const Text('Product match scores', style: TextStyle(fontWeight: FontWeight.w600)),
-                        for (final s in res.leadScores)
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 6),
-                            child: LeadScoreMeter(item: s),
-                          ),
-                      ],
-                    ),
-                  ),
                 ShapFactorsList(items: res.shapValues),
                 if (res.banditSuggestedArm != null || res.rlSuggestedAction != null)
                   Padding(
@@ -299,21 +294,7 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                             .toList(),
                         onChanged: (v) => setState(() => _bnplChoice = v ?? _bnplChoice),
                       ),
-                      const SizedBox(height: 8),
-                      SwitchListTile(
-                        title: const Text('Islamic finance only'),
-                        subtitle: const Text('Prefer Shariah-compliant lenders in comparisons'),
-                        value: _islamicOnly,
-                        onChanged: (v) => setState(() => _islamicOnly = v),
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () => Navigator.of(context).push(
-                          MaterialPageRoute<void>(builder: (_) => const BnplRepaymentScreen()),
-                        ),
-                        icon: const Icon(Icons.calendar_month_outlined),
-                        label: const Text('BNPL Repayment Simulator'),
-                      ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 20),
 
                       // AI info banner
                       Container(

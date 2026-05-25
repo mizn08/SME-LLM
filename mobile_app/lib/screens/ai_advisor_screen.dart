@@ -7,6 +7,7 @@ import '../models/chat_message.dart';
 import '../models/prediction.dart';
 import '../providers/recommendation_provider.dart';
 import '../providers/session_provider.dart';
+import '../providers/settings_provider.dart';
 import '../services/api_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/lead_score_meter.dart';
@@ -63,20 +64,59 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
       _history.add(ChatTurn(role: 'user', text: text));
       _input.clear();
     });
+    final sid = context.read<SessionProvider>().smeId;
+    final lang = context.read<SettingsProvider>().locale.languageCode;
+    final mem = _history
+        .where((t) => t.role == 'user' || t.role == 'assistant')
+        .map((t) => {'role': t.role, 'text': t.text})
+        .toList();
+    var assistantIdx = -1;
+    setState(() {
+      _history.add(ChatTurn(role: 'assistant', text: ''));
+      assistantIdx = _history.length - 1;
+    });
     try {
-      final sid = context.read<SessionProvider>().smeId;
-      final mem = _history
-          .where((t) => t.role == 'user' || t.role == 'assistant')
-          .map((t) => {'role': t.role, 'text': t.text})
-          .toList();
-      final res = await _api.chat(smeId: sid, message: text, persona: _persona, history: mem);
-      if (!mounted) return;
-      setState(() {
-        _history.add(
-          ChatTurn(role: 'assistant', text: res.answer, sources: res.sources),
+      var streamed = false;
+      try {
+        await for (final chunk in _api.chatStream(
+          smeId: sid,
+          message: text,
+          persona: _persona,
+          language: lang,
+        )) {
+          streamed = true;
+          if (!mounted || assistantIdx < 0) return;
+          setState(() {
+            _history[assistantIdx] = ChatTurn(
+              role: 'assistant',
+              text: _history[assistantIdx].text + chunk,
+            );
+          });
+        }
+      } catch (_) {
+        streamed = false;
+      }
+      if (!streamed) {
+        final res = await _api.chat(
+          smeId: sid,
+          message: text,
+          persona: _persona,
+          language: lang,
+          history: mem,
         );
-      });
+        if (!mounted) return;
+        setState(() {
+          _history[assistantIdx] = ChatTurn(
+            role: 'assistant',
+            text: res.answer,
+            sources: res.sources,
+          );
+        });
+      }
     } catch (e) {
+      if (assistantIdx >= 0 && _history[assistantIdx].text.isEmpty) {
+        _history.removeAt(assistantIdx);
+      }
       if (!mounted) return;
       setState(() => _err = e.toString());
     } finally {

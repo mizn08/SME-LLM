@@ -1,4 +1,4 @@
-"""Proactive AI nudges from runway and anomaly signals."""
+"""Proactive AI nudges from runway, grants, compliance, and anomaly signals."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.models.sme import SMEProfile
 from app.schemas import NudgeItem
-from app.services import data_processor, forecast_service, unsupervised_service
+from app.services import data_processor, forecast_service, grant_eligibility_service, unsupervised_service
 
 
 def get_nudges(db: Session, sme_id: int) -> list[NudgeItem]:
@@ -18,6 +18,7 @@ def get_nudges(db: Session, sme_id: int) -> list[NudgeItem]:
     kpis = data_processor.compute_kpis_from_transactions(df)
     fc = forecast_service.forecast_runway(db, sme_id)
     anomalies = unsupervised_service.detect_anomalies(db, sme_id)
+    grants = grant_eligibility_service.match_grants(db, sme_id=sme_id)
     runway = float(fc.get("runway_days_est") or kpis.get("days_cash_on_hand", 90))
     anomaly_count = int(anomalies.get("total_flagged") or 0)
     nudges: list[NudgeItem] = []
@@ -42,6 +43,29 @@ def get_nudges(db: Session, sme_id: int) -> list[NudgeItem]:
                 action_label="Open simulator",
             )
         )
+
+    if grants:
+        top = grants[0]
+        name = top.get("scheme_name") or top.get("product_name") or "Government grant"
+        nudges.append(
+            NudgeItem(
+                severity="info",
+                title="Grant match available",
+                body=f"You may qualify for {name}. Review eligibility before the next purchase.",
+                recommended_product=name,
+                action_label="Check grants",
+            )
+        )
+
+    nudges.append(
+        NudgeItem(
+            severity="info",
+            title="e-Invoice Phase 5 reminder",
+            body="SMEs under RM1M turnover must comply by July 2026. Ensure your accounting system is ready.",
+            recommended_product=None,
+            action_label="View compliance",
+        )
+    )
 
     if anomaly_count >= 3:
         nudges.append(

@@ -10,6 +10,7 @@ import app.models  # noqa: F401 — register all tables for create_all (incl. ap
 from app.models.sme import SMEProfile
 from app.services.bandit_service import _ensure_arms
 from app.services.seed_data import seed_reference_data
+from app.services.seed_goals import seed_demo_goals
 from app.services.seed_transactions import seed_six_month_transactions
 
 
@@ -22,10 +23,12 @@ def init_database(db: Session, *, create_schema: bool = True) -> dict[str, int |
     after = db.query(SMEProfile).count()
     txn_count = seed_six_month_transactions(db)
     _ensure_arms(db)
+    goals_seeded = seed_demo_goals(db)
 
     return {
         "status": "ok",
         "sme_profiles": after,
         "reference_seeded": after - before if before == 0 else "already_present",
         "transactions_inserted": txn_count,
+        "goals_seeded": goals_seeded,
     }

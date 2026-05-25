@@ -1,4 +1,6 @@
 from app.models.application_tracker import ApplicationTracker
+from app.models.device_token import DeviceToken
+from app.models.goal import FinancialGoal
 from app.models.audit import AuditLog
 from app.models.bandit import BanditArmStat, BanditFeedback
 from app.models.bnpl import BNPLOffer
@@ -21,4 +23,6 @@ __all__ = [
     "BanditArmStat",
     "BanditFeedback",
     "AuditLog",
+    "FinancialGoal",
+    "DeviceToken",
 ]
