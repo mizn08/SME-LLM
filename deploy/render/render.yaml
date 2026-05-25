@@ -27,15 +27,13 @@ services:
       - key: DATABASE_URL
         fromDatabase:
           name: sme-advisor-db
-          property: internalConnectionString
+          property: connectionString
       - key: OPENAI_API_KEY
         sync: false
 
   - type: web
     name: sme-advisor-web
     runtime: static
-    region: singapore
-    plan: free
     buildCommand: chmod +x ./scripts/render_build_web.sh && ./scripts/render_build_web.sh
     staticPublishPath: ./mobile_app/build/web
     envVars:

@@ -2,6 +2,84 @@
 
 End-to-end prototype: **FastAPI + PostgreSQL + scikit-learn / XGBoost** backend and **Flutter** mobile client for Malaysian SME financing decisions (BNPL vs micro-credit vs grants).
 
+**Source code:** https://github.com/mizn08/SME-LLM
+
+---
+
+## System requirements
+
+| Component | Requirement |
+|-----------|-------------|
+| **Backend** | Python 3.11+, 2 GB RAM minimum (4 GB recommended for ML + Docker) |
+| **Database** | PostgreSQL 15+ (production) or SQLite (local demo) |
+| **Mobile / Web client** | Flutter SDK 3.3+ (`dart` >=3.3), Chrome for web demo |
+| **Docker (optional)** | Docker Desktop with Compose v2 |
+| **OS** | Windows 10/11, macOS, or Linux |
+
+## Dependencies
+
+**Backend** (`backend/requirements-render.txt` on Render; full stack in `requirements.txt` + `requirements-v2.txt`):
+
+- FastAPI, Uvicorn, SQLAlchemy, psycopg2, pandas
+- scikit-learn, XGBoost (purchase recommendation ML)
+- LangChain + rank-bm25 (RAG chat, multi-agent orchestration)
+- Optional: OpenAI / Chutes API key for generative answers; Chroma + FastEmbed if `USE_VECTOR_RAG=true`
+
+**Flutter** (`mobile_app/pubspec.yaml`):
+
+- dio, provider, fl_chart, shared_preferences, speech_to_text, pdf, share_plus, file_picker
+
+## Configuration steps
+
+1. **Clone:** `git clone https://github.com/mizn08/SME-LLM.git && cd SME-LLM`
+2. **Backend (Docker):** `copy .env.example .env` → `docker compose up --build` → API at `http://localhost:8000/docs`
+3. **Backend (local SQLite):** `cd backend` → `.\run_local.ps1`
+4. **Environment variables** (see `.env.example`):
+
+   | Variable | Purpose |
+   |----------|---------|
+   | `DATABASE_URL` | Postgres or SQLite connection string |
+   | `OPENAI_API_KEY` / `CHUTES_API_KEY` | Optional LLM for RAG answers |
+   | `USE_VECTOR_RAG` | `true` = Chroma vector DB; `false` = BM25 (default on Render) |
+   | `ML_MODELS_DIR` | Path to trained `.pkl` models |
+
+5. **Flutter:** `cd mobile_app` → `flutter pub get` → `flutter run -d chrome` (API default `http://127.0.0.1:8000`)
+6. **Production (Render):** see [`DEPLOY_RENDER.md`](DEPLOY_RENDER.md) — Blueprint `render.yaml` deploys API + Postgres + static web.
+
+## Agentic AI / LLM implementation architecture
+
+SME Advisor combines **retrieval-augmented generation (RAG)**, **multi-agent orchestration**, and **classical ML** in one workflow:
+
+```
+User (Flutter) ──► FastAPI
+                      │
+         ┌────────────┼────────────┐
+         ▼            ▼            ▼
+    POST /chat   POST /agent/advise   POST /predict
+         │            │                  │
+         ▼            ▼                  ▼
+   rag_service    agent_orchestrator   decision_engine
+   (BM25 or       LangChain agents:    + ml_predictor
+    Chroma)       Grant, BNPL, Cash    (XGBoost / rules)
+         │            │                  │
+         └─► knowledge_base ◄── SME transactions, gov schemes, BNPL catalog (PostgreSQL)
+         │
+         └─► Optional LLM layer (OpenAI / Chutes) when API key set — answers grounded in retrieved docs only
+```
+
+| Layer | Technology | Role |
+|-------|------------|------|
+| **RAG chat** | BM25 (`rank-bm25`) or Chroma + FastEmbed | Retrieves SME transactions, grants, and product catalog snippets; optional LLM synthesizes answer with persona (banker / towkay / MDEC) |
+| **Multi-agent** | LangChain-style orchestrator (`agent_orchestrator.py`) | Specialist agents (Grant, BNPL, Cash) analyze the same purchase scenario; lead agent merges insights + RAG snippet |
+| **Conversation memory** | In-process turn store (`chat_memory_service.py`) | Last N chat turns prepended to RAG queries for follow-up questions |
+| **Guided advisory** | Rule + lead-score engine (`guided_advisory_service.py`) | 5-step wizard → product recommendation without external LLM |
+| **ML recommendation** | XGBoost + decision engine | `/predict` returns BNPL vs micro-credit vs grant with SHAP-style factors |
+| **Exploration** | Multi-armed bandit (UCB) + tabular RL | Suggests alternative arms; user feedback updates policy |
+
+New APC features (nudges, lead scoring, pitch generator, benchmarks, etc.) use the same KPI/transaction data layer and optional template or LLM text generation.
+
+---
+
 ## Live demo (Render)
 
 | | URL |

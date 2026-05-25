@@ -108,7 +108,9 @@ Open Swagger on the API and try:
 |---------|-----|
 | Blueprint sync failed | **Manual Deploy** on each service, or delete failed service and recreate |
 | Build timeout | Confirm `Dockerfile.render` (not full `Dockerfile`) |
-| `postgres://` driver error | Fixed in `docker-entrypoint.sh`; or set `postgresql+psycopg2://...` |
+| `postgres://` driver error | Blueprint uses `connectionString`; entrypoint auto-converts to `postgresql+psycopg2://` + SSL |
+| Blueprint: `internalConnectionString` invalid | Use `connectionString` in `render.yaml` (fixed in repo) |
+| Blueprint: static site `region` | Remove `region` from static service in `render.yaml` (fixed in repo) |
 | 502 / slow first load | Cold start on free tier — open `/health` first, wait 60s |
 | Web app can't reach API | Rebuild web with `API_BASE=https://sme-advisor-api.onrender.com` |
 | Application tracker 500 | Redeploy API after latest push (creates `application_tracker` table on boot) |
