@@ -5,9 +5,10 @@ import '../models/dashboard.dart';
 import '../theme/app_theme.dart';
 
 class MonthlyCashChart extends StatelessWidget {
-  const MonthlyCashChart({super.key, required this.points});
+  const MonthlyCashChart({super.key, required this.points, this.forecastNet});
 
   final List<MonthlyPoint> points;
+  final List<double>? forecastNet;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +40,10 @@ class MonthlyCashChart extends StatelessWidget {
             _legendDot(AppTheme.teal, 'Revenue'),
             const SizedBox(width: 16),
             _legendDot(Colors.orange.shade600, 'Expenses'),
+            if (forecastNet != null && forecastNet!.isNotEmpty) ...[
+              const SizedBox(width: 16),
+              _legendDot(Colors.purple.shade400, 'Forecast net'),
+            ],
           ],
         ),
         const SizedBox(height: 8),
@@ -159,6 +164,17 @@ class MonthlyCashChart extends StatelessWidget {
                       ),
                     ),
                   ),
+                  if (forecastNet != null && forecastNet!.isNotEmpty)
+                    LineChartBarData(
+                      spots: [
+                        for (var i = 0; i < forecastNet!.length; i++)
+                          FlSpot((last.length + i).toDouble(), forecastNet![i] / 1000),
+                      ],
+                      color: Colors.purple.shade400,
+                      barWidth: 2,
+                      dashArray: [6, 4],
+                      dotData: const FlDotData(show: false),
+                    ),
                 ],
               ),
             ),

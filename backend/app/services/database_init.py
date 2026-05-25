@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.db.base import Base
 from app.db.session import engine
+import app.models  # noqa: F401 — register all tables for create_all (incl. application_tracker)
 from app.models.sme import SMEProfile
 from app.services.bandit_service import _ensure_arms
 from app.services.seed_data import seed_reference_data

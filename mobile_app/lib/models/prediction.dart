@@ -1,3 +1,5 @@
+import 'lead_score.dart';
+
 class ShapItem {
   ShapItem({
     required this.feature,
@@ -32,6 +34,7 @@ class PredictionResult {
     required this.mlProbability,
     this.banditSuggestedArm,
     this.rlSuggestedAction,
+    this.leadScores = const [],
   });
 
   final int? predictionId;
@@ -45,6 +48,7 @@ class PredictionResult {
   final double mlProbability;
   final String? banditSuggestedArm;
   final String? rlSuggestedAction;
+  final List<LeadScoreItem> leadScores;
 
   factory PredictionResult.fromJson(Map<String, dynamic> j) {
     final shap = (j['shap_values'] as List<dynamic>? ?? [])
@@ -62,6 +66,9 @@ class PredictionResult {
       mlProbability: (j['ml_probability'] as num).toDouble(),
       banditSuggestedArm: j['bandit_suggested_arm'] as String?,
       rlSuggestedAction: j['rl_suggested_action'] as String?,
+      leadScores: (j['lead_scores'] as List<dynamic>? ?? [])
+          .map((e) => LeadScoreItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
   }
 }

@@ -1,5 +1,5 @@
-# Render Blueprint — SME Advisor API + Postgres
-# Dashboard: Blueprint → mizn08/SME-Advisor → render.yaml at repo root
+# Render Blueprint — SME Advisor API + Postgres + Flutter web
+# Dashboard: New + → Blueprint → mizn08/SME-LLM → render.yaml at repo root
 
 services:
   - type: web

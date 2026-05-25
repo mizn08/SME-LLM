@@ -11,7 +11,15 @@ import '../services/pdf_report_service.dart' show PdfReportService, writePdfByte
 import '../theme/app_theme.dart';
 import '../widgets/compliance_countdown_widget.dart';
 import '../widgets/kpi_card.dart';
+import '../models/digest.dart';
+import '../models/nudge.dart';
+import '../models/spending_category.dart';
 import '../widgets/monthly_chart.dart';
+import '../widgets/nudge_banner.dart';
+import '../widgets/spending_donut_chart.dart';
+import 'benchmark_screen.dart';
+import 'digest_screen.dart';
+import 'nudges_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -24,6 +32,10 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
   DashboardData? data;
   String? error;
   bool loading = true;
+  NudgeResponse? nudges;
+  SpendingCategoryResponse? spending;
+  DigestResponse? digest;
+  bool _nudgeDismissed = false;
   late AnimationController _animCtrl;
   late Animation<double> _fadeAnim;
 
@@ -48,9 +60,23 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
       error = null;
     });
     try {
-      final d = await ApiService().fetchDashboard(sid);
+      final api = ApiService();
+      final d = await api.fetchDashboard(sid);
+      NudgeResponse? n;
+      SpendingCategoryResponse? sp;
+      DigestResponse? dig;
+      try {
+        n = await api.fetchNudges(sid);
+        sp = await api.fetchSpendingCategories(sid);
+        dig = await api.fetchDigest(sid);
+      } catch (_) {}
       if (mounted) {
-        setState(() => data = d);
+        setState(() {
+          data = d;
+          nudges = n;
+          spending = sp;
+          digest = dig;
+        });
         _animCtrl.forward(from: 0);
       }
     } catch (e) {
@@ -188,6 +214,28 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const SizedBox(height: 8),
+        if (!_nudgeDismissed && nudges != null && nudges!.nudges.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            child: NudgeBanner(
+              nudge: nudges!.nudges.first,
+              onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const NudgesScreen())),
+              onDismiss: () => setState(() => _nudgeDismissed = true),
+            ),
+          ),
+        if (digest != null)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            child: Card(
+              child: ListTile(
+                leading: const Icon(Icons.calendar_today, color: AppTheme.teal),
+                title: const Text('This week in your business'),
+                subtitle: Text(digest!.summary, maxLines: 2, overflow: TextOverflow.ellipsis),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const DigestScreen())),
+              ),
+            ),
+          ),
         if (d.alerts.isNotEmpty)
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
@@ -320,10 +368,37 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
             ],
           ),
         ),
+        if (spending != null && spending!.categories.isNotEmpty) ...[
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 12, 20, 4),
+            child: Text('Spending by category', style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600)),
+          ),
+          PremiumCard(
+            margin: const EdgeInsets.symmetric(horizontal: 16),
+            child: SpendingDonutChart(categories: spending!.categories),
+          ),
+        ],
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 12, 20, 4),
+          child: Row(
+            children: [
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const BenchmarkScreen())),
+                  icon: const Icon(Icons.leaderboard_outlined, size: 18),
+                  label: const Text('Industry benchmark'),
+                ),
+              ),
+            ],
+          ),
+        ),
         PremiumCard(
           margin: const EdgeInsets.symmetric(horizontal: 16),
           padding: const EdgeInsets.all(12),
-          child: MonthlyCashChart(points: d.monthlySeries),
+          child: MonthlyCashChart(
+            points: d.monthlySeries,
+            forecastNet: d.forecastMonths.map((f) => f.projectedNetRm).toList(),
+          ),
         ),
         const SizedBox(height: 32),
       ],

@@ -4,6 +4,8 @@ import 'package:intl/intl.dart';
 import '../models/gov_aid.dart';
 import '../services/api_service.dart';
 import '../theme/app_theme.dart';
+import 'application_tracker_screen.dart';
+import 'grant_checklist_screen.dart';
 
 class GrantsScreen extends StatefulWidget {
   const GrantsScreen({super.key});
@@ -70,6 +72,20 @@ class _GrantsScreenState extends State<GrantsScreen> {
               Text(
                 'Compare BNPL with government grants and concessionary schemes.',
                 style: TextStyle(color: Colors.grey.shade500, height: 1.4),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            children: [
+              TextButton.icon(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(builder: (_) => const ApplicationTrackerScreen()),
+                ),
+                icon: const Icon(Icons.view_kanban_outlined, size: 18),
+                label: const Text('Application Tracker'),
               ),
             ],
           ),
@@ -195,9 +211,13 @@ class _GrantsScreenState extends State<GrantsScreen> {
                 ],
                 const SizedBox(height: 14),
                 OutlinedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_forward_rounded, size: 16),
-                  label: const Text('View details'),
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => GrantChecklistScreen(grantId: g.id, schemeName: g.schemeName),
+                    ),
+                  ),
+                  icon: const Icon(Icons.checklist_rounded, size: 16),
+                  label: const Text('Checklist'),
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

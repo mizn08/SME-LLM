@@ -1,3 +1,4 @@
+from app.models.application_tracker import ApplicationTracker
 from app.models.audit import AuditLog
 from app.models.bandit import BanditArmStat, BanditFeedback
 from app.models.bnpl import BNPLOffer
@@ -9,6 +10,7 @@ from app.models.sme import SMEProfile
 from app.models.transaction import FinancialTransaction
 
 __all__ = [
+    "ApplicationTracker",
     "SMEProfile",
     "FinancialTransaction",
     "CashFlowSnapshot",

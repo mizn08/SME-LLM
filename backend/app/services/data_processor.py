@@ -177,3 +177,23 @@ def clean_csv_dataframe(raw: pd.DataFrame) -> tuple[pd.DataFrame, list[str]]:
     report.append(f"Dropped {before - len(df)} rows with invalid dates or amounts.")
     report.append(f"Loaded {len(df)} valid transactions.")
     return df, report
+
+
+def spending_by_category(df: pd.DataFrame) -> list[dict[str, Any]]:
+    """Expense breakdown by category for donut chart."""
+    if df.empty:
+        return []
+    d = df.copy()
+    exp = d[d["is_expense"]]
+    if exp.empty:
+        return []
+    grouped = exp.groupby("category")["amount_rm"].sum().sort_values(ascending=False)
+    total = float(grouped.sum()) or 1.0
+    return [
+        {
+            "category": str(cat),
+            "amount_rm": round(float(amt), 2),
+            "pct": round(float(amt) / total * 100, 1),
+        }
+        for cat, amt in grouped.items()
+    ]

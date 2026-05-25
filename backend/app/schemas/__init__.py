@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from typing import Any, Optional
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -66,6 +66,7 @@ class PredictResponse(BaseModel):
     ml_probability: float
     bandit_suggested_arm: str | None = None
     rl_suggested_action: str | None = None
+    lead_scores: list["LeadScoreItem"] = []
 
 
 class GovAidOut(BaseModel):
@@ -253,7 +254,262 @@ class TokenRequest(BaseModel):
     password: str
 
 
+
 class TokenResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"
     note: str | None = None
+
+
+# ─── Feature: Proactive AI Nudges ───────────────────────────────────────────
+class NudgeItem(BaseModel):
+    severity: str          # critical | warning | info
+    title: str
+    body: str
+    recommended_product: str | None = None
+    action_label: str | None = None
+
+
+class NudgeResponse(BaseModel):
+    sme_id: int
+    nudges: list[NudgeItem] = []
+
+
+# ─── Feature: Lead Scoring ───────────────────────────────────────────────────
+class LeadScoreItem(BaseModel):
+    product_type: str      # bnpl | micro_credit | grant
+    product_name: str
+    score: int             # 0-100
+    reasons: list[str] = []
+
+
+class LeadScoreResponse(BaseModel):
+    sme_id: int
+    scores: list[LeadScoreItem] = []
+
+
+# ─── Feature: Sales Pitch Generator ─────────────────────────────────────────
+class PitchRequest(BaseModel):
+    lang: str = "en"       # en | ms
+    tone: str = "formal"   # formal | friendly
+
+
+class PitchResponse(BaseModel):
+    sme_id: int
+    lang: str
+    tone: str
+    letter: str
+
+
+# ─── Feature: Competitor Benchmarking ───────────────────────────────────────
+class BenchmarkMetric(BaseModel):
+    label: str
+    sme_value: float
+    industry_median: float
+    unit: str = ""
+
+
+class BenchmarkResponse(BaseModel):
+    sme_id: int
+    industry: str
+    metrics: list[BenchmarkMetric] = []
+    summary: str
+
+
+# ─── Feature: Weekly Digest ──────────────────────────────────────────────────
+class DigestEvent(BaseModel):
+    icon: str
+    title: str
+    detail: str
+    amount_rm: float | None = None
+
+
+class DigestResponse(BaseModel):
+    sme_id: int
+    week_label: str
+    events: list[DigestEvent] = []
+    summary: str
+
+
+# ─── Feature: BNPL Repayment Simulator ──────────────────────────────────────
+class RepaymentMonth(BaseModel):
+    month: int
+    payment_rm: float
+    principal_rm: float
+    interest_rm: float
+    balance_rm: float
+
+
+class BnplRepaymentRequest(BaseModel):
+    amount_rm: float = Field(gt=0)
+    annual_rate_pct: float = Field(ge=0, le=100, default=12.0)
+    tenure_months: int = Field(ge=1, le=60, default=12)
+
+
+class BnplRepaymentResponse(BaseModel):
+    amount_rm: float
+    annual_rate_pct: float
+    tenure_months: int
+    monthly_payment_rm: float
+    total_interest_rm: float
+    total_cost_rm: float
+    schedule: list[RepaymentMonth] = []
+
+
+# ─── Feature: Lender Directory ───────────────────────────────────────────────
+class LenderItem(BaseModel):
+    id: str
+    name: str
+    product_type: str      # bnpl | micro_credit | islamic
+    max_amount_rm: float | None = None
+    typical_rate_label: str
+    min_revenue_rm: float | None = None
+    bumiputera_preferred: bool = False
+    islamic_compliant: bool = False
+    apply_url: str
+    notes: str = ""
+
+
+class LenderDirectoryResponse(BaseModel):
+    lenders: list[LenderItem] = []
+    total: int
+
+
+class MatchedLenderResponse(BaseModel):
+    sme_id: int
+    matched: list[LenderItem] = []
+
+
+# ─── Feature: Grant Application Checklist ────────────────────────────────────
+class ChecklistItem(BaseModel):
+    document: str
+    required: bool = True
+    tip: str = ""
+
+
+class GrantChecklistResponse(BaseModel):
+    scheme_id: int
+    scheme_name: str
+    agency: str
+    deadline_label: str | None = None
+    contact_email: str | None = None
+    contact_phone: str | None = None
+    apply_url: str | None = None
+    checklist: list[ChecklistItem] = []
+
+
+# ─── Feature: Application Tracker ────────────────────────────────────────────
+class ApplicationCreateRequest(BaseModel):
+    sme_id: int
+    product_name: str
+    product_type: str      # bnpl | micro_credit | grant
+    notes: str | None = None
+
+
+class ApplicationUpdateRequest(BaseModel):
+    status: str | None = None  # draft | submitted | under_review | approved | rejected
+    notes: str | None = None
+
+
+class ApplicationTrackerItem(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: int
+    sme_id: int
+    product_name: str
+    product_type: str
+    status: str
+    notes: str | None = None
+    created_at: datetime
+    updated_at: datetime
+
+
+class ApplicationTrackerResponse(BaseModel):
+    sme_id: int
+    applications: list[ApplicationTrackerItem] = []
+
+
+# ─── Feature: Conversation Memory ────────────────────────────────────────────
+class ChatMemoryTurn(BaseModel):
+    role: str   # user | assistant
+    text: str
+
+
+class ChatWithMemoryRequest(BaseModel):
+    sme_id: int
+    message: str = Field(min_length=1, max_length=2000)
+    persona: str | None = None
+    history: list[ChatMemoryTurn] = []
+
+
+# ─── Feature: Guided Advisory ────────────────────────────────────────────────
+class GuidedAdvisoryRequest(BaseModel):
+    sme_id: int
+    business_type: str
+    goal: str              # expand | survive | digitalise | export | hire
+    amount_rm: float
+    timeline_months: int
+    main_constraint: str   # cash | collateral | time | eligibility
+
+
+class GuidedAdvisoryResponse(BaseModel):
+    sme_id: int
+    recommendation: str
+    top_product: str
+    top_product_type: str
+    reasoning: list[str] = []
+    next_steps: list[str] = []
+    pitch_snippet: str
+
+
+# ─── Feature: Spending Categories ────────────────────────────────────────────
+class SpendingCategoryItem(BaseModel):
+    category: str
+    amount_rm: float
+    pct: float
+
+
+class SpendingCategoryResponse(BaseModel):
+    sme_id: int
+    categories: list[SpendingCategoryItem] = []
+    total_expense_rm: float = 0
+
+
+# ─── Feature: Application Draft ────────────────────────────────────────────────
+class ApplicationDraftRequest(BaseModel):
+    product_type: str = "bnpl"
+    purchase_amount: float = 0
+    purchase_category: str = "Equipment"
+
+
+class ApplicationDraftResponse(BaseModel):
+    sme_id: int
+    draft: dict[str, Any]
+
+
+# ─── Feature: Financing Timeline ─────────────────────────────────────────────
+class TimelineItem(BaseModel):
+    id: str
+    kind: str          # prediction | application
+    title: str
+    subtitle: str
+    status: str | None = None
+    amount_rm: float | None = None
+    created_at: str
+
+
+class FinancingTimelineResponse(BaseModel):
+    sme_id: int
+    items: list[TimelineItem] = []
+
+
+# ─── Feature: Bank Statement Summary ─────────────────────────────────────────
+class BankStatementSummaryResponse(BaseModel):
+    sme_id: int
+    summary: str
+    periods: list[dict[str, Any]] = []
+    totals: dict[str, Any] = {}
+    top_expense_categories: list[dict[str, Any]] = []
+
+
+# Resolve forward reference on PredictResponse
+PredictResponse.model_rebuild()

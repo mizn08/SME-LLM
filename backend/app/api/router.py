@@ -3,16 +3,25 @@ from fastapi import APIRouter
 from app.api.endpoints import (
     advanced,
     agent_v2,
+    application_tracker,
     auth,
     bandit,
+    benchmark,
     catalog,
     chat,
     compare,
     dashboard,
+    digest,
+    features_extra,
+    grant_checklist,
     grants,
     history,
     insights,
+    lead_score,
+    lenders,
     metrics,
+    nudges,
+    pitch,
     predict,
     profile,
     report,
@@ -36,3 +45,12 @@ api_router.include_router(agent_v2.router)
 api_router.include_router(insights.router)
 api_router.include_router(bandit.router)
 api_router.include_router(advanced.router)
+api_router.include_router(nudges.router)
+api_router.include_router(lead_score.router)
+api_router.include_router(pitch.router)
+api_router.include_router(benchmark.router)
+api_router.include_router(digest.router)
+api_router.include_router(lenders.router)
+api_router.include_router(grant_checklist.router)
+api_router.include_router(application_tracker.router)
+api_router.include_router(features_extra.router)

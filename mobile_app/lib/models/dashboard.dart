@@ -1,3 +1,21 @@
+class ForecastMonth {
+  ForecastMonth({
+    required this.monthOffset,
+    required this.projectedNetRm,
+    required this.cumulativeNetRm,
+  });
+
+  final int monthOffset;
+  final double projectedNetRm;
+  final double cumulativeNetRm;
+
+  factory ForecastMonth.fromJson(Map<String, dynamic> j) => ForecastMonth(
+        monthOffset: j['month_offset'] as int,
+        projectedNetRm: (j['projected_net_rm'] as num).toDouble(),
+        cumulativeNetRm: (j['cumulative_net_rm'] as num).toDouble(),
+      );
+}
+
 class MonthlyPoint {
   MonthlyPoint({required this.month, required this.revenueRm, required this.expenseRm});
   final String month;
@@ -29,6 +47,7 @@ class DashboardData {
     this.healthScore,
     this.healthGrade,
     this.healthLabel,
+    this.forecastMonths = const [],
   });
 
   final int smeId;
@@ -47,6 +66,7 @@ class DashboardData {
   final int? healthScore;
   final String? healthGrade;
   final String? healthLabel;
+  final List<ForecastMonth> forecastMonths;
 
   factory DashboardData.fromJson(Map<String, dynamic> j) {
     final kpis = j['kpis'] as Map<String, dynamic>;
@@ -70,6 +90,9 @@ class DashboardData {
       healthScore: j['health_score'] as int?,
       healthGrade: j['health_grade'] as String?,
       healthLabel: j['health_label'] as String?,
+      forecastMonths: (j['forecast_months'] as List<dynamic>? ?? [])
+          .map((e) => ForecastMonth.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
   }
 }

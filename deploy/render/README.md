@@ -16,7 +16,7 @@ Judges open the **static site** URL (full app) or **`/docs`** on the API (backup
 
 ## 1. Push code to GitHub
 
-Render deploys from Git. Repo: **https://github.com/mizn08/SME-Advisor**
+Render deploys from Git. Repo: **https://github.com/mizn08/SME-LLM**
 
 Step-by-step (push + connect Render): **[GITHUB_DEPLOY.md](./GITHUB_DEPLOY.md)**
 
@@ -52,7 +52,7 @@ postgresql+psycopg2://USER:PASS@HOST/DB
 
 | Setting | Value |
 |---------|--------|
-| **Root Directory** | `bnpl_advisor_mobile` (if repo is parent folder, leave blank or set subfolder) |
+| **Root Directory** | *(blank — repo root has `backend/` and `mobile_app/`)* |
 | **Runtime** | **Docker** |
 | **Dockerfile Path** | `backend/Dockerfile.render` (slim — faster on free tier) |
 | **Docker Context** | `.` (repository root that contains `backend/` and `scripts/`) |
@@ -97,7 +97,7 @@ Live API:
 Build on your PC with the **Render API URL**:
 
 ```powershell
-cd bnpl_advisor_mobile
+cd SME-LLM
 .\scripts\build_web.ps1 -ApiBase https://YOUR-SERVICE.onrender.com
 ```
 

@@ -1,16 +1,16 @@
 # Deploy from GitHub → Render (step-by-step)
 
-After you push to **https://github.com/mizn08/SME-Advisor**, connect Render once; every push to `main` redeploys automatically.
+After you push to **https://github.com/mizn08/SME-LLM**, connect Render once; every push to `main` redeploys automatically.
 
-## Part 1 — Push to GitHub (already set up)
+## Part 1 — Push to GitHub
 
-Your remote: `origin` → `https://github.com/mizn08/SME-Advisor.git`
+Your remote: `origin` → `https://github.com/mizn08/SME-LLM.git`
 
 ```powershell
-cd c:\Users\mizn\Desktop\APC\bnpl_advisor_mobile
+cd c:\Users\mizn\Desktop\AIC\SME-LLM
 git add -A
 git status
-git commit -m "v4: RAG, agents, Render Docker, CI, web demo, APC upgrades"
+git commit -m "Deploy: SME Advisor features + Render"
 git push origin main
 ```
 
@@ -30,8 +30,8 @@ Check: **GitHub repo → Actions** tab.
    - Region: Singapore (or closest to Malaysia)
    - Free plan → **Create**
 3. **New +** → **Web Service** → **Build and deploy from a Git repository**
-   - Connect **mizn08/SME-Advisor**
-   - If the repo root is the folder above `bnpl_advisor_mobile`, set **Root Directory** to `bnpl_advisor_mobile`
+   - Connect **mizn08/SME-LLM**
+   - **Root Directory:** leave blank (repo root contains `backend/` and `mobile_app/`)
 
 | Setting | Value |
 |---------|--------|
@@ -59,7 +59,7 @@ Entrypoint auto-fixes `postgres://` if you paste Render’s URL as-is.
 
 ## Part 3 — Blueprint (alternative)
 
-**New +** → **Blueprint** → select repo → path: `deploy/render/render.yaml`
+**New +** → **Blueprint** → select repo → path: `render.yaml` (repo root) or `deploy/render/render.yaml`
 
 Creates API + Postgres in one step. Then set `OPENAI_API_KEY` manually if needed.
 
@@ -71,11 +71,11 @@ If you already use the Blueprint, **sync** it after pulling latest `main` — it
 
 Or create manually:
 
-**New +** → **Static Site** → repo **mizn08/SME-Advisor** → branch `main`
+**New +** → **Static Site** → repo **mizn08/SME-LLM** → branch `main`
 
 | Setting | Value |
 |---------|--------|
-| **Root Directory** | `bnpl_advisor_mobile` (only if repo root is parent folder) |
+| **Root Directory** | *(blank)* |
 | **Build Command** | `chmod +x ./scripts/render_build_web.sh && ./scripts/render_build_web.sh` |
 | **Publish Directory** | `mobile_app/build/web` |
 | **Environment** | `API_BASE` = `https://sme-advisor-api.onrender.com` |
@@ -102,5 +102,5 @@ Then create Static Site with **Publish Directory** `mobile_app/build/web` and **
 ## Links for APC submission
 
 - **API:** `https://<your-service>.onrender.com/docs`
-- **GitHub:** `https://github.com/mizn08/SME-Advisor`
+- **GitHub:** `https://github.com/mizn08/SME-LLM`
 - **Web:** Static site URL after step 4

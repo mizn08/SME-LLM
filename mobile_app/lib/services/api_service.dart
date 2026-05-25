@@ -2,7 +2,17 @@ import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
 
+import '../models/application_tracker.dart';
+import '../models/benchmark.dart';
+import '../models/bnpl_repayment.dart';
 import '../models/chat_message.dart';
+import '../models/digest.dart';
+import '../models/grant_checklist.dart';
+import '../models/guided_advisory.dart';
+import '../models/lead_score.dart';
+import '../models/lender.dart';
+import '../models/nudge.dart';
+import '../models/spending_category.dart';
 import 'cache_service.dart';
 import '../models/dashboard.dart';
 import '../models/gov_aid.dart';
@@ -102,16 +112,166 @@ class ApiService {
     required int smeId,
     required String message,
     String? persona,
+    List<Map<String, String>>? history,
+  }) async {
+    final data = {
+      'sme_id': smeId,
+      'message': message,
+      if (persona != null) 'persona': persona,
+    };
+    final res = history != null && history.isNotEmpty
+        ? await _dio.post<Map<String, dynamic>>(
+            '/chat/memory',
+            data: {
+              ...data,
+              'history': history
+                  .map((h) => {'role': h['role'], 'text': h['text']})
+                  .toList(),
+            },
+          )
+        : await _dio.post<Map<String, dynamic>>('/chat', data: data);
+    return ChatResponse.fromJson(res.data ?? {});
+  }
+
+  Future<NudgeResponse> fetchNudges(int smeId) async {
+    final res = await _dio.get<Map<String, dynamic>>('/sme/$smeId/nudges');
+    return NudgeResponse.fromJson(res.data ?? {});
+  }
+
+  Future<LeadScoreResponse> fetchLeadScores(int smeId) async {
+    final res = await _dio.get<Map<String, dynamic>>('/sme/$smeId/lead-scores');
+    return LeadScoreResponse.fromJson(res.data ?? {});
+  }
+
+  Future<String> generatePitch({
+    required int smeId,
+    String lang = 'en',
+    String tone = 'formal',
   }) async {
     final res = await _dio.post<Map<String, dynamic>>(
-      '/chat',
+      '/sme/$smeId/pitch',
+      data: {'lang': lang, 'tone': tone},
+    );
+    return res.data?['letter'] as String? ?? '';
+  }
+
+  Future<BenchmarkResponse> fetchBenchmark(int smeId) async {
+    final res = await _dio.get<Map<String, dynamic>>('/sme/$smeId/benchmark');
+    return BenchmarkResponse.fromJson(res.data ?? {});
+  }
+
+  Future<DigestResponse> fetchDigest(int smeId) async {
+    final res = await _dio.get<Map<String, dynamic>>('/sme/$smeId/digest');
+    return DigestResponse.fromJson(res.data ?? {});
+  }
+
+  Future<SpendingCategoryResponse> fetchSpendingCategories(int smeId) async {
+    final res = await _dio.get<Map<String, dynamic>>('/sme/$smeId/spending-categories');
+    return SpendingCategoryResponse.fromJson(res.data ?? {});
+  }
+
+  Future<LenderDirectoryResponse> fetchLenders({bool islamicOnly = false}) async {
+    final res = await _dio.get<Map<String, dynamic>>(
+      '/lenders',
+      queryParameters: {'islamic_only': islamicOnly},
+    );
+    return LenderDirectoryResponse.fromJson(res.data ?? {});
+  }
+
+  Future<List<LenderItem>> fetchMatchedLenders(int smeId, {bool islamicOnly = false}) async {
+    final res = await _dio.get<Map<String, dynamic>>(
+      '/sme/$smeId/lenders/matched',
+      queryParameters: {'islamic_only': islamicOnly},
+    );
+    return ((res.data?['matched'] as List<dynamic>? ?? [])
+        .map((e) => LenderItem.fromJson(e as Map<String, dynamic>))
+        .toList());
+  }
+
+  Future<GrantChecklistResponse> fetchGrantChecklist(int grantId) async {
+    final res = await _dio.get<Map<String, dynamic>>('/grants/$grantId/checklist');
+    return GrantChecklistResponse.fromJson(res.data ?? {});
+  }
+
+  Future<ApplicationTrackerResponse> fetchApplications(int smeId) async {
+    final res = await _dio.get<Map<String, dynamic>>('/sme/$smeId/applications');
+    return ApplicationTrackerResponse.fromJson(res.data ?? {});
+  }
+
+  Future<ApplicationTrackerItem> createApplication({
+    required int smeId,
+    required String productName,
+    required String productType,
+    String? notes,
+  }) async {
+    final res = await _dio.post<Map<String, dynamic>>(
+      '/applications',
       data: {
         'sme_id': smeId,
-        'message': message,
-        if (persona != null) 'persona': persona,
+        'product_name': productName,
+        'product_type': productType,
+        if (notes != null) 'notes': notes,
       },
     );
-    return ChatResponse.fromJson(res.data ?? {});
+    return ApplicationTrackerItem.fromJson(res.data ?? {});
+  }
+
+  Future<ApplicationTrackerItem> updateApplication({
+    required int id,
+    String? status,
+    String? notes,
+  }) async {
+    final res = await _dio.patch<Map<String, dynamic>>(
+      '/applications/$id',
+      data: {
+        if (status != null) 'status': status,
+        if (notes != null) 'notes': notes,
+      },
+    );
+    return ApplicationTrackerItem.fromJson(res.data ?? {});
+  }
+
+  Future<BnplRepaymentResponse> simulateBnplRepayment({
+    required double amountRm,
+    double annualRatePct = 12,
+    int tenureMonths = 12,
+  }) async {
+    final res = await _dio.post<Map<String, dynamic>>(
+      '/bnpl/repayment',
+      data: {
+        'amount_rm': amountRm,
+        'annual_rate_pct': annualRatePct,
+        'tenure_months': tenureMonths,
+      },
+    );
+    return BnplRepaymentResponse.fromJson(res.data ?? {});
+  }
+
+  Future<GuidedAdvisoryResponse> guidedAdvisory({
+    required int smeId,
+    required String businessType,
+    required String goal,
+    required double amountRm,
+    required int timelineMonths,
+    required String mainConstraint,
+  }) async {
+    final res = await _dio.post<Map<String, dynamic>>(
+      '/guided-advisory',
+      data: {
+        'sme_id': smeId,
+        'business_type': businessType,
+        'goal': goal,
+        'amount_rm': amountRm,
+        'timeline_months': timelineMonths,
+        'main_constraint': mainConstraint,
+      },
+    );
+    return GuidedAdvisoryResponse.fromJson(res.data ?? {});
+  }
+
+  Future<Map<String, dynamic>> fetchFinancingTimeline(int smeId) async {
+    final res = await _dio.get<Map<String, dynamic>>('/sme/$smeId/financing-timeline');
+    return res.data ?? {};
   }
 
   Future<Map<String, dynamic>> onboardProfile({

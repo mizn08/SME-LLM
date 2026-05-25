@@ -14,6 +14,12 @@ import 'insights_screen.dart';
 import 'scenario_planner_screen.dart';
 import 'settings_screen.dart';
 import 'upload_screen.dart';
+import 'nudges_screen.dart';
+import 'lender_directory_screen.dart';
+import 'application_tracker_screen.dart';
+import 'bnpl_repayment_screen.dart';
+import 'pitch_screen.dart';
+import 'financing_timeline_screen.dart';
 import '../providers/settings_provider.dart';
 import '../l10n/app_strings.dart';
 
@@ -313,6 +319,12 @@ class _ShellScreenState extends State<ShellScreen> {
                   },
                 ),
               ),
+              _drawerNav(context, Icons.notifications_active_rounded, 'AI Nudges', const NudgesScreen()),
+              _drawerNav(context, Icons.account_balance_rounded, 'Lender Directory', const LenderDirectoryScreen()),
+              _drawerNav(context, Icons.view_kanban_rounded, 'Application Tracker', const ApplicationTrackerScreen()),
+              _drawerNav(context, Icons.calendar_month_rounded, 'BNPL Repayment', const BnplRepaymentScreen()),
+              _drawerNav(context, Icons.description_rounded, 'Pitch Generator', const PitchScreen()),
+              _drawerNav(context, Icons.timeline_rounded, 'Financing Timeline', const FinancingTimelineScreen()),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: ListTile(
@@ -331,6 +343,25 @@ class _ShellScreenState extends State<ShellScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _drawerNav(BuildContext context, IconData icon, String title, Widget screen) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: ListTile(
+        leading: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(color: AppTheme.teal.withOpacity(0.08), borderRadius: BorderRadius.circular(10)),
+          child: Icon(icon, color: AppTheme.teal, size: 20),
+        ),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w500)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        onTap: () {
+          Navigator.pop(context);
+          Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => screen));
+        },
       ),
     );
   }

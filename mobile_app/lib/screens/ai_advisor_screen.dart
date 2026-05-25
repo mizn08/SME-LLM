@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 import '../models/chat_message.dart';
 import '../models/prediction.dart';
@@ -7,7 +9,9 @@ import '../providers/recommendation_provider.dart';
 import '../providers/session_provider.dart';
 import '../services/api_service.dart';
 import '../theme/app_theme.dart';
+import '../widgets/lead_score_meter.dart';
 import '../widgets/recommendation_result.dart';
+import 'guided_advisory_screen.dart';
 
 class AiAdvisorScreen extends StatefulWidget {
   const AiAdvisorScreen({super.key});
@@ -26,11 +30,13 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
   AgentAdvice? _agentAdvice;
   bool _agentBusy = false;
   String? _err;
+  final stt.SpeechToText _speech = stt.SpeechToText();
+  bool _listening = false;
 
   @override
   void initState() {
     super.initState();
-    _tabs = TabController(length: 3, vsync: this);
+    _tabs = TabController(length: 4, vsync: this);
     _history.add(
       ChatTurn(
         role: 'assistant',
@@ -59,7 +65,11 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
     });
     try {
       final sid = context.read<SessionProvider>().smeId;
-      final res = await _api.chat(smeId: sid, message: text, persona: _persona);
+      final mem = _history
+          .where((t) => t.role == 'user' || t.role == 'assistant')
+          .map((t) => {'role': t.role, 'text': t.text})
+          .toList();
+      final res = await _api.chat(smeId: sid, message: text, persona: _persona, history: mem);
       if (!mounted) return;
       setState(() {
         _history.add(
@@ -111,10 +121,12 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
             labelColor: AppTheme.teal,
             unselectedLabelColor: Colors.grey.shade500,
             indicatorColor: AppTheme.teal,
+            isScrollable: true,
             tabs: const [
               Tab(text: 'RAG Chat'),
               Tab(text: 'Agents'),
               Tab(text: 'ML Insight'),
+              Tab(text: 'Guided'),
             ],
           ),
         ),
@@ -130,10 +142,24 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
               _chatTab(),
               _agentsTab(),
               _mlTab(),
+              const GuidedAdvisoryScreen(),
             ],
           ),
         ),
       ],
+    );
+  }
+
+  Future<void> _toggleVoice() async {
+    if (!kIsWeb && !await _speech.initialize()) return;
+    if (_listening) {
+      await _speech.stop();
+      setState(() => _listening = false);
+      return;
+    }
+    setState(() => _listening = true);
+    await _speech.listen(
+      onResult: (r) => setState(() => _input.text = r.recognizedWords),
     );
   }
 
@@ -205,7 +231,11 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
                     onSubmitted: (_) => _sendChat(),
                   ),
                 ),
-                const SizedBox(width: 8),
+                IconButton(
+                  onPressed: _chatBusy ? null : _toggleVoice,
+                  icon: Icon(_listening ? Icons.mic : Icons.mic_none_rounded, color: AppTheme.teal),
+                ),
+                const SizedBox(width: 4),
                 IconButton.filled(
                   onPressed: _chatBusy ? null : _sendChat,
                   icon: const Icon(Icons.send_rounded),
@@ -295,6 +325,19 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
           padding: const EdgeInsets.all(8),
           children: [
             RecommendationResultCard(result: r),
+            if (r.leadScores.isNotEmpty)
+              PremiumCard(
+                margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                child: Column(
+                  children: [
+                    for (final s in r.leadScores)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 6),
+                        child: LeadScoreMeter(item: s),
+                      ),
+                  ],
+                ),
+              ),
             ShapFactorsList(items: r.shapValues),
             _financialBreakdown(context, r),
             const SizedBox(height: 24),

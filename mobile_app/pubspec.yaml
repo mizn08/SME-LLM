@@ -22,6 +22,7 @@ dependencies:
   local_auth: ^2.3.0
   pdf: ^3.11.1
   path_provider: ^2.1.5
+  speech_to_text: ^7.0.0
 
 dev_dependencies:
   flutter_test:
