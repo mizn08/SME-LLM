@@ -1,4 +1,4 @@
-# BNPL Advisor for SMEs (Malaysia) — APC2026
+# BNPL Advisor for SMEs (Malaysia) — AIC2026
 
 End-to-end prototype: **FastAPI + PostgreSQL + scikit-learn / XGBoost** backend and **Flutter** mobile client for Malaysian SME financing decisions (BNPL vs micro-credit vs grants).
 
