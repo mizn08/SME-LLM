@@ -1,0 +1,54 @@
+# Backup hosting: builds Flutter web and publishes to GitHub Pages (no Render build needed).
+# Enable: repo Settings → Pages → Source: GitHub Actions
+name: Deploy Web to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "mobile_app/**"
+      - "scripts/render_build_web.sh"
+      - ".github/workflows/deploy-gh-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.24.5"
+          channel: stable
+          cache: true
+
+      - name: Build web
+        env:
+          API_BASE: https://sme-advisor-api-pp6d.onrender.com
+        run: |
+          cd mobile_app
+          flutter pub get
+          flutter build web --release --dart-define=API_BASE=$API_BASE
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: mobile_app/build/web
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
