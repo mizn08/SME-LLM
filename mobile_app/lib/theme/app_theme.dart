@@ -119,7 +119,7 @@ class AppTheme {
           return IconThemeData(color: Colors.grey.shade400, size: 22);
         }),
       ),
-      cardTheme: CardThemeData(
+      cardTheme: CardTheme(
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         color: Colors.white,
