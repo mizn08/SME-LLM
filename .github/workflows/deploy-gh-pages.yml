@@ -42,7 +42,7 @@ jobs:
         run: |
           cd mobile_app
           flutter pub get
-          flutter build web --release --dart-define=API_BASE=$API_BASE
+          flutter build web --release --base-href /SME-LLM/ --dart-define=API_BASE=$API_BASE
 
       - uses: actions/configure-pages@v4
 
