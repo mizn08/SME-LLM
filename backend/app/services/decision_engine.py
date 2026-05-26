@@ -77,8 +77,12 @@ def decide(
     features = ml_predictor.build_feature_vector(kpis, purchase_amount, purchase_category)
     ml_prob, _dbg = ml_predictor.predict_probability(features)
     shap = ml_predictor.compute_shap_top3(features)
+    burn = max(kpis.get("burn_rate_monthly_rm", 1.0), 1.0)
+    purchase_to_burn = purchase_amount / burn
+    days_cash = kpis.get("days_cash_on_hand", 0.0)
 
-    if ml_prob < 0.5:
+    # For smaller purchases with enough runway, prefer cash to avoid needless financing.
+    if ml_prob < 0.5 or (purchase_to_burn <= 0.35 and days_cash >= 21):
         return DecisionResult(
             recommendation_type="Cash",
             product_name="Pay with operating cash",
@@ -111,7 +115,7 @@ def decide(
             ml_probability=round(ml_prob, 4),
         )
 
-    bnpl_offers = db.query(BNPLOffer).all()
+    bnpl_offers = [o for o in db.query(BNPLOffer).all() if purchase_amount <= o.max_amount_rm]
     credit_offers = db.query(CreditLineOffer).all()
 
     chosen_bnpl: Optional[BNPLOffer] = None
