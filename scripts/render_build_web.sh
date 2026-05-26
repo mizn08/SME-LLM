@@ -12,7 +12,11 @@ FLUTTER_DIR="${FLUTTER_DIR:-$HOME/flutter}"
 
 if ! command -v flutter >/dev/null 2>&1; then
   echo "Installing Flutter ${FLUTTER_VERSION}..."
-  git clone https://github.com/flutter/flutter.git -b stable --depth 1 "$FLUTTER_DIR"
+  git clone https://github.com/flutter/flutter.git "$FLUTTER_DIR"
+  cd "$FLUTTER_DIR"
+  git fetch --tags
+  git checkout "${FLUTTER_VERSION}" 2>/dev/null || git checkout "refs/tags/${FLUTTER_VERSION}" 2>/dev/null || git checkout stable
+  cd "$ROOT"
   export PATH="$FLUTTER_DIR/bin:$PATH"
   flutter precache --web
 fi
