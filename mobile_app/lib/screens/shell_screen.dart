@@ -136,19 +136,13 @@ class _ShellScreenState extends State<ShellScreen> {
       ),
       drawer: _buildDrawer(context, sid),
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        color: AppTheme.surfaceLight,
         child: IndexedStack(index: _index, children: pages),
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.06),
-              blurRadius: 16,
-              offset: const Offset(0, -4),
-            ),
-          ],
+        decoration: const BoxDecoration(
+          color: AppTheme.surfaceCard,
+          border: Border(top: BorderSide(color: AppTheme.borderColor)),
         ),
         child: NavigationBar(
           selectedIndex: _index,

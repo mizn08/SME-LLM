@@ -9,8 +9,9 @@ class AppTheme {
   static const Color iceBlue = Color(0xFFE3F2FD);
   static const Color navy = Color(0xFF1A237E);
   static const Color accentGreen = Color(0xFF2E7D32);
-  static const Color surfaceLight = Color(0xFFF5F7FA);
+  static const Color surfaceLight = Color(0xFFFAFAFA);
   static const Color surfaceCard = Color(0xFFFFFFFF);
+  static const Color borderColor = Color(0xFFE5E7EB);
   static const Color textPrimary = Color(0xFF1B2631);
   static const Color textSecondary = Color(0xFF5D6D7E);
   static const Color mutedForeground = Color(0xFF6B7280);
@@ -50,6 +51,22 @@ class AppTheme {
       offset: const Offset(0, 2),
     ),
   ];
+
+  /// shadcn-like card shell: rounded-lg border bg-card shadow-sm
+  static BoxDecoration cardDecoration({
+    Color? color,
+    Gradient? gradient,
+    Color? border,
+    double radius = 12,
+  }) {
+    return BoxDecoration(
+      gradient: gradient,
+      color: gradient == null ? (color ?? surfaceCard) : null,
+      borderRadius: BorderRadius.circular(radius),
+      border: Border.all(color: border ?? borderColor, width: 1),
+      boxShadow: cardShadow,
+    );
+  }
 
   static List<BoxShadow> elevatedShadow = [
     BoxShadow(
@@ -98,11 +115,12 @@ class AppTheme {
         iconTheme: IconThemeData(color: Colors.white),
       ),
       navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: Colors.white,
-        indicatorColor: teal.withOpacity(0.12),
+        backgroundColor: surfaceCard,
+        indicatorColor: teal.withOpacity(0.1),
         surfaceTintColor: Colors.transparent,
-        elevation: 8,
-        shadowColor: Colors.black26,
+        elevation: 0,
+        shadowColor: Colors.transparent,
+        height: 64,
         labelTextStyle: MaterialStateProperty.resolveWith((states) {
           if (states.contains(MaterialState.selected)) {
             return const TextStyle(
@@ -212,15 +230,9 @@ class PremiumCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
+      decoration: AppTheme.cardDecoration(
         gradient: gradient,
-        color: gradient == null ? AppTheme.surfaceCard : null,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: borderColor ?? Colors.grey.shade200,
-          width: borderColor != null ? 1.5 : 1,
-        ),
-        boxShadow: AppTheme.cardShadow,
+        border: borderColor ?? (gradient != null ? Colors.white.withOpacity(0.2) : AppTheme.borderColor),
       ),
       child: Padding(
         padding: padding ?? const EdgeInsets.all(24),

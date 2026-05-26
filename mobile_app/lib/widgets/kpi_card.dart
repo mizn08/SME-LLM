@@ -24,12 +24,8 @@ class KPICard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-        boxShadow: AppTheme.cardShadow,
-      ),
+      padding: const EdgeInsets.all(20),
+      decoration: AppTheme.cardDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -43,7 +39,7 @@ class KPICard extends StatelessWidget {
                     fontSize: 10,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 0.8,
-                    color: Colors.grey.shade500,
+                    color: AppTheme.mutedForeground,
                   ),
                 ),
               ),
