@@ -379,7 +379,7 @@ class ApiService {
     try {
       final res = await _dio.get<Map<String, dynamic>>(
         '/marketplace/providers',
-        queryParameters: if (bnplOnly) {'bnpl_only': true} else null,
+        queryParameters: bnplOnly ? <String, dynamic>{'bnpl_only': true} : null,
       );
       final list = (res.data?['providers'] as List<dynamic>? ?? [])
           .map((e) => e as Map<String, dynamic>)
