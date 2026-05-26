@@ -214,7 +214,7 @@ class PremiumCard extends StatelessWidget {
       margin: margin ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         gradient: gradient,
-        color: gradient == null ? surfaceCard : null,
+        color: gradient == null ? AppTheme.surfaceCard : null,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: borderColor ?? Colors.grey.shade200,
