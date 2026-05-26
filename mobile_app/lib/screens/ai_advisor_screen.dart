@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 import '../models/chat_message.dart';
 import '../models/prediction.dart';
@@ -31,9 +30,6 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
   AgentAdvice? _agentAdvice;
   bool _agentBusy = false;
   String? _err;
-  final stt.SpeechToText _speech = stt.SpeechToText();
-  bool _listening = false;
-
   @override
   void initState() {
     super.initState();
@@ -190,19 +186,6 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
     );
   }
 
-  Future<void> _toggleVoice() async {
-    if (!kIsWeb && !await _speech.initialize()) return;
-    if (_listening) {
-      await _speech.stop();
-      setState(() => _listening = false);
-      return;
-    }
-    setState(() => _listening = true);
-    await _speech.listen(
-      onResult: (r) => setState(() => _input.text = r.recognizedWords),
-    );
-  }
-
   Widget _personaChip(String label, String id) {
     final selected = _persona == id;
     return FilterChip(
@@ -270,10 +253,6 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
                     ),
                     onSubmitted: (_) => _sendChat(),
                   ),
-                ),
-                IconButton(
-                  onPressed: _chatBusy ? null : _toggleVoice,
-                  icon: Icon(_listening ? Icons.mic : Icons.mic_none_rounded, color: AppTheme.teal),
                 ),
                 const SizedBox(width: 4),
                 IconButton.filled(

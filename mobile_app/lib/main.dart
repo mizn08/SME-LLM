@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:local_auth/local_auth.dart';
@@ -78,7 +79,7 @@ class _RootGateState extends State<_RootGate> {
   }
 
   Future<void> _checkBio() async {
-    if (!widget.settings.biometricEnabled) {
+    if (!widget.settings.biometricEnabled || kIsWeb) {
       setState(() => _unlocked = true);
       return;
     }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:provider/provider.dart';
@@ -50,7 +51,9 @@ class SettingsScreen extends StatelessWidget {
           SwitchListTile(
             title: Text(s.t('Biometric lock', 'Kunci biometrik')),
             value: settings.biometricEnabled,
-            onChanged: (v) async {
+            onChanged: kIsWeb
+                ? null
+                : (v) async {
               if (v) {
                 final auth = LocalAuthentication();
                 final ok = await auth.authenticate(
