@@ -15,6 +15,7 @@ import 'scenario_planner_screen.dart';
 import 'settings_screen.dart';
 import 'upload_screen.dart';
 import 'notifications_screen.dart';
+import 'nudges_screen.dart';
 import '../services/push_notification_service.dart';
 import 'lender_directory_screen.dart';
 import 'application_tracker_screen.dart';
