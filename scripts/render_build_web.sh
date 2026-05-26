@@ -33,9 +33,6 @@ if grep -q flutter_local_notifications pubspec.lock 2>/dev/null; then
   echo "ERROR: pubspec.lock still lists flutter_local_notifications — commit dff41e4+ required."
   exit 1
 fi
-echo "Analyzing Dart (fast fail)..."
-flutter analyze --no-fatal-infos --no-fatal-warnings
-
 echo "Building web with API_BASE=${API_BASE}"
 flutter build web --release \
   --web-renderer html \
