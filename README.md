@@ -80,13 +80,13 @@ New APC features (nudges, lead scoring, pitch generator, benchmarks, etc.) use t
 
 ---
 
-## Live demo (Render)
+## Live demo
 
 | | URL |
 |---|-----|
-| **Web app** | **https://sme-advisor-web-rk8t.onrender.com/** |
-| **API (Swagger)** | https://sme-advisor-api.onrender.com/docs |
-| **Health** | https://sme-advisor-api.onrender.com/health |
+| **Web app** | **https://mizn08.github.io/SME-LLM/** |
+| **API (Swagger)** | https://sme-advisor-api-pp6d.onrender.com/docs |
+| **Health** | https://sme-advisor-api-pp6d.onrender.com/health |
 
 First visit may take ~30–60 s if the free tier was idle (cold start). In the app: menu → **Upload** → **Try sample data** before using Health / Simulate / Grants.
 
@@ -114,8 +114,9 @@ docker compose up --build
 
 | Service | URL |
 |---------|-----|
-| **API / Swagger** | http://localhost:8000/docs |
-| **Health** | http://localhost:8000/health |
+| **Web app (hosted)** | https://mizn08.github.io/SME-LLM/ |
+| **API / Swagger** (local Docker) | http://localhost:8000/docs |
+| **Health** (local Docker) | http://localhost:8000/health |
 | **PostgreSQL** | `localhost:5432` (user/pass/db from `.env`) |
 | **pgAdmin** (optional) | `docker compose --profile tools up -d` → http://localhost:5050 |
 
@@ -148,7 +149,7 @@ For **APC / judge demos**, a **website is easier than an APK**: one link, no ins
 
 | Approach | Best for | Link you share |
 |----------|----------|----------------|
-| **Web + Render** | Judges anywhere (stable URL) | **https://sme-advisor-web-rk8t.onrender.com/** — see [`deploy/render/README.md`](deploy/render/README.md) |
+| **Web (GitHub Pages)** | Judges anywhere (stable URL) | **https://mizn08.github.io/SME-LLM/** — see [`RENDER_SIMPLE_STEPS.md`](RENDER_SIMPLE_STEPS.md) |
 | **Web + ngrok** | Quick test from your PC | `https://….ngrok-free.app` (Flutter web) |
 | **Swagger only** | Backup / API-focused rubric | `https://….onrender.com/docs` or ngrok `/docs` |
 | **Web on same Wi‑Fi** | Classroom, no ngrok | `http://<your-PC-IP>:8080` |
@@ -164,7 +165,7 @@ Deploy API + Postgres on [Render](https://render.com). Full guide: **[`deploy/re
 4. Build web locally: `.\scripts\build_web.ps1 -ApiBase https://YOUR-SERVICE.onrender.com`
 5. Host `mobile_app/build/web` on Render **Static Site**, Vercel, or Netlify.
 
-Share: **https://sme-advisor-web-rk8t.onrender.com/** + https://sme-advisor-api.onrender.com/docs
+Share: **https://mizn08.github.io/SME-LLM/** + https://sme-advisor-api-pp6d.onrender.com/docs
 
 ### A — Public demo with ngrok (from your PC)
 
@@ -382,12 +383,12 @@ bnpl_advisor_mobile/
 
 ## Competition demo flow (web)
 
-1. **Share the web link:** **https://sme-advisor-web-rk8t.onrender.com/** (or ngrok `8080` / LAN `http://<IP>:8080` for local demos) — see [Demo with web (recommended)](#demo-with-web-recommended).
+1. **Share the web link:** **https://mizn08.github.io/SME-LLM/** (or ngrok `8080` / LAN `http://<IP>:8080` for local demos) — see [Demo with web (recommended)](#demo-with-web-recommended).
 2. First launch: **5-question profile quiz** (or drawer → **Upload** → **Try sample data**).
 3. **Health** — **SME Readiness Score** (0–100 + letter grade), compliance countdown, **Generate bank / grant PDF**.
 4. Drawer → **Grant eligibility** (Budget 2026 rules) · **What-if planner** (sliders).
 5. **Simulate** → recommendation → **Compare financing** if needed.
 6. **AI Advisor** — pick persona (Puan Sarah / Uncle Ah Kow / Dr Aisha) · RAG chat / agents.
-7. **Grants** · **Performance** · backup API: https://sme-advisor-api.onrender.com/docs
+7. **Grants** · **Performance** · backup API: https://sme-advisor-api-pp6d.onrender.com/docs
 
 
