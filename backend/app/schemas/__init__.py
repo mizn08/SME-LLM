@@ -154,6 +154,7 @@ class AgentAdviseResponse(BaseModel):
     agents: list[AgentInsight]
     recommendation: dict[str, Any] | None = None
     rag_snippet: str | None = None
+    agent_trace: list[dict[str, Any]] = []
 
 
 class ClusterInfo(BaseModel):
@@ -249,6 +250,60 @@ class CompareResponse(BaseModel):
     ml_financing_probability: float
     recommended: dict[str, str]
     options: list[CompareOption]
+
+
+class RequirementParseResponse(BaseModel):
+    room_size: str | None = None
+    budget: float | None = None
+    currency: str = "RM"
+    style: str | None = None
+    explicit_constraints: list[str] = []
+    location: str = "Kuala Lumpur"
+    source_chars: int = 0
+
+
+class QuoteLineItem(BaseModel):
+    product_id: str
+    product_name: str
+    product_url: str
+    quantity: int = Field(ge=1)
+    unit_price_rm: float = Field(ge=0)
+    weight_kg: float = Field(ge=0, default=0.0)
+    compatible: bool = True
+    compatibility_note: str = ""
+
+
+class QuoteRequest(BaseModel):
+    sme_id: int
+    title: str = "Sales quote"
+    location: str = "Kuala Lumpur"
+    service_level: str = "standard"
+    discount_rm: float = Field(default=0, ge=0)
+    budget_rm: float | None = Field(default=None, gt=0)
+    reasoning_summary: str = ""
+    items: list[QuoteLineItem]
+
+
+class QuoteBreakdown(BaseModel):
+    subtotal_rm: float
+    shipping_rm: float
+    tax_rm: float
+    discount_rm: float
+    grand_total_rm: float
+    tax_rate: float
+    estimated_delivery_days: int
+
+
+class QuoteResponse(BaseModel):
+    quote_id: int
+    sme_id: int
+    title: str
+    location: str
+    items: list[QuoteLineItem]
+    breakdown: QuoteBreakdown
+    within_budget: bool | None = None
+    reasoning_summary: str
+    created_at: str
 
 
 class TokenRequest(BaseModel):

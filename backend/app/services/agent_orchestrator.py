@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 
 from app.core.config import get_settings
 from app.models.sme import SMEProfile
-from app.services import data_processor, decision_engine, rag_service
+from app.services import data_processor, decision_engine, guardrail_service, rag_service
 from app.services.langchain_tools import make_tools
 
 
@@ -20,6 +20,7 @@ class AgentAdvice:
     agents: list[dict[str, str]]
     recommendation: dict[str, Any] | None
     rag_snippet: str | None
+    agent_trace: list[dict[str, Any]]
 
 
 def _route_agent(goal: str, category: str) -> str:
@@ -67,10 +68,14 @@ def _cash_agent(db: Session, sme: SMEProfile) -> str:
     )
 
 
-def _langchain_agent_run(db: Session, sme_id: int, goal: str, amount: float, category: str) -> str | None:
+def _langchain_agent_run(db: Session, sme_id: int, goal: str, amount: float, category: str) -> tuple[str | None, list[dict[str, Any]]]:
     settings = get_settings()
     if not settings.active_llm_api_key:
-        return None
+        return None, [{"step": "llm_disabled", "detail": "No active LLM API key configured"}]
+    sanitized_goal = guardrail_service.sanitize_text(goal, max_len=600)
+    safety = guardrail_service.detect_prompt_injection(sanitized_goal)
+    if not safety.safe:
+        return None, [{"step": "guardrail_block", "detail": safety.reason}]
     try:
         from langchain.agents import AgentExecutor, create_openai_tools_agent
         from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -95,15 +100,26 @@ def _langchain_agent_run(db: Session, sme_id: int, goal: str, amount: float, cat
             base_url=settings.active_llm_base_url,
         )
         agent = create_openai_tools_agent(llm, tools, prompt)
-        executor = AgentExecutor(agent=agent, tools=tools, verbose=False, max_iterations=4)
+        executor = AgentExecutor(agent=agent, tools=tools, verbose=False, max_iterations=4, return_intermediate_steps=True)
         user_input = (
-            f"Goal: {goal}. Purchase RM {amount:,.0f}, category: {category}. "
+            f"Goal: {sanitized_goal}. Purchase RM {amount:,.0f}, category: {category}. "
             "Call tools and give a unified recommendation."
         )
         result = executor.invoke({"input": user_input})
-        return str(result.get("output", ""))
-    except Exception:
-        return None
+        trace = [
+            {"step": "agent_start", "detail": "LangChain tool agent invoked"},
+            {
+                "step": "tool_iterations",
+                "detail": str(len(result.get("intermediate_steps", []))),
+            },
+        ]
+        for idx, item in enumerate(result.get("intermediate_steps", []), start=1):
+            action = getattr(item[0], "tool", "unknown_tool")
+            trace.append({"step": f"tool_{idx}", "detail": str(action)})
+        final_output = guardrail_service.sanitize_text(str(result.get("output", "")), max_len=1200)
+        return final_output, trace
+    except Exception as exc:  # noqa: BLE001
+        return None, [{"step": "llm_error", "detail": f"{type(exc).__name__}: {exc}"}]
 
 
 def run_multi_agent(
@@ -121,6 +137,7 @@ def run_multi_agent(
             agents=[],
             recommendation=None,
             rag_snippet=None,
+            agent_trace=[{"step": "error", "detail": "SME not found"}],
         )
 
     lead = _route_agent(goal, purchase_category)
@@ -144,7 +161,13 @@ def run_multi_agent(
     rag = rag_service.rag_query(db, sme_id, f"{goal} {purchase_category}")
     rag_snippet = rag["answer"][:400] if rag else None
 
-    llm_summary = _langchain_agent_run(db, sme_id, goal, purchase_amount, purchase_category)
+    trace: list[dict[str, Any]] = [
+        {"step": "route", "detail": f"lead_agent={lead}"},
+        {"step": "specialists", "detail": "grant,bnpl,cash"},
+        {"step": "engine_decision", "detail": recommendation["recommendation_type"]},
+    ]
+    llm_summary, llm_trace = _langchain_agent_run(db, sme_id, goal, purchase_amount, purchase_category)
+    trace.extend(llm_trace)
     if llm_summary:
         summary = llm_summary
     else:
@@ -160,4 +183,5 @@ def run_multi_agent(
         agents=agents_out,
         recommendation=recommendation,
         rag_snippet=rag_snippet,
+        agent_trace=trace,
     )

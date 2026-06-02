@@ -37,7 +37,7 @@ class Settings(BaseSettings):
     CHUTES_API_KEY_1: str | None = None
     CHUTES_API_KEY_2: str | None = None
     CHUTES_BASE_URL: str = "https://llm.chutes.ai/v1"
-    CHUTES_MODEL: str = "deepseek-ai/DeepSeek-V3-0324"
+    CHUTES_MODEL: str = "deepseek-ai/DeepSeek-V3.2-TEE"
 
     @property
     def active_llm_api_key(self) -> str | None:
@@ -76,6 +76,8 @@ class Settings(BaseSettings):
     FCM_ENABLED: bool = True
     FIREBASE_CREDENTIALS_PATH: str | None = None
     FIREBASE_CREDENTIALS_JSON: str | None = None
+    GUARDRAIL_ENABLED: bool = True
+    BUDGET_TOLERANCE_PCT: float = 0.05
 
     @property
     def firebase_credentials_dict(self) -> dict[str, Any] | None:

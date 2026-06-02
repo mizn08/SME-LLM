@@ -27,6 +27,7 @@ from app.api.endpoints import (
     pitch,
     predict,
     profile,
+    quote,
     report,
     upload,
 )
@@ -38,6 +39,7 @@ api_router.include_router(compare.router)
 api_router.include_router(catalog.router)
 api_router.include_router(grants.router)
 api_router.include_router(profile.router)
+api_router.include_router(quote.router)
 api_router.include_router(report.router)
 api_router.include_router(dashboard.router)
 api_router.include_router(predict.router)

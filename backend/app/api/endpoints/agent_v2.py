@@ -30,4 +30,5 @@ def agent_advise(payload: AgentAdviseRequest, db: Session = Depends(get_db)):
         agents=[AgentInsight(name=a["name"], insight=a["insight"]) for a in advice.agents],
         recommendation=advice.recommendation,
         rag_snippet=advice.rag_snippet,
+        agent_trace=advice.agent_trace,
     )

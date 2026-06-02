@@ -7,8 +7,14 @@ from sqlalchemy.orm import Session
 
 from app.db.session import get_db
 from app.models.sme import SMEProfile
-from app.schemas import RlAdviseRequest, RlAdviseResponse
-from app.services import document_ai_service, llm_finetune_service, ocr_service, rl_policy_service
+from app.schemas import RequirementParseResponse, RlAdviseRequest, RlAdviseResponse
+from app.services import (
+    document_ai_service,
+    llm_finetune_service,
+    ocr_service,
+    requirement_parser_service,
+    rl_policy_service,
+)
 
 router = APIRouter(tags=["v3-advanced"])
 
@@ -59,3 +65,13 @@ async def upload_invoice(
         "csv_preview": ocr_service.rows_to_csv_bytes(result.get("parsed_rows", [])).decode("utf-8")[:2000],
         "hint": "Import parsed rows via Upload CSV after reviewing dates and amounts.",
     }
+
+
+@router.post("/requirements/parse", response_model=RequirementParseResponse)
+async def parse_requirements(file: UploadFile = File(...)):
+    filename = (file.filename or "").lower()
+    if not filename.endswith((".pdf", ".txt", ".docx")):
+        raise HTTPException(400, "Supported file types: .pdf, .txt, .docx")
+    raw = await file.read()
+    parsed = requirement_parser_service.parse_requirement_file(raw, filename)
+    return RequirementParseResponse(**parsed)
