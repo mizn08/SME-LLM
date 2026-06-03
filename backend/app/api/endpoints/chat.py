@@ -13,7 +13,7 @@ from app.schemas import (
     ChatSource,
     ChatWithMemoryRequest,
 )
-from app.services import chat_memory_service, rag_service
+from app.services import chat_memory_service, guardrail_service, rag_service
 
 router = APIRouter(tags=["v2-rag"])
 
@@ -26,10 +26,21 @@ def _chat_with_memory(
     language: str | None,
     history: list[ChatMemoryTurn] | None = None,
 ) -> ChatResponse:
+    safe_msg = guardrail_service.sanitize_text(message)
+    inj = guardrail_service.detect_prompt_injection(safe_msg)
+    if not inj.safe:
+        return ChatResponse(
+            sme_id=sme_id,
+            message=message,
+            answer="Request blocked by safety guardrail. Please rephrase your financing question.",
+            mode="guardrail_block",
+            sources=[],
+            language=language,
+        )
     if history:
         chat_memory_service.sync_from_client(sme_id, history)
     prefix = chat_memory_service.context_prefix(sme_id)
-    enriched = f"{prefix}Current question: {message}" if prefix else message
+    enriched = f"{prefix}Current question: {safe_msg}" if prefix else safe_msg
     result = rag_service.rag_query(db, sme_id, enriched, persona, language=language)
     chat_memory_service.append_turn(sme_id, "user", message)
     chat_memory_service.append_turn(sme_id, "assistant", result["answer"])

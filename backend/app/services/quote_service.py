@@ -89,6 +89,7 @@ def build_quote(db: Session, payload: QuoteRequest) -> dict[str, Any]:
         tax_rate=tax_rate,
         estimated_delivery_days=eta_days,
         reasoning_summary=payload.reasoning_summary,
+        budget_rm=payload.budget_rm,
     )
     db.add(quote)
     db.commit()

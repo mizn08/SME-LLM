@@ -23,4 +23,6 @@ class QuoteLog(Base):
     tax_rate: Mapped[float] = mapped_column(Float, default=0.1)
     estimated_delivery_days: Mapped[int] = mapped_column(Integer, default=3)
     reasoning_summary: Mapped[str] = mapped_column(Text, default="")
+    budget_rm: Mapped[float | None] = mapped_column(Float, nullable=True)
+    agent_duration_sec: Mapped[float | None] = mapped_column(Float, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc).replace(tzinfo=None))

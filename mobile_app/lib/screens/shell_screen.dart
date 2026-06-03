@@ -22,6 +22,7 @@ import 'application_tracker_screen.dart';
 import 'bnpl_repayment_screen.dart';
 import 'pitch_screen.dart';
 import 'financing_timeline_screen.dart';
+import 'sales_engineer_screen.dart';
 import '../providers/settings_provider.dart';
 import '../l10n/app_strings.dart';
 
@@ -278,6 +279,24 @@ class _ShellScreenState extends State<ShellScreen> {
                     Navigator.pop(context);
                     Navigator.of(context).push(
                       MaterialPageRoute<void>(builder: (_) => const InsightsScreen()),
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(color: AppTheme.teal.withOpacity(0.08), borderRadius: BorderRadius.circular(10)),
+                    child: const Icon(Icons.engineering_rounded, color: AppTheme.teal, size: 20),
+                  ),
+                  title: const Text('Sales Engineer'),
+                  subtitle: Text('Agentic quote + metrics', style: TextStyle(fontSize: 12, color: Colors.grey.shade500)),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(builder: (_) => const SalesEngineerScreen()),
                     );
                   },
                 ),

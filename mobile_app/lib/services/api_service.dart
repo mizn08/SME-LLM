@@ -559,6 +559,48 @@ class ApiService {
     return AgentAdvice.fromJson(res.data ?? {});
   }
 
+  Future<Map<String, dynamic>> parseRequirements({
+    required List<int> bytes,
+    required String fileName,
+  }) async {
+    final form = FormData.fromMap({
+      'file': MultipartFile.fromBytes(bytes, filename: fileName),
+    });
+    final res = await _dio.post<Map<String, dynamic>>('/requirements/parse', data: form);
+    return res.data ?? {};
+  }
+
+  Future<Map<String, dynamic>> runSalesAgent({
+    required int smeId,
+    String? briefText,
+    Map<String, dynamic>? requirements,
+    String location = 'Kuala Lumpur',
+  }) async {
+    final res = await _dio.post<Map<String, dynamic>>(
+      '/sales-agent/run',
+      data: {
+        'sme_id': smeId,
+        if (briefText != null) 'brief_text': briefText,
+        if (requirements != null) 'requirements': requirements,
+        'location': location,
+      },
+    );
+    return res.data ?? {};
+  }
+
+  Future<Map<String, dynamic>> fetchBusinessValueMetrics({int? smeId}) async {
+    final res = await _dio.get<Map<String, dynamic>>(
+      '/business-value/metrics',
+      queryParameters: smeId != null ? {'sme_id': smeId} : null,
+    );
+    return res.data ?? {};
+  }
+
+  Future<List<Map<String, dynamic>>> fetchQuoteHistory(int smeId) async {
+    final res = await _dio.get<List<dynamic>>('/quote/history/$smeId');
+    return (res.data ?? []).map((e) => Map<String, dynamic>.from(e as Map)).toList();
+  }
+
   /// Upload CSV from raw bytes (works on web and mobile).
   Future<Map<String, dynamic>> uploadCsvBytes({
     required int smeId,

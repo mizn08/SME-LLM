@@ -89,6 +89,8 @@ def health():
             "guardrails",
             "quote_generation",
             "unstructured_requirement_parser",
+            "sales_engineer_agent",
+            "business_value_metrics",
         ],
         "vector_rag": s.USE_VECTOR_RAG,
         "llm_configured": bool(s.active_llm_api_key),

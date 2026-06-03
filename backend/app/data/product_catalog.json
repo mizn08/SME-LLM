@@ -1,0 +1,115 @@
+[
+  {
+    "product_id": "desk-120",
+    "name": "Minimalist Desk 120cm",
+    "category": "furniture",
+    "unit_price_rm": 899,
+    "weight_kg": 22.5,
+    "url": "https://catalog.example.my/desk-120",
+    "tags": ["minimalist", "office", "desk"],
+    "requires": [],
+    "in_stock": true
+  },
+  {
+    "product_id": "chair-ergo",
+    "name": "Ergo Office Chair",
+    "category": "furniture",
+    "unit_price_rm": 699,
+    "weight_kg": 14.2,
+    "url": "https://catalog.example.my/chair-ergo",
+    "tags": ["office", "chair"],
+    "requires": ["desk-120"],
+    "in_stock": true
+  },
+  {
+    "product_id": "lamp-led",
+    "name": "LED Desk Lamp",
+    "category": "lighting",
+    "unit_price_rm": 149,
+    "weight_kg": 1.0,
+    "url": "https://catalog.example.my/lamp-led",
+    "tags": ["minimalist", "office"],
+    "requires": [],
+    "in_stock": true
+  },
+  {
+    "product_id": "monitor-arm",
+    "name": "Dual Monitor Arm",
+    "category": "accessory",
+    "unit_price_rm": 289,
+    "weight_kg": 3.5,
+    "url": "https://catalog.example.my/monitor-arm",
+    "tags": ["office"],
+    "requires": ["desk-120"],
+    "in_stock": true
+  },
+  {
+    "product_id": "gpu-rtx4060",
+    "name": "NVIDIA RTX 4060 8GB",
+    "category": "gaming",
+    "unit_price_rm": 1299,
+    "weight_kg": 1.2,
+    "url": "https://catalog.example.my/gpu-rtx4060",
+    "tags": ["gaming", "nvidia", "gpu"],
+    "requires": [],
+    "compat_psu_watts_min": 550,
+    "in_stock": true
+  },
+  {
+    "product_id": "psu-650",
+    "name": "650W 80+ Bronze PSU",
+    "category": "gaming",
+    "unit_price_rm": 299,
+    "weight_kg": 2.0,
+    "url": "https://catalog.example.my/psu-650",
+    "tags": ["gaming", "psu"],
+    "requires": [],
+    "psu_watts": 650,
+    "in_stock": true
+  },
+  {
+    "product_id": "psu-450",
+    "name": "450W Basic PSU",
+    "category": "gaming",
+    "unit_price_rm": 159,
+    "weight_kg": 1.5,
+    "url": "https://catalog.example.my/psu-450",
+    "tags": ["gaming", "psu"],
+    "requires": [],
+    "psu_watts": 450,
+    "in_stock": false
+  },
+  {
+    "product_id": "cpu-mid",
+    "name": "Mid-range Gaming CPU",
+    "category": "gaming",
+    "unit_price_rm": 899,
+    "weight_kg": 0.3,
+    "url": "https://catalog.example.my/cpu-mid",
+    "tags": ["gaming"],
+    "requires": ["psu-650"],
+    "in_stock": true
+  },
+  {
+    "product_id": "shelf-wall",
+    "name": "Wall Shelf (no drill kit)",
+    "category": "furniture",
+    "unit_price_rm": 89,
+    "weight_kg": 2.0,
+    "url": "https://catalog.example.my/shelf-wall",
+    "tags": ["minimalist", "no drilling"],
+    "requires": [],
+    "in_stock": true
+  },
+  {
+    "product_id": "router-wifi6",
+    "name": "WiFi 6 SME Router",
+    "category": "digital",
+    "unit_price_rm": 449,
+    "weight_kg": 0.8,
+    "url": "https://catalog.example.my/router-wifi6",
+    "tags": ["digital", "office"],
+    "requires": [],
+    "in_stock": true
+  }
+]

@@ -306,6 +306,46 @@ class QuoteResponse(BaseModel):
     created_at: str
 
 
+class QuoteHistoryItem(BaseModel):
+    quote_id: int
+    sme_id: int
+    title: str
+    location: str
+    grand_total_rm: float
+    estimated_delivery_days: int
+    created_at: str
+
+
+class BusinessValueMetrics(BaseModel):
+    quotes_generated: int
+    manual_quote_minutes_avg: int
+    agent_quote_minutes_avg: int
+    time_saved_minutes_total: int
+    time_saved_minutes_per_quote: int
+    cost_saved_rm: float
+    success_rate: float
+    within_budget_rate: float
+    human_error_rate_benchmark: float
+    hourly_rate_rm: float
+
+
+class SalesAgentRunRequest(BaseModel):
+    sme_id: int
+    brief_text: str | None = Field(default=None, max_length=4000)
+    requirements: dict[str, Any] | None = None
+    location: str = "Kuala Lumpur"
+
+
+class SalesAgentRunResponse(BaseModel):
+    sme_id: int
+    requirements: dict[str, Any]
+    task_complete: bool
+    agent_trace: list[dict[str, Any]] = []
+    reasoning_summary: str = ""
+    quote: QuoteResponse | None = None
+    business_value: BusinessValueMetrics
+
+
 class TokenRequest(BaseModel):
     username: str = "sme_demo"
     password: str
