@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:provider/provider.dart';
 
+import 'providers/advisor_nav_provider.dart';
 import 'providers/recommendation_provider.dart';
 import 'providers/settings_provider.dart';
 import 'providers/session_provider.dart';
