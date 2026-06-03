@@ -45,6 +45,9 @@ def run_sales_agent(payload: SalesAgentRunRequest, db: Session = Depends(get_db)
         reasoning_summary=out["reasoning_summary"],
         quote=out.get("quote"),
         business_value=BusinessValueMetrics(**bv_raw),
+        rag_answer=out.get("rag_answer"),
+        rag_mode=out.get("rag_mode"),
+        rag_sources=[ChatSource(**s) for s in out.get("rag_sources", [])],
     )
 
 

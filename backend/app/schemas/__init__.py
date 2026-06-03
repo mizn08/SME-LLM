@@ -344,6 +344,9 @@ class SalesAgentRunResponse(BaseModel):
     reasoning_summary: str = ""
     quote: QuoteResponse | None = None
     business_value: BusinessValueMetrics
+    rag_answer: str | None = None
+    rag_mode: str | None = None
+    rag_sources: list[ChatSource] = []
 
 
 class TokenRequest(BaseModel):

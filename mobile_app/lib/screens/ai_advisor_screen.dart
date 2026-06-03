@@ -4,12 +4,14 @@ import 'package:provider/provider.dart';
 import '../models/chat_message.dart';
 import '../models/prediction.dart';
 import '../providers/recommendation_provider.dart';
+import '../providers/advisor_nav_provider.dart';
 import '../providers/session_provider.dart';
 import '../providers/settings_provider.dart';
 import '../services/api_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/lead_score_meter.dart';
 import '../widgets/recommendation_result.dart';
+import '../widgets/sales_engineer_tab.dart';
 import 'guided_advisory_screen.dart';
 
 class AiAdvisorScreen extends StatefulWidget {
@@ -32,14 +34,35 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
   @override
   void initState() {
     super.initState();
-    _tabs = TabController(length: 4, vsync: this);
+    _tabs = TabController(length: 5, vsync: this);
     _history.add(
       ChatTurn(
         role: 'assistant',
         text:
             'Ask about your cash flow, BNPL options, or Malaysian government grants. '
-            'Answers use RAG over your transactions and scheme catalog.',
+            'Answers use RAG over your transactions and scheme catalog. '
+            'Use the Sales Engineer tab to generate a quote — results sync here automatically.',
       ),
+    );
+    WidgetsBinding.instance.addPostFrameCallback((_) => _applyPendingSubTab());
+  }
+
+  void _applyPendingSubTab() {
+    if (!mounted) return;
+    final pending = context.read<AdvisorNavProvider>().consumePending();
+    if (pending != null && pending >= 0 && pending < _tabs.length) {
+      _tabs.animateTo(pending);
+    }
+  }
+
+  void _syncRagFromSalesEngineer(String brief, String ragAnswer, List<ChatSource> sources) {
+    setState(() {
+      _history.add(ChatTurn(role: 'user', text: 'Sales brief: $brief'));
+      _history.add(ChatTurn(role: 'assistant', text: ragAnswer, sources: sources));
+    });
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Quote finished — RAG advice synced to chat')),
     );
   }
 
@@ -162,6 +185,7 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
               Tab(text: 'Agents'),
               Tab(text: 'ML Insight'),
               Tab(text: 'Guided'),
+              Tab(text: 'Sales Engineer'),
             ],
           ),
         ),
@@ -178,6 +202,11 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
               _agentsTab(),
               _mlTab(),
               const GuidedAdvisoryScreen(),
+              SalesEngineerTab(
+                api: _api,
+                onRagSynced: _syncRagFromSalesEngineer,
+                onOpenRagChat: () => _tabs.animateTo(0),
+              ),
             ],
           ),
         ),

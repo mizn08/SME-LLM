@@ -25,6 +25,7 @@ Future<void> main() async {
         ChangeNotifierProvider<SessionProvider>.value(value: session),
         ChangeNotifierProvider<SettingsProvider>.value(value: settings),
         ChangeNotifierProvider(create: (_) => RecommendationProvider()),
+        ChangeNotifierProvider(create: (_) => AdvisorNavProvider()),
       ],
       child: const BnplAdvisorApp(),
     ),

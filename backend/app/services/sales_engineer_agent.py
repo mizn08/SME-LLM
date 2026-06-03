@@ -229,18 +229,38 @@ def run_sales_engineer(
             row.agent_duration_sec = elapsed
             db.commit()
 
-    from app.services import business_value_service
+    from app.services import business_value_service, rag_service
 
     metrics = business_value_service.compute_metrics(db, sme_id)
     metrics["last_run_seconds"] = elapsed
     metrics["last_run_minutes"] = round(elapsed / 60.0, 2) if elapsed else AGENT_QUOTE_MINUTES / 60.0
+
+    rag_answer: str | None = None
+    rag_mode: str | None = None
+    rag_sources: list[dict[str, Any]] = []
+    quote = state.get("quote")
+    if quote:
+        grand = quote.get("breakdown", {}).get("grand_total_rm", 0)
+        rag_q = (
+            f"Client brief: {text[:600]}. "
+            f"Sales engineer quote #{quote.get('quote_id')} total RM {grand:,.2f}. "
+            "Which BNPL, grant, or cash approach fits this SME purchase?"
+        )
+        rag = rag_service.rag_query(db, sme_id, rag_q)
+        rag_answer = rag.get("answer")
+        rag_mode = rag.get("mode")
+        rag_sources = rag.get("sources", [])
+        state["trace"].append({"step": "rag_sync", "detail": rag_mode or "bm25"})
 
     return {
         "sme_id": sme_id,
         "requirements": req,
         "agent_trace": state["trace"],
         "reasoning_summary": "\n".join(state.get("reasoning", [])),
-        "quote": state.get("quote"),
+        "quote": quote,
         "business_value": metrics,
         "task_complete": state.get("quote_id") is not None,
+        "rag_answer": rag_answer,
+        "rag_mode": rag_mode,
+        "rag_sources": rag_sources,
     }

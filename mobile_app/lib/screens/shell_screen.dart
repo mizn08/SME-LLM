@@ -295,9 +295,7 @@ class _ShellScreenState extends State<ShellScreen> {
                   subtitle: Text('Agentic quote + metrics', style: TextStyle(fontSize: 12, color: Colors.grey.shade500)),
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.of(context).push(
-                      MaterialPageRoute<void>(builder: (_) => const SalesEngineerScreen()),
-                    );
+                    openSalesEngineerInAdvisor(context, (i) => setState(() => _index = i));
                   },
                 ),
               ),
