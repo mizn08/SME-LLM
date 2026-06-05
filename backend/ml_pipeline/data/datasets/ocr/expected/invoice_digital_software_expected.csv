@@ -1,0 +1,6 @@
+txn_date,amount_rm,category,description,is_expense
+2026-01-10,3600.0,invoice,CRM annual licence,True
+2026-01-10,900.0,invoice,Support package,True
+2026-01-10,4500.0,invoice,Subtotal,True
+2026-01-10,270.0,invoice,SST,True
+2026-01-10,4770.0,invoice,Grand total,True

@@ -1,0 +1,1153 @@
+sme_id,date,amount,category,description,is_expense
+1,2025-07-02,1857.76,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),true
+1,2025-07-03,3501.63,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jul 2025),false
+1,2025-07-06,1905.78,Equipment,Kopi Maju Enterprise — Equipment (Jul 2025),true
+1,2025-07-06,3591.38,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-07-07,3074.68,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jul 2025),false
+1,2025-07-08,1714.79,Utilities,Kopi Maju Enterprise — Utilities (Jul 2025),true
+1,2025-07-08,1694.12,Supplies,Kopi Maju Enterprise — Supplies (Jul 2025),true
+1,2025-07-08,1502.69,Supplies,Kopi Maju Enterprise — Supplies (Jul 2025),true
+1,2025-07-09,3287.88,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-07-09,1473.14,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),true
+1,2025-07-11,1614.83,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),true
+1,2025-07-12,3735.6,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jul 2025),false
+1,2025-07-13,1471.15,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),true
+1,2025-07-15,1593.75,Utilities,Kopi Maju Enterprise — Utilities (Jul 2025),true
+1,2025-07-18,3076.32,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-07-18,1791.41,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),true
+1,2025-07-20,3079.83,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jul 2025),false
+1,2025-07-21,3282.96,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jul 2025),false
+1,2025-07-21,3141.29,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-07-21,1728.05,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),true
+1,2025-07-22,3343.62,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jul 2025),false
+1,2025-07-22,1913.77,Marketing,Kopi Maju Enterprise — Marketing (Jul 2025),true
+1,2025-07-22,4007.48,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jul 2025),false
+1,2025-07-23,3839.99,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jul 2025),false
+1,2025-07-23,1830.32,Utilities,Kopi Maju Enterprise — Utilities (Jul 2025),true
+1,2025-07-24,3261.65,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-07-25,1841.52,Equipment,Kopi Maju Enterprise — Equipment (Jul 2025),true
+1,2025-07-25,1735.49,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),true
+1,2025-07-27,1702.07,Marketing,Kopi Maju Enterprise — Marketing (Jul 2025),true
+1,2025-07-27,1778.75,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),true
+1,2025-07-30,1850.61,Supplies,Kopi Maju Enterprise — Supplies (Jul 2025),true
+1,2025-07-30,3775.69,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-08-01,3727.07,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Aug 2025),false
+1,2025-08-01,4114.81,Services - Digital,Kopi Maju Enterprise — Services - Digital (Aug 2025),false
+1,2025-08-02,1794.9,Supplies,Kopi Maju Enterprise — Supplies (Aug 2025),true
+1,2025-08-03,1909.05,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),true
+1,2025-08-03,1899.66,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),true
+1,2025-08-04,1582.7,Supplies,Kopi Maju Enterprise — Supplies (Aug 2025),true
+1,2025-08-06,3404.68,Services - Digital,Kopi Maju Enterprise — Services - Digital (Aug 2025),false
+1,2025-08-08,2001.19,Logistics,Kopi Maju Enterprise — Logistics (Aug 2025),true
+1,2025-08-08,1634.94,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),true
+1,2025-08-10,1749.76,Utilities,Kopi Maju Enterprise — Utilities (Aug 2025),true
+1,2025-08-11,3401.54,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Aug 2025),false
+1,2025-08-12,3145.97,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Aug 2025),false
+1,2025-08-12,1862.35,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),true
+1,2025-08-16,3381.5,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Aug 2025),false
+1,2025-08-16,1657.25,Utilities,Kopi Maju Enterprise — Utilities (Aug 2025),true
+1,2025-08-17,3830.34,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Aug 2025),false
+1,2025-08-18,3342.37,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Aug 2025),false
+1,2025-08-19,1562.4,Payroll,Kopi Maju Enterprise — Payroll (Aug 2025),true
+1,2025-08-20,3614.5,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Aug 2025),false
+1,2025-08-24,1681.99,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),true
+1,2025-08-25,4072.9,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Aug 2025),false
+1,2025-08-25,3457.07,Services - Digital,Kopi Maju Enterprise — Services - Digital (Aug 2025),false
+1,2025-08-26,1817.52,Logistics,Kopi Maju Enterprise — Logistics (Aug 2025),true
+1,2025-08-27,1705.62,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),true
+1,2025-08-27,1585.51,Utilities,Kopi Maju Enterprise — Utilities (Aug 2025),true
+1,2025-08-29,1817.79,Payroll,Kopi Maju Enterprise — Payroll (Aug 2025),true
+1,2025-08-29,1862.25,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),true
+1,2025-08-30,3545.09,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Aug 2025),false
+1,2025-08-30,3456.21,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Aug 2025),false
+1,2025-08-30,1586.48,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),true
+1,2025-08-31,1970.64,Logistics,Kopi Maju Enterprise — Logistics (Aug 2025),true
+1,2025-08-31,4145.95,Services - Digital,Kopi Maju Enterprise — Services - Digital (Aug 2025),false
+1,2025-09-01,1860.97,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),true
+1,2025-09-02,1914.51,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),true
+1,2025-09-03,1807.2,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),true
+1,2025-09-03,1587.63,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),true
+1,2025-09-04,4182.84,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Sep 2025),false
+1,2025-09-04,1678.92,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-09-05,3784.56,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Sep 2025),false
+1,2025-09-06,3919.56,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Sep 2025),false
+1,2025-09-07,3845.17,Services - Digital,Kopi Maju Enterprise — Services - Digital (Sep 2025),false
+1,2025-09-07,3931.77,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Sep 2025),false
+1,2025-09-08,3442.02,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Sep 2025),false
+1,2025-09-08,3655.08,Services - Digital,Kopi Maju Enterprise — Services - Digital (Sep 2025),false
+1,2025-09-09,4141.11,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Sep 2025),false
+1,2025-09-14,3538.95,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Sep 2025),false
+1,2025-09-15,4306.72,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Sep 2025),false
+1,2025-09-15,1893.81,Payroll,Kopi Maju Enterprise — Payroll (Sep 2025),true
+1,2025-09-15,3526.58,Services - Digital,Kopi Maju Enterprise — Services - Digital (Sep 2025),false
+1,2025-09-18,1621.15,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-09-18,3600.85,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Sep 2025),false
+1,2025-09-18,1587.55,Logistics,Kopi Maju Enterprise — Logistics (Sep 2025),true
+1,2025-09-21,1665.93,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-09-25,1990.23,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-09-26,1673.97,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),true
+1,2025-09-26,3373.24,Services - Digital,Kopi Maju Enterprise — Services - Digital (Sep 2025),false
+1,2025-09-27,2060.21,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-09-28,2043.76,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),true
+1,2025-09-28,4176.75,Services - Digital,Kopi Maju Enterprise — Services - Digital (Sep 2025),false
+1,2025-09-28,1652.9,Payroll,Kopi Maju Enterprise — Payroll (Sep 2025),true
+1,2025-09-28,2018.73,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),true
+1,2025-09-28,1674.61,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),true
+1,2025-09-30,1977.72,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),true
+1,2025-09-30,1669.2,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-10-01,3656.19,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-01,1924.79,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-03,3570.74,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Oct 2025),false
+1,2025-10-03,1611.37,Digital / Software,Kopi Maju Enterprise — Digital / Software (Oct 2025),true
+1,2025-10-04,4449.51,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Oct 2025),false
+1,2025-10-05,3714.4,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-06,2115.11,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),true
+1,2025-10-07,3839.66,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Oct 2025),false
+1,2025-10-08,1859.83,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-09,4309.78,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-10,1667.27,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),true
+1,2025-10-10,1710.62,Utilities,Kopi Maju Enterprise — Utilities (Oct 2025),true
+1,2025-10-12,4244.72,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-12,2054.87,Utilities,Kopi Maju Enterprise — Utilities (Oct 2025),true
+1,2025-10-15,3858.71,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-15,1624.16,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-17,4478.18,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-17,1910.93,Marketing,Kopi Maju Enterprise — Marketing (Oct 2025),true
+1,2025-10-18,3377.22,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Oct 2025),false
+1,2025-10-18,1911.22,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-19,4404.49,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Oct 2025),false
+1,2025-10-20,3947.97,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Oct 2025),false
+1,2025-10-20,1646.34,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),true
+1,2025-10-21,1716.76,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-22,1813.21,Logistics,Kopi Maju Enterprise — Logistics (Oct 2025),true
+1,2025-10-23,1955.91,Marketing,Kopi Maju Enterprise — Marketing (Oct 2025),true
+1,2025-10-26,2075.81,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),true
+1,2025-10-27,1683.09,Utilities,Kopi Maju Enterprise — Utilities (Oct 2025),true
+1,2025-10-27,1904.88,Supplies,Kopi Maju Enterprise — Supplies (Oct 2025),true
+1,2025-10-29,1905.17,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-29,4307.69,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Oct 2025),false
+1,2025-10-30,4204.33,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Oct 2025),false
+1,2025-11-02,1698.46,Marketing,Kopi Maju Enterprise — Marketing (Nov 2025),true
+1,2025-11-04,1677.29,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),true
+1,2025-11-06,4280.18,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Nov 2025),false
+1,2025-11-06,1865.2,Equipment,Kopi Maju Enterprise — Equipment (Nov 2025),true
+1,2025-11-07,1858.34,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),true
+1,2025-11-08,1928.24,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),true
+1,2025-11-08,4657.05,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-09,4218.03,Services - Digital,Kopi Maju Enterprise — Services - Digital (Nov 2025),false
+1,2025-11-10,1636.3,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),true
+1,2025-11-11,4688.9,Services - Digital,Kopi Maju Enterprise — Services - Digital (Nov 2025),false
+1,2025-11-12,2167.24,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),true
+1,2025-11-13,2151.78,Digital / Software,Kopi Maju Enterprise — Digital / Software (Nov 2025),true
+1,2025-11-14,4517.45,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-15,2144.97,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),true
+1,2025-11-16,1823.85,Equipment,Kopi Maju Enterprise — Equipment (Nov 2025),true
+1,2025-11-22,3935.47,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Nov 2025),false
+1,2025-11-23,1933.01,Payroll,Kopi Maju Enterprise — Payroll (Nov 2025),true
+1,2025-11-24,4756.66,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-24,4012.7,Services - Digital,Kopi Maju Enterprise — Services - Digital (Nov 2025),false
+1,2025-11-26,4448.07,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Nov 2025),false
+1,2025-11-26,2002.01,Supplies,Kopi Maju Enterprise — Supplies (Nov 2025),true
+1,2025-11-26,3913.63,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Nov 2025),false
+1,2025-11-26,2015.45,Supplies,Kopi Maju Enterprise — Supplies (Nov 2025),true
+1,2025-11-26,3775.9,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-27,1817.35,Marketing,Kopi Maju Enterprise — Marketing (Nov 2025),true
+1,2025-11-27,1637.4,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),true
+1,2025-11-28,3845.62,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-28,1634.1,Digital / Software,Kopi Maju Enterprise — Digital / Software (Nov 2025),true
+1,2025-11-28,2007.11,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),true
+1,2025-11-30,3710.38,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-30,4703.54,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Nov 2025),false
+1,2025-11-30,1821.25,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),true
+1,2025-12-01,3911.09,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Dec 2025),false
+1,2025-12-03,1975.28,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),true
+1,2025-12-06,2120.68,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),true
+1,2025-12-07,1894.24,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),true
+1,2025-12-07,4503.92,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-10,4859.52,Services - Digital,Kopi Maju Enterprise — Services - Digital (Dec 2025),false
+1,2025-12-10,4290.68,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-10,4117.92,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Dec 2025),false
+1,2025-12-10,1670.94,Utilities,Kopi Maju Enterprise — Utilities (Dec 2025),true
+1,2025-12-11,1665.86,Digital / Software,Kopi Maju Enterprise — Digital / Software (Dec 2025),true
+1,2025-12-13,4706.87,Services - Digital,Kopi Maju Enterprise — Services - Digital (Dec 2025),false
+1,2025-12-14,4733.12,Services - Digital,Kopi Maju Enterprise — Services - Digital (Dec 2025),false
+1,2025-12-15,2108.66,Payroll,Kopi Maju Enterprise — Payroll (Dec 2025),true
+1,2025-12-15,1625.61,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),true
+1,2025-12-15,1707.91,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),true
+1,2025-12-16,1988.54,Payroll,Kopi Maju Enterprise — Payroll (Dec 2025),true
+1,2025-12-17,2056.13,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),true
+1,2025-12-17,2108.98,Digital / Software,Kopi Maju Enterprise — Digital / Software (Dec 2025),true
+1,2025-12-18,4354.44,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-19,4263.74,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-19,4991.55,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-20,3854.75,Services - Digital,Kopi Maju Enterprise — Services - Digital (Dec 2025),false
+1,2025-12-21,4999.26,Services - Digital,Kopi Maju Enterprise — Services - Digital (Dec 2025),false
+1,2025-12-22,1952.55,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),true
+1,2025-12-22,1846.86,Payroll,Kopi Maju Enterprise — Payroll (Dec 2025),true
+1,2025-12-24,2136.55,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),true
+1,2025-12-26,1844.17,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),true
+1,2025-12-26,2131.69,Digital / Software,Kopi Maju Enterprise — Digital / Software (Dec 2025),true
+1,2025-12-26,4954.28,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-27,4192.94,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Dec 2025),false
+1,2025-12-29,2016.89,Utilities,Kopi Maju Enterprise — Utilities (Dec 2025),true
+1,2025-12-31,1711.84,Utilities,Kopi Maju Enterprise — Utilities (Dec 2025),true
+1,2026-01-02,1896.28,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),true
+1,2026-01-03,4099.9,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jan 2026),false
+1,2026-01-03,5045.62,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jan 2026),false
+1,2026-01-03,1710.34,Payroll,Kopi Maju Enterprise — Payroll (Jan 2026),true
+1,2026-01-05,5210.44,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jan 2026),false
+1,2026-01-05,4607.05,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jan 2026),false
+1,2026-01-05,1909.0,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),true
+1,2026-01-07,2171.17,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),true
+1,2026-01-07,2111.86,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jan 2026),true
+1,2026-01-08,1766.77,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),true
+1,2026-01-08,4403.93,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jan 2026),false
+1,2026-01-09,5098.96,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jan 2026),false
+1,2026-01-09,4899.04,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jan 2026),false
+1,2026-01-10,4298.1,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jan 2026),false
+1,2026-01-11,1947.54,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),true
+1,2026-01-11,4033.82,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jan 2026),false
+1,2026-01-11,4175.5,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jan 2026),false
+1,2026-01-13,2165.04,Utilities,Kopi Maju Enterprise — Utilities (Jan 2026),true
+1,2026-01-13,2105.56,Utilities,Kopi Maju Enterprise — Utilities (Jan 2026),true
+1,2026-01-14,1717.28,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),true
+1,2026-01-14,1909.05,Utilities,Kopi Maju Enterprise — Utilities (Jan 2026),true
+1,2026-01-14,2077.27,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),true
+1,2026-01-14,1887.11,Equipment,Kopi Maju Enterprise — Equipment (Jan 2026),true
+1,2026-01-15,1823.76,Payroll,Kopi Maju Enterprise — Payroll (Jan 2026),true
+1,2026-01-15,4836.58,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jan 2026),false
+1,2026-01-18,4825.39,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jan 2026),false
+1,2026-01-18,1963.63,Equipment,Kopi Maju Enterprise — Equipment (Jan 2026),true
+1,2026-01-23,2042.92,Equipment,Kopi Maju Enterprise — Equipment (Jan 2026),true
+1,2026-01-23,1962.75,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),true
+1,2026-01-23,5302.69,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jan 2026),false
+1,2026-01-27,2156.44,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),true
+1,2026-01-29,5347.43,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jan 2026),false
+1,2026-02-01,2251.23,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),true
+1,2026-02-01,5182.97,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-01,5383.5,Services - Digital,Kopi Maju Enterprise — Services - Digital (Feb 2026),false
+1,2026-02-04,2257.0,Equipment,Kopi Maju Enterprise — Equipment (Feb 2026),true
+1,2026-02-04,2068.93,Payroll,Kopi Maju Enterprise — Payroll (Feb 2026),true
+1,2026-02-04,4683.86,Services - Digital,Kopi Maju Enterprise — Services - Digital (Feb 2026),false
+1,2026-02-05,4088.9,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-05,5165.52,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-06,1911.93,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),true
+1,2026-02-06,2026.44,Marketing,Kopi Maju Enterprise — Marketing (Feb 2026),true
+1,2026-02-07,5082.06,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-07,4866.91,Services - Digital,Kopi Maju Enterprise — Services - Digital (Feb 2026),false
+1,2026-02-08,4921.56,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Feb 2026),false
+1,2026-02-08,4586.99,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Feb 2026),false
+1,2026-02-09,1859.17,Payroll,Kopi Maju Enterprise — Payroll (Feb 2026),true
+1,2026-02-10,1984.26,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),true
+1,2026-02-12,1795.96,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),true
+1,2026-02-15,1882.66,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),true
+1,2026-02-16,5309.49,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-19,2017.08,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),true
+1,2026-02-19,5156.93,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-20,2133.41,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),true
+1,2026-02-20,1796.05,Equipment,Kopi Maju Enterprise — Equipment (Feb 2026),true
+1,2026-02-20,4628.21,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-22,5453.48,Services - Digital,Kopi Maju Enterprise — Services - Digital (Feb 2026),false
+1,2026-02-23,2072.5,Marketing,Kopi Maju Enterprise — Marketing (Feb 2026),true
+1,2026-02-23,1864.24,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),true
+1,2026-02-24,2182.61,Digital / Software,Kopi Maju Enterprise — Digital / Software (Feb 2026),true
+1,2026-02-25,2169.74,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),true
+1,2026-02-25,1810.61,Utilities,Kopi Maju Enterprise — Utilities (Feb 2026),true
+1,2026-02-27,2017.07,Equipment,Kopi Maju Enterprise — Equipment (Feb 2026),true
+1,2026-02-27,5314.22,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Feb 2026),false
+1,2026-03-01,5357.44,Services - Digital,Kopi Maju Enterprise — Services - Digital (Mar 2026),false
+1,2026-03-01,1855.46,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),true
+1,2026-03-03,5507.72,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-03,2204.4,Utilities,Kopi Maju Enterprise — Utilities (Mar 2026),true
+1,2026-03-07,5521.84,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-08,1746.73,Logistics,Kopi Maju Enterprise — Logistics (Mar 2026),true
+1,2026-03-08,1758.04,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),true
+1,2026-03-08,2133.86,Equipment,Kopi Maju Enterprise — Equipment (Mar 2026),true
+1,2026-03-09,5677.38,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-09,5559.84,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Mar 2026),false
+1,2026-03-09,5709.03,Services - Digital,Kopi Maju Enterprise — Services - Digital (Mar 2026),false
+1,2026-03-10,2191.85,Payroll,Kopi Maju Enterprise — Payroll (Mar 2026),true
+1,2026-03-11,5173.23,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Mar 2026),false
+1,2026-03-14,2075.11,Logistics,Kopi Maju Enterprise — Logistics (Mar 2026),true
+1,2026-03-15,1955.47,Payroll,Kopi Maju Enterprise — Payroll (Mar 2026),true
+1,2026-03-16,1984.13,Logistics,Kopi Maju Enterprise — Logistics (Mar 2026),true
+1,2026-03-16,2190.64,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),true
+1,2026-03-16,1856.47,Payroll,Kopi Maju Enterprise — Payroll (Mar 2026),true
+1,2026-03-17,4757.12,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-18,4668.0,Services - Digital,Kopi Maju Enterprise — Services - Digital (Mar 2026),false
+1,2026-03-18,2118.02,Digital / Software,Kopi Maju Enterprise — Digital / Software (Mar 2026),true
+1,2026-03-20,5728.13,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-21,2178.37,Supplies,Kopi Maju Enterprise — Supplies (Mar 2026),true
+1,2026-03-23,2016.84,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),true
+1,2026-03-23,4600.44,Services - Digital,Kopi Maju Enterprise — Services - Digital (Mar 2026),false
+1,2026-03-23,2272.45,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),true
+1,2026-03-24,2269.65,Utilities,Kopi Maju Enterprise — Utilities (Mar 2026),true
+1,2026-03-25,1955.41,Digital / Software,Kopi Maju Enterprise — Digital / Software (Mar 2026),true
+1,2026-03-26,2132.21,Utilities,Kopi Maju Enterprise — Utilities (Mar 2026),true
+1,2026-03-29,5197.97,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-29,4868.99,Services - Digital,Kopi Maju Enterprise — Services - Digital (Mar 2026),false
+1,2026-03-31,5337.82,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Mar 2026),false
+1,2026-04-02,2235.39,Equipment,Kopi Maju Enterprise — Equipment (Apr 2026),true
+1,2026-04-03,5178.68,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-04,1832.51,Utilities,Kopi Maju Enterprise — Utilities (Apr 2026),true
+1,2026-04-04,5390.29,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Apr 2026),false
+1,2026-04-07,2132.9,Logistics,Kopi Maju Enterprise — Logistics (Apr 2026),true
+1,2026-04-08,5157.19,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-08,5886.74,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-10,5449.84,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-10,1859.73,Marketing,Kopi Maju Enterprise — Marketing (Apr 2026),true
+1,2026-04-10,2019.27,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),true
+1,2026-04-13,2456.04,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),true
+1,2026-04-14,6446.7,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-14,1853.92,Marketing,Kopi Maju Enterprise — Marketing (Apr 2026),true
+1,2026-04-15,2360.81,Payroll,Kopi Maju Enterprise — Payroll (Apr 2026),true
+1,2026-04-15,2057.01,Marketing,Kopi Maju Enterprise — Marketing (Apr 2026),true
+1,2026-04-17,5300.29,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Apr 2026),false
+1,2026-04-18,5700.76,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Apr 2026),false
+1,2026-04-19,1906.13,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),true
+1,2026-04-19,2012.74,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),true
+1,2026-04-20,5285.26,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-20,5361.32,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Apr 2026),false
+1,2026-04-20,2432.59,Digital / Software,Kopi Maju Enterprise — Digital / Software (Apr 2026),true
+1,2026-04-20,5695.57,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Apr 2026),false
+1,2026-04-20,2309.4,Equipment,Kopi Maju Enterprise — Equipment (Apr 2026),true
+1,2026-04-21,2044.02,Digital / Software,Kopi Maju Enterprise — Digital / Software (Apr 2026),true
+1,2026-04-24,1890.68,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),true
+1,2026-04-25,5983.23,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-25,2007.72,Utilities,Kopi Maju Enterprise — Utilities (Apr 2026),true
+1,2026-04-25,5347.76,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Apr 2026),false
+1,2026-04-26,5532.9,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-28,2280.56,Logistics,Kopi Maju Enterprise — Logistics (Apr 2026),true
+1,2026-04-30,2015.39,Logistics,Kopi Maju Enterprise — Logistics (Apr 2026),true
+1,2026-05-02,1832.18,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),true
+1,2026-05-03,5576.07,Services - Digital,Kopi Maju Enterprise — Services - Digital (May 2026),false
+1,2026-05-04,2196.91,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-06,5471.16,Services - Digital,Kopi Maju Enterprise — Services - Digital (May 2026),false
+1,2026-05-06,2405.91,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),true
+1,2026-05-09,5440.68,Services - Digital,Kopi Maju Enterprise — Services - Digital (May 2026),false
+1,2026-05-10,1990.06,Payroll,Kopi Maju Enterprise — Payroll (May 2026),true
+1,2026-05-11,2097.02,Supplies,Kopi Maju Enterprise — Supplies (May 2026),true
+1,2026-05-11,1853.82,Equipment,Kopi Maju Enterprise — Equipment (May 2026),true
+1,2026-05-11,6405.55,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-12,6433.94,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (May 2026),false
+1,2026-05-13,2198.83,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-14,5980.99,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-14,5159.8,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (May 2026),false
+1,2026-05-14,2115.95,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-15,1962.31,Equipment,Kopi Maju Enterprise — Equipment (May 2026),true
+1,2026-05-15,5538.87,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (May 2026),false
+1,2026-05-16,6441.16,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-16,2073.53,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-16,5684.84,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-18,2202.47,Marketing,Kopi Maju Enterprise — Marketing (May 2026),true
+1,2026-05-19,5291.5,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-21,5974.57,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-22,2323.52,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-22,2161.63,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),true
+1,2026-05-23,2010.47,Equipment,Kopi Maju Enterprise — Equipment (May 2026),true
+1,2026-05-25,2286.3,Utilities,Kopi Maju Enterprise — Utilities (May 2026),true
+1,2026-05-27,2385.55,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-27,6235.3,Services - Digital,Kopi Maju Enterprise — Services - Digital (May 2026),false
+1,2026-05-28,2343.78,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),true
+1,2026-05-30,6356.5,Services - Digital,Kopi Maju Enterprise — Services - Digital (May 2026),false
+1,2026-05-31,2096.12,Supplies,Kopi Maju Enterprise — Supplies (May 2026),true
+1,2026-06-05,5423.52,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-07,1984.96,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-08,2203.25,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jun 2026),true
+1,2026-06-08,2076.58,Marketing,Kopi Maju Enterprise — Marketing (Jun 2026),true
+1,2026-06-10,5487.11,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-10,5539.44,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jun 2026),false
+1,2026-06-11,2511.94,Payroll,Kopi Maju Enterprise — Payroll (Jun 2026),true
+1,2026-06-11,2354.27,Utilities,Kopi Maju Enterprise — Utilities (Jun 2026),true
+1,2026-06-12,6151.95,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-13,2158.73,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-13,2031.95,Utilities,Kopi Maju Enterprise — Utilities (Jun 2026),true
+1,2026-06-14,1978.76,Supplies,Kopi Maju Enterprise — Supplies (Jun 2026),true
+1,2026-06-15,6295.47,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-15,2441.73,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-16,6258.0,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jun 2026),false
+1,2026-06-16,6954.6,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jun 2026),false
+1,2026-06-18,2089.13,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jun 2026),true
+1,2026-06-18,2153.74,Equipment,Kopi Maju Enterprise — Equipment (Jun 2026),true
+1,2026-06-18,6491.17,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jun 2026),false
+1,2026-06-19,2351.37,Payroll,Kopi Maju Enterprise — Payroll (Jun 2026),true
+1,2026-06-19,6946.23,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-19,6871.13,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jun 2026),false
+1,2026-06-22,5323.87,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jun 2026),false
+1,2026-06-23,2502.36,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-24,5795.78,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-25,1891.73,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jun 2026),true
+1,2026-06-25,2186.17,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-27,6772.75,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jun 2026),false
+1,2026-06-28,2313.03,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-28,6189.42,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jun 2026),false
+1,2026-06-28,2196.42,Payroll,Kopi Maju Enterprise — Payroll (Jun 2026),true
+1,2026-06-30,1958.04,Supplies,Kopi Maju Enterprise — Supplies (Jun 2026),true
+2,2025-07-01,2537.79,Payroll,Harapan Agro Supplies — Payroll (Jul 2025),true
+2,2025-07-03,4983.53,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jul 2025),false
+2,2025-07-05,4298.3,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jul 2025),false
+2,2025-07-05,3080.0,Utilities,Harapan Agro Supplies — Utilities (Jul 2025),true
+2,2025-07-06,5698.47,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jul 2025),false
+2,2025-07-06,4973.13,Services - Digital,Harapan Agro Supplies — Services - Digital (Jul 2025),false
+2,2025-07-06,4288.4,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jul 2025),false
+2,2025-07-08,5345.71,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jul 2025),false
+2,2025-07-08,2813.81,Equipment,Harapan Agro Supplies — Equipment (Jul 2025),true
+2,2025-07-08,2369.4,Equipment,Harapan Agro Supplies — Equipment (Jul 2025),true
+2,2025-07-09,2495.01,Logistics,Harapan Agro Supplies — Logistics (Jul 2025),true
+2,2025-07-09,2744.05,Supplies,Harapan Agro Supplies — Supplies (Jul 2025),true
+2,2025-07-13,5539.16,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jul 2025),false
+2,2025-07-14,5445.37,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jul 2025),false
+2,2025-07-15,3099.7,Marketing,Harapan Agro Supplies — Marketing (Jul 2025),true
+2,2025-07-15,2806.21,Payroll,Harapan Agro Supplies — Payroll (Jul 2025),true
+2,2025-07-15,3025.76,Payroll,Harapan Agro Supplies — Payroll (Jul 2025),true
+2,2025-07-16,2571.28,Logistics,Harapan Agro Supplies — Logistics (Jul 2025),true
+2,2025-07-17,5286.73,Services - Digital,Harapan Agro Supplies — Services - Digital (Jul 2025),false
+2,2025-07-19,2738.04,Marketing,Harapan Agro Supplies — Marketing (Jul 2025),true
+2,2025-07-19,4809.91,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jul 2025),false
+2,2025-07-20,2810.93,Logistics,Harapan Agro Supplies — Logistics (Jul 2025),true
+2,2025-07-20,5114.84,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jul 2025),false
+2,2025-07-21,2700.89,Supplies,Harapan Agro Supplies — Supplies (Jul 2025),true
+2,2025-07-22,2627.33,Equipment,Harapan Agro Supplies — Equipment (Jul 2025),true
+2,2025-07-22,2860.65,Supplies,Harapan Agro Supplies — Supplies (Jul 2025),true
+2,2025-07-22,5224.67,Services - Digital,Harapan Agro Supplies — Services - Digital (Jul 2025),false
+2,2025-07-26,5459.32,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jul 2025),false
+2,2025-07-26,2377.59,Payroll,Harapan Agro Supplies — Payroll (Jul 2025),true
+2,2025-07-28,5532.46,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jul 2025),false
+2,2025-07-29,2489.08,Payroll,Harapan Agro Supplies — Payroll (Jul 2025),true
+2,2025-07-30,2852.48,Supplies,Harapan Agro Supplies — Supplies (Jul 2025),true
+2,2025-08-03,3004.98,Supplies,Harapan Agro Supplies — Supplies (Aug 2025),true
+2,2025-08-04,3088.47,Payroll,Harapan Agro Supplies — Payroll (Aug 2025),true
+2,2025-08-05,2523.12,Payroll,Harapan Agro Supplies — Payroll (Aug 2025),true
+2,2025-08-06,5582.19,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Aug 2025),false
+2,2025-08-08,2966.66,Marketing,Harapan Agro Supplies — Marketing (Aug 2025),true
+2,2025-08-09,5344.21,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Aug 2025),false
+2,2025-08-09,5666.01,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Aug 2025),false
+2,2025-08-10,5010.46,Services - Digital,Harapan Agro Supplies — Services - Digital (Aug 2025),false
+2,2025-08-11,2958.06,Supplies,Harapan Agro Supplies — Supplies (Aug 2025),true
+2,2025-08-13,2860.75,Digital / Software,Harapan Agro Supplies — Digital / Software (Aug 2025),true
+2,2025-08-15,2983.33,Equipment,Harapan Agro Supplies — Equipment (Aug 2025),true
+2,2025-08-16,4948.48,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Aug 2025),false
+2,2025-08-17,6093.98,Services - Digital,Harapan Agro Supplies — Services - Digital (Aug 2025),false
+2,2025-08-17,5729.12,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Aug 2025),false
+2,2025-08-22,2422.4,Logistics,Harapan Agro Supplies — Logistics (Aug 2025),true
+2,2025-08-22,2904.89,Utilities,Harapan Agro Supplies — Utilities (Aug 2025),true
+2,2025-08-24,2455.15,Utilities,Harapan Agro Supplies — Utilities (Aug 2025),true
+2,2025-08-24,3146.88,Logistics,Harapan Agro Supplies — Logistics (Aug 2025),true
+2,2025-08-25,2499.25,Payroll,Harapan Agro Supplies — Payroll (Aug 2025),true
+2,2025-08-26,5411.89,Services - Digital,Harapan Agro Supplies — Services - Digital (Aug 2025),false
+2,2025-08-26,3030.52,Digital / Software,Harapan Agro Supplies — Digital / Software (Aug 2025),true
+2,2025-08-27,5031.51,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Aug 2025),false
+2,2025-08-27,5187.29,Services - Digital,Harapan Agro Supplies — Services - Digital (Aug 2025),false
+2,2025-08-28,2976.49,Utilities,Harapan Agro Supplies — Utilities (Aug 2025),true
+2,2025-08-28,3094.82,Marketing,Harapan Agro Supplies — Marketing (Aug 2025),true
+2,2025-08-30,5315.78,Services - Digital,Harapan Agro Supplies — Services - Digital (Aug 2025),false
+2,2025-08-30,4881.18,Services - Digital,Harapan Agro Supplies — Services - Digital (Aug 2025),false
+2,2025-08-31,2532.3,Utilities,Harapan Agro Supplies — Utilities (Aug 2025),true
+2,2025-08-31,2374.67,Payroll,Harapan Agro Supplies — Payroll (Aug 2025),true
+2,2025-08-31,6002.76,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Aug 2025),false
+2,2025-08-31,2549.26,Equipment,Harapan Agro Supplies — Equipment (Aug 2025),true
+2,2025-08-31,5251.14,Services - Digital,Harapan Agro Supplies — Services - Digital (Aug 2025),false
+2,2025-09-01,6049.28,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Sep 2025),false
+2,2025-09-02,5698.63,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Sep 2025),false
+2,2025-09-03,2858.53,Utilities,Harapan Agro Supplies — Utilities (Sep 2025),true
+2,2025-09-03,5521.2,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Sep 2025),false
+2,2025-09-04,5041.35,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Sep 2025),false
+2,2025-09-05,2892.43,Payroll,Harapan Agro Supplies — Payroll (Sep 2025),true
+2,2025-09-07,2598.4,Digital / Software,Harapan Agro Supplies — Digital / Software (Sep 2025),true
+2,2025-09-07,2582.0,Marketing,Harapan Agro Supplies — Marketing (Sep 2025),true
+2,2025-09-07,5846.63,Services - Digital,Harapan Agro Supplies — Services - Digital (Sep 2025),false
+2,2025-09-07,2828.52,Equipment,Harapan Agro Supplies — Equipment (Sep 2025),true
+2,2025-09-07,5337.69,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Sep 2025),false
+2,2025-09-08,2889.58,Supplies,Harapan Agro Supplies — Supplies (Sep 2025),true
+2,2025-09-08,2728.71,Equipment,Harapan Agro Supplies — Equipment (Sep 2025),true
+2,2025-09-09,6343.99,Services - Digital,Harapan Agro Supplies — Services - Digital (Sep 2025),false
+2,2025-09-11,2818.95,Marketing,Harapan Agro Supplies — Marketing (Sep 2025),true
+2,2025-09-11,3286.94,Supplies,Harapan Agro Supplies — Supplies (Sep 2025),true
+2,2025-09-15,5098.74,Services - Digital,Harapan Agro Supplies — Services - Digital (Sep 2025),false
+2,2025-09-18,3286.69,Supplies,Harapan Agro Supplies — Supplies (Sep 2025),true
+2,2025-09-19,3235.63,Marketing,Harapan Agro Supplies — Marketing (Sep 2025),true
+2,2025-09-19,3109.54,Payroll,Harapan Agro Supplies — Payroll (Sep 2025),true
+2,2025-09-20,5526.18,Services - Digital,Harapan Agro Supplies — Services - Digital (Sep 2025),false
+2,2025-09-21,5986.71,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Sep 2025),false
+2,2025-09-21,5542.65,Services - Digital,Harapan Agro Supplies — Services - Digital (Sep 2025),false
+2,2025-09-22,6177.18,Services - Digital,Harapan Agro Supplies — Services - Digital (Sep 2025),false
+2,2025-09-25,3110.3,Payroll,Harapan Agro Supplies — Payroll (Sep 2025),true
+2,2025-09-26,2585.58,Payroll,Harapan Agro Supplies — Payroll (Sep 2025),true
+2,2025-09-26,2548.54,Utilities,Harapan Agro Supplies — Utilities (Sep 2025),true
+2,2025-09-27,2824.83,Equipment,Harapan Agro Supplies — Equipment (Sep 2025),true
+2,2025-09-27,3047.11,Logistics,Harapan Agro Supplies — Logistics (Sep 2025),true
+2,2025-09-27,5341.65,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Sep 2025),false
+2,2025-09-28,2550.14,Payroll,Harapan Agro Supplies — Payroll (Sep 2025),true
+2,2025-09-28,5566.01,Services - Digital,Harapan Agro Supplies — Services - Digital (Sep 2025),false
+2,2025-10-04,2944.08,Marketing,Harapan Agro Supplies — Marketing (Oct 2025),true
+2,2025-10-04,6220.17,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Oct 2025),false
+2,2025-10-04,6555.71,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Oct 2025),false
+2,2025-10-07,5877.06,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Oct 2025),false
+2,2025-10-08,3358.66,Utilities,Harapan Agro Supplies — Utilities (Oct 2025),true
+2,2025-10-09,2583.67,Digital / Software,Harapan Agro Supplies — Digital / Software (Oct 2025),true
+2,2025-10-11,2954.11,Payroll,Harapan Agro Supplies — Payroll (Oct 2025),true
+2,2025-10-11,2875.32,Digital / Software,Harapan Agro Supplies — Digital / Software (Oct 2025),true
+2,2025-10-11,3214.5,Digital / Software,Harapan Agro Supplies — Digital / Software (Oct 2025),true
+2,2025-10-12,2590.16,Digital / Software,Harapan Agro Supplies — Digital / Software (Oct 2025),true
+2,2025-10-13,2925.47,Digital / Software,Harapan Agro Supplies — Digital / Software (Oct 2025),true
+2,2025-10-14,3375.2,Equipment,Harapan Agro Supplies — Equipment (Oct 2025),true
+2,2025-10-14,3128.17,Digital / Software,Harapan Agro Supplies — Digital / Software (Oct 2025),true
+2,2025-10-14,6195.66,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Oct 2025),false
+2,2025-10-14,2556.89,Payroll,Harapan Agro Supplies — Payroll (Oct 2025),true
+2,2025-10-14,2974.53,Digital / Software,Harapan Agro Supplies — Digital / Software (Oct 2025),true
+2,2025-10-15,2615.28,Utilities,Harapan Agro Supplies — Utilities (Oct 2025),true
+2,2025-10-15,2981.83,Digital / Software,Harapan Agro Supplies — Digital / Software (Oct 2025),true
+2,2025-10-18,5092.15,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Oct 2025),false
+2,2025-10-21,6237.12,Services - Digital,Harapan Agro Supplies — Services - Digital (Oct 2025),false
+2,2025-10-21,5793.54,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Oct 2025),false
+2,2025-10-22,3326.92,Marketing,Harapan Agro Supplies — Marketing (Oct 2025),true
+2,2025-10-23,5341.98,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Oct 2025),false
+2,2025-10-24,2572.41,Payroll,Harapan Agro Supplies — Payroll (Oct 2025),true
+2,2025-10-24,5481.03,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Oct 2025),false
+2,2025-10-25,6353.79,Services - Digital,Harapan Agro Supplies — Services - Digital (Oct 2025),false
+2,2025-10-26,5889.31,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Oct 2025),false
+2,2025-10-27,3288.95,Equipment,Harapan Agro Supplies — Equipment (Oct 2025),true
+2,2025-10-28,6219.81,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Oct 2025),false
+2,2025-10-28,6561.72,Services - Digital,Harapan Agro Supplies — Services - Digital (Oct 2025),false
+2,2025-10-29,2966.17,Supplies,Harapan Agro Supplies — Supplies (Oct 2025),true
+2,2025-10-29,5054.58,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Oct 2025),false
+2,2025-11-02,2989.01,Utilities,Harapan Agro Supplies — Utilities (Nov 2025),true
+2,2025-11-02,2916.63,Payroll,Harapan Agro Supplies — Payroll (Nov 2025),true
+2,2025-11-03,3298.97,Equipment,Harapan Agro Supplies — Equipment (Nov 2025),true
+2,2025-11-03,3037.64,Logistics,Harapan Agro Supplies — Logistics (Nov 2025),true
+2,2025-11-05,3105.5,Payroll,Harapan Agro Supplies — Payroll (Nov 2025),true
+2,2025-11-06,2701.12,Supplies,Harapan Agro Supplies — Supplies (Nov 2025),true
+2,2025-11-06,6712.16,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Nov 2025),false
+2,2025-11-07,6603.79,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Nov 2025),false
+2,2025-11-09,3165.48,Marketing,Harapan Agro Supplies — Marketing (Nov 2025),true
+2,2025-11-10,5559.41,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Nov 2025),false
+2,2025-11-11,7109.94,Services - Digital,Harapan Agro Supplies — Services - Digital (Nov 2025),false
+2,2025-11-11,6125.52,Services - Digital,Harapan Agro Supplies — Services - Digital (Nov 2025),false
+2,2025-11-12,6014.4,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Nov 2025),false
+2,2025-11-13,6205.04,Services - Digital,Harapan Agro Supplies — Services - Digital (Nov 2025),false
+2,2025-11-14,2846.22,Equipment,Harapan Agro Supplies — Equipment (Nov 2025),true
+2,2025-11-14,5486.46,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Nov 2025),false
+2,2025-11-14,3153.81,Equipment,Harapan Agro Supplies — Equipment (Nov 2025),true
+2,2025-11-15,2622.39,Supplies,Harapan Agro Supplies — Supplies (Nov 2025),true
+2,2025-11-15,3214.27,Supplies,Harapan Agro Supplies — Supplies (Nov 2025),true
+2,2025-11-15,5475.46,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Nov 2025),false
+2,2025-11-16,3198.56,Equipment,Harapan Agro Supplies — Equipment (Nov 2025),true
+2,2025-11-17,7104.25,Services - Digital,Harapan Agro Supplies — Services - Digital (Nov 2025),false
+2,2025-11-19,6572.26,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Nov 2025),false
+2,2025-11-20,6086.0,Services - Digital,Harapan Agro Supplies — Services - Digital (Nov 2025),false
+2,2025-11-20,3231.21,Supplies,Harapan Agro Supplies — Supplies (Nov 2025),true
+2,2025-11-20,2803.07,Logistics,Harapan Agro Supplies — Logistics (Nov 2025),true
+2,2025-11-22,3105.94,Utilities,Harapan Agro Supplies — Utilities (Nov 2025),true
+2,2025-11-22,3109.81,Digital / Software,Harapan Agro Supplies — Digital / Software (Nov 2025),true
+2,2025-11-24,5427.84,Services - Digital,Harapan Agro Supplies — Services - Digital (Nov 2025),false
+2,2025-11-25,6369.03,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Nov 2025),false
+2,2025-11-25,2851.08,Utilities,Harapan Agro Supplies — Utilities (Nov 2025),true
+2,2025-11-29,3372.12,Payroll,Harapan Agro Supplies — Payroll (Nov 2025),true
+2,2025-12-03,7116.82,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Dec 2025),false
+2,2025-12-04,5833.88,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Dec 2025),false
+2,2025-12-04,2975.24,Marketing,Harapan Agro Supplies — Marketing (Dec 2025),true
+2,2025-12-05,3085.14,Digital / Software,Harapan Agro Supplies — Digital / Software (Dec 2025),true
+2,2025-12-05,3113.96,Supplies,Harapan Agro Supplies — Supplies (Dec 2025),true
+2,2025-12-05,3592.85,Logistics,Harapan Agro Supplies — Logistics (Dec 2025),true
+2,2025-12-06,6315.85,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Dec 2025),false
+2,2025-12-06,2952.98,Supplies,Harapan Agro Supplies — Supplies (Dec 2025),true
+2,2025-12-07,3284.53,Digital / Software,Harapan Agro Supplies — Digital / Software (Dec 2025),true
+2,2025-12-07,5757.42,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Dec 2025),false
+2,2025-12-08,2752.84,Utilities,Harapan Agro Supplies — Utilities (Dec 2025),true
+2,2025-12-08,7271.76,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Dec 2025),false
+2,2025-12-09,3061.64,Marketing,Harapan Agro Supplies — Marketing (Dec 2025),true
+2,2025-12-11,6295.43,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Dec 2025),false
+2,2025-12-11,5972.5,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Dec 2025),false
+2,2025-12-12,2896.81,Marketing,Harapan Agro Supplies — Marketing (Dec 2025),true
+2,2025-12-12,3207.54,Logistics,Harapan Agro Supplies — Logistics (Dec 2025),true
+2,2025-12-17,6956.4,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Dec 2025),false
+2,2025-12-17,6728.02,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Dec 2025),false
+2,2025-12-17,6542.86,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Dec 2025),false
+2,2025-12-20,3062.21,Marketing,Harapan Agro Supplies — Marketing (Dec 2025),true
+2,2025-12-21,7093.81,Services - Digital,Harapan Agro Supplies — Services - Digital (Dec 2025),false
+2,2025-12-21,3380.89,Marketing,Harapan Agro Supplies — Marketing (Dec 2025),true
+2,2025-12-24,3310.92,Equipment,Harapan Agro Supplies — Equipment (Dec 2025),true
+2,2025-12-25,2841.74,Payroll,Harapan Agro Supplies — Payroll (Dec 2025),true
+2,2025-12-25,3575.29,Equipment,Harapan Agro Supplies — Equipment (Dec 2025),true
+2,2025-12-25,6169.93,Services - Digital,Harapan Agro Supplies — Services - Digital (Dec 2025),false
+2,2025-12-25,6613.08,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Dec 2025),false
+2,2025-12-27,3054.68,Supplies,Harapan Agro Supplies — Supplies (Dec 2025),true
+2,2025-12-27,3091.7,Logistics,Harapan Agro Supplies — Logistics (Dec 2025),true
+2,2025-12-29,6352.68,Services - Digital,Harapan Agro Supplies — Services - Digital (Dec 2025),false
+2,2025-12-31,3014.11,Payroll,Harapan Agro Supplies — Payroll (Dec 2025),true
+2,2026-01-02,7329.74,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jan 2026),false
+2,2026-01-03,2986.07,Logistics,Harapan Agro Supplies — Logistics (Jan 2026),true
+2,2026-01-04,3646.65,Payroll,Harapan Agro Supplies — Payroll (Jan 2026),true
+2,2026-01-05,3627.84,Digital / Software,Harapan Agro Supplies — Digital / Software (Jan 2026),true
+2,2026-01-06,6915.96,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jan 2026),false
+2,2026-01-09,3624.51,Utilities,Harapan Agro Supplies — Utilities (Jan 2026),true
+2,2026-01-10,7112.08,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jan 2026),false
+2,2026-01-10,3266.7,Equipment,Harapan Agro Supplies — Equipment (Jan 2026),true
+2,2026-01-11,3064.22,Supplies,Harapan Agro Supplies — Supplies (Jan 2026),true
+2,2026-01-11,6735.53,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jan 2026),false
+2,2026-01-11,3328.27,Logistics,Harapan Agro Supplies — Logistics (Jan 2026),true
+2,2026-01-12,7148.56,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jan 2026),false
+2,2026-01-12,5967.69,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jan 2026),false
+2,2026-01-13,3079.29,Digital / Software,Harapan Agro Supplies — Digital / Software (Jan 2026),true
+2,2026-01-13,7122.85,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jan 2026),false
+2,2026-01-14,6506.4,Services - Digital,Harapan Agro Supplies — Services - Digital (Jan 2026),false
+2,2026-01-18,2797.76,Equipment,Harapan Agro Supplies — Equipment (Jan 2026),true
+2,2026-01-20,6854.53,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jan 2026),false
+2,2026-01-20,3290.32,Digital / Software,Harapan Agro Supplies — Digital / Software (Jan 2026),true
+2,2026-01-21,5915.8,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jan 2026),false
+2,2026-01-21,2747.34,Marketing,Harapan Agro Supplies — Marketing (Jan 2026),true
+2,2026-01-22,3279.86,Supplies,Harapan Agro Supplies — Supplies (Jan 2026),true
+2,2026-01-22,3581.27,Equipment,Harapan Agro Supplies — Equipment (Jan 2026),true
+2,2026-01-22,6875.89,Services - Digital,Harapan Agro Supplies — Services - Digital (Jan 2026),false
+2,2026-01-24,3418.47,Supplies,Harapan Agro Supplies — Supplies (Jan 2026),true
+2,2026-01-25,7448.49,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jan 2026),false
+2,2026-01-26,6859.87,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jan 2026),false
+2,2026-01-28,3191.14,Digital / Software,Harapan Agro Supplies — Digital / Software (Jan 2026),true
+2,2026-01-28,2750.61,Utilities,Harapan Agro Supplies — Utilities (Jan 2026),true
+2,2026-01-30,6596.03,Services - Digital,Harapan Agro Supplies — Services - Digital (Jan 2026),false
+2,2026-01-30,2891.49,Marketing,Harapan Agro Supplies — Marketing (Jan 2026),true
+2,2026-01-31,3258.4,Marketing,Harapan Agro Supplies — Marketing (Jan 2026),true
+2,2026-02-02,2929.27,Equipment,Harapan Agro Supplies — Equipment (Feb 2026),true
+2,2026-02-05,3637.32,Digital / Software,Harapan Agro Supplies — Digital / Software (Feb 2026),true
+2,2026-02-06,3275.81,Payroll,Harapan Agro Supplies — Payroll (Feb 2026),true
+2,2026-02-07,3502.26,Equipment,Harapan Agro Supplies — Equipment (Feb 2026),true
+2,2026-02-07,7916.05,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Feb 2026),false
+2,2026-02-08,6244.04,Services - Digital,Harapan Agro Supplies — Services - Digital (Feb 2026),false
+2,2026-02-08,6646.91,Services - Digital,Harapan Agro Supplies — Services - Digital (Feb 2026),false
+2,2026-02-09,3363.62,Logistics,Harapan Agro Supplies — Logistics (Feb 2026),true
+2,2026-02-10,6681.46,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Feb 2026),false
+2,2026-02-10,3529.23,Logistics,Harapan Agro Supplies — Logistics (Feb 2026),true
+2,2026-02-12,6597.0,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Feb 2026),false
+2,2026-02-13,3758.49,Equipment,Harapan Agro Supplies — Equipment (Feb 2026),true
+2,2026-02-14,3550.77,Marketing,Harapan Agro Supplies — Marketing (Feb 2026),true
+2,2026-02-15,7654.06,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Feb 2026),false
+2,2026-02-15,7353.77,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Feb 2026),false
+2,2026-02-16,6769.9,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Feb 2026),false
+2,2026-02-16,3457.36,Marketing,Harapan Agro Supplies — Marketing (Feb 2026),true
+2,2026-02-17,2929.95,Marketing,Harapan Agro Supplies — Marketing (Feb 2026),true
+2,2026-02-17,3068.05,Supplies,Harapan Agro Supplies — Supplies (Feb 2026),true
+2,2026-02-18,7170.36,Services - Digital,Harapan Agro Supplies — Services - Digital (Feb 2026),false
+2,2026-02-19,7608.88,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Feb 2026),false
+2,2026-02-20,3427.04,Marketing,Harapan Agro Supplies — Marketing (Feb 2026),true
+2,2026-02-21,2955.35,Logistics,Harapan Agro Supplies — Logistics (Feb 2026),true
+2,2026-02-22,6737.83,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Feb 2026),false
+2,2026-02-25,3113.09,Digital / Software,Harapan Agro Supplies — Digital / Software (Feb 2026),true
+2,2026-02-25,2966.29,Utilities,Harapan Agro Supplies — Utilities (Feb 2026),true
+2,2026-02-26,7413.29,Services - Digital,Harapan Agro Supplies — Services - Digital (Feb 2026),false
+2,2026-02-26,7978.38,Services - Digital,Harapan Agro Supplies — Services - Digital (Feb 2026),false
+2,2026-02-26,3294.29,Utilities,Harapan Agro Supplies — Utilities (Feb 2026),true
+2,2026-02-27,3307.27,Equipment,Harapan Agro Supplies — Equipment (Feb 2026),true
+2,2026-02-27,7196.18,Services - Digital,Harapan Agro Supplies — Services - Digital (Feb 2026),false
+2,2026-02-28,3384.0,Payroll,Harapan Agro Supplies — Payroll (Feb 2026),true
+2,2026-03-01,7240.71,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Mar 2026),false
+2,2026-03-01,3600.65,Marketing,Harapan Agro Supplies — Marketing (Mar 2026),true
+2,2026-03-01,7499.86,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Mar 2026),false
+2,2026-03-03,3005.58,Marketing,Harapan Agro Supplies — Marketing (Mar 2026),true
+2,2026-03-03,3155.34,Supplies,Harapan Agro Supplies — Supplies (Mar 2026),true
+2,2026-03-05,6876.15,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Mar 2026),false
+2,2026-03-06,3522.5,Payroll,Harapan Agro Supplies — Payroll (Mar 2026),true
+2,2026-03-08,6903.31,Services - Digital,Harapan Agro Supplies — Services - Digital (Mar 2026),false
+2,2026-03-08,7270.93,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Mar 2026),false
+2,2026-03-10,8276.37,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Mar 2026),false
+2,2026-03-12,3569.13,Utilities,Harapan Agro Supplies — Utilities (Mar 2026),true
+2,2026-03-12,6763.79,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Mar 2026),false
+2,2026-03-13,3398.93,Digital / Software,Harapan Agro Supplies — Digital / Software (Mar 2026),true
+2,2026-03-14,6598.45,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Mar 2026),false
+2,2026-03-14,3713.85,Logistics,Harapan Agro Supplies — Logistics (Mar 2026),true
+2,2026-03-17,3318.88,Logistics,Harapan Agro Supplies — Logistics (Mar 2026),true
+2,2026-03-17,3704.33,Supplies,Harapan Agro Supplies — Supplies (Mar 2026),true
+2,2026-03-17,2945.34,Marketing,Harapan Agro Supplies — Marketing (Mar 2026),true
+2,2026-03-17,3709.59,Supplies,Harapan Agro Supplies — Supplies (Mar 2026),true
+2,2026-03-17,8144.84,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Mar 2026),false
+2,2026-03-18,8207.32,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Mar 2026),false
+2,2026-03-18,3420.21,Logistics,Harapan Agro Supplies — Logistics (Mar 2026),true
+2,2026-03-18,2870.54,Digital / Software,Harapan Agro Supplies — Digital / Software (Mar 2026),true
+2,2026-03-19,3806.53,Supplies,Harapan Agro Supplies — Supplies (Mar 2026),true
+2,2026-03-19,8156.52,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Mar 2026),false
+2,2026-03-20,8367.37,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Mar 2026),false
+2,2026-03-21,6499.36,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Mar 2026),false
+2,2026-03-22,3665.52,Utilities,Harapan Agro Supplies — Utilities (Mar 2026),true
+2,2026-03-22,3004.38,Payroll,Harapan Agro Supplies — Payroll (Mar 2026),true
+2,2026-03-23,7961.6,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Mar 2026),false
+2,2026-03-26,3124.03,Supplies,Harapan Agro Supplies — Supplies (Mar 2026),true
+2,2026-03-31,3578.71,Equipment,Harapan Agro Supplies — Equipment (Mar 2026),true
+2,2026-04-02,3932.56,Marketing,Harapan Agro Supplies — Marketing (Apr 2026),true
+2,2026-04-02,3566.57,Marketing,Harapan Agro Supplies — Marketing (Apr 2026),true
+2,2026-04-03,7444.81,Services - Digital,Harapan Agro Supplies — Services - Digital (Apr 2026),false
+2,2026-04-04,7024.51,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Apr 2026),false
+2,2026-04-06,7797.75,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Apr 2026),false
+2,2026-04-06,3203.65,Marketing,Harapan Agro Supplies — Marketing (Apr 2026),true
+2,2026-04-09,3343.57,Equipment,Harapan Agro Supplies — Equipment (Apr 2026),true
+2,2026-04-10,8693.22,Services - Digital,Harapan Agro Supplies — Services - Digital (Apr 2026),false
+2,2026-04-10,8270.0,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Apr 2026),false
+2,2026-04-10,8670.55,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Apr 2026),false
+2,2026-04-11,7725.62,Services - Digital,Harapan Agro Supplies — Services - Digital (Apr 2026),false
+2,2026-04-11,8452.1,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Apr 2026),false
+2,2026-04-12,3537.36,Marketing,Harapan Agro Supplies — Marketing (Apr 2026),true
+2,2026-04-12,3370.03,Payroll,Harapan Agro Supplies — Payroll (Apr 2026),true
+2,2026-04-14,3039.22,Marketing,Harapan Agro Supplies — Marketing (Apr 2026),true
+2,2026-04-14,3907.52,Supplies,Harapan Agro Supplies — Supplies (Apr 2026),true
+2,2026-04-15,7183.97,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Apr 2026),false
+2,2026-04-15,3978.9,Utilities,Harapan Agro Supplies — Utilities (Apr 2026),true
+2,2026-04-15,4037.79,Equipment,Harapan Agro Supplies — Equipment (Apr 2026),true
+2,2026-04-18,7764.87,Services - Digital,Harapan Agro Supplies — Services - Digital (Apr 2026),false
+2,2026-04-20,7714.0,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Apr 2026),false
+2,2026-04-20,8975.69,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Apr 2026),false
+2,2026-04-20,3817.78,Logistics,Harapan Agro Supplies — Logistics (Apr 2026),true
+2,2026-04-21,3124.43,Marketing,Harapan Agro Supplies — Marketing (Apr 2026),true
+2,2026-04-22,7111.94,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Apr 2026),false
+2,2026-04-23,3037.21,Payroll,Harapan Agro Supplies — Payroll (Apr 2026),true
+2,2026-04-23,3302.92,Equipment,Harapan Agro Supplies — Equipment (Apr 2026),true
+2,2026-04-24,3260.53,Payroll,Harapan Agro Supplies — Payroll (Apr 2026),true
+2,2026-04-26,3381.7,Supplies,Harapan Agro Supplies — Supplies (Apr 2026),true
+2,2026-04-27,6966.34,Services - Digital,Harapan Agro Supplies — Services - Digital (Apr 2026),false
+2,2026-04-28,3788.67,Logistics,Harapan Agro Supplies — Logistics (Apr 2026),true
+2,2026-04-30,3194.82,Digital / Software,Harapan Agro Supplies — Digital / Software (Apr 2026),true
+2,2026-05-01,3336.32,Supplies,Harapan Agro Supplies — Supplies (May 2026),true
+2,2026-05-03,3597.76,Payroll,Harapan Agro Supplies — Payroll (May 2026),true
+2,2026-05-03,4058.0,Payroll,Harapan Agro Supplies — Payroll (May 2026),true
+2,2026-05-04,7122.21,Sales - Retail,Harapan Agro Supplies — Sales - Retail (May 2026),false
+2,2026-05-05,3549.15,Supplies,Harapan Agro Supplies — Supplies (May 2026),true
+2,2026-05-05,7945.47,Services - Digital,Harapan Agro Supplies — Services - Digital (May 2026),false
+2,2026-05-06,8722.92,Services - Digital,Harapan Agro Supplies — Services - Digital (May 2026),false
+2,2026-05-07,7202.75,Services - Digital,Harapan Agro Supplies — Services - Digital (May 2026),false
+2,2026-05-08,7986.48,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (May 2026),false
+2,2026-05-08,8975.96,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (May 2026),false
+2,2026-05-10,3198.91,Logistics,Harapan Agro Supplies — Logistics (May 2026),true
+2,2026-05-12,7390.35,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (May 2026),false
+2,2026-05-12,3188.97,Logistics,Harapan Agro Supplies — Logistics (May 2026),true
+2,2026-05-12,3484.99,Payroll,Harapan Agro Supplies — Payroll (May 2026),true
+2,2026-05-13,3989.11,Utilities,Harapan Agro Supplies — Utilities (May 2026),true
+2,2026-05-15,3674.03,Equipment,Harapan Agro Supplies — Equipment (May 2026),true
+2,2026-05-16,3769.14,Marketing,Harapan Agro Supplies — Marketing (May 2026),true
+2,2026-05-17,8544.53,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (May 2026),false
+2,2026-05-18,3862.33,Equipment,Harapan Agro Supplies — Equipment (May 2026),true
+2,2026-05-18,3347.88,Equipment,Harapan Agro Supplies — Equipment (May 2026),true
+2,2026-05-19,3606.25,Logistics,Harapan Agro Supplies — Logistics (May 2026),true
+2,2026-05-20,4144.45,Digital / Software,Harapan Agro Supplies — Digital / Software (May 2026),true
+2,2026-05-21,9025.09,Sales - Retail,Harapan Agro Supplies — Sales - Retail (May 2026),false
+2,2026-05-23,7222.14,Services - Digital,Harapan Agro Supplies — Services - Digital (May 2026),false
+2,2026-05-23,3555.38,Equipment,Harapan Agro Supplies — Equipment (May 2026),true
+2,2026-05-23,7937.97,Services - Digital,Harapan Agro Supplies — Services - Digital (May 2026),false
+2,2026-05-26,3496.94,Equipment,Harapan Agro Supplies — Equipment (May 2026),true
+2,2026-05-26,8969.02,Sales - Retail,Harapan Agro Supplies — Sales - Retail (May 2026),false
+2,2026-05-26,3349.49,Payroll,Harapan Agro Supplies — Payroll (May 2026),true
+2,2026-05-26,9401.78,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (May 2026),false
+2,2026-05-29,3375.24,Digital / Software,Harapan Agro Supplies — Digital / Software (May 2026),true
+2,2026-05-30,8618.88,Sales - Retail,Harapan Agro Supplies — Sales - Retail (May 2026),false
+2,2026-06-02,3203.15,Supplies,Harapan Agro Supplies — Supplies (Jun 2026),true
+2,2026-06-03,3687.15,Logistics,Harapan Agro Supplies — Logistics (Jun 2026),true
+2,2026-06-05,3755.07,Logistics,Harapan Agro Supplies — Logistics (Jun 2026),true
+2,2026-06-06,3332.33,Supplies,Harapan Agro Supplies — Supplies (Jun 2026),true
+2,2026-06-07,3219.17,Payroll,Harapan Agro Supplies — Payroll (Jun 2026),true
+2,2026-06-08,8799.79,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jun 2026),false
+2,2026-06-10,7281.1,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jun 2026),false
+2,2026-06-10,8705.19,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jun 2026),false
+2,2026-06-10,7552.12,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jun 2026),false
+2,2026-06-11,3821.44,Equipment,Harapan Agro Supplies — Equipment (Jun 2026),true
+2,2026-06-11,3487.76,Equipment,Harapan Agro Supplies — Equipment (Jun 2026),true
+2,2026-06-11,3304.72,Digital / Software,Harapan Agro Supplies — Digital / Software (Jun 2026),true
+2,2026-06-13,8698.81,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jun 2026),false
+2,2026-06-14,3418.28,Equipment,Harapan Agro Supplies — Equipment (Jun 2026),true
+2,2026-06-15,4158.56,Supplies,Harapan Agro Supplies — Supplies (Jun 2026),true
+2,2026-06-15,3792.23,Digital / Software,Harapan Agro Supplies — Digital / Software (Jun 2026),true
+2,2026-06-15,4168.31,Supplies,Harapan Agro Supplies — Supplies (Jun 2026),true
+2,2026-06-16,3803.88,Logistics,Harapan Agro Supplies — Logistics (Jun 2026),true
+2,2026-06-16,8896.87,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jun 2026),false
+2,2026-06-16,8223.39,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jun 2026),false
+2,2026-06-18,9158.52,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jun 2026),false
+2,2026-06-20,3767.35,Utilities,Harapan Agro Supplies — Utilities (Jun 2026),true
+2,2026-06-21,9022.84,Services - Digital,Harapan Agro Supplies — Services - Digital (Jun 2026),false
+2,2026-06-21,9531.81,Services - Digital,Harapan Agro Supplies — Services - Digital (Jun 2026),false
+2,2026-06-22,9050.63,Services - Digital,Harapan Agro Supplies — Services - Digital (Jun 2026),false
+2,2026-06-23,3428.84,Logistics,Harapan Agro Supplies — Logistics (Jun 2026),true
+2,2026-06-23,4108.53,Digital / Software,Harapan Agro Supplies — Digital / Software (Jun 2026),true
+2,2026-06-24,4132.65,Supplies,Harapan Agro Supplies — Supplies (Jun 2026),true
+2,2026-06-26,7959.26,Sales - Retail,Harapan Agro Supplies — Sales - Retail (Jun 2026),false
+2,2026-06-26,9295.33,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jun 2026),false
+2,2026-06-28,3803.28,Marketing,Harapan Agro Supplies — Marketing (Jun 2026),true
+2,2026-06-29,8413.04,Sales - Wholesale,Harapan Agro Supplies — Sales - Wholesale (Jun 2026),false
+3,2025-07-02,3137.81,Utilities,Urban Digital Services — Utilities (Jul 2025),true
+3,2025-07-02,2941.76,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-02,3487.53,Payroll,Urban Digital Services — Payroll (Jul 2025),true
+3,2025-07-04,7889.59,Sales - Retail,Urban Digital Services — Sales - Retail (Jul 2025),false
+3,2025-07-04,6672.91,Services - Digital,Urban Digital Services — Services - Digital (Jul 2025),false
+3,2025-07-05,2938.27,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-05,3028.81,Payroll,Urban Digital Services — Payroll (Jul 2025),true
+3,2025-07-05,7801.56,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-05,3179.28,Payroll,Urban Digital Services — Payroll (Jul 2025),true
+3,2025-07-05,6562.77,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-07,7633.87,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-11,6348.81,Sales - Retail,Urban Digital Services — Sales - Retail (Jul 2025),false
+3,2025-07-11,3752.42,Marketing,Urban Digital Services — Marketing (Jul 2025),true
+3,2025-07-12,6912.95,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-12,6140.57,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-13,3293.49,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-13,7420.19,Services - Digital,Urban Digital Services — Services - Digital (Jul 2025),false
+3,2025-07-15,3001.82,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-16,3183.77,Marketing,Urban Digital Services — Marketing (Jul 2025),true
+3,2025-07-17,2984.01,Supplies,Urban Digital Services — Supplies (Jul 2025),true
+3,2025-07-17,2900.44,Logistics,Urban Digital Services — Logistics (Jul 2025),true
+3,2025-07-17,3303.71,Equipment,Urban Digital Services — Equipment (Jul 2025),true
+3,2025-07-17,3358.81,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-18,6102.68,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-20,6713.01,Sales - Retail,Urban Digital Services — Sales - Retail (Jul 2025),false
+3,2025-07-20,3162.05,Logistics,Urban Digital Services — Logistics (Jul 2025),true
+3,2025-07-23,3502.0,Supplies,Urban Digital Services — Supplies (Jul 2025),true
+3,2025-07-25,5954.2,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-26,3578.56,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-26,6068.94,Sales - Retail,Urban Digital Services — Sales - Retail (Jul 2025),false
+3,2025-07-29,3265.46,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-31,6777.95,Services - Digital,Urban Digital Services — Services - Digital (Jul 2025),false
+3,2025-08-07,3539.52,Marketing,Urban Digital Services — Marketing (Aug 2025),true
+3,2025-08-07,3017.22,Equipment,Urban Digital Services — Equipment (Aug 2025),true
+3,2025-08-08,2877.66,Utilities,Urban Digital Services — Utilities (Aug 2025),true
+3,2025-08-08,3468.44,Supplies,Urban Digital Services — Supplies (Aug 2025),true
+3,2025-08-09,3690.86,Equipment,Urban Digital Services — Equipment (Aug 2025),true
+3,2025-08-09,7470.74,Sales - Retail,Urban Digital Services — Sales - Retail (Aug 2025),false
+3,2025-08-10,3161.03,Marketing,Urban Digital Services — Marketing (Aug 2025),true
+3,2025-08-10,2956.33,Payroll,Urban Digital Services — Payroll (Aug 2025),true
+3,2025-08-10,3529.7,Digital / Software,Urban Digital Services — Digital / Software (Aug 2025),true
+3,2025-08-11,6381.58,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Aug 2025),false
+3,2025-08-12,7610.29,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-16,3432.07,Logistics,Urban Digital Services — Logistics (Aug 2025),true
+3,2025-08-16,3770.55,Marketing,Urban Digital Services — Marketing (Aug 2025),true
+3,2025-08-18,8145.59,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-18,2994.38,Utilities,Urban Digital Services — Utilities (Aug 2025),true
+3,2025-08-18,7341.36,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-20,3570.56,Logistics,Urban Digital Services — Logistics (Aug 2025),true
+3,2025-08-21,6674.03,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-22,7545.15,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Aug 2025),false
+3,2025-08-22,6672.85,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-23,6820.09,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-23,3624.37,Utilities,Urban Digital Services — Utilities (Aug 2025),true
+3,2025-08-23,3258.15,Payroll,Urban Digital Services — Payroll (Aug 2025),true
+3,2025-08-23,2998.05,Digital / Software,Urban Digital Services — Digital / Software (Aug 2025),true
+3,2025-08-24,7169.4,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Aug 2025),false
+3,2025-08-25,6751.96,Sales - Retail,Urban Digital Services — Sales - Retail (Aug 2025),false
+3,2025-08-25,2864.97,Equipment,Urban Digital Services — Equipment (Aug 2025),true
+3,2025-08-26,7773.1,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-28,7799.81,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-30,6734.05,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Aug 2025),false
+3,2025-08-31,3798.37,Digital / Software,Urban Digital Services — Digital / Software (Aug 2025),true
+3,2025-08-31,3477.77,Equipment,Urban Digital Services — Equipment (Aug 2025),true
+3,2025-09-01,3692.84,Supplies,Urban Digital Services — Supplies (Sep 2025),true
+3,2025-09-02,8470.66,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Sep 2025),false
+3,2025-09-02,3473.46,Logistics,Urban Digital Services — Logistics (Sep 2025),true
+3,2025-09-02,7024.24,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-04,3143.04,Digital / Software,Urban Digital Services — Digital / Software (Sep 2025),true
+3,2025-09-06,6645.17,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Sep 2025),false
+3,2025-09-06,3228.51,Utilities,Urban Digital Services — Utilities (Sep 2025),true
+3,2025-09-06,8211.34,Sales - Retail,Urban Digital Services — Sales - Retail (Sep 2025),false
+3,2025-09-10,3121.53,Equipment,Urban Digital Services — Equipment (Sep 2025),true
+3,2025-09-10,3082.37,Equipment,Urban Digital Services — Equipment (Sep 2025),true
+3,2025-09-11,3902.4,Equipment,Urban Digital Services — Equipment (Sep 2025),true
+3,2025-09-13,3262.49,Marketing,Urban Digital Services — Marketing (Sep 2025),true
+3,2025-09-14,7892.59,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-16,3755.57,Equipment,Urban Digital Services — Equipment (Sep 2025),true
+3,2025-09-19,3990.54,Digital / Software,Urban Digital Services — Digital / Software (Sep 2025),true
+3,2025-09-20,4004.61,Utilities,Urban Digital Services — Utilities (Sep 2025),true
+3,2025-09-24,3928.2,Payroll,Urban Digital Services — Payroll (Sep 2025),true
+3,2025-09-26,3091.86,Marketing,Urban Digital Services — Marketing (Sep 2025),true
+3,2025-09-27,8575.13,Sales - Retail,Urban Digital Services — Sales - Retail (Sep 2025),false
+3,2025-09-27,7017.88,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-28,7084.02,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-28,3214.21,Payroll,Urban Digital Services — Payroll (Sep 2025),true
+3,2025-09-29,3324.14,Supplies,Urban Digital Services — Supplies (Sep 2025),true
+3,2025-09-29,7224.91,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Sep 2025),false
+3,2025-09-30,3030.43,Logistics,Urban Digital Services — Logistics (Sep 2025),true
+3,2025-09-30,8180.4,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Sep 2025),false
+3,2025-09-30,8517.68,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-30,6986.02,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-30,8159.69,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Sep 2025),false
+3,2025-09-30,3663.11,Equipment,Urban Digital Services — Equipment (Sep 2025),true
+3,2025-09-30,7155.45,Sales - Retail,Urban Digital Services — Sales - Retail (Sep 2025),false
+3,2025-09-30,3221.74,Payroll,Urban Digital Services — Payroll (Sep 2025),true
+3,2025-10-02,3821.41,Marketing,Urban Digital Services — Marketing (Oct 2025),true
+3,2025-10-03,3099.99,Supplies,Urban Digital Services — Supplies (Oct 2025),true
+3,2025-10-03,3717.82,Utilities,Urban Digital Services — Utilities (Oct 2025),true
+3,2025-10-04,3350.46,Utilities,Urban Digital Services — Utilities (Oct 2025),true
+3,2025-10-07,8083.76,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Oct 2025),false
+3,2025-10-08,7414.14,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Oct 2025),false
+3,2025-10-12,3728.28,Utilities,Urban Digital Services — Utilities (Oct 2025),true
+3,2025-10-14,7655.66,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Oct 2025),false
+3,2025-10-15,3580.14,Payroll,Urban Digital Services — Payroll (Oct 2025),true
+3,2025-10-16,9261.48,Sales - Retail,Urban Digital Services — Sales - Retail (Oct 2025),false
+3,2025-10-17,3383.96,Payroll,Urban Digital Services — Payroll (Oct 2025),true
+3,2025-10-17,3511.2,Equipment,Urban Digital Services — Equipment (Oct 2025),true
+3,2025-10-18,8290.97,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-18,3266.86,Digital / Software,Urban Digital Services — Digital / Software (Oct 2025),true
+3,2025-10-18,8106.12,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-19,3484.98,Marketing,Urban Digital Services — Marketing (Oct 2025),true
+3,2025-10-20,4164.03,Logistics,Urban Digital Services — Logistics (Oct 2025),true
+3,2025-10-22,8765.63,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-22,7233.54,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Oct 2025),false
+3,2025-10-23,9385.58,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-23,3452.32,Digital / Software,Urban Digital Services — Digital / Software (Oct 2025),true
+3,2025-10-25,7588.64,Sales - Retail,Urban Digital Services — Sales - Retail (Oct 2025),false
+3,2025-10-25,3196.65,Equipment,Urban Digital Services — Equipment (Oct 2025),true
+3,2025-10-25,9046.64,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-26,7430.38,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Oct 2025),false
+3,2025-10-26,4113.97,Equipment,Urban Digital Services — Equipment (Oct 2025),true
+3,2025-10-27,7355.94,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-27,3600.51,Equipment,Urban Digital Services — Equipment (Oct 2025),true
+3,2025-10-28,3613.67,Payroll,Urban Digital Services — Payroll (Oct 2025),true
+3,2025-10-29,3841.37,Payroll,Urban Digital Services — Payroll (Oct 2025),true
+3,2025-10-30,3378.02,Utilities,Urban Digital Services — Utilities (Oct 2025),true
+3,2025-10-30,8169.7,Sales - Retail,Urban Digital Services — Sales - Retail (Oct 2025),false
+3,2025-11-01,9049.75,Services - Digital,Urban Digital Services — Services - Digital (Nov 2025),false
+3,2025-11-01,8399.9,Services - Digital,Urban Digital Services — Services - Digital (Nov 2025),false
+3,2025-11-02,4121.24,Utilities,Urban Digital Services — Utilities (Nov 2025),true
+3,2025-11-04,3891.48,Supplies,Urban Digital Services — Supplies (Nov 2025),true
+3,2025-11-05,4138.32,Equipment,Urban Digital Services — Equipment (Nov 2025),true
+3,2025-11-07,3138.08,Digital / Software,Urban Digital Services — Digital / Software (Nov 2025),true
+3,2025-11-08,3112.42,Marketing,Urban Digital Services — Marketing (Nov 2025),true
+3,2025-11-08,8741.81,Sales - Retail,Urban Digital Services — Sales - Retail (Nov 2025),false
+3,2025-11-09,4073.94,Logistics,Urban Digital Services — Logistics (Nov 2025),true
+3,2025-11-10,8910.63,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Nov 2025),false
+3,2025-11-12,3132.39,Equipment,Urban Digital Services — Equipment (Nov 2025),true
+3,2025-11-13,8732.85,Sales - Retail,Urban Digital Services — Sales - Retail (Nov 2025),false
+3,2025-11-14,4136.95,Digital / Software,Urban Digital Services — Digital / Software (Nov 2025),true
+3,2025-11-14,8884.15,Sales - Retail,Urban Digital Services — Sales - Retail (Nov 2025),false
+3,2025-11-15,3435.96,Supplies,Urban Digital Services — Supplies (Nov 2025),true
+3,2025-11-15,7836.94,Services - Digital,Urban Digital Services — Services - Digital (Nov 2025),false
+3,2025-11-18,9676.77,Services - Digital,Urban Digital Services — Services - Digital (Nov 2025),false
+3,2025-11-18,7769.72,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Nov 2025),false
+3,2025-11-20,3477.0,Utilities,Urban Digital Services — Utilities (Nov 2025),true
+3,2025-11-22,8073.84,Sales - Retail,Urban Digital Services — Sales - Retail (Nov 2025),false
+3,2025-11-22,3517.96,Marketing,Urban Digital Services — Marketing (Nov 2025),true
+3,2025-11-24,9077.5,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Nov 2025),false
+3,2025-11-24,3505.53,Logistics,Urban Digital Services — Logistics (Nov 2025),true
+3,2025-11-25,4003.7,Equipment,Urban Digital Services — Equipment (Nov 2025),true
+3,2025-11-25,7926.25,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Nov 2025),false
+3,2025-11-25,3894.88,Payroll,Urban Digital Services — Payroll (Nov 2025),true
+3,2025-11-26,3761.79,Digital / Software,Urban Digital Services — Digital / Software (Nov 2025),true
+3,2025-11-27,8871.16,Sales - Retail,Urban Digital Services — Sales - Retail (Nov 2025),false
+3,2025-11-27,8891.78,Services - Digital,Urban Digital Services — Services - Digital (Nov 2025),false
+3,2025-11-29,3097.76,Equipment,Urban Digital Services — Equipment (Nov 2025),true
+3,2025-11-30,4073.07,Utilities,Urban Digital Services — Utilities (Nov 2025),true
+3,2025-11-30,4043.86,Utilities,Urban Digital Services — Utilities (Nov 2025),true
+3,2025-12-02,3954.93,Utilities,Urban Digital Services — Utilities (Dec 2025),true
+3,2025-12-02,3627.37,Utilities,Urban Digital Services — Utilities (Dec 2025),true
+3,2025-12-03,10137.67,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-03,3708.2,Marketing,Urban Digital Services — Marketing (Dec 2025),true
+3,2025-12-03,8744.51,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Dec 2025),false
+3,2025-12-07,8410.93,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-07,4056.99,Supplies,Urban Digital Services — Supplies (Dec 2025),true
+3,2025-12-07,3788.88,Marketing,Urban Digital Services — Marketing (Dec 2025),true
+3,2025-12-08,8166.56,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Dec 2025),false
+3,2025-12-09,8712.44,Sales - Retail,Urban Digital Services — Sales - Retail (Dec 2025),false
+3,2025-12-09,3955.94,Logistics,Urban Digital Services — Logistics (Dec 2025),true
+3,2025-12-11,8217.96,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-12,8793.44,Sales - Retail,Urban Digital Services — Sales - Retail (Dec 2025),false
+3,2025-12-13,10654.99,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-13,3996.72,Utilities,Urban Digital Services — Utilities (Dec 2025),true
+3,2025-12-15,10244.46,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-18,3520.86,Utilities,Urban Digital Services — Utilities (Dec 2025),true
+3,2025-12-18,10597.58,Sales - Retail,Urban Digital Services — Sales - Retail (Dec 2025),false
+3,2025-12-19,4118.83,Marketing,Urban Digital Services — Marketing (Dec 2025),true
+3,2025-12-20,3510.66,Logistics,Urban Digital Services — Logistics (Dec 2025),true
+3,2025-12-20,4098.34,Equipment,Urban Digital Services — Equipment (Dec 2025),true
+3,2025-12-21,9835.25,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Dec 2025),false
+3,2025-12-22,4164.23,Payroll,Urban Digital Services — Payroll (Dec 2025),true
+3,2025-12-22,3656.24,Digital / Software,Urban Digital Services — Digital / Software (Dec 2025),true
+3,2025-12-24,8283.49,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-24,3782.7,Digital / Software,Urban Digital Services — Digital / Software (Dec 2025),true
+3,2025-12-25,3918.3,Marketing,Urban Digital Services — Marketing (Dec 2025),true
+3,2025-12-26,3751.07,Digital / Software,Urban Digital Services — Digital / Software (Dec 2025),true
+3,2025-12-27,3914.55,Digital / Software,Urban Digital Services — Digital / Software (Dec 2025),true
+3,2025-12-28,3361.0,Logistics,Urban Digital Services — Logistics (Dec 2025),true
+3,2025-12-28,9274.8,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Dec 2025),false
+3,2025-12-30,8261.24,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2026-01-01,4290.16,Marketing,Urban Digital Services — Marketing (Jan 2026),true
+3,2026-01-02,3959.81,Utilities,Urban Digital Services — Utilities (Jan 2026),true
+3,2026-01-02,3455.38,Logistics,Urban Digital Services — Logistics (Jan 2026),true
+3,2026-01-02,10134.79,Services - Digital,Urban Digital Services — Services - Digital (Jan 2026),false
+3,2026-01-03,3635.98,Utilities,Urban Digital Services — Utilities (Jan 2026),true
+3,2026-01-03,4314.61,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-05,4084.38,Logistics,Urban Digital Services — Logistics (Jan 2026),true
+3,2026-01-05,4064.59,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-05,10717.2,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-06,8662.76,Services - Digital,Urban Digital Services — Services - Digital (Jan 2026),false
+3,2026-01-06,8716.82,Services - Digital,Urban Digital Services — Services - Digital (Jan 2026),false
+3,2026-01-08,3754.8,Marketing,Urban Digital Services — Marketing (Jan 2026),true
+3,2026-01-12,8740.11,Sales - Retail,Urban Digital Services — Sales - Retail (Jan 2026),false
+3,2026-01-14,3419.98,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-16,8725.18,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-17,9254.74,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-18,10722.82,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-18,10279.66,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-21,4264.66,Marketing,Urban Digital Services — Marketing (Jan 2026),true
+3,2026-01-21,10738.42,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-22,3776.08,Payroll,Urban Digital Services — Payroll (Jan 2026),true
+3,2026-01-23,3676.58,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-24,8987.01,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-25,4437.58,Logistics,Urban Digital Services — Logistics (Jan 2026),true
+3,2026-01-27,3644.31,Payroll,Urban Digital Services — Payroll (Jan 2026),true
+3,2026-01-27,4101.46,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-27,4364.04,Marketing,Urban Digital Services — Marketing (Jan 2026),true
+3,2026-01-28,4267.55,Digital / Software,Urban Digital Services — Digital / Software (Jan 2026),true
+3,2026-01-29,10258.31,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-30,10242.83,Services - Digital,Urban Digital Services — Services - Digital (Jan 2026),false
+3,2026-01-31,3784.86,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-31,10111.46,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-02-01,3819.48,Equipment,Urban Digital Services — Equipment (Feb 2026),true
+3,2026-02-02,8995.86,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-02,10911.85,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-02-03,4531.99,Digital / Software,Urban Digital Services — Digital / Software (Feb 2026),true
+3,2026-02-03,11066.52,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Feb 2026),false
+3,2026-02-05,3604.85,Marketing,Urban Digital Services — Marketing (Feb 2026),true
+3,2026-02-06,4734.51,Supplies,Urban Digital Services — Supplies (Feb 2026),true
+3,2026-02-06,10632.29,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-07,3945.76,Utilities,Urban Digital Services — Utilities (Feb 2026),true
+3,2026-02-08,3546.26,Supplies,Urban Digital Services — Supplies (Feb 2026),true
+3,2026-02-09,10486.18,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-09,10138.37,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-02-10,3606.82,Logistics,Urban Digital Services — Logistics (Feb 2026),true
+3,2026-02-11,12048.96,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-02-13,4295.18,Equipment,Urban Digital Services — Equipment (Feb 2026),true
+3,2026-02-13,3878.34,Payroll,Urban Digital Services — Payroll (Feb 2026),true
+3,2026-02-16,10557.41,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-02-18,10500.88,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-19,4008.68,Utilities,Urban Digital Services — Utilities (Feb 2026),true
+3,2026-02-19,4490.99,Supplies,Urban Digital Services — Supplies (Feb 2026),true
+3,2026-02-19,4311.46,Digital / Software,Urban Digital Services — Digital / Software (Feb 2026),true
+3,2026-02-19,8987.29,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-19,8979.29,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-02-22,10702.57,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-22,10907.69,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-23,3808.08,Equipment,Urban Digital Services — Equipment (Feb 2026),true
+3,2026-02-25,4694.44,Logistics,Urban Digital Services — Logistics (Feb 2026),true
+3,2026-02-27,3973.89,Utilities,Urban Digital Services — Utilities (Feb 2026),true
+3,2026-02-27,4075.18,Marketing,Urban Digital Services — Marketing (Feb 2026),true
+3,2026-02-27,4370.06,Logistics,Urban Digital Services — Logistics (Feb 2026),true
+3,2026-02-28,4096.23,Logistics,Urban Digital Services — Logistics (Feb 2026),true
+3,2026-02-28,9827.06,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-03-01,11205.64,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-03,9670.76,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-03,4674.62,Payroll,Urban Digital Services — Payroll (Mar 2026),true
+3,2026-03-05,4536.26,Supplies,Urban Digital Services — Supplies (Mar 2026),true
+3,2026-03-05,4751.03,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-06,4516.26,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-06,4596.17,Utilities,Urban Digital Services — Utilities (Mar 2026),true
+3,2026-03-06,4121.23,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-08,9662.76,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-09,3713.71,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-09,3908.68,Supplies,Urban Digital Services — Supplies (Mar 2026),true
+3,2026-03-09,4639.89,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-10,10685.14,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-10,3814.25,Marketing,Urban Digital Services — Marketing (Mar 2026),true
+3,2026-03-10,4177.8,Logistics,Urban Digital Services — Logistics (Mar 2026),true
+3,2026-03-13,11658.9,Services - Digital,Urban Digital Services — Services - Digital (Mar 2026),false
+3,2026-03-13,3819.03,Marketing,Urban Digital Services — Marketing (Mar 2026),true
+3,2026-03-13,12035.74,Services - Digital,Urban Digital Services — Services - Digital (Mar 2026),false
+3,2026-03-14,3846.32,Supplies,Urban Digital Services — Supplies (Mar 2026),true
+3,2026-03-14,11867.18,Sales - Retail,Urban Digital Services — Sales - Retail (Mar 2026),false
+3,2026-03-14,4110.23,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-16,4638.02,Supplies,Urban Digital Services — Supplies (Mar 2026),true
+3,2026-03-16,4059.86,Payroll,Urban Digital Services — Payroll (Mar 2026),true
+3,2026-03-17,11449.1,Sales - Retail,Urban Digital Services — Sales - Retail (Mar 2026),false
+3,2026-03-18,9734.72,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-19,11420.21,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-22,4571.29,Marketing,Urban Digital Services — Marketing (Mar 2026),true
+3,2026-03-24,11886.15,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-25,11699.67,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-26,3880.27,Logistics,Urban Digital Services — Logistics (Mar 2026),true
+3,2026-03-29,10558.98,Sales - Retail,Urban Digital Services — Sales - Retail (Mar 2026),false
+3,2026-03-29,10181.29,Services - Digital,Urban Digital Services — Services - Digital (Mar 2026),false
+3,2026-04-02,4635.14,Logistics,Urban Digital Services — Logistics (Apr 2026),true
+3,2026-04-03,3667.09,Utilities,Urban Digital Services — Utilities (Apr 2026),true
+3,2026-04-03,12425.13,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-04,4564.94,Payroll,Urban Digital Services — Payroll (Apr 2026),true
+3,2026-04-08,3901.37,Utilities,Urban Digital Services — Utilities (Apr 2026),true
+3,2026-04-12,3991.95,Logistics,Urban Digital Services — Logistics (Apr 2026),true
+3,2026-04-13,13588.44,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-13,11065.47,Sales - Retail,Urban Digital Services — Sales - Retail (Apr 2026),false
+3,2026-04-14,10455.89,Services - Digital,Urban Digital Services — Services - Digital (Apr 2026),false
+3,2026-04-14,4444.02,Equipment,Urban Digital Services — Equipment (Apr 2026),true
+3,2026-04-15,12312.94,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-16,10563.86,Services - Digital,Urban Digital Services — Services - Digital (Apr 2026),false
+3,2026-04-17,12407.74,Sales - Retail,Urban Digital Services — Sales - Retail (Apr 2026),false
+3,2026-04-18,3888.74,Marketing,Urban Digital Services — Marketing (Apr 2026),true
+3,2026-04-18,4873.34,Supplies,Urban Digital Services — Supplies (Apr 2026),true
+3,2026-04-18,11373.11,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-19,11274.1,Sales - Retail,Urban Digital Services — Sales - Retail (Apr 2026),false
+3,2026-04-20,10882.09,Services - Digital,Urban Digital Services — Services - Digital (Apr 2026),false
+3,2026-04-20,4911.17,Utilities,Urban Digital Services — Utilities (Apr 2026),true
+3,2026-04-21,3863.27,Equipment,Urban Digital Services — Equipment (Apr 2026),true
+3,2026-04-22,4655.28,Equipment,Urban Digital Services — Equipment (Apr 2026),true
+3,2026-04-23,4640.13,Logistics,Urban Digital Services — Logistics (Apr 2026),true
+3,2026-04-23,4574.76,Logistics,Urban Digital Services — Logistics (Apr 2026),true
+3,2026-04-25,4841.56,Equipment,Urban Digital Services — Equipment (Apr 2026),true
+3,2026-04-26,11083.83,Services - Digital,Urban Digital Services — Services - Digital (Apr 2026),false
+3,2026-04-26,4050.4,Logistics,Urban Digital Services — Logistics (Apr 2026),true
+3,2026-04-26,4827.58,Equipment,Urban Digital Services — Equipment (Apr 2026),true
+3,2026-04-28,11382.15,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-29,4100.57,Marketing,Urban Digital Services — Marketing (Apr 2026),true
+3,2026-04-30,13068.39,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-30,11363.5,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-30,4616.74,Payroll,Urban Digital Services — Payroll (Apr 2026),true
+3,2026-05-01,4061.2,Equipment,Urban Digital Services — Equipment (May 2026),true
+3,2026-05-01,13447.98,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-03,4946.2,Payroll,Urban Digital Services — Payroll (May 2026),true
+3,2026-05-04,4035.21,Marketing,Urban Digital Services — Marketing (May 2026),true
+3,2026-05-06,12767.9,Sales - Retail,Urban Digital Services — Sales - Retail (May 2026),false
+3,2026-05-06,12584.65,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (May 2026),false
+3,2026-05-07,4426.35,Equipment,Urban Digital Services — Equipment (May 2026),true
+3,2026-05-07,13265.03,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (May 2026),false
+3,2026-05-07,4957.54,Utilities,Urban Digital Services — Utilities (May 2026),true
+3,2026-05-09,4419.03,Utilities,Urban Digital Services — Utilities (May 2026),true
+3,2026-05-13,11726.46,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-13,5222.43,Supplies,Urban Digital Services — Supplies (May 2026),true
+3,2026-05-13,12960.62,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-14,14080.0,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (May 2026),false
+3,2026-05-14,4352.76,Equipment,Urban Digital Services — Equipment (May 2026),true
+3,2026-05-15,12565.28,Sales - Retail,Urban Digital Services — Sales - Retail (May 2026),false
+3,2026-05-18,3973.17,Logistics,Urban Digital Services — Logistics (May 2026),true
+3,2026-05-19,4613.39,Payroll,Urban Digital Services — Payroll (May 2026),true
+3,2026-05-19,4571.2,Digital / Software,Urban Digital Services — Digital / Software (May 2026),true
+3,2026-05-20,10863.2,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-21,11114.15,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-21,12887.77,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (May 2026),false
+3,2026-05-22,12894.11,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (May 2026),false
+3,2026-05-23,4666.73,Utilities,Urban Digital Services — Utilities (May 2026),true
+3,2026-05-23,5098.29,Logistics,Urban Digital Services — Logistics (May 2026),true
+3,2026-05-24,10890.39,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-25,5032.84,Digital / Software,Urban Digital Services — Digital / Software (May 2026),true
+3,2026-05-26,4426.31,Digital / Software,Urban Digital Services — Digital / Software (May 2026),true
+3,2026-05-26,4077.57,Utilities,Urban Digital Services — Utilities (May 2026),true
+3,2026-05-26,4003.92,Marketing,Urban Digital Services — Marketing (May 2026),true
+3,2026-05-28,4930.59,Utilities,Urban Digital Services — Utilities (May 2026),true
+3,2026-05-29,11320.39,Sales - Retail,Urban Digital Services — Sales - Retail (May 2026),false
+3,2026-06-01,12285.07,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jun 2026),false
+3,2026-06-02,13502.66,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-04,5531.87,Equipment,Urban Digital Services — Equipment (Jun 2026),true
+3,2026-06-04,5089.6,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-06,14305.28,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-08,14371.85,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-08,13394.56,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-09,13338.8,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jun 2026),false
+3,2026-06-09,4889.7,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-10,12370.38,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jun 2026),false
+3,2026-06-10,13069.5,Services - Digital,Urban Digital Services — Services - Digital (Jun 2026),false
+3,2026-06-12,4739.74,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-15,14181.72,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jun 2026),false
+3,2026-06-16,4642.63,Digital / Software,Urban Digital Services — Digital / Software (Jun 2026),true
+3,2026-06-17,5006.0,Equipment,Urban Digital Services — Equipment (Jun 2026),true
+3,2026-06-18,4166.25,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-18,4291.35,Equipment,Urban Digital Services — Equipment (Jun 2026),true
+3,2026-06-18,4356.95,Digital / Software,Urban Digital Services — Digital / Software (Jun 2026),true
+3,2026-06-18,13300.05,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-19,11744.47,Services - Digital,Urban Digital Services — Services - Digital (Jun 2026),false
+3,2026-06-19,5089.61,Utilities,Urban Digital Services — Utilities (Jun 2026),true
+3,2026-06-19,5020.08,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-24,4826.07,Utilities,Urban Digital Services — Utilities (Jun 2026),true
+3,2026-06-25,13418.1,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-25,4795.5,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-25,4287.84,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-25,12037.64,Services - Digital,Urban Digital Services — Services - Digital (Jun 2026),false
+3,2026-06-25,4692.46,Logistics,Urban Digital Services — Logistics (Jun 2026),true
+3,2026-06-25,4102.71,Supplies,Urban Digital Services — Supplies (Jun 2026),true
+3,2026-06-26,12796.67,Services - Digital,Urban Digital Services — Services - Digital (Jun 2026),false
+3,2026-06-27,4607.02,Utilities,Urban Digital Services — Utilities (Jun 2026),true
+3,2026-06-27,4542.86,Logistics,Urban Digital Services — Logistics (Jun 2026),true

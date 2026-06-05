@@ -1,0 +1,8 @@
+product_id,name,unit_price_rm,quantity,purchase_category
+POS-001,Sunmi V2 POS Terminal,2890,1,pos
+POS-002,Cash drawer + printer bundle,890,1,pos
+ECOM-001,Shopify SME website setup,4500,1,ecommerce
+ECOM-002,Inventory sync module,3200,1,ecommerce
+EQ-001,Commercial espresso machine,8500,1,equipment
+DIG-001,Managed Wi-Fi router,680,2,digital
+AGR-001,Irrigation controller,4200,1,agro

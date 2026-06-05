@@ -1,0 +1,5 @@
+sme_id,goal_type,target_value,unit,priority
+1,runway,90,days,high
+1,revenue,90000,rm_monthly,medium
+2,equipment,35000,rm,high
+3,digital,50000,rm,high

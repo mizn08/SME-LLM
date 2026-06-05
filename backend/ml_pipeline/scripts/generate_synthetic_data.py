@@ -91,20 +91,9 @@ def make_ml_dataset(n: int = 2000) -> pd.DataFrame:
 
 
 def main() -> None:
-    tx = make_transactions()
-    out_tx = DATA_DIR / "sample_sme_transactions.csv"
-    tx.to_csv(out_tx, index=False)
-    print(f"Wrote {len(tx)} transactions to {out_tx}")
+    import runpy
 
-    ml = make_ml_dataset(2200)
-    out_ml = DATA_DIR / "ml_training.csv"
-    ml.to_csv(out_ml, index=False)
-    print(f"Wrote {len(ml)} ML rows to {out_ml}")
-
-    mobile_asset = ROOT.parent / "mobile_app" / "assets" / "sample_transactions.csv"
-    mobile_asset.parent.mkdir(parents=True, exist_ok=True)
-    tx[tx["sme_id"] == 1].drop(columns=["sme_id"]).to_csv(mobile_asset, index=False)
-    print(f"Wrote demo upload CSV to {mobile_asset}")
+    runpy.run_path(str(Path(__file__).resolve().parent / "generate_aic_datasets.py"), run_name="__main__")
 
 
 if __name__ == "__main__":

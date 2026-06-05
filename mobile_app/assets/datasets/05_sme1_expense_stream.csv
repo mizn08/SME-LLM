@@ -1,0 +1,217 @@
+sme_id,date,amount,category,description,is_expense
+1,2025-07-02,1857.76,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),True
+1,2025-07-06,1905.78,Equipment,Kopi Maju Enterprise — Equipment (Jul 2025),True
+1,2025-07-08,1714.79,Utilities,Kopi Maju Enterprise — Utilities (Jul 2025),True
+1,2025-07-08,1694.12,Supplies,Kopi Maju Enterprise — Supplies (Jul 2025),True
+1,2025-07-08,1502.69,Supplies,Kopi Maju Enterprise — Supplies (Jul 2025),True
+1,2025-07-09,1473.14,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),True
+1,2025-07-11,1614.83,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),True
+1,2025-07-13,1471.15,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),True
+1,2025-07-15,1593.75,Utilities,Kopi Maju Enterprise — Utilities (Jul 2025),True
+1,2025-07-18,1791.41,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),True
+1,2025-07-21,1728.05,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),True
+1,2025-07-22,1913.77,Marketing,Kopi Maju Enterprise — Marketing (Jul 2025),True
+1,2025-07-23,1830.32,Utilities,Kopi Maju Enterprise — Utilities (Jul 2025),True
+1,2025-07-25,1841.52,Equipment,Kopi Maju Enterprise — Equipment (Jul 2025),True
+1,2025-07-25,1735.49,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),True
+1,2025-07-27,1702.07,Marketing,Kopi Maju Enterprise — Marketing (Jul 2025),True
+1,2025-07-27,1778.75,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),True
+1,2025-07-30,1850.61,Supplies,Kopi Maju Enterprise — Supplies (Jul 2025),True
+1,2025-08-02,1794.9,Supplies,Kopi Maju Enterprise — Supplies (Aug 2025),True
+1,2025-08-03,1909.05,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),True
+1,2025-08-03,1899.66,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),True
+1,2025-08-04,1582.7,Supplies,Kopi Maju Enterprise — Supplies (Aug 2025),True
+1,2025-08-08,2001.19,Logistics,Kopi Maju Enterprise — Logistics (Aug 2025),True
+1,2025-08-08,1634.94,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),True
+1,2025-08-10,1749.76,Utilities,Kopi Maju Enterprise — Utilities (Aug 2025),True
+1,2025-08-12,1862.35,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),True
+1,2025-08-16,1657.25,Utilities,Kopi Maju Enterprise — Utilities (Aug 2025),True
+1,2025-08-19,1562.4,Payroll,Kopi Maju Enterprise — Payroll (Aug 2025),True
+1,2025-08-24,1681.99,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),True
+1,2025-08-26,1817.52,Logistics,Kopi Maju Enterprise — Logistics (Aug 2025),True
+1,2025-08-27,1705.62,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),True
+1,2025-08-27,1585.51,Utilities,Kopi Maju Enterprise — Utilities (Aug 2025),True
+1,2025-08-29,1817.79,Payroll,Kopi Maju Enterprise — Payroll (Aug 2025),True
+1,2025-08-29,1862.25,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),True
+1,2025-08-30,1586.48,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),True
+1,2025-08-31,1970.64,Logistics,Kopi Maju Enterprise — Logistics (Aug 2025),True
+1,2025-09-01,1860.97,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),True
+1,2025-09-02,1914.51,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),True
+1,2025-09-03,1807.2,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),True
+1,2025-09-03,1587.63,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),True
+1,2025-09-04,1678.92,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),True
+1,2025-09-15,1893.81,Payroll,Kopi Maju Enterprise — Payroll (Sep 2025),True
+1,2025-09-18,1621.15,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),True
+1,2025-09-18,1587.55,Logistics,Kopi Maju Enterprise — Logistics (Sep 2025),True
+1,2025-09-21,1665.93,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),True
+1,2025-09-25,1990.23,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),True
+1,2025-09-26,1673.97,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),True
+1,2025-09-27,2060.21,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),True
+1,2025-09-28,2043.76,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),True
+1,2025-09-28,1652.9,Payroll,Kopi Maju Enterprise — Payroll (Sep 2025),True
+1,2025-09-28,2018.73,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),True
+1,2025-09-28,1674.61,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),True
+1,2025-09-30,1977.72,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),True
+1,2025-09-30,1669.2,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),True
+1,2025-10-01,1924.79,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),True
+1,2025-10-03,1611.37,Digital / Software,Kopi Maju Enterprise — Digital / Software (Oct 2025),True
+1,2025-10-06,2115.11,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),True
+1,2025-10-08,1859.83,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),True
+1,2025-10-10,1667.27,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),True
+1,2025-10-10,1710.62,Utilities,Kopi Maju Enterprise — Utilities (Oct 2025),True
+1,2025-10-12,2054.87,Utilities,Kopi Maju Enterprise — Utilities (Oct 2025),True
+1,2025-10-15,1624.16,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),True
+1,2025-10-17,1910.93,Marketing,Kopi Maju Enterprise — Marketing (Oct 2025),True
+1,2025-10-18,1911.22,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),True
+1,2025-10-20,1646.34,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),True
+1,2025-10-21,1716.76,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),True
+1,2025-10-22,1813.21,Logistics,Kopi Maju Enterprise — Logistics (Oct 2025),True
+1,2025-10-23,1955.91,Marketing,Kopi Maju Enterprise — Marketing (Oct 2025),True
+1,2025-10-26,2075.81,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),True
+1,2025-10-27,1683.09,Utilities,Kopi Maju Enterprise — Utilities (Oct 2025),True
+1,2025-10-27,1904.88,Supplies,Kopi Maju Enterprise — Supplies (Oct 2025),True
+1,2025-10-29,1905.17,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),True
+1,2025-11-02,1698.46,Marketing,Kopi Maju Enterprise — Marketing (Nov 2025),True
+1,2025-11-04,1677.29,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),True
+1,2025-11-06,1865.2,Equipment,Kopi Maju Enterprise — Equipment (Nov 2025),True
+1,2025-11-07,1858.34,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),True
+1,2025-11-08,1928.24,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),True
+1,2025-11-10,1636.3,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),True
+1,2025-11-12,2167.24,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),True
+1,2025-11-13,2151.78,Digital / Software,Kopi Maju Enterprise — Digital / Software (Nov 2025),True
+1,2025-11-15,2144.97,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),True
+1,2025-11-16,1823.85,Equipment,Kopi Maju Enterprise — Equipment (Nov 2025),True
+1,2025-11-23,1933.01,Payroll,Kopi Maju Enterprise — Payroll (Nov 2025),True
+1,2025-11-26,2002.01,Supplies,Kopi Maju Enterprise — Supplies (Nov 2025),True
+1,2025-11-26,2015.45,Supplies,Kopi Maju Enterprise — Supplies (Nov 2025),True
+1,2025-11-27,1817.35,Marketing,Kopi Maju Enterprise — Marketing (Nov 2025),True
+1,2025-11-27,1637.4,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),True
+1,2025-11-28,1634.1,Digital / Software,Kopi Maju Enterprise — Digital / Software (Nov 2025),True
+1,2025-11-28,2007.11,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),True
+1,2025-11-30,1821.25,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),True
+1,2025-12-03,1975.28,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),True
+1,2025-12-06,2120.68,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),True
+1,2025-12-07,1894.24,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),True
+1,2025-12-10,1670.94,Utilities,Kopi Maju Enterprise — Utilities (Dec 2025),True
+1,2025-12-11,1665.86,Digital / Software,Kopi Maju Enterprise — Digital / Software (Dec 2025),True
+1,2025-12-15,2108.66,Payroll,Kopi Maju Enterprise — Payroll (Dec 2025),True
+1,2025-12-15,1625.61,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),True
+1,2025-12-15,1707.91,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),True
+1,2025-12-16,1988.54,Payroll,Kopi Maju Enterprise — Payroll (Dec 2025),True
+1,2025-12-17,2056.13,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),True
+1,2025-12-17,2108.98,Digital / Software,Kopi Maju Enterprise — Digital / Software (Dec 2025),True
+1,2025-12-22,1952.55,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),True
+1,2025-12-22,1846.86,Payroll,Kopi Maju Enterprise — Payroll (Dec 2025),True
+1,2025-12-24,2136.55,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),True
+1,2025-12-26,1844.17,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),True
+1,2025-12-26,2131.69,Digital / Software,Kopi Maju Enterprise — Digital / Software (Dec 2025),True
+1,2025-12-29,2016.89,Utilities,Kopi Maju Enterprise — Utilities (Dec 2025),True
+1,2025-12-31,1711.84,Utilities,Kopi Maju Enterprise — Utilities (Dec 2025),True
+1,2026-01-02,1896.28,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),True
+1,2026-01-03,1710.34,Payroll,Kopi Maju Enterprise — Payroll (Jan 2026),True
+1,2026-01-05,1909.0,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),True
+1,2026-01-07,2171.17,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),True
+1,2026-01-07,2111.86,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jan 2026),True
+1,2026-01-08,1766.77,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),True
+1,2026-01-11,1947.54,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),True
+1,2026-01-13,2165.04,Utilities,Kopi Maju Enterprise — Utilities (Jan 2026),True
+1,2026-01-13,2105.56,Utilities,Kopi Maju Enterprise — Utilities (Jan 2026),True
+1,2026-01-14,1717.28,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),True
+1,2026-01-14,1909.05,Utilities,Kopi Maju Enterprise — Utilities (Jan 2026),True
+1,2026-01-14,2077.27,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),True
+1,2026-01-14,1887.11,Equipment,Kopi Maju Enterprise — Equipment (Jan 2026),True
+1,2026-01-15,1823.76,Payroll,Kopi Maju Enterprise — Payroll (Jan 2026),True
+1,2026-01-18,1963.63,Equipment,Kopi Maju Enterprise — Equipment (Jan 2026),True
+1,2026-01-23,2042.92,Equipment,Kopi Maju Enterprise — Equipment (Jan 2026),True
+1,2026-01-23,1962.75,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),True
+1,2026-01-27,2156.44,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),True
+1,2026-02-01,2251.23,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),True
+1,2026-02-04,2257.0,Equipment,Kopi Maju Enterprise — Equipment (Feb 2026),True
+1,2026-02-04,2068.93,Payroll,Kopi Maju Enterprise — Payroll (Feb 2026),True
+1,2026-02-06,1911.93,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),True
+1,2026-02-06,2026.44,Marketing,Kopi Maju Enterprise — Marketing (Feb 2026),True
+1,2026-02-09,1859.17,Payroll,Kopi Maju Enterprise — Payroll (Feb 2026),True
+1,2026-02-10,1984.26,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),True
+1,2026-02-12,1795.96,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),True
+1,2026-02-15,1882.66,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),True
+1,2026-02-19,2017.08,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),True
+1,2026-02-20,2133.41,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),True
+1,2026-02-20,1796.05,Equipment,Kopi Maju Enterprise — Equipment (Feb 2026),True
+1,2026-02-23,2072.5,Marketing,Kopi Maju Enterprise — Marketing (Feb 2026),True
+1,2026-02-23,1864.24,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),True
+1,2026-02-24,2182.61,Digital / Software,Kopi Maju Enterprise — Digital / Software (Feb 2026),True
+1,2026-02-25,2169.74,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),True
+1,2026-02-25,1810.61,Utilities,Kopi Maju Enterprise — Utilities (Feb 2026),True
+1,2026-02-27,2017.07,Equipment,Kopi Maju Enterprise — Equipment (Feb 2026),True
+1,2026-03-01,1855.46,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),True
+1,2026-03-03,2204.4,Utilities,Kopi Maju Enterprise — Utilities (Mar 2026),True
+1,2026-03-08,1746.73,Logistics,Kopi Maju Enterprise — Logistics (Mar 2026),True
+1,2026-03-08,1758.04,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),True
+1,2026-03-08,2133.86,Equipment,Kopi Maju Enterprise — Equipment (Mar 2026),True
+1,2026-03-10,2191.85,Payroll,Kopi Maju Enterprise — Payroll (Mar 2026),True
+1,2026-03-14,2075.11,Logistics,Kopi Maju Enterprise — Logistics (Mar 2026),True
+1,2026-03-15,1955.47,Payroll,Kopi Maju Enterprise — Payroll (Mar 2026),True
+1,2026-03-16,1984.13,Logistics,Kopi Maju Enterprise — Logistics (Mar 2026),True
+1,2026-03-16,2190.64,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),True
+1,2026-03-16,1856.47,Payroll,Kopi Maju Enterprise — Payroll (Mar 2026),True
+1,2026-03-18,2118.02,Digital / Software,Kopi Maju Enterprise — Digital / Software (Mar 2026),True
+1,2026-03-21,2178.37,Supplies,Kopi Maju Enterprise — Supplies (Mar 2026),True
+1,2026-03-23,2016.84,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),True
+1,2026-03-23,2272.45,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),True
+1,2026-03-24,2269.65,Utilities,Kopi Maju Enterprise — Utilities (Mar 2026),True
+1,2026-03-25,1955.41,Digital / Software,Kopi Maju Enterprise — Digital / Software (Mar 2026),True
+1,2026-03-26,2132.21,Utilities,Kopi Maju Enterprise — Utilities (Mar 2026),True
+1,2026-04-02,2235.39,Equipment,Kopi Maju Enterprise — Equipment (Apr 2026),True
+1,2026-04-04,1832.51,Utilities,Kopi Maju Enterprise — Utilities (Apr 2026),True
+1,2026-04-07,2132.9,Logistics,Kopi Maju Enterprise — Logistics (Apr 2026),True
+1,2026-04-10,1859.73,Marketing,Kopi Maju Enterprise — Marketing (Apr 2026),True
+1,2026-04-10,2019.27,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),True
+1,2026-04-13,2456.04,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),True
+1,2026-04-14,1853.92,Marketing,Kopi Maju Enterprise — Marketing (Apr 2026),True
+1,2026-04-15,2360.81,Payroll,Kopi Maju Enterprise — Payroll (Apr 2026),True
+1,2026-04-15,2057.01,Marketing,Kopi Maju Enterprise — Marketing (Apr 2026),True
+1,2026-04-19,1906.13,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),True
+1,2026-04-19,2012.74,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),True
+1,2026-04-20,2432.59,Digital / Software,Kopi Maju Enterprise — Digital / Software (Apr 2026),True
+1,2026-04-20,2309.4,Equipment,Kopi Maju Enterprise — Equipment (Apr 2026),True
+1,2026-04-21,2044.02,Digital / Software,Kopi Maju Enterprise — Digital / Software (Apr 2026),True
+1,2026-04-24,1890.68,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),True
+1,2026-04-25,2007.72,Utilities,Kopi Maju Enterprise — Utilities (Apr 2026),True
+1,2026-04-28,2280.56,Logistics,Kopi Maju Enterprise — Logistics (Apr 2026),True
+1,2026-04-30,2015.39,Logistics,Kopi Maju Enterprise — Logistics (Apr 2026),True
+1,2026-05-02,1832.18,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),True
+1,2026-05-04,2196.91,Logistics,Kopi Maju Enterprise — Logistics (May 2026),True
+1,2026-05-06,2405.91,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),True
+1,2026-05-10,1990.06,Payroll,Kopi Maju Enterprise — Payroll (May 2026),True
+1,2026-05-11,2097.02,Supplies,Kopi Maju Enterprise — Supplies (May 2026),True
+1,2026-05-11,1853.82,Equipment,Kopi Maju Enterprise — Equipment (May 2026),True
+1,2026-05-13,2198.83,Logistics,Kopi Maju Enterprise — Logistics (May 2026),True
+1,2026-05-14,2115.95,Logistics,Kopi Maju Enterprise — Logistics (May 2026),True
+1,2026-05-15,1962.31,Equipment,Kopi Maju Enterprise — Equipment (May 2026),True
+1,2026-05-16,2073.53,Logistics,Kopi Maju Enterprise — Logistics (May 2026),True
+1,2026-05-18,2202.47,Marketing,Kopi Maju Enterprise — Marketing (May 2026),True
+1,2026-05-22,2323.52,Logistics,Kopi Maju Enterprise — Logistics (May 2026),True
+1,2026-05-22,2161.63,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),True
+1,2026-05-23,2010.47,Equipment,Kopi Maju Enterprise — Equipment (May 2026),True
+1,2026-05-25,2286.3,Utilities,Kopi Maju Enterprise — Utilities (May 2026),True
+1,2026-05-27,2385.55,Logistics,Kopi Maju Enterprise — Logistics (May 2026),True
+1,2026-05-28,2343.78,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),True
+1,2026-05-31,2096.12,Supplies,Kopi Maju Enterprise — Supplies (May 2026),True
+1,2026-06-07,1984.96,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),True
+1,2026-06-08,2203.25,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jun 2026),True
+1,2026-06-08,2076.58,Marketing,Kopi Maju Enterprise — Marketing (Jun 2026),True
+1,2026-06-11,2511.94,Payroll,Kopi Maju Enterprise — Payroll (Jun 2026),True
+1,2026-06-11,2354.27,Utilities,Kopi Maju Enterprise — Utilities (Jun 2026),True
+1,2026-06-13,2158.73,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),True
+1,2026-06-13,2031.95,Utilities,Kopi Maju Enterprise — Utilities (Jun 2026),True
+1,2026-06-14,1978.76,Supplies,Kopi Maju Enterprise — Supplies (Jun 2026),True
+1,2026-06-15,2441.73,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),True
+1,2026-06-18,2089.13,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jun 2026),True
+1,2026-06-18,2153.74,Equipment,Kopi Maju Enterprise — Equipment (Jun 2026),True
+1,2026-06-19,2351.37,Payroll,Kopi Maju Enterprise — Payroll (Jun 2026),True
+1,2026-06-23,2502.36,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),True
+1,2026-06-25,1891.73,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jun 2026),True
+1,2026-06-25,2186.17,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),True
+1,2026-06-28,2313.03,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),True
+1,2026-06-28,2196.42,Payroll,Kopi Maju Enterprise — Payroll (Jun 2026),True
+1,2026-06-30,1958.04,Supplies,Kopi Maju Enterprise — Supplies (Jun 2026),True

@@ -1,0 +1,385 @@
+sme_id,date,amount,category,description,is_expense
+3,2025-07-02,3137.81,Utilities,Urban Digital Services — Utilities (Jul 2025),true
+3,2025-07-02,2941.76,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-02,3487.53,Payroll,Urban Digital Services — Payroll (Jul 2025),true
+3,2025-07-04,7889.59,Sales - Retail,Urban Digital Services — Sales - Retail (Jul 2025),false
+3,2025-07-04,6672.91,Services - Digital,Urban Digital Services — Services - Digital (Jul 2025),false
+3,2025-07-05,2938.27,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-05,3028.81,Payroll,Urban Digital Services — Payroll (Jul 2025),true
+3,2025-07-05,7801.56,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-05,3179.28,Payroll,Urban Digital Services — Payroll (Jul 2025),true
+3,2025-07-05,6562.77,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-07,7633.87,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-11,6348.81,Sales - Retail,Urban Digital Services — Sales - Retail (Jul 2025),false
+3,2025-07-11,3752.42,Marketing,Urban Digital Services — Marketing (Jul 2025),true
+3,2025-07-12,6912.95,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-12,6140.57,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-13,3293.49,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-13,7420.19,Services - Digital,Urban Digital Services — Services - Digital (Jul 2025),false
+3,2025-07-15,3001.82,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-16,3183.77,Marketing,Urban Digital Services — Marketing (Jul 2025),true
+3,2025-07-17,2984.01,Supplies,Urban Digital Services — Supplies (Jul 2025),true
+3,2025-07-17,2900.44,Logistics,Urban Digital Services — Logistics (Jul 2025),true
+3,2025-07-17,3303.71,Equipment,Urban Digital Services — Equipment (Jul 2025),true
+3,2025-07-17,3358.81,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-18,6102.68,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-20,6713.01,Sales - Retail,Urban Digital Services — Sales - Retail (Jul 2025),false
+3,2025-07-20,3162.05,Logistics,Urban Digital Services — Logistics (Jul 2025),true
+3,2025-07-23,3502.0,Supplies,Urban Digital Services — Supplies (Jul 2025),true
+3,2025-07-25,5954.2,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jul 2025),false
+3,2025-07-26,3578.56,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-26,6068.94,Sales - Retail,Urban Digital Services — Sales - Retail (Jul 2025),false
+3,2025-07-29,3265.46,Digital / Software,Urban Digital Services — Digital / Software (Jul 2025),true
+3,2025-07-31,6777.95,Services - Digital,Urban Digital Services — Services - Digital (Jul 2025),false
+3,2025-08-07,3539.52,Marketing,Urban Digital Services — Marketing (Aug 2025),true
+3,2025-08-07,3017.22,Equipment,Urban Digital Services — Equipment (Aug 2025),true
+3,2025-08-08,2877.66,Utilities,Urban Digital Services — Utilities (Aug 2025),true
+3,2025-08-08,3468.44,Supplies,Urban Digital Services — Supplies (Aug 2025),true
+3,2025-08-09,3690.86,Equipment,Urban Digital Services — Equipment (Aug 2025),true
+3,2025-08-09,7470.74,Sales - Retail,Urban Digital Services — Sales - Retail (Aug 2025),false
+3,2025-08-10,3161.03,Marketing,Urban Digital Services — Marketing (Aug 2025),true
+3,2025-08-10,2956.33,Payroll,Urban Digital Services — Payroll (Aug 2025),true
+3,2025-08-10,3529.7,Digital / Software,Urban Digital Services — Digital / Software (Aug 2025),true
+3,2025-08-11,6381.58,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Aug 2025),false
+3,2025-08-12,7610.29,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-16,3432.07,Logistics,Urban Digital Services — Logistics (Aug 2025),true
+3,2025-08-16,3770.55,Marketing,Urban Digital Services — Marketing (Aug 2025),true
+3,2025-08-18,8145.59,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-18,2994.38,Utilities,Urban Digital Services — Utilities (Aug 2025),true
+3,2025-08-18,7341.36,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-20,3570.56,Logistics,Urban Digital Services — Logistics (Aug 2025),true
+3,2025-08-21,6674.03,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-22,7545.15,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Aug 2025),false
+3,2025-08-22,6672.85,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-23,6820.09,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-23,3624.37,Utilities,Urban Digital Services — Utilities (Aug 2025),true
+3,2025-08-23,3258.15,Payroll,Urban Digital Services — Payroll (Aug 2025),true
+3,2025-08-23,2998.05,Digital / Software,Urban Digital Services — Digital / Software (Aug 2025),true
+3,2025-08-24,7169.4,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Aug 2025),false
+3,2025-08-25,6751.96,Sales - Retail,Urban Digital Services — Sales - Retail (Aug 2025),false
+3,2025-08-25,2864.97,Equipment,Urban Digital Services — Equipment (Aug 2025),true
+3,2025-08-26,7773.1,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-28,7799.81,Services - Digital,Urban Digital Services — Services - Digital (Aug 2025),false
+3,2025-08-30,6734.05,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Aug 2025),false
+3,2025-08-31,3798.37,Digital / Software,Urban Digital Services — Digital / Software (Aug 2025),true
+3,2025-08-31,3477.77,Equipment,Urban Digital Services — Equipment (Aug 2025),true
+3,2025-09-01,3692.84,Supplies,Urban Digital Services — Supplies (Sep 2025),true
+3,2025-09-02,8470.66,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Sep 2025),false
+3,2025-09-02,3473.46,Logistics,Urban Digital Services — Logistics (Sep 2025),true
+3,2025-09-02,7024.24,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-04,3143.04,Digital / Software,Urban Digital Services — Digital / Software (Sep 2025),true
+3,2025-09-06,6645.17,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Sep 2025),false
+3,2025-09-06,3228.51,Utilities,Urban Digital Services — Utilities (Sep 2025),true
+3,2025-09-06,8211.34,Sales - Retail,Urban Digital Services — Sales - Retail (Sep 2025),false
+3,2025-09-10,3121.53,Equipment,Urban Digital Services — Equipment (Sep 2025),true
+3,2025-09-10,3082.37,Equipment,Urban Digital Services — Equipment (Sep 2025),true
+3,2025-09-11,3902.4,Equipment,Urban Digital Services — Equipment (Sep 2025),true
+3,2025-09-13,3262.49,Marketing,Urban Digital Services — Marketing (Sep 2025),true
+3,2025-09-14,7892.59,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-16,3755.57,Equipment,Urban Digital Services — Equipment (Sep 2025),true
+3,2025-09-19,3990.54,Digital / Software,Urban Digital Services — Digital / Software (Sep 2025),true
+3,2025-09-20,4004.61,Utilities,Urban Digital Services — Utilities (Sep 2025),true
+3,2025-09-24,3928.2,Payroll,Urban Digital Services — Payroll (Sep 2025),true
+3,2025-09-26,3091.86,Marketing,Urban Digital Services — Marketing (Sep 2025),true
+3,2025-09-27,8575.13,Sales - Retail,Urban Digital Services — Sales - Retail (Sep 2025),false
+3,2025-09-27,7017.88,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-28,7084.02,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-28,3214.21,Payroll,Urban Digital Services — Payroll (Sep 2025),true
+3,2025-09-29,3324.14,Supplies,Urban Digital Services — Supplies (Sep 2025),true
+3,2025-09-29,7224.91,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Sep 2025),false
+3,2025-09-30,3030.43,Logistics,Urban Digital Services — Logistics (Sep 2025),true
+3,2025-09-30,8180.4,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Sep 2025),false
+3,2025-09-30,8517.68,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-30,6986.02,Services - Digital,Urban Digital Services — Services - Digital (Sep 2025),false
+3,2025-09-30,8159.69,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Sep 2025),false
+3,2025-09-30,3663.11,Equipment,Urban Digital Services — Equipment (Sep 2025),true
+3,2025-09-30,7155.45,Sales - Retail,Urban Digital Services — Sales - Retail (Sep 2025),false
+3,2025-09-30,3221.74,Payroll,Urban Digital Services — Payroll (Sep 2025),true
+3,2025-10-02,3821.41,Marketing,Urban Digital Services — Marketing (Oct 2025),true
+3,2025-10-03,3099.99,Supplies,Urban Digital Services — Supplies (Oct 2025),true
+3,2025-10-03,3717.82,Utilities,Urban Digital Services — Utilities (Oct 2025),true
+3,2025-10-04,3350.46,Utilities,Urban Digital Services — Utilities (Oct 2025),true
+3,2025-10-07,8083.76,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Oct 2025),false
+3,2025-10-08,7414.14,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Oct 2025),false
+3,2025-10-12,3728.28,Utilities,Urban Digital Services — Utilities (Oct 2025),true
+3,2025-10-14,7655.66,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Oct 2025),false
+3,2025-10-15,3580.14,Payroll,Urban Digital Services — Payroll (Oct 2025),true
+3,2025-10-16,9261.48,Sales - Retail,Urban Digital Services — Sales - Retail (Oct 2025),false
+3,2025-10-17,3383.96,Payroll,Urban Digital Services — Payroll (Oct 2025),true
+3,2025-10-17,3511.2,Equipment,Urban Digital Services — Equipment (Oct 2025),true
+3,2025-10-18,8290.97,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-18,3266.86,Digital / Software,Urban Digital Services — Digital / Software (Oct 2025),true
+3,2025-10-18,8106.12,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-19,3484.98,Marketing,Urban Digital Services — Marketing (Oct 2025),true
+3,2025-10-20,4164.03,Logistics,Urban Digital Services — Logistics (Oct 2025),true
+3,2025-10-22,8765.63,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-22,7233.54,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Oct 2025),false
+3,2025-10-23,9385.58,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-23,3452.32,Digital / Software,Urban Digital Services — Digital / Software (Oct 2025),true
+3,2025-10-25,7588.64,Sales - Retail,Urban Digital Services — Sales - Retail (Oct 2025),false
+3,2025-10-25,3196.65,Equipment,Urban Digital Services — Equipment (Oct 2025),true
+3,2025-10-25,9046.64,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-26,7430.38,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Oct 2025),false
+3,2025-10-26,4113.97,Equipment,Urban Digital Services — Equipment (Oct 2025),true
+3,2025-10-27,7355.94,Services - Digital,Urban Digital Services — Services - Digital (Oct 2025),false
+3,2025-10-27,3600.51,Equipment,Urban Digital Services — Equipment (Oct 2025),true
+3,2025-10-28,3613.67,Payroll,Urban Digital Services — Payroll (Oct 2025),true
+3,2025-10-29,3841.37,Payroll,Urban Digital Services — Payroll (Oct 2025),true
+3,2025-10-30,3378.02,Utilities,Urban Digital Services — Utilities (Oct 2025),true
+3,2025-10-30,8169.7,Sales - Retail,Urban Digital Services — Sales - Retail (Oct 2025),false
+3,2025-11-01,9049.75,Services - Digital,Urban Digital Services — Services - Digital (Nov 2025),false
+3,2025-11-01,8399.9,Services - Digital,Urban Digital Services — Services - Digital (Nov 2025),false
+3,2025-11-02,4121.24,Utilities,Urban Digital Services — Utilities (Nov 2025),true
+3,2025-11-04,3891.48,Supplies,Urban Digital Services — Supplies (Nov 2025),true
+3,2025-11-05,4138.32,Equipment,Urban Digital Services — Equipment (Nov 2025),true
+3,2025-11-07,3138.08,Digital / Software,Urban Digital Services — Digital / Software (Nov 2025),true
+3,2025-11-08,3112.42,Marketing,Urban Digital Services — Marketing (Nov 2025),true
+3,2025-11-08,8741.81,Sales - Retail,Urban Digital Services — Sales - Retail (Nov 2025),false
+3,2025-11-09,4073.94,Logistics,Urban Digital Services — Logistics (Nov 2025),true
+3,2025-11-10,8910.63,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Nov 2025),false
+3,2025-11-12,3132.39,Equipment,Urban Digital Services — Equipment (Nov 2025),true
+3,2025-11-13,8732.85,Sales - Retail,Urban Digital Services — Sales - Retail (Nov 2025),false
+3,2025-11-14,4136.95,Digital / Software,Urban Digital Services — Digital / Software (Nov 2025),true
+3,2025-11-14,8884.15,Sales - Retail,Urban Digital Services — Sales - Retail (Nov 2025),false
+3,2025-11-15,3435.96,Supplies,Urban Digital Services — Supplies (Nov 2025),true
+3,2025-11-15,7836.94,Services - Digital,Urban Digital Services — Services - Digital (Nov 2025),false
+3,2025-11-18,9676.77,Services - Digital,Urban Digital Services — Services - Digital (Nov 2025),false
+3,2025-11-18,7769.72,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Nov 2025),false
+3,2025-11-20,3477.0,Utilities,Urban Digital Services — Utilities (Nov 2025),true
+3,2025-11-22,8073.84,Sales - Retail,Urban Digital Services — Sales - Retail (Nov 2025),false
+3,2025-11-22,3517.96,Marketing,Urban Digital Services — Marketing (Nov 2025),true
+3,2025-11-24,9077.5,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Nov 2025),false
+3,2025-11-24,3505.53,Logistics,Urban Digital Services — Logistics (Nov 2025),true
+3,2025-11-25,4003.7,Equipment,Urban Digital Services — Equipment (Nov 2025),true
+3,2025-11-25,7926.25,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Nov 2025),false
+3,2025-11-25,3894.88,Payroll,Urban Digital Services — Payroll (Nov 2025),true
+3,2025-11-26,3761.79,Digital / Software,Urban Digital Services — Digital / Software (Nov 2025),true
+3,2025-11-27,8871.16,Sales - Retail,Urban Digital Services — Sales - Retail (Nov 2025),false
+3,2025-11-27,8891.78,Services - Digital,Urban Digital Services — Services - Digital (Nov 2025),false
+3,2025-11-29,3097.76,Equipment,Urban Digital Services — Equipment (Nov 2025),true
+3,2025-11-30,4073.07,Utilities,Urban Digital Services — Utilities (Nov 2025),true
+3,2025-11-30,4043.86,Utilities,Urban Digital Services — Utilities (Nov 2025),true
+3,2025-12-02,3954.93,Utilities,Urban Digital Services — Utilities (Dec 2025),true
+3,2025-12-02,3627.37,Utilities,Urban Digital Services — Utilities (Dec 2025),true
+3,2025-12-03,10137.67,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-03,3708.2,Marketing,Urban Digital Services — Marketing (Dec 2025),true
+3,2025-12-03,8744.51,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Dec 2025),false
+3,2025-12-07,8410.93,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-07,4056.99,Supplies,Urban Digital Services — Supplies (Dec 2025),true
+3,2025-12-07,3788.88,Marketing,Urban Digital Services — Marketing (Dec 2025),true
+3,2025-12-08,8166.56,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Dec 2025),false
+3,2025-12-09,8712.44,Sales - Retail,Urban Digital Services — Sales - Retail (Dec 2025),false
+3,2025-12-09,3955.94,Logistics,Urban Digital Services — Logistics (Dec 2025),true
+3,2025-12-11,8217.96,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-12,8793.44,Sales - Retail,Urban Digital Services — Sales - Retail (Dec 2025),false
+3,2025-12-13,10654.99,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-13,3996.72,Utilities,Urban Digital Services — Utilities (Dec 2025),true
+3,2025-12-15,10244.46,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-18,3520.86,Utilities,Urban Digital Services — Utilities (Dec 2025),true
+3,2025-12-18,10597.58,Sales - Retail,Urban Digital Services — Sales - Retail (Dec 2025),false
+3,2025-12-19,4118.83,Marketing,Urban Digital Services — Marketing (Dec 2025),true
+3,2025-12-20,3510.66,Logistics,Urban Digital Services — Logistics (Dec 2025),true
+3,2025-12-20,4098.34,Equipment,Urban Digital Services — Equipment (Dec 2025),true
+3,2025-12-21,9835.25,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Dec 2025),false
+3,2025-12-22,4164.23,Payroll,Urban Digital Services — Payroll (Dec 2025),true
+3,2025-12-22,3656.24,Digital / Software,Urban Digital Services — Digital / Software (Dec 2025),true
+3,2025-12-24,8283.49,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2025-12-24,3782.7,Digital / Software,Urban Digital Services — Digital / Software (Dec 2025),true
+3,2025-12-25,3918.3,Marketing,Urban Digital Services — Marketing (Dec 2025),true
+3,2025-12-26,3751.07,Digital / Software,Urban Digital Services — Digital / Software (Dec 2025),true
+3,2025-12-27,3914.55,Digital / Software,Urban Digital Services — Digital / Software (Dec 2025),true
+3,2025-12-28,3361.0,Logistics,Urban Digital Services — Logistics (Dec 2025),true
+3,2025-12-28,9274.8,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Dec 2025),false
+3,2025-12-30,8261.24,Services - Digital,Urban Digital Services — Services - Digital (Dec 2025),false
+3,2026-01-01,4290.16,Marketing,Urban Digital Services — Marketing (Jan 2026),true
+3,2026-01-02,3959.81,Utilities,Urban Digital Services — Utilities (Jan 2026),true
+3,2026-01-02,3455.38,Logistics,Urban Digital Services — Logistics (Jan 2026),true
+3,2026-01-02,10134.79,Services - Digital,Urban Digital Services — Services - Digital (Jan 2026),false
+3,2026-01-03,3635.98,Utilities,Urban Digital Services — Utilities (Jan 2026),true
+3,2026-01-03,4314.61,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-05,4084.38,Logistics,Urban Digital Services — Logistics (Jan 2026),true
+3,2026-01-05,4064.59,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-05,10717.2,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-06,8662.76,Services - Digital,Urban Digital Services — Services - Digital (Jan 2026),false
+3,2026-01-06,8716.82,Services - Digital,Urban Digital Services — Services - Digital (Jan 2026),false
+3,2026-01-08,3754.8,Marketing,Urban Digital Services — Marketing (Jan 2026),true
+3,2026-01-12,8740.11,Sales - Retail,Urban Digital Services — Sales - Retail (Jan 2026),false
+3,2026-01-14,3419.98,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-16,8725.18,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-17,9254.74,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-18,10722.82,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-18,10279.66,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-21,4264.66,Marketing,Urban Digital Services — Marketing (Jan 2026),true
+3,2026-01-21,10738.42,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-22,3776.08,Payroll,Urban Digital Services — Payroll (Jan 2026),true
+3,2026-01-23,3676.58,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-24,8987.01,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-25,4437.58,Logistics,Urban Digital Services — Logistics (Jan 2026),true
+3,2026-01-27,3644.31,Payroll,Urban Digital Services — Payroll (Jan 2026),true
+3,2026-01-27,4101.46,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-27,4364.04,Marketing,Urban Digital Services — Marketing (Jan 2026),true
+3,2026-01-28,4267.55,Digital / Software,Urban Digital Services — Digital / Software (Jan 2026),true
+3,2026-01-29,10258.31,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-01-30,10242.83,Services - Digital,Urban Digital Services — Services - Digital (Jan 2026),false
+3,2026-01-31,3784.86,Equipment,Urban Digital Services — Equipment (Jan 2026),true
+3,2026-01-31,10111.46,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jan 2026),false
+3,2026-02-01,3819.48,Equipment,Urban Digital Services — Equipment (Feb 2026),true
+3,2026-02-02,8995.86,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-02,10911.85,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-02-03,4531.99,Digital / Software,Urban Digital Services — Digital / Software (Feb 2026),true
+3,2026-02-03,11066.52,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Feb 2026),false
+3,2026-02-05,3604.85,Marketing,Urban Digital Services — Marketing (Feb 2026),true
+3,2026-02-06,4734.51,Supplies,Urban Digital Services — Supplies (Feb 2026),true
+3,2026-02-06,10632.29,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-07,3945.76,Utilities,Urban Digital Services — Utilities (Feb 2026),true
+3,2026-02-08,3546.26,Supplies,Urban Digital Services — Supplies (Feb 2026),true
+3,2026-02-09,10486.18,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-09,10138.37,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-02-10,3606.82,Logistics,Urban Digital Services — Logistics (Feb 2026),true
+3,2026-02-11,12048.96,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-02-13,4295.18,Equipment,Urban Digital Services — Equipment (Feb 2026),true
+3,2026-02-13,3878.34,Payroll,Urban Digital Services — Payroll (Feb 2026),true
+3,2026-02-16,10557.41,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-02-18,10500.88,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-19,4008.68,Utilities,Urban Digital Services — Utilities (Feb 2026),true
+3,2026-02-19,4490.99,Supplies,Urban Digital Services — Supplies (Feb 2026),true
+3,2026-02-19,4311.46,Digital / Software,Urban Digital Services — Digital / Software (Feb 2026),true
+3,2026-02-19,8987.29,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-19,8979.29,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-02-22,10702.57,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-22,10907.69,Sales - Retail,Urban Digital Services — Sales - Retail (Feb 2026),false
+3,2026-02-23,3808.08,Equipment,Urban Digital Services — Equipment (Feb 2026),true
+3,2026-02-25,4694.44,Logistics,Urban Digital Services — Logistics (Feb 2026),true
+3,2026-02-27,3973.89,Utilities,Urban Digital Services — Utilities (Feb 2026),true
+3,2026-02-27,4075.18,Marketing,Urban Digital Services — Marketing (Feb 2026),true
+3,2026-02-27,4370.06,Logistics,Urban Digital Services — Logistics (Feb 2026),true
+3,2026-02-28,4096.23,Logistics,Urban Digital Services — Logistics (Feb 2026),true
+3,2026-02-28,9827.06,Services - Digital,Urban Digital Services — Services - Digital (Feb 2026),false
+3,2026-03-01,11205.64,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-03,9670.76,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-03,4674.62,Payroll,Urban Digital Services — Payroll (Mar 2026),true
+3,2026-03-05,4536.26,Supplies,Urban Digital Services — Supplies (Mar 2026),true
+3,2026-03-05,4751.03,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-06,4516.26,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-06,4596.17,Utilities,Urban Digital Services — Utilities (Mar 2026),true
+3,2026-03-06,4121.23,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-08,9662.76,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-09,3713.71,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-09,3908.68,Supplies,Urban Digital Services — Supplies (Mar 2026),true
+3,2026-03-09,4639.89,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-10,10685.14,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-10,3814.25,Marketing,Urban Digital Services — Marketing (Mar 2026),true
+3,2026-03-10,4177.8,Logistics,Urban Digital Services — Logistics (Mar 2026),true
+3,2026-03-13,11658.9,Services - Digital,Urban Digital Services — Services - Digital (Mar 2026),false
+3,2026-03-13,3819.03,Marketing,Urban Digital Services — Marketing (Mar 2026),true
+3,2026-03-13,12035.74,Services - Digital,Urban Digital Services — Services - Digital (Mar 2026),false
+3,2026-03-14,3846.32,Supplies,Urban Digital Services — Supplies (Mar 2026),true
+3,2026-03-14,11867.18,Sales - Retail,Urban Digital Services — Sales - Retail (Mar 2026),false
+3,2026-03-14,4110.23,Digital / Software,Urban Digital Services — Digital / Software (Mar 2026),true
+3,2026-03-16,4638.02,Supplies,Urban Digital Services — Supplies (Mar 2026),true
+3,2026-03-16,4059.86,Payroll,Urban Digital Services — Payroll (Mar 2026),true
+3,2026-03-17,11449.1,Sales - Retail,Urban Digital Services — Sales - Retail (Mar 2026),false
+3,2026-03-18,9734.72,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-19,11420.21,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-22,4571.29,Marketing,Urban Digital Services — Marketing (Mar 2026),true
+3,2026-03-24,11886.15,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-25,11699.67,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Mar 2026),false
+3,2026-03-26,3880.27,Logistics,Urban Digital Services — Logistics (Mar 2026),true
+3,2026-03-29,10558.98,Sales - Retail,Urban Digital Services — Sales - Retail (Mar 2026),false
+3,2026-03-29,10181.29,Services - Digital,Urban Digital Services — Services - Digital (Mar 2026),false
+3,2026-04-02,4635.14,Logistics,Urban Digital Services — Logistics (Apr 2026),true
+3,2026-04-03,3667.09,Utilities,Urban Digital Services — Utilities (Apr 2026),true
+3,2026-04-03,12425.13,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-04,4564.94,Payroll,Urban Digital Services — Payroll (Apr 2026),true
+3,2026-04-08,3901.37,Utilities,Urban Digital Services — Utilities (Apr 2026),true
+3,2026-04-12,3991.95,Logistics,Urban Digital Services — Logistics (Apr 2026),true
+3,2026-04-13,13588.44,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-13,11065.47,Sales - Retail,Urban Digital Services — Sales - Retail (Apr 2026),false
+3,2026-04-14,10455.89,Services - Digital,Urban Digital Services — Services - Digital (Apr 2026),false
+3,2026-04-14,4444.02,Equipment,Urban Digital Services — Equipment (Apr 2026),true
+3,2026-04-15,12312.94,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-16,10563.86,Services - Digital,Urban Digital Services — Services - Digital (Apr 2026),false
+3,2026-04-17,12407.74,Sales - Retail,Urban Digital Services — Sales - Retail (Apr 2026),false
+3,2026-04-18,3888.74,Marketing,Urban Digital Services — Marketing (Apr 2026),true
+3,2026-04-18,4873.34,Supplies,Urban Digital Services — Supplies (Apr 2026),true
+3,2026-04-18,11373.11,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-19,11274.1,Sales - Retail,Urban Digital Services — Sales - Retail (Apr 2026),false
+3,2026-04-20,10882.09,Services - Digital,Urban Digital Services — Services - Digital (Apr 2026),false
+3,2026-04-20,4911.17,Utilities,Urban Digital Services — Utilities (Apr 2026),true
+3,2026-04-21,3863.27,Equipment,Urban Digital Services — Equipment (Apr 2026),true
+3,2026-04-22,4655.28,Equipment,Urban Digital Services — Equipment (Apr 2026),true
+3,2026-04-23,4640.13,Logistics,Urban Digital Services — Logistics (Apr 2026),true
+3,2026-04-23,4574.76,Logistics,Urban Digital Services — Logistics (Apr 2026),true
+3,2026-04-25,4841.56,Equipment,Urban Digital Services — Equipment (Apr 2026),true
+3,2026-04-26,11083.83,Services - Digital,Urban Digital Services — Services - Digital (Apr 2026),false
+3,2026-04-26,4050.4,Logistics,Urban Digital Services — Logistics (Apr 2026),true
+3,2026-04-26,4827.58,Equipment,Urban Digital Services — Equipment (Apr 2026),true
+3,2026-04-28,11382.15,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-29,4100.57,Marketing,Urban Digital Services — Marketing (Apr 2026),true
+3,2026-04-30,13068.39,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-30,11363.5,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Apr 2026),false
+3,2026-04-30,4616.74,Payroll,Urban Digital Services — Payroll (Apr 2026),true
+3,2026-05-01,4061.2,Equipment,Urban Digital Services — Equipment (May 2026),true
+3,2026-05-01,13447.98,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-03,4946.2,Payroll,Urban Digital Services — Payroll (May 2026),true
+3,2026-05-04,4035.21,Marketing,Urban Digital Services — Marketing (May 2026),true
+3,2026-05-06,12767.9,Sales - Retail,Urban Digital Services — Sales - Retail (May 2026),false
+3,2026-05-06,12584.65,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (May 2026),false
+3,2026-05-07,4426.35,Equipment,Urban Digital Services — Equipment (May 2026),true
+3,2026-05-07,13265.03,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (May 2026),false
+3,2026-05-07,4957.54,Utilities,Urban Digital Services — Utilities (May 2026),true
+3,2026-05-09,4419.03,Utilities,Urban Digital Services — Utilities (May 2026),true
+3,2026-05-13,11726.46,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-13,5222.43,Supplies,Urban Digital Services — Supplies (May 2026),true
+3,2026-05-13,12960.62,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-14,14080.0,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (May 2026),false
+3,2026-05-14,4352.76,Equipment,Urban Digital Services — Equipment (May 2026),true
+3,2026-05-15,12565.28,Sales - Retail,Urban Digital Services — Sales - Retail (May 2026),false
+3,2026-05-18,3973.17,Logistics,Urban Digital Services — Logistics (May 2026),true
+3,2026-05-19,4613.39,Payroll,Urban Digital Services — Payroll (May 2026),true
+3,2026-05-19,4571.2,Digital / Software,Urban Digital Services — Digital / Software (May 2026),true
+3,2026-05-20,10863.2,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-21,11114.15,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-21,12887.77,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (May 2026),false
+3,2026-05-22,12894.11,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (May 2026),false
+3,2026-05-23,4666.73,Utilities,Urban Digital Services — Utilities (May 2026),true
+3,2026-05-23,5098.29,Logistics,Urban Digital Services — Logistics (May 2026),true
+3,2026-05-24,10890.39,Services - Digital,Urban Digital Services — Services - Digital (May 2026),false
+3,2026-05-25,5032.84,Digital / Software,Urban Digital Services — Digital / Software (May 2026),true
+3,2026-05-26,4426.31,Digital / Software,Urban Digital Services — Digital / Software (May 2026),true
+3,2026-05-26,4077.57,Utilities,Urban Digital Services — Utilities (May 2026),true
+3,2026-05-26,4003.92,Marketing,Urban Digital Services — Marketing (May 2026),true
+3,2026-05-28,4930.59,Utilities,Urban Digital Services — Utilities (May 2026),true
+3,2026-05-29,11320.39,Sales - Retail,Urban Digital Services — Sales - Retail (May 2026),false
+3,2026-06-01,12285.07,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jun 2026),false
+3,2026-06-02,13502.66,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-04,5531.87,Equipment,Urban Digital Services — Equipment (Jun 2026),true
+3,2026-06-04,5089.6,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-06,14305.28,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-08,14371.85,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-08,13394.56,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-09,13338.8,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jun 2026),false
+3,2026-06-09,4889.7,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-10,12370.38,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jun 2026),false
+3,2026-06-10,13069.5,Services - Digital,Urban Digital Services — Services - Digital (Jun 2026),false
+3,2026-06-12,4739.74,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-15,14181.72,Sales - Wholesale,Urban Digital Services — Sales - Wholesale (Jun 2026),false
+3,2026-06-16,4642.63,Digital / Software,Urban Digital Services — Digital / Software (Jun 2026),true
+3,2026-06-17,5006.0,Equipment,Urban Digital Services — Equipment (Jun 2026),true
+3,2026-06-18,4166.25,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-18,4291.35,Equipment,Urban Digital Services — Equipment (Jun 2026),true
+3,2026-06-18,4356.95,Digital / Software,Urban Digital Services — Digital / Software (Jun 2026),true
+3,2026-06-18,13300.05,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-19,11744.47,Services - Digital,Urban Digital Services — Services - Digital (Jun 2026),false
+3,2026-06-19,5089.61,Utilities,Urban Digital Services — Utilities (Jun 2026),true
+3,2026-06-19,5020.08,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-24,4826.07,Utilities,Urban Digital Services — Utilities (Jun 2026),true
+3,2026-06-25,13418.1,Sales - Retail,Urban Digital Services — Sales - Retail (Jun 2026),false
+3,2026-06-25,4795.5,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-25,4287.84,Marketing,Urban Digital Services — Marketing (Jun 2026),true
+3,2026-06-25,12037.64,Services - Digital,Urban Digital Services — Services - Digital (Jun 2026),false
+3,2026-06-25,4692.46,Logistics,Urban Digital Services — Logistics (Jun 2026),true
+3,2026-06-25,4102.71,Supplies,Urban Digital Services — Supplies (Jun 2026),true
+3,2026-06-26,12796.67,Services - Digital,Urban Digital Services — Services - Digital (Jun 2026),false
+3,2026-06-27,4607.02,Utilities,Urban Digital Services — Utilities (Jun 2026),true
+3,2026-06-27,4542.86,Logistics,Urban Digital Services — Logistics (Jun 2026),true

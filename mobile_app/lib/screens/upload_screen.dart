@@ -1,5 +1,4 @@
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -107,7 +106,7 @@ class _UploadScreenState extends State<UploadScreen> {
     }
   }
 
-  Future<void> _uploadBundledSample() async {
+  Future<void> _uploadBundledAsset(String assetPath, String fileName) async {
     setState(() {
       err = null;
       report = [];
@@ -115,13 +114,55 @@ class _UploadScreenState extends State<UploadScreen> {
     });
     try {
       final sid = context.read<SessionProvider>().smeId;
-      final data = await rootBundle.loadString('assets/sample_transactions.csv');
+      final data = await rootBundle.loadString(assetPath);
       final bytes = Uint8List.fromList(data.codeUnits);
       final body = await ApiService().uploadFileBytes(
         smeId: sid,
         bytes: bytes,
-        fileName: 'sample_transactions.csv',
+        fileName: fileName,
       );
+      setState(() {
+        report = _reportLines(body);
+        _canReprocess = false;
+      });
+    } catch (e) {
+      setState(() => err = _friendlyError(e));
+    } finally {
+      setState(() => busy = false);
+    }
+  }
+
+  Future<void> _uploadBundledSample() => _uploadBundledAsset(
+        'assets/sample_transactions.csv',
+        'sample_transactions.csv',
+      );
+
+  Future<void> _uploadForecastDemo() => _uploadBundledAsset(
+        'assets/datasets/01_sme1_kopi_maju_12m_uplift.csv',
+        '01_sme1_kopi_maju_12m_uplift.csv',
+      );
+
+  Future<void> _uploadIncomeExpensePair() async {
+    setState(() {
+      err = null;
+      report = [];
+      busy = true;
+    });
+    try {
+      final sid = context.read<SessionProvider>().smeId;
+      final api = ApiService();
+      for (final entry in [
+        ('assets/datasets/04_sme1_income_stream.csv', '04_sme1_income_stream.csv'),
+        ('assets/datasets/05_sme1_expense_stream.csv', '05_sme1_expense_stream.csv'),
+      ]) {
+        final data = await rootBundle.loadString(entry.$1);
+        await api.uploadFileBytes(
+          smeId: sid,
+          bytes: Uint8List.fromList(data.codeUnits),
+          fileName: entry.$2,
+        );
+      }
+      final body = await api.reprocessUploads(sid);
       setState(() {
         report = _reportLines(body);
         _canReprocess = false;
@@ -350,19 +391,37 @@ class _UploadScreenState extends State<UploadScreen> {
   }
 
   Widget _buildSecondaryAction() {
-    return TextButton.icon(
-      onPressed: busy ? null : _uploadBundledSample,
-      icon: const Icon(Icons.play_circle_outline_rounded, size: 18),
-      label: const Text('Try sample data instead'),
-      style: TextButton.styleFrom(
-        foregroundColor: AppTheme.teal,
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        textStyle: const TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-          decoration: TextDecoration.none,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          'Synthetic datasets (AIC)',
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w600,
+            color: Colors.grey.shade700,
+          ),
         ),
-      ),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            _sampleChip('Default sample', _uploadBundledSample),
+            _sampleChip('12-month forecast demo', _uploadForecastDemo),
+            _sampleChip('Income + expense pair', _uploadIncomeExpensePair),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _sampleChip(String label, Future<void> Function() onTap) {
+    return ActionChip(
+      label: Text(label, style: const TextStyle(fontSize: 12)),
+      onPressed: busy ? null : onTap,
+      backgroundColor: AppTheme.accentWash,
+      side: const BorderSide(color: AppTheme.borderColor),
     );
   }
 
@@ -408,7 +467,7 @@ class _UploadScreenState extends State<UploadScreen> {
               ),
             ),
           const SizedBox(height: 8),
-          Text(
+          const Text(
             'Open Health and pull down to refresh — KPIs update after import.',
             style: TextStyle(
               fontSize: 13,

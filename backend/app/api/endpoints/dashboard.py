@@ -24,7 +24,7 @@ def get_dashboard(sme_id: int, db: Session = Depends(get_db)):
     df = data_processor.load_transactions_df(db, sme_id)
     kpis = data_processor.compute_kpis_from_transactions(df)
     series = [MonthlySeriesPoint(**p) for p in data_processor.monthly_series(df)]
-    fc = forecast_service.forecast_runway(db, sme_id)
+    fc = forecast_service.forecast_runway(db, sme_id, months_ahead=6)
     anomalies = unsupervised_service.detect_anomalies(db, sme_id)
     alerts: list[str] = []
     if fc.get("alert"):

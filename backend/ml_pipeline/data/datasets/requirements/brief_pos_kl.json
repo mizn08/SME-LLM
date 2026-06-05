@@ -1,0 +1,11 @@
+{
+  "budget": 12000,
+  "location": "Kuala Lumpur",
+  "purchase_category": "pos",
+  "style": "modern",
+  "explicit_constraints": [
+    "bnpl",
+    "low monthly payment",
+    "inventory sync"
+  ]
+}

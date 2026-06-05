@@ -1,0 +1,13 @@
+sme_id,purchase_amount_rm,purchase_category,scenario_title,include_sst,islamic_only,expected_path
+2,8000,pos,Kopi Maju POS upgrade,False,False,cash
+3,12000,ecommerce,Inventory + website package,False,False,cash
+2,25000,equipment,Commercial kitchen equipment,False,False,bnpl
+2,45000,digital,Cloud + CRM stack,False,False,cash
+1,15000,agro,Irrigation pump set,False,True,grant
+2,6000,retail,Display fixtures,True,True,micro_credit
+2,18000,fnb,Second outlet fit-out,True,True,cash
+2,32000,equipment,Delivery van down payment,True,True,grant
+2,9500,pos,Tablet POS terminals x4,True,False,cash
+3,55000,digital,ERP migration,True,False,micro_credit
+2,22000,agro,Cold storage unit,False,False,micro_credit
+2,14000,retail,Seasonal stock purchase,True,True,micro_credit

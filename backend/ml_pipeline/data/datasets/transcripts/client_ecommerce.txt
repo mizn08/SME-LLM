@@ -1,0 +1,4 @@
+Client: Harapan Agro wants e-commerce with inventory sync for agro products.
+Client: Budget RM 25000, location Penang, need BNPL with 6-month terms.
+Agent: Any grant eligibility for digitalisation?
+Client: Yes, MDEC-style grant if possible. No drilling on warehouse setup.

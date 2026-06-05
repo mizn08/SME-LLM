@@ -235,6 +235,40 @@ After first API boot: SMEs **1–3** (Kopi Maju, Harapan Agro, Urban Digital), s
 
 ---
 
+## Synthetic datasets (AIC)
+
+Generate **15+ demo datasets** (transactions, forecasts, OCR invoices, transcripts, ML rows):
+
+```powershell
+cd backend
+python ml_pipeline/scripts/generate_aic_datasets.py
+```
+
+Output: `backend/ml_pipeline/data/datasets/` (see catalog in `datasets/README.md`)  
+Bundled in the app: `mobile_app/assets/datasets/`
+
+| Dataset | Use |
+|---------|-----|
+| `01_sme1_kopi_maju_12m_uplift.csv` | **Forecast demo** — 12-month revenue uplift → dashed forecast line on Home chart |
+| `04` + `05` income/expense split | Multi-file upload test |
+| `08_bnpl_simulation_scenarios.csv` | Simulator purchase scenarios |
+| `ocr/invoices/*.png` | Insights → scan invoice (Tesseract) |
+| `transcripts/*.txt` | Sales Engineer unstructured brief |
+
+In the app: **Upload** → tap **12-month forecast demo** chip, then open **Home** for the chart.
+
+**Manual demo files (tomorrow):** see [`demo_session/`](../demo_session/) — CSV + PNG + transcript ready to upload from File Explorer.
+
+To refresh seeded DB transactions (SQLite):
+
+```powershell
+cd backend
+python scripts/reinit_sqlite.py
+.\run_local.ps1
+```
+
+---
+
 ## Machine learning (optional retrain)
 
 ```powershell

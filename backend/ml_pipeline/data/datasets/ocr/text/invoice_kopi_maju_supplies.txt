@@ -1,0 +1,8 @@
+TAX INVOICE — Kopi Maju Enterprise
+Date: 2025-11-18
+Supplier: Bean & Brew Trading
+Arabica beans 20kg RM 1,240.00
+Milk powder bulk RM 380.00
+Subtotal RM 1,620.00
+SST RM 97.20
+Grand total RM 1,717.20

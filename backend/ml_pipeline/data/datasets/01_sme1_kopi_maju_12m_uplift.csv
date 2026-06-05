@@ -1,0 +1,385 @@
+sme_id,date,amount,category,description,is_expense
+1,2025-07-02,1857.76,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),true
+1,2025-07-03,3501.63,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jul 2025),false
+1,2025-07-06,1905.78,Equipment,Kopi Maju Enterprise — Equipment (Jul 2025),true
+1,2025-07-06,3591.38,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-07-07,3074.68,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jul 2025),false
+1,2025-07-08,1714.79,Utilities,Kopi Maju Enterprise — Utilities (Jul 2025),true
+1,2025-07-08,1694.12,Supplies,Kopi Maju Enterprise — Supplies (Jul 2025),true
+1,2025-07-08,1502.69,Supplies,Kopi Maju Enterprise — Supplies (Jul 2025),true
+1,2025-07-09,3287.88,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-07-09,1473.14,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),true
+1,2025-07-11,1614.83,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),true
+1,2025-07-12,3735.6,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jul 2025),false
+1,2025-07-13,1471.15,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),true
+1,2025-07-15,1593.75,Utilities,Kopi Maju Enterprise — Utilities (Jul 2025),true
+1,2025-07-18,3076.32,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-07-18,1791.41,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),true
+1,2025-07-20,3079.83,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jul 2025),false
+1,2025-07-21,3282.96,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jul 2025),false
+1,2025-07-21,3141.29,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-07-21,1728.05,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),true
+1,2025-07-22,3343.62,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jul 2025),false
+1,2025-07-22,1913.77,Marketing,Kopi Maju Enterprise — Marketing (Jul 2025),true
+1,2025-07-22,4007.48,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jul 2025),false
+1,2025-07-23,3839.99,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jul 2025),false
+1,2025-07-23,1830.32,Utilities,Kopi Maju Enterprise — Utilities (Jul 2025),true
+1,2025-07-24,3261.65,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-07-25,1841.52,Equipment,Kopi Maju Enterprise — Equipment (Jul 2025),true
+1,2025-07-25,1735.49,Logistics,Kopi Maju Enterprise — Logistics (Jul 2025),true
+1,2025-07-27,1702.07,Marketing,Kopi Maju Enterprise — Marketing (Jul 2025),true
+1,2025-07-27,1778.75,Payroll,Kopi Maju Enterprise — Payroll (Jul 2025),true
+1,2025-07-30,1850.61,Supplies,Kopi Maju Enterprise — Supplies (Jul 2025),true
+1,2025-07-30,3775.69,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jul 2025),false
+1,2025-08-01,3727.07,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Aug 2025),false
+1,2025-08-01,4114.81,Services - Digital,Kopi Maju Enterprise — Services - Digital (Aug 2025),false
+1,2025-08-02,1794.9,Supplies,Kopi Maju Enterprise — Supplies (Aug 2025),true
+1,2025-08-03,1909.05,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),true
+1,2025-08-03,1899.66,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),true
+1,2025-08-04,1582.7,Supplies,Kopi Maju Enterprise — Supplies (Aug 2025),true
+1,2025-08-06,3404.68,Services - Digital,Kopi Maju Enterprise — Services - Digital (Aug 2025),false
+1,2025-08-08,2001.19,Logistics,Kopi Maju Enterprise — Logistics (Aug 2025),true
+1,2025-08-08,1634.94,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),true
+1,2025-08-10,1749.76,Utilities,Kopi Maju Enterprise — Utilities (Aug 2025),true
+1,2025-08-11,3401.54,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Aug 2025),false
+1,2025-08-12,3145.97,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Aug 2025),false
+1,2025-08-12,1862.35,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),true
+1,2025-08-16,3381.5,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Aug 2025),false
+1,2025-08-16,1657.25,Utilities,Kopi Maju Enterprise — Utilities (Aug 2025),true
+1,2025-08-17,3830.34,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Aug 2025),false
+1,2025-08-18,3342.37,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Aug 2025),false
+1,2025-08-19,1562.4,Payroll,Kopi Maju Enterprise — Payroll (Aug 2025),true
+1,2025-08-20,3614.5,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Aug 2025),false
+1,2025-08-24,1681.99,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),true
+1,2025-08-25,4072.9,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Aug 2025),false
+1,2025-08-25,3457.07,Services - Digital,Kopi Maju Enterprise — Services - Digital (Aug 2025),false
+1,2025-08-26,1817.52,Logistics,Kopi Maju Enterprise — Logistics (Aug 2025),true
+1,2025-08-27,1705.62,Digital / Software,Kopi Maju Enterprise — Digital / Software (Aug 2025),true
+1,2025-08-27,1585.51,Utilities,Kopi Maju Enterprise — Utilities (Aug 2025),true
+1,2025-08-29,1817.79,Payroll,Kopi Maju Enterprise — Payroll (Aug 2025),true
+1,2025-08-29,1862.25,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),true
+1,2025-08-30,3545.09,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Aug 2025),false
+1,2025-08-30,3456.21,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Aug 2025),false
+1,2025-08-30,1586.48,Equipment,Kopi Maju Enterprise — Equipment (Aug 2025),true
+1,2025-08-31,1970.64,Logistics,Kopi Maju Enterprise — Logistics (Aug 2025),true
+1,2025-08-31,4145.95,Services - Digital,Kopi Maju Enterprise — Services - Digital (Aug 2025),false
+1,2025-09-01,1860.97,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),true
+1,2025-09-02,1914.51,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),true
+1,2025-09-03,1807.2,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),true
+1,2025-09-03,1587.63,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),true
+1,2025-09-04,4182.84,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Sep 2025),false
+1,2025-09-04,1678.92,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-09-05,3784.56,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Sep 2025),false
+1,2025-09-06,3919.56,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Sep 2025),false
+1,2025-09-07,3845.17,Services - Digital,Kopi Maju Enterprise — Services - Digital (Sep 2025),false
+1,2025-09-07,3931.77,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Sep 2025),false
+1,2025-09-08,3442.02,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Sep 2025),false
+1,2025-09-08,3655.08,Services - Digital,Kopi Maju Enterprise — Services - Digital (Sep 2025),false
+1,2025-09-09,4141.11,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Sep 2025),false
+1,2025-09-14,3538.95,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Sep 2025),false
+1,2025-09-15,4306.72,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Sep 2025),false
+1,2025-09-15,1893.81,Payroll,Kopi Maju Enterprise — Payroll (Sep 2025),true
+1,2025-09-15,3526.58,Services - Digital,Kopi Maju Enterprise — Services - Digital (Sep 2025),false
+1,2025-09-18,1621.15,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-09-18,3600.85,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Sep 2025),false
+1,2025-09-18,1587.55,Logistics,Kopi Maju Enterprise — Logistics (Sep 2025),true
+1,2025-09-21,1665.93,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-09-25,1990.23,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-09-26,1673.97,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),true
+1,2025-09-26,3373.24,Services - Digital,Kopi Maju Enterprise — Services - Digital (Sep 2025),false
+1,2025-09-27,2060.21,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-09-28,2043.76,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),true
+1,2025-09-28,4176.75,Services - Digital,Kopi Maju Enterprise — Services - Digital (Sep 2025),false
+1,2025-09-28,1652.9,Payroll,Kopi Maju Enterprise — Payroll (Sep 2025),true
+1,2025-09-28,2018.73,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),true
+1,2025-09-28,1674.61,Supplies,Kopi Maju Enterprise — Supplies (Sep 2025),true
+1,2025-09-30,1977.72,Marketing,Kopi Maju Enterprise — Marketing (Sep 2025),true
+1,2025-09-30,1669.2,Equipment,Kopi Maju Enterprise — Equipment (Sep 2025),true
+1,2025-10-01,3656.19,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-01,1924.79,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-03,3570.74,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Oct 2025),false
+1,2025-10-03,1611.37,Digital / Software,Kopi Maju Enterprise — Digital / Software (Oct 2025),true
+1,2025-10-04,4449.51,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Oct 2025),false
+1,2025-10-05,3714.4,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-06,2115.11,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),true
+1,2025-10-07,3839.66,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Oct 2025),false
+1,2025-10-08,1859.83,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-09,4309.78,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-10,1667.27,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),true
+1,2025-10-10,1710.62,Utilities,Kopi Maju Enterprise — Utilities (Oct 2025),true
+1,2025-10-12,4244.72,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-12,2054.87,Utilities,Kopi Maju Enterprise — Utilities (Oct 2025),true
+1,2025-10-15,3858.71,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-15,1624.16,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-17,4478.18,Services - Digital,Kopi Maju Enterprise — Services - Digital (Oct 2025),false
+1,2025-10-17,1910.93,Marketing,Kopi Maju Enterprise — Marketing (Oct 2025),true
+1,2025-10-18,3377.22,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Oct 2025),false
+1,2025-10-18,1911.22,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-19,4404.49,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Oct 2025),false
+1,2025-10-20,3947.97,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Oct 2025),false
+1,2025-10-20,1646.34,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),true
+1,2025-10-21,1716.76,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-22,1813.21,Logistics,Kopi Maju Enterprise — Logistics (Oct 2025),true
+1,2025-10-23,1955.91,Marketing,Kopi Maju Enterprise — Marketing (Oct 2025),true
+1,2025-10-26,2075.81,Equipment,Kopi Maju Enterprise — Equipment (Oct 2025),true
+1,2025-10-27,1683.09,Utilities,Kopi Maju Enterprise — Utilities (Oct 2025),true
+1,2025-10-27,1904.88,Supplies,Kopi Maju Enterprise — Supplies (Oct 2025),true
+1,2025-10-29,1905.17,Payroll,Kopi Maju Enterprise — Payroll (Oct 2025),true
+1,2025-10-29,4307.69,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Oct 2025),false
+1,2025-10-30,4204.33,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Oct 2025),false
+1,2025-11-02,1698.46,Marketing,Kopi Maju Enterprise — Marketing (Nov 2025),true
+1,2025-11-04,1677.29,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),true
+1,2025-11-06,4280.18,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Nov 2025),false
+1,2025-11-06,1865.2,Equipment,Kopi Maju Enterprise — Equipment (Nov 2025),true
+1,2025-11-07,1858.34,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),true
+1,2025-11-08,1928.24,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),true
+1,2025-11-08,4657.05,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-09,4218.03,Services - Digital,Kopi Maju Enterprise — Services - Digital (Nov 2025),false
+1,2025-11-10,1636.3,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),true
+1,2025-11-11,4688.9,Services - Digital,Kopi Maju Enterprise — Services - Digital (Nov 2025),false
+1,2025-11-12,2167.24,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),true
+1,2025-11-13,2151.78,Digital / Software,Kopi Maju Enterprise — Digital / Software (Nov 2025),true
+1,2025-11-14,4517.45,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-15,2144.97,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),true
+1,2025-11-16,1823.85,Equipment,Kopi Maju Enterprise — Equipment (Nov 2025),true
+1,2025-11-22,3935.47,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Nov 2025),false
+1,2025-11-23,1933.01,Payroll,Kopi Maju Enterprise — Payroll (Nov 2025),true
+1,2025-11-24,4756.66,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-24,4012.7,Services - Digital,Kopi Maju Enterprise — Services - Digital (Nov 2025),false
+1,2025-11-26,4448.07,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Nov 2025),false
+1,2025-11-26,2002.01,Supplies,Kopi Maju Enterprise — Supplies (Nov 2025),true
+1,2025-11-26,3913.63,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Nov 2025),false
+1,2025-11-26,2015.45,Supplies,Kopi Maju Enterprise — Supplies (Nov 2025),true
+1,2025-11-26,3775.9,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-27,1817.35,Marketing,Kopi Maju Enterprise — Marketing (Nov 2025),true
+1,2025-11-27,1637.4,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),true
+1,2025-11-28,3845.62,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-28,1634.1,Digital / Software,Kopi Maju Enterprise — Digital / Software (Nov 2025),true
+1,2025-11-28,2007.11,Logistics,Kopi Maju Enterprise — Logistics (Nov 2025),true
+1,2025-11-30,3710.38,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Nov 2025),false
+1,2025-11-30,4703.54,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Nov 2025),false
+1,2025-11-30,1821.25,Utilities,Kopi Maju Enterprise — Utilities (Nov 2025),true
+1,2025-12-01,3911.09,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Dec 2025),false
+1,2025-12-03,1975.28,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),true
+1,2025-12-06,2120.68,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),true
+1,2025-12-07,1894.24,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),true
+1,2025-12-07,4503.92,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-10,4859.52,Services - Digital,Kopi Maju Enterprise — Services - Digital (Dec 2025),false
+1,2025-12-10,4290.68,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-10,4117.92,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Dec 2025),false
+1,2025-12-10,1670.94,Utilities,Kopi Maju Enterprise — Utilities (Dec 2025),true
+1,2025-12-11,1665.86,Digital / Software,Kopi Maju Enterprise — Digital / Software (Dec 2025),true
+1,2025-12-13,4706.87,Services - Digital,Kopi Maju Enterprise — Services - Digital (Dec 2025),false
+1,2025-12-14,4733.12,Services - Digital,Kopi Maju Enterprise — Services - Digital (Dec 2025),false
+1,2025-12-15,2108.66,Payroll,Kopi Maju Enterprise — Payroll (Dec 2025),true
+1,2025-12-15,1625.61,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),true
+1,2025-12-15,1707.91,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),true
+1,2025-12-16,1988.54,Payroll,Kopi Maju Enterprise — Payroll (Dec 2025),true
+1,2025-12-17,2056.13,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),true
+1,2025-12-17,2108.98,Digital / Software,Kopi Maju Enterprise — Digital / Software (Dec 2025),true
+1,2025-12-18,4354.44,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-19,4263.74,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-19,4991.55,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-20,3854.75,Services - Digital,Kopi Maju Enterprise — Services - Digital (Dec 2025),false
+1,2025-12-21,4999.26,Services - Digital,Kopi Maju Enterprise — Services - Digital (Dec 2025),false
+1,2025-12-22,1952.55,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),true
+1,2025-12-22,1846.86,Payroll,Kopi Maju Enterprise — Payroll (Dec 2025),true
+1,2025-12-24,2136.55,Equipment,Kopi Maju Enterprise — Equipment (Dec 2025),true
+1,2025-12-26,1844.17,Marketing,Kopi Maju Enterprise — Marketing (Dec 2025),true
+1,2025-12-26,2131.69,Digital / Software,Kopi Maju Enterprise — Digital / Software (Dec 2025),true
+1,2025-12-26,4954.28,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Dec 2025),false
+1,2025-12-27,4192.94,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Dec 2025),false
+1,2025-12-29,2016.89,Utilities,Kopi Maju Enterprise — Utilities (Dec 2025),true
+1,2025-12-31,1711.84,Utilities,Kopi Maju Enterprise — Utilities (Dec 2025),true
+1,2026-01-02,1896.28,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),true
+1,2026-01-03,4099.9,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jan 2026),false
+1,2026-01-03,5045.62,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jan 2026),false
+1,2026-01-03,1710.34,Payroll,Kopi Maju Enterprise — Payroll (Jan 2026),true
+1,2026-01-05,5210.44,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jan 2026),false
+1,2026-01-05,4607.05,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jan 2026),false
+1,2026-01-05,1909.0,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),true
+1,2026-01-07,2171.17,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),true
+1,2026-01-07,2111.86,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jan 2026),true
+1,2026-01-08,1766.77,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),true
+1,2026-01-08,4403.93,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jan 2026),false
+1,2026-01-09,5098.96,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jan 2026),false
+1,2026-01-09,4899.04,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jan 2026),false
+1,2026-01-10,4298.1,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jan 2026),false
+1,2026-01-11,1947.54,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),true
+1,2026-01-11,4033.82,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jan 2026),false
+1,2026-01-11,4175.5,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jan 2026),false
+1,2026-01-13,2165.04,Utilities,Kopi Maju Enterprise — Utilities (Jan 2026),true
+1,2026-01-13,2105.56,Utilities,Kopi Maju Enterprise — Utilities (Jan 2026),true
+1,2026-01-14,1717.28,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),true
+1,2026-01-14,1909.05,Utilities,Kopi Maju Enterprise — Utilities (Jan 2026),true
+1,2026-01-14,2077.27,Logistics,Kopi Maju Enterprise — Logistics (Jan 2026),true
+1,2026-01-14,1887.11,Equipment,Kopi Maju Enterprise — Equipment (Jan 2026),true
+1,2026-01-15,1823.76,Payroll,Kopi Maju Enterprise — Payroll (Jan 2026),true
+1,2026-01-15,4836.58,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jan 2026),false
+1,2026-01-18,4825.39,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jan 2026),false
+1,2026-01-18,1963.63,Equipment,Kopi Maju Enterprise — Equipment (Jan 2026),true
+1,2026-01-23,2042.92,Equipment,Kopi Maju Enterprise — Equipment (Jan 2026),true
+1,2026-01-23,1962.75,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),true
+1,2026-01-23,5302.69,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jan 2026),false
+1,2026-01-27,2156.44,Marketing,Kopi Maju Enterprise — Marketing (Jan 2026),true
+1,2026-01-29,5347.43,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jan 2026),false
+1,2026-02-01,2251.23,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),true
+1,2026-02-01,5182.97,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-01,5383.5,Services - Digital,Kopi Maju Enterprise — Services - Digital (Feb 2026),false
+1,2026-02-04,2257.0,Equipment,Kopi Maju Enterprise — Equipment (Feb 2026),true
+1,2026-02-04,2068.93,Payroll,Kopi Maju Enterprise — Payroll (Feb 2026),true
+1,2026-02-04,4683.86,Services - Digital,Kopi Maju Enterprise — Services - Digital (Feb 2026),false
+1,2026-02-05,4088.9,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-05,5165.52,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-06,1911.93,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),true
+1,2026-02-06,2026.44,Marketing,Kopi Maju Enterprise — Marketing (Feb 2026),true
+1,2026-02-07,5082.06,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-07,4866.91,Services - Digital,Kopi Maju Enterprise — Services - Digital (Feb 2026),false
+1,2026-02-08,4921.56,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Feb 2026),false
+1,2026-02-08,4586.99,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Feb 2026),false
+1,2026-02-09,1859.17,Payroll,Kopi Maju Enterprise — Payroll (Feb 2026),true
+1,2026-02-10,1984.26,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),true
+1,2026-02-12,1795.96,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),true
+1,2026-02-15,1882.66,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),true
+1,2026-02-16,5309.49,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-19,2017.08,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),true
+1,2026-02-19,5156.93,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-20,2133.41,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),true
+1,2026-02-20,1796.05,Equipment,Kopi Maju Enterprise — Equipment (Feb 2026),true
+1,2026-02-20,4628.21,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Feb 2026),false
+1,2026-02-22,5453.48,Services - Digital,Kopi Maju Enterprise — Services - Digital (Feb 2026),false
+1,2026-02-23,2072.5,Marketing,Kopi Maju Enterprise — Marketing (Feb 2026),true
+1,2026-02-23,1864.24,Supplies,Kopi Maju Enterprise — Supplies (Feb 2026),true
+1,2026-02-24,2182.61,Digital / Software,Kopi Maju Enterprise — Digital / Software (Feb 2026),true
+1,2026-02-25,2169.74,Logistics,Kopi Maju Enterprise — Logistics (Feb 2026),true
+1,2026-02-25,1810.61,Utilities,Kopi Maju Enterprise — Utilities (Feb 2026),true
+1,2026-02-27,2017.07,Equipment,Kopi Maju Enterprise — Equipment (Feb 2026),true
+1,2026-02-27,5314.22,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Feb 2026),false
+1,2026-03-01,5357.44,Services - Digital,Kopi Maju Enterprise — Services - Digital (Mar 2026),false
+1,2026-03-01,1855.46,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),true
+1,2026-03-03,5507.72,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-03,2204.4,Utilities,Kopi Maju Enterprise — Utilities (Mar 2026),true
+1,2026-03-07,5521.84,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-08,1746.73,Logistics,Kopi Maju Enterprise — Logistics (Mar 2026),true
+1,2026-03-08,1758.04,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),true
+1,2026-03-08,2133.86,Equipment,Kopi Maju Enterprise — Equipment (Mar 2026),true
+1,2026-03-09,5677.38,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-09,5559.84,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Mar 2026),false
+1,2026-03-09,5709.03,Services - Digital,Kopi Maju Enterprise — Services - Digital (Mar 2026),false
+1,2026-03-10,2191.85,Payroll,Kopi Maju Enterprise — Payroll (Mar 2026),true
+1,2026-03-11,5173.23,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Mar 2026),false
+1,2026-03-14,2075.11,Logistics,Kopi Maju Enterprise — Logistics (Mar 2026),true
+1,2026-03-15,1955.47,Payroll,Kopi Maju Enterprise — Payroll (Mar 2026),true
+1,2026-03-16,1984.13,Logistics,Kopi Maju Enterprise — Logistics (Mar 2026),true
+1,2026-03-16,2190.64,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),true
+1,2026-03-16,1856.47,Payroll,Kopi Maju Enterprise — Payroll (Mar 2026),true
+1,2026-03-17,4757.12,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-18,4668.0,Services - Digital,Kopi Maju Enterprise — Services - Digital (Mar 2026),false
+1,2026-03-18,2118.02,Digital / Software,Kopi Maju Enterprise — Digital / Software (Mar 2026),true
+1,2026-03-20,5728.13,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-21,2178.37,Supplies,Kopi Maju Enterprise — Supplies (Mar 2026),true
+1,2026-03-23,2016.84,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),true
+1,2026-03-23,4600.44,Services - Digital,Kopi Maju Enterprise — Services - Digital (Mar 2026),false
+1,2026-03-23,2272.45,Marketing,Kopi Maju Enterprise — Marketing (Mar 2026),true
+1,2026-03-24,2269.65,Utilities,Kopi Maju Enterprise — Utilities (Mar 2026),true
+1,2026-03-25,1955.41,Digital / Software,Kopi Maju Enterprise — Digital / Software (Mar 2026),true
+1,2026-03-26,2132.21,Utilities,Kopi Maju Enterprise — Utilities (Mar 2026),true
+1,2026-03-29,5197.97,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Mar 2026),false
+1,2026-03-29,4868.99,Services - Digital,Kopi Maju Enterprise — Services - Digital (Mar 2026),false
+1,2026-03-31,5337.82,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Mar 2026),false
+1,2026-04-02,2235.39,Equipment,Kopi Maju Enterprise — Equipment (Apr 2026),true
+1,2026-04-03,5178.68,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-04,1832.51,Utilities,Kopi Maju Enterprise — Utilities (Apr 2026),true
+1,2026-04-04,5390.29,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Apr 2026),false
+1,2026-04-07,2132.9,Logistics,Kopi Maju Enterprise — Logistics (Apr 2026),true
+1,2026-04-08,5157.19,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-08,5886.74,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-10,5449.84,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-10,1859.73,Marketing,Kopi Maju Enterprise — Marketing (Apr 2026),true
+1,2026-04-10,2019.27,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),true
+1,2026-04-13,2456.04,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),true
+1,2026-04-14,6446.7,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-14,1853.92,Marketing,Kopi Maju Enterprise — Marketing (Apr 2026),true
+1,2026-04-15,2360.81,Payroll,Kopi Maju Enterprise — Payroll (Apr 2026),true
+1,2026-04-15,2057.01,Marketing,Kopi Maju Enterprise — Marketing (Apr 2026),true
+1,2026-04-17,5300.29,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Apr 2026),false
+1,2026-04-18,5700.76,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Apr 2026),false
+1,2026-04-19,1906.13,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),true
+1,2026-04-19,2012.74,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),true
+1,2026-04-20,5285.26,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-20,5361.32,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Apr 2026),false
+1,2026-04-20,2432.59,Digital / Software,Kopi Maju Enterprise — Digital / Software (Apr 2026),true
+1,2026-04-20,5695.57,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Apr 2026),false
+1,2026-04-20,2309.4,Equipment,Kopi Maju Enterprise — Equipment (Apr 2026),true
+1,2026-04-21,2044.02,Digital / Software,Kopi Maju Enterprise — Digital / Software (Apr 2026),true
+1,2026-04-24,1890.68,Supplies,Kopi Maju Enterprise — Supplies (Apr 2026),true
+1,2026-04-25,5983.23,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-25,2007.72,Utilities,Kopi Maju Enterprise — Utilities (Apr 2026),true
+1,2026-04-25,5347.76,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Apr 2026),false
+1,2026-04-26,5532.9,Services - Digital,Kopi Maju Enterprise — Services - Digital (Apr 2026),false
+1,2026-04-28,2280.56,Logistics,Kopi Maju Enterprise — Logistics (Apr 2026),true
+1,2026-04-30,2015.39,Logistics,Kopi Maju Enterprise — Logistics (Apr 2026),true
+1,2026-05-02,1832.18,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),true
+1,2026-05-03,5576.07,Services - Digital,Kopi Maju Enterprise — Services - Digital (May 2026),false
+1,2026-05-04,2196.91,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-06,5471.16,Services - Digital,Kopi Maju Enterprise — Services - Digital (May 2026),false
+1,2026-05-06,2405.91,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),true
+1,2026-05-09,5440.68,Services - Digital,Kopi Maju Enterprise — Services - Digital (May 2026),false
+1,2026-05-10,1990.06,Payroll,Kopi Maju Enterprise — Payroll (May 2026),true
+1,2026-05-11,2097.02,Supplies,Kopi Maju Enterprise — Supplies (May 2026),true
+1,2026-05-11,1853.82,Equipment,Kopi Maju Enterprise — Equipment (May 2026),true
+1,2026-05-11,6405.55,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-12,6433.94,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (May 2026),false
+1,2026-05-13,2198.83,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-14,5980.99,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-14,5159.8,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (May 2026),false
+1,2026-05-14,2115.95,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-15,1962.31,Equipment,Kopi Maju Enterprise — Equipment (May 2026),true
+1,2026-05-15,5538.87,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (May 2026),false
+1,2026-05-16,6441.16,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-16,2073.53,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-16,5684.84,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-18,2202.47,Marketing,Kopi Maju Enterprise — Marketing (May 2026),true
+1,2026-05-19,5291.5,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-21,5974.57,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (May 2026),false
+1,2026-05-22,2323.52,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-22,2161.63,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),true
+1,2026-05-23,2010.47,Equipment,Kopi Maju Enterprise — Equipment (May 2026),true
+1,2026-05-25,2286.3,Utilities,Kopi Maju Enterprise — Utilities (May 2026),true
+1,2026-05-27,2385.55,Logistics,Kopi Maju Enterprise — Logistics (May 2026),true
+1,2026-05-27,6235.3,Services - Digital,Kopi Maju Enterprise — Services - Digital (May 2026),false
+1,2026-05-28,2343.78,Digital / Software,Kopi Maju Enterprise — Digital / Software (May 2026),true
+1,2026-05-30,6356.5,Services - Digital,Kopi Maju Enterprise — Services - Digital (May 2026),false
+1,2026-05-31,2096.12,Supplies,Kopi Maju Enterprise — Supplies (May 2026),true
+1,2026-06-05,5423.52,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-07,1984.96,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-08,2203.25,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jun 2026),true
+1,2026-06-08,2076.58,Marketing,Kopi Maju Enterprise — Marketing (Jun 2026),true
+1,2026-06-10,5487.11,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-10,5539.44,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jun 2026),false
+1,2026-06-11,2511.94,Payroll,Kopi Maju Enterprise — Payroll (Jun 2026),true
+1,2026-06-11,2354.27,Utilities,Kopi Maju Enterprise — Utilities (Jun 2026),true
+1,2026-06-12,6151.95,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-13,2158.73,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-13,2031.95,Utilities,Kopi Maju Enterprise — Utilities (Jun 2026),true
+1,2026-06-14,1978.76,Supplies,Kopi Maju Enterprise — Supplies (Jun 2026),true
+1,2026-06-15,6295.47,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-15,2441.73,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-16,6258.0,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jun 2026),false
+1,2026-06-16,6954.6,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jun 2026),false
+1,2026-06-18,2089.13,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jun 2026),true
+1,2026-06-18,2153.74,Equipment,Kopi Maju Enterprise — Equipment (Jun 2026),true
+1,2026-06-18,6491.17,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jun 2026),false
+1,2026-06-19,2351.37,Payroll,Kopi Maju Enterprise — Payroll (Jun 2026),true
+1,2026-06-19,6946.23,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-19,6871.13,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jun 2026),false
+1,2026-06-22,5323.87,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jun 2026),false
+1,2026-06-23,2502.36,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-24,5795.78,Sales - Retail,Kopi Maju Enterprise — Sales - Retail (Jun 2026),false
+1,2026-06-25,1891.73,Digital / Software,Kopi Maju Enterprise — Digital / Software (Jun 2026),true
+1,2026-06-25,2186.17,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-27,6772.75,Services - Digital,Kopi Maju Enterprise — Services - Digital (Jun 2026),false
+1,2026-06-28,2313.03,Logistics,Kopi Maju Enterprise — Logistics (Jun 2026),true
+1,2026-06-28,6189.42,Sales - Wholesale,Kopi Maju Enterprise — Sales - Wholesale (Jun 2026),false
+1,2026-06-28,2196.42,Payroll,Kopi Maju Enterprise — Payroll (Jun 2026),true
+1,2026-06-30,1958.04,Supplies,Kopi Maju Enterprise — Supplies (Jun 2026),true

@@ -1,0 +1,8 @@
+INVOICE — Harapan Agro Supplies
+Date: 2025-12-02
+Vendor: AgriTech KL
+Irrigation pump RM 4,850.00
+Installation labour RM 650.00
+Subtotal RM 5,500.00
+SST RM 330.00
+Grand total RM 5,830.00

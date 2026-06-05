@@ -1,0 +1,6 @@
+txn_date,amount_rm,category,description,is_expense
+2025-11-18,1240.0,invoice,Arabica beans 20kg,True
+2025-11-18,380.0,invoice,Milk powder bulk,True
+2025-11-18,1620.0,invoice,Subtotal,True
+2025-11-18,97.2,invoice,SST,True
+2025-11-18,1717.2,invoice,Grand total,True
