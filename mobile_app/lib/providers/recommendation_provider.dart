@@ -4,8 +4,8 @@ import '../models/prediction.dart';
 
 class RecommendationProvider extends ChangeNotifier {
   PredictionResult? lastResult;
-  double? lastPurchaseAmount;
-  String? lastPurchaseCategory;
+  double? lastPurchaseAmount = 50000;
+  String? lastPurchaseCategory = 'equipment';
 
   void setResult(
     PredictionResult? r, {

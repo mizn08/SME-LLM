@@ -7,20 +7,13 @@ import re
 from typing import Any
 
 from app.core.config import get_settings
-from app.services.ocr_service import extract_invoice_text
+from app.services.document_intake_service import extract_from_upload
 
 
-def extract_structured(image_bytes: bytes) -> dict[str, Any]:
-    base = extract_invoice_text(image_bytes)
+def extract_structured(file_bytes: bytes, filename: str = "upload") -> dict[str, Any]:
+    base = extract_from_upload(file_bytes, filename)
     text = base.get("text", "")
-    structured = {
-        "vendor": _find_vendor(text),
-        "invoice_date": _find_date(text),
-        "total_rm": _find_total(text),
-        "sst_rm": _find_sst(text),
-        "line_items": _line_items(text, base.get("parsed_rows", [])),
-        "category_guess": _guess_category(text),
-    }
+    structured = build_structured_fields(text, base.get("parsed_rows", []))
     settings = get_settings()
     if settings.active_llm_api_key and text:
         llm_fields = _llm_structure(text)
@@ -29,7 +22,18 @@ def extract_structured(image_bytes: bytes) -> dict[str, Any]:
     return {
         **base,
         "structured": structured,
-        "engine": base.get("engine", "tesseract") + "+document_ai",
+        "engine": str(base.get("engine", "unknown")) + "+document_ai",
+    }
+
+
+def build_structured_fields(text: str, rows: list[dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "vendor": _find_vendor(text),
+        "invoice_date": _find_date(text),
+        "total_rm": _find_total(text),
+        "sst_rm": _find_sst(text),
+        "line_items": _line_items(text, rows),
+        "category_guess": _guess_category(text),
     }
 
 

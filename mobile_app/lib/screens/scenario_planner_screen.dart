@@ -28,13 +28,21 @@ class _ScenarioPlannerScreenState extends State<ScenarioPlannerScreen> {
       final sid = context.read<SessionProvider>().smeId;
       final dash = await ApiService().fetchDashboard(sid, useCacheOnFail: false);
       final beforeRunway = dash.runwayDaysEst ?? dash.daysCashOnHand;
-      final beforeHealth = dash.healthScore ?? _estimateHealth(dash.daysCashOnHand, beforeRunway);
+      final beforeHealth = dash.healthScore;
+      if (beforeHealth == null) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Load Health tab first — readiness score comes from the server.')),
+          );
+        }
+        return;
+      }
 
+      final dailyBurn = (dash.burnRateMonthlyRm / 30).clamp(1.0, 999999.0);
       final impact = _extraPayroll * 3 + _loanRm * 0.02 * 12;
-      final afterRunway = (beforeRunway - impact / ((dash.burnRateMonthlyRm / 30).clamp(1, 9999)))
-          .clamp(0, 9999)
-          .toDouble();
-      final afterHealth = (beforeHealth - (impact / 50000).round()).clamp(0, 100);
+      final afterRunway = (beforeRunway - impact / dailyBurn).clamp(0.0, 9999.0);
+      final runwayFactor = beforeRunway > 0 ? (afterRunway / beforeRunway).clamp(0.0, 1.0) : 0.0;
+      final afterHealth = (beforeHealth * runwayFactor).round().clamp(0, 100);
 
       if (_purchaseRm > 0) {
         await ApiService().predict(
@@ -57,10 +65,6 @@ class _ScenarioPlannerScreenState extends State<ScenarioPlannerScreen> {
     }
   }
 
-  int _estimateHealth(double daysCash, double runway) {
-    return ((daysCash / 180 + runway / 180) / 2 * 100).round().clamp(0, 100);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +73,7 @@ class _ScenarioPlannerScreenState extends State<ScenarioPlannerScreen> {
         padding: const EdgeInsets.all(16),
         children: [
           const Text(
-            'Move sliders to see impact on runway and readiness score (demo model).',
+            'Illustrative what-if: runway and score scale from your live Health tab KPIs.',
             style: TextStyle(height: 1.4),
           ),
           const SizedBox(height: 16),

@@ -21,7 +21,7 @@ class SalesEngineerScreen extends StatelessWidget {
   }
 }
 
-/// Opens AI Advisor bottom tab + Sales Engineer sub-tab.
+/// Opens BNPL Advisor tab + Sales Engineer sub-tab.
 void openSalesEngineerInAdvisor(BuildContext context, void Function(int) setShellIndex) {
   context.read<AdvisorNavProvider>().openSubTab(4);
   setShellIndex(2);

@@ -48,6 +48,7 @@ class DashboardData {
     this.healthGrade,
     this.healthLabel,
     this.forecastMonths = const [],
+    this.transactionCount = 0,
   });
 
   final int smeId;
@@ -67,6 +68,7 @@ class DashboardData {
   final String? healthGrade;
   final String? healthLabel;
   final List<ForecastMonth> forecastMonths;
+  final int transactionCount;
 
   factory DashboardData.fromJson(Map<String, dynamic> j) {
     final kpis = j['kpis'] as Map<String, dynamic>;
@@ -93,6 +95,7 @@ class DashboardData {
       forecastMonths: (j['forecast_months'] as List<dynamic>? ?? [])
           .map((e) => ForecastMonth.fromJson(e as Map<String, dynamic>))
           .toList(),
+      transactionCount: j['transaction_count'] as int? ?? 0,
     );
   }
 }

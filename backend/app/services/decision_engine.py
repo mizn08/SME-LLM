@@ -80,6 +80,64 @@ def decide(
     burn = max(kpis.get("burn_rate_monthly_rm", 1.0), 1.0)
     purchase_to_burn = purchase_amount / burn
     days_cash = kpis.get("days_cash_on_hand", 0.0)
+    net_cash = float(kpis.get("net_operating_cash_rm", 0.0))
+
+    eligible_grants = [
+        g
+        for g in _eligible_gov_schemes(db, sme, purchase_category)
+        if (g.aid_type or "").lower() == "grant"
+    ]
+
+    if net_cash < 0 and days_cash < 30:
+        if eligible_grants:
+            best_grant = max(eligible_grants, key=lambda g: float(g.max_amount_rm or 0))
+            cap = float(best_grant.max_amount_rm or 0)
+            if purchase_amount <= cap:
+                return DecisionResult(
+                    recommendation_type="Grant",
+                    product_name=best_grant.scheme_name,
+                    explanation=(
+                        f"Your 90-day net cash is RM {net_cash:,.2f} with {days_cash:.0f} days runway. "
+                        f"{best_grant.scheme_name} (max RM {cap:,.0f}) is non-repayable and fits your "
+                        f"RM {purchase_amount:,.0f} {purchase_category} purchase without adding monthly debt."
+                    ),
+                    cash_preserved_rm=float(purchase_amount),
+                    additional_cost_rm=0.0,
+                    confidence=0.85,
+                    shap_values=shap,
+                    ml_probability=round(ml_prob, 4),
+                )
+            if cap >= purchase_amount * 0.25:
+                gap = purchase_amount - cap
+                return DecisionResult(
+                    recommendation_type="Grant",
+                    product_name=best_grant.scheme_name,
+                    explanation=(
+                        f"90-day net cash RM {net_cash:,.2f}; runway {days_cash:.0f} days. "
+                        f"Apply for {best_grant.scheme_name} (up to RM {cap:,.0f}) first, then bridge "
+                        f"RM {gap:,.0f} only after cash stabilises — avoid BNPL while burn is "
+                        f"RM {burn:,.0f}/month."
+                    ),
+                    cash_preserved_rm=cap,
+                    additional_cost_rm=0.0,
+                    confidence=0.75,
+                    shap_values=shap,
+                    ml_probability=round(ml_prob, 4),
+                )
+        return DecisionResult(
+            recommendation_type="Hold",
+            product_name="Defer purchase — stabilise cash",
+            explanation=(
+                f"90-day net cash RM {net_cash:,.2f} and {days_cash:.0f} days runway. "
+                f"Monthly burn RM {burn:,.2f} — adding instalments would strain cash further. "
+                "Improve inflows or cut top expense categories before financing."
+            ),
+            cash_preserved_rm=0.0,
+            additional_cost_rm=0.0,
+            confidence=0.8,
+            shap_values=shap,
+            ml_probability=round(ml_prob, 4),
+        )
 
     # For smaller purchases with enough runway, prefer cash to avoid needless financing.
     if ml_prob < 0.5 or (purchase_to_burn <= 0.35 and days_cash >= 21):
@@ -97,23 +155,28 @@ def decide(
             ml_probability=round(ml_prob, 4),
         )
 
-    eligible_grants = [g for g in _eligible_gov_schemes(db, sme, purchase_category) if g.aid_type.lower() == "grant"]
+    eligible_grants = [
+        g
+        for g in _eligible_gov_schemes(db, sme, purchase_category)
+        if (g.aid_type or "").lower() == "grant"
+    ]
     if eligible_grants:
-        best_grant = min(eligible_grants, key=lambda g: g.max_amount_rm or 1e12)
-        return DecisionResult(
-            recommendation_type="Grant",
-            product_name=best_grant.scheme_name,
-            explanation=(
-                f"You appear eligible for {best_grant.scheme_name}. Grants can preserve "
-                "cash for operations while funding qualifying expenditure—verify documents "
-                "with the agency before proceeding."
-            ),
-            cash_preserved_rm=float(purchase_amount),
-            additional_cost_rm=0.0,
-            confidence=round(min(0.95, 0.55 + ml_prob / 4), 3),
-            shap_values=shap,
-            ml_probability=round(ml_prob, 4),
-        )
+        best_grant = max(eligible_grants, key=lambda g: float(g.max_amount_rm or 0))
+        cap = float(best_grant.max_amount_rm or 0)
+        if purchase_amount <= cap:
+            return DecisionResult(
+                recommendation_type="Grant",
+                product_name=best_grant.scheme_name,
+                explanation=(
+                    f"You appear eligible for {best_grant.scheme_name} (max RM {cap:,.0f}). "
+                    "Grants preserve cash for operations — verify documents with the agency."
+                ),
+                cash_preserved_rm=float(purchase_amount),
+                additional_cost_rm=0.0,
+                confidence=round(min(0.95, 0.55 + ml_prob / 4), 3),
+                shap_values=shap,
+                ml_probability=round(ml_prob, 4),
+            )
 
     bnpl_offers = [o for o in db.query(BNPLOffer).all() if purchase_amount <= o.max_amount_rm]
     credit_offers = db.query(CreditLineOffer).all()
@@ -139,15 +202,23 @@ def decide(
     candidates: list[tuple[str, str, float, float, str]] = []
     if chosen_bnpl:
         cost = _bnpl_effective_cost(chosen_bnpl, purchase_amount, tenure_guess)
-        candidates.append(
-            (
-                "BNPL",
-                chosen_bnpl.name,
-                cost,
-                float(purchase_amount) * 0.6,
-                "Spreads purchase over instalments; watch merchant fees and limits.",
+        monthly = (purchase_amount + cost) / max(tenure_guess, 1)
+        avg_rev = burn * float(kpis.get("current_ratio", 1))  # proxy if no revenue in kpis
+        if days_cash < 45 and monthly > max(burn * 0.1, 500):
+            pass  # skip BNPL — unaffordable
+        else:
+            candidates.append(
+                (
+                    "BNPL",
+                    chosen_bnpl.name,
+                    cost,
+                    float(purchase_amount) * 0.6,
+                    (
+                        f"Spreads RM {purchase_amount:,.0f} over {tenure_guess} months "
+                        f"(~RM {monthly:,.0f}/mo). Extra financing cost RM {cost:,.2f}."
+                    ),
+                )
             )
-        )
     for c in credit_offers:
         if purchase_amount > c.max_amount_rm:
             continue

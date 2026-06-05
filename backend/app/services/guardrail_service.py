@@ -24,8 +24,13 @@ class GuardrailResult:
     reason: str = ""
 
 
-def sanitize_text(text: str, *, max_len: int = 2500) -> str:
-    compact = " ".join((text or "").strip().split())
+def sanitize_text(text: str, *, max_len: int = 8000) -> str:
+    """Trim length but keep newlines so multi-question prompts stay detectable."""
+    raw = (text or "").strip()
+    if not raw:
+        return ""
+    lines = [re.sub(r"[ \t]+", " ", line).strip() for line in raw.splitlines()]
+    compact = "\n".join(line for line in lines if line)
     return compact[:max_len]
 
 

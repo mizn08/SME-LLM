@@ -94,11 +94,50 @@ def health():
         ],
         "vector_rag": s.USE_VECTOR_RAG,
         "llm_configured": bool(s.active_llm_api_key),
-        "llm_provider": "chutes" if s.CHUTES_API_KEY else ("openai" if s.OPENAI_API_KEY else "none"),
+        "llm_provider": "chutes" if s.uses_chutes else ("openai" if s.OPENAI_API_KEY else "none"),
         "openai_configured": bool(s.OPENAI_API_KEY),
-        "chutes_configured": bool(s.CHUTES_API_KEY),
+        "chutes_configured": s.uses_chutes,
+        "chutes_keys_configured": len(s.chutes_api_keys),
+        "chutes_base_url": s.CHUTES_BASE_URL,
+        "chutes_chat_model": s.CHUTES_CHAT_MODEL,
+        "chutes_main_model": s.CHUTES_MODEL,
+        "chutes_endpoint": f"{s.CHUTES_BASE_URL}/chat/completions",
         "app_env": s.APP_ENV,
+        "hint": (
+            "Set CHUTES_API_KEY or CHUTES_API_TOKEN in SME-LLM/.env. "
+            "Model must be deepseek-ai/DeepSeek-V3.2-TEE. Render only hosts the API."
+        ),
     }
+
+
+@app.get("/llm-test")
+def llm_test():
+    """Quick Chutes connectivity check (same as curl chat/completions)."""
+    from app.core.config import get_settings
+    from app.services.llm_client import invoke_chat
+
+    s = get_settings()
+    if not s.active_llm_api_key:
+        return {"ok": False, "error": "No CHUTES_API_KEY / CHUTES_API_TOKEN / OPENAI_API_KEY in .env"}
+    try:
+        reply = invoke_chat(
+            [("user", "Reply with exactly: Chutes OK")],
+            settings=s,
+            max_rounds=2,
+        )
+        return {
+            "ok": True,
+            "model": s.CHUTES_CHAT_MODEL,
+            "endpoint": f"{s.CHUTES_BASE_URL}/chat/completions",
+            "reply_preview": reply[:200],
+        }
+    except Exception as exc:  # noqa: BLE001
+        return {
+            "ok": False,
+            "model": s.CHUTES_CHAT_MODEL,
+            "error": str(exc),
+            "hint": "Check key at chutes.ai, model name deepseek-ai/DeepSeek-V3.2-TEE, or retry if 429 busy.",
+        }
 
 
 @app.get("/metrics", response_class=PlainTextResponse)

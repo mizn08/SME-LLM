@@ -23,11 +23,11 @@ class ComplianceCountdownWidget extends StatelessWidget {
   Color _color(String u) {
     switch (u) {
       case 'overdue':
-        return Colors.red.shade700;
+        return AppTheme.criticalFg;
       case 'urgent':
-        return Colors.orange.shade800;
+        return AppTheme.warningFg;
       default:
-        return AppTheme.teal;
+        return AppTheme.successFg;
     }
   }
 
@@ -41,7 +41,7 @@ class ComplianceCountdownWidget extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.calendar_month_rounded, color: Colors.red.shade400, size: 22),
+              const Icon(Icons.calendar_month_rounded, color: AppTheme.skyDeep, size: 22),
               const SizedBox(width: 8),
               Text(
                 'Compliance countdown',
@@ -52,7 +52,7 @@ class ComplianceCountdownWidget extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             'Malaysia SME obligations — plan ahead',
-            style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+            style: const TextStyle(fontSize: 12, color: AppTheme.textSecondary),
           ),
           const SizedBox(height: 12),
           ..._deadlines.map((d) {

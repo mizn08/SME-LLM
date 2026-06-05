@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../l10n/app_strings.dart';
 import '../providers/settings_provider.dart';
 import '../theme/app_theme.dart';
+import '../widgets/app_logo.dart';
 import 'shell_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class OnboardingScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Spacer(),
-              Icon(Icons.trending_up_rounded, size: 72, color: AppTheme.teal),
+              const AppLogo(size: 120, borderRadius: 24),
               const SizedBox(height: 24),
               Text(s.onboardingTitle, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold)),
               const SizedBox(height: 12),

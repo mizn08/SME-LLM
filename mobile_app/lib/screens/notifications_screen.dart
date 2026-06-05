@@ -20,6 +20,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   String? _fcmToken;
   bool _registered = false;
   bool _serverFcm = false;
+  bool _inAppPush = true;
   bool _apiV5Missing = false;
   String? _statusMsg;
 
@@ -51,8 +52,11 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       _registered = reg;
       _fcmToken = push.token;
       _serverFcm = push.serverFcmConfigured;
+      _inAppPush = push.inAppMode;
       final status = await ApiService().fetchNotificationStatus();
       _apiV5Missing = status['api_v5_required'] == true;
+      if (status['fcm_configured'] == true) _serverFcm = true;
+      if (status['in_app_push_available'] == true) _inAppPush = true;
       if (_apiV5Missing && _nudges.isEmpty) {
         _statusMsg = 'Showing dashboard alerts (live API is pre-v5).';
       }
@@ -72,9 +76,17 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         setState(() => _statusMsg = res['hint'] as String? ?? ApiService.friendlyError(Exception()));
         return;
       }
+      if (res['ok'] == true && res['mode'] == 'in_app' && mounted) {
+        await _showInAppAlert(
+          res['title'] as String? ?? 'SME Advisor',
+          res['body'] as String? ?? 'Test push — your alerts are working.',
+        );
+      }
       setState(() {
         _statusMsg = res['ok'] == true
-            ? 'Test push sent (${res['batch']?['success_count'] ?? 0} devices)'
+            ? (res['mode'] == 'in_app'
+                ? 'Test alert shown in-app (FCM not configured on server).'
+                : 'Test push sent (${res['batch']?['success_count'] ?? 0} devices)')
             : 'Send failed: ${res['error'] ?? res['batch']?['error'] ?? 'unknown'}';
       });
     } catch (e) {
@@ -92,9 +104,21 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         setState(() => _statusMsg = res['hint'] as String? ?? ApiService.friendlyError(Exception()));
         return;
       }
+      if (res['ok'] == true && res['mode'] == 'in_app' && mounted) {
+        final list = res['notifications'] as List<dynamic>? ?? [];
+        for (final n in list) {
+          final m = n as Map<String, dynamic>;
+          await _showInAppAlert(
+            m['title'] as String? ?? 'Alert',
+            m['body'] as String? ?? '',
+          );
+        }
+      }
       setState(() {
         _statusMsg = res['ok'] == true
-            ? 'Sent ${res['fcm_success_total'] ?? 0} notification(s)'
+            ? (res['mode'] == 'in_app'
+                ? 'Shown ${res['fcm_success_total'] ?? 0} alert(s) in-app.'
+                : 'Sent ${res['fcm_success_total'] ?? 0} notification(s)')
             : 'Failed: ${res['error'] ?? res['hint'] ?? 'unknown'}';
       });
     } catch (e) {
@@ -143,7 +167,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                       const SizedBox(width: 8),
                       Expanded(
                         child: OutlinedButton.icon(
-                          onPressed: _registered && _serverFcm && !_apiV5Missing ? _sendNudges : null,
+                          onPressed: _registered && !_apiV5Missing ? _sendNudges : null,
                           icon: const Icon(Icons.campaign_outlined, size: 18),
                           label: const Text('Push nudges'),
                         ),
@@ -213,9 +237,17 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
             Text('Firebase push', style: TextStyle(fontWeight: FontWeight.w700, color: AppTheme.teal)),
             const SizedBox(height: 8),
             _line('API', resolveApiBase()),
-            _line('Device token', tokenOk ? '${_fcmToken!.substring(0, 20)}…' : 'Configure Firebase (see docs/FIREBASE_SETUP.md)'),
+            _line(
+              'Device token',
+              tokenOk
+                  ? '${_fcmToken!.substring(0, _fcmToken!.length.clamp(0, 24))}…'
+                  : 'Tap refresh — registers web/demo device',
+            ),
             _line('Registered with API', _apiV5Missing ? 'N/A (old API)' : (_registered ? 'Yes' : 'No')),
-            _line('Server FCM credentials', _serverFcm ? 'Configured' : 'Not set on server'),
+            _line(
+              'Push delivery',
+              _serverFcm ? 'Firebase FCM' : (_inAppPush ? 'In-app (local demo)' : 'Not available'),
+            ),
             if (_statusMsg != null) ...[
               const SizedBox(height: 8),
               Text(_statusMsg!, style: TextStyle(fontSize: 12, color: Colors.grey.shade700)),
@@ -236,4 +268,19 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           ],
         ),
       );
+
+  Future<void> _showInAppAlert(String title, String body) async {
+    if (!mounted) return;
+    await showDialog<void>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        icon: const Icon(Icons.notifications_active, color: AppTheme.teal),
+        title: Text(title),
+        content: Text(body),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('OK')),
+        ],
+      ),
+    );
+  }
 }

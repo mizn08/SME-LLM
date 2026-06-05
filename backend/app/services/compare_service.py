@@ -40,17 +40,37 @@ def compare_financing(
         }
     )
 
-    # Grants
+    # Government schemes (grants vs soft loans — do not mislabel TEKUN as grant)
     for g in decision_engine._eligible_gov_schemes(db, sme, purchase_category):  # noqa: SLF001
+        aid = (g.aid_type or "").lower()
+        if aid == "grant":
+            opt_type = "Grant"
+            covers = purchase_amount <= float(g.max_amount_rm or 0)
+            score = 0.88 if covers else 0.45
+            note = (
+                f"{g.agency} — max RM {g.max_amount_rm:,.0f}, non-repayable"
+                if covers
+                else f"{g.agency} — max RM {g.max_amount_rm:,.0f} (partial vs RM {purchase_amount:,.0f} purchase)"
+            )
+        elif aid in ("soft_loan", "loan"):
+            opt_type = "SoftLoan"
+            score = 0.5
+            note = f"{g.agency} soft loan — repayable; rate {g.interest_rate_label}"
+        else:
+            opt_type = "GovAid"
+            score = 0.4
+            note = f"{g.agency} — {g.aid_type}"
+        if kpis.get("days_cash_on_hand", 99) < 30 and opt_type != "Grant":
+            score = round(score * 0.65, 3)
         options.append(
             {
-                "type": "Grant",
+                "type": opt_type,
                 "product_name": g.scheme_name,
-                "additional_cost_rm": 0.0,
-                "cash_preserved_rm": float(purchase_amount),
-                "total_with_sst_rm": round(sst_rm, 2),
-                "suitability_score": 0.9,
-                "notes": f"{g.agency} — {g.approval_speed_label}",
+                "additional_cost_rm": 0.0 if opt_type == "Grant" else float(purchase_amount * 0.05),
+                "cash_preserved_rm": float(min(purchase_amount, g.max_amount_rm or purchase_amount)),
+                "total_with_sst_rm": round(sst_rm if opt_type == "Grant" else purchase_amount + sst_rm, 2),
+                "suitability_score": score,
+                "notes": note,
             }
         )
 

@@ -128,37 +128,71 @@ def load_transactions_df(db: Session, sme_id: int) -> pd.DataFrame:
     )
 
 
-def clean_csv_dataframe(raw: pd.DataFrame) -> tuple[pd.DataFrame, list[str]]:
-    """Standardise uploaded CSV columns and return (df, report_messages)."""
+def _pick_column(col_map: dict[str, str], exact: list[str], contains: list[str]) -> str | None:
+    for key in exact:
+        if key in col_map:
+            return col_map[key]
+    for norm, original in col_map.items():
+        for token in contains:
+            if token in norm:
+                return original
+    return None
+
+
+def clean_csv_dataframe(
+    raw: pd.DataFrame,
+    *,
+    default_is_expense: bool | None = None,
+) -> tuple[pd.DataFrame, list[str]]:
+    """Standardise uploaded columns (flexible headers) and return (df, report_messages)."""
     report: list[str] = []
-    col_map = {c.lower().strip(): c for c in raw.columns}
-    rename = {}
-    for key in ["date", "txn_date", "transaction_date"]:
-        if key in col_map:
-            rename[col_map[key]] = "txn_date"
-            break
-    for key in ["amount", "amount_rm", "value"]:
-        if key in col_map:
-            rename[col_map[key]] = "amount_rm"
-            break
-    for key in ["category", "type"]:
-        if key in col_map:
-            rename[col_map[key]] = "category"
-            break
-    for key in ["description", "desc", "memo"]:
-        if key in col_map:
-            rename[col_map[key]] = "description"
-            break
-    for key in ["is_expense", "expense"]:
-        if key in col_map:
-            rename[col_map[key]] = "is_expense"
-            break
+    col_map = {str(c).lower().strip(): c for c in raw.columns}
+    rename: dict[str, str] = {}
+
+    date_col = _pick_column(
+        col_map,
+        ["date", "txn_date", "transaction_date", "trans_date", "posting_date", "date_time"],
+        ["date", "time", "posted", "txn"],
+    )
+    amount_col = _pick_column(
+        col_map,
+        ["amount", "amount_rm", "value", "sum", "total"],
+        ["amount", "value", "debit", "credit", "sum", "total", "rm"],
+    )
+    category_col = _pick_column(
+        col_map,
+        ["category", "type", "cat", "classification"],
+        ["category", "type", "class"],
+    )
+    desc_col = _pick_column(
+        col_map,
+        ["description", "desc", "memo", "note", "details", "narration"],
+        ["desc", "memo", "note", "detail", "narrat"],
+    )
+    expense_col = _pick_column(
+        col_map,
+        ["is_expense", "expense", "is_debit"],
+        ["expense", "debit"],
+    )
+
+    if date_col:
+        rename[date_col] = "txn_date"
+    if amount_col:
+        rename[amount_col] = "amount_rm"
+    if category_col:
+        rename[category_col] = "category"
+    if desc_col:
+        rename[desc_col] = "description"
+    if expense_col:
+        rename[expense_col] = "is_expense"
 
     df = raw.rename(columns=rename)
-    required = {"txn_date", "amount_rm", "category"}
-    missing = required - set(df.columns)
+    missing = {k for k in ("txn_date", "amount_rm", "category") if k not in df.columns}
     if missing:
-        raise ValueError(f"Missing required columns after normalisation: {missing}")
+        raise ValueError(
+            f"Missing required columns after normalisation: {missing}. "
+            f"Found headers: {list(raw.columns)}"
+        )
 
     df["txn_date"] = pd.to_datetime(df["txn_date"], errors="coerce").dt.date
     df["amount_rm"] = pd.to_numeric(df["amount_rm"], errors="coerce").abs()
@@ -166,10 +200,10 @@ def clean_csv_dataframe(raw: pd.DataFrame) -> tuple[pd.DataFrame, list[str]]:
     if "description" not in df.columns:
         df["description"] = ""
     if "is_expense" not in df.columns:
-        df["is_expense"] = True
+        df["is_expense"] = default_is_expense if default_is_expense is not None else True
     else:
         df["is_expense"] = df["is_expense"].map(
-            lambda x: str(x).lower() in ("1", "true", "yes", "y", "expense")
+            lambda x: str(x).lower() in ("1", "true", "yes", "y", "expense", "debit")
         )
 
     before = len(df)
@@ -177,6 +211,28 @@ def clean_csv_dataframe(raw: pd.DataFrame) -> tuple[pd.DataFrame, list[str]]:
     report.append(f"Dropped {before - len(df)} rows with invalid dates or amounts.")
     report.append(f"Loaded {len(df)} valid transactions.")
     return df, report
+
+
+def merge_upload_frames(frames: list[tuple[pd.DataFrame, str]]) -> tuple[pd.DataFrame, list[str]]:
+    """Combine multiple uploaded tables (e.g. Income + Expenses CSV)."""
+    if not frames:
+        raise ValueError("No data to import.")
+    parts: list[pd.DataFrame] = []
+    report: list[str] = []
+    for raw, label in frames:
+        name = label.lower()
+        default_expense = None
+        if "expense" in name:
+            default_expense = True
+        elif "income" in name:
+            default_expense = False
+        cleaned, lines = clean_csv_dataframe(raw, default_is_expense=default_expense)
+        parts.append(cleaned)
+        report.append(f"{label}: {len(cleaned)} rows")
+        report.extend(lines)
+    merged = pd.concat(parts, ignore_index=True)
+    report.insert(0, f"Merged {len(merged)} transactions from {len(parts)} file(s).")
+    return merged, report
 
 
 def spending_by_category(df: pd.DataFrame) -> list[dict[str, Any]]:

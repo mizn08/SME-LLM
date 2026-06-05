@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from sqlalchemy.orm import Session
 
 from app.db.session import get_db
@@ -8,11 +8,12 @@ from app.models.quote import QuoteLog
 from app.models.sme import SMEProfile
 from app.schemas import (
     BusinessValueMetrics,
+    ChatSource,
     QuoteHistoryItem,
     SalesAgentRunRequest,
     SalesAgentRunResponse,
 )
-from app.services import business_value_service, sales_engineer_agent
+from app.services import business_value_service, requirement_parser_service, sales_engineer_agent
 
 router = APIRouter(tags=["v6-sales-engineer"])
 
@@ -34,6 +35,8 @@ def run_sales_agent(payload: SalesAgentRunRequest, db: Session = Depends(get_db)
         )
     except ValueError as exc:
         raise HTTPException(400, str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(500, f"Sales agent failed: {exc}") from exc
     bv_raw = dict(out["business_value"])
     bv_raw.pop("last_run_seconds", None)
     bv_raw.pop("last_run_minutes", None)
@@ -41,6 +44,7 @@ def run_sales_agent(payload: SalesAgentRunRequest, db: Session = Depends(get_db)
         sme_id=out["sme_id"],
         requirements=out["requirements"],
         task_complete=out["task_complete"],
+        agent_mode=out.get("agent_mode", "rule_fallback"),
         agent_trace=out["agent_trace"],
         reasoning_summary=out["reasoning_summary"],
         quote=out.get("quote"),
@@ -48,6 +52,7 @@ def run_sales_agent(payload: SalesAgentRunRequest, db: Session = Depends(get_db)
         rag_answer=out.get("rag_answer"),
         rag_mode=out.get("rag_mode"),
         rag_sources=[ChatSource(**s) for s in out.get("rag_sources", [])],
+        error=out.get("error"),
     )
 
 
@@ -77,3 +82,17 @@ def quote_history(sme_id: int, db: Session = Depends(get_db)):
         )
         for r in rows
     ]
+
+
+@router.post("/sales-agent/parse-client-transcript")
+async def parse_client_transcript(file: UploadFile = File(...)):
+    filename = (file.filename or "").lower()
+    if not filename.endswith((".pdf", ".txt", ".docx", ".md", ".json", ".csv")):
+        raise HTTPException(400, "Supported transcript types: .pdf, .txt, .docx, .md, .json, .csv")
+    raw = await file.read()
+    if not raw:
+        raise HTTPException(400, "Empty file")
+    text = requirement_parser_service._extract_text_from_bytes(raw, filename)
+    if not text.strip():
+        raise HTTPException(400, "No text extracted from transcript")
+    return requirement_parser_service.summarize_transcript(text)

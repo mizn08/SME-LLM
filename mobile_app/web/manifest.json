@@ -1,11 +1,11 @@
 {
-    "name": "bnpl_advisor_mobile",
-    "short_name": "bnpl_advisor_mobile",
+    "name": "SME LLM BNPL Advisor",
+    "short_name": "SME BNPL",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#FAFAFA",
+    "theme_color": "#2563EB",
+    "description": "Autonomous Sales Engineer + BNPL intelligence for Malaysian SMEs",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

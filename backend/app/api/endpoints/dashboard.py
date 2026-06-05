@@ -49,4 +49,5 @@ def get_dashboard(sme_id: int, db: Session = Depends(get_db)):
         health_score=health["health_score"],
         health_grade=health["health_grade"],
         health_label=health["health_label"],
+        transaction_count=int(len(df)),
     )

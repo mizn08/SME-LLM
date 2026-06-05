@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/session_provider.dart';
 import '../providers/settings_provider.dart';
 import '../services/api_service.dart';
 import '../theme/app_theme.dart';
+import '../widgets/active_profile_badge.dart';
 import 'shell_screen.dart';
 
 class ProfileQuizScreen extends StatefulWidget {
@@ -35,7 +37,9 @@ class _ProfileQuizScreenState extends State<ProfileQuizScreen> {
   Future<void> _finish() async {
     setState(() => _busy = true);
     try {
+      final smeId = context.read<SessionProvider>().smeId;
       await ApiService().onboardProfile(
+        smeId: smeId,
         sector: _sector,
         revenueRm: _revenue,
         employeeCount: _employees,
@@ -75,10 +79,12 @@ class _ProfileQuizScreenState extends State<ProfileQuizScreen> {
               ),
               const SizedBox(height: 8),
               Text(
-                'We pre-fill your dashboard — no CSV required for demo.',
+                'We sync this to your active business profile for dashboard and AI.',
                 style: TextStyle(color: Colors.grey.shade600),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 12),
+              const ActiveProfileBadge(dense: true),
+              const SizedBox(height: 12),
               Expanded(child: _stepBody()),
               FilledButton(
                 onPressed: _busy

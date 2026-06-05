@@ -49,9 +49,12 @@ def test_push(payload: TestPushRequest, db: Session = Depends(get_db)):
 
 @router.get("/notifications/status")
 def notification_status():
+    fcm = firebase_client.is_configured()
     return {
-        "fcm_configured": firebase_client.is_configured(),
+        "fcm_configured": fcm,
         "fcm_enabled": True,
+        "in_app_push_available": True,
+        "push_mode": "fcm" if fcm else "in_app",
     }
 
 

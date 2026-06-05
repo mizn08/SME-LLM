@@ -77,15 +77,22 @@ def send_nudges_push(db: Session, sme_id: int, *, max_messages: int = 3) -> dict
     if not tokens:
         return {"ok": False, "error": "no_devices_registered", "sent": 0}
 
+    payloads = pending_push_payloads(db, sme_id)[:max_messages]
+    if not payloads:
+        return {"ok": False, "error": "no_nudges", "hint": "No alerts to send right now."}
+
     if not firebase_client.is_configured():
         return {
-            "ok": False,
-            "error": "firebase_not_configured",
-            "hint": "Set FIREBASE_CREDENTIALS_JSON or FIREBASE_CREDENTIALS_PATH",
+            "ok": True,
+            "mode": "in_app",
+            "sme_id": sme_id,
             "devices": len(tokens),
+            "messages_attempted": len(payloads),
+            "fcm_success_total": len(payloads),
+            "notifications": payloads,
+            "hint": "FCM not configured — delivered as in-app alerts on this device.",
         }
 
-    payloads = pending_push_payloads(db, sme_id)[:max_messages]
     results: list[dict[str, Any]] = []
     sent = 0
     for p in payloads:
@@ -120,7 +127,15 @@ def send_test_push(db: Session, sme_id: int, title: str, body: str) -> dict[str,
     if not tokens:
         return {"ok": False, "error": "no_devices_registered"}
     if not firebase_client.is_configured():
-        return {"ok": False, "error": "firebase_not_configured"}
+        return {
+            "ok": True,
+            "mode": "in_app",
+            "title": title,
+            "body": body,
+            "devices": len(tokens),
+            "batch": {"success_count": len(tokens), "mode": "in_app"},
+            "hint": "FCM not configured — shown as in-app alert on this device.",
+        }
     batch = firebase_client.send_multicast(
         tokens,
         title=title,

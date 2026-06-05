@@ -31,6 +31,30 @@ class OnboardResponse(BaseModel):
     message: str
 
 
+class SmeProfileSummary(BaseModel):
+    sme_id: int
+    business_name: str
+    industry: str
+    annual_revenue_rm: float
+    employee_count: int
+    bumiputera: bool
+
+
+@router.get("/sme/{sme_id}/profile", response_model=SmeProfileSummary)
+def get_sme_profile(sme_id: int, db: Session = Depends(get_db)):
+    sme = db.query(SMEProfile).filter(SMEProfile.id == sme_id).first()
+    if not sme:
+        raise HTTPException(404, "SME not found")
+    return SmeProfileSummary(
+        sme_id=sme.id,
+        business_name=sme.business_name,
+        industry=sme.industry,
+        annual_revenue_rm=sme.annual_revenue_rm,
+        employee_count=sme.employee_count,
+        bumiputera=sme.bumiputera_flag,
+    )
+
+
 @router.post("/profile/onboard", response_model=OnboardResponse)
 def onboard_profile(payload: OnboardRequest, db: Session = Depends(get_db)):
     sme = db.query(SMEProfile).filter(SMEProfile.id == payload.sme_id).first()

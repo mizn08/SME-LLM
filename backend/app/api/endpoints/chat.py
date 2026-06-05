@@ -25,6 +25,8 @@ def _chat_with_memory(
     persona: str | None,
     language: str | None,
     history: list[ChatMemoryTurn] | None = None,
+    purchase_amount: float | None = None,
+    purchase_category: str | None = None,
 ) -> ChatResponse:
     safe_msg = guardrail_service.sanitize_text(message)
     inj = guardrail_service.detect_prompt_injection(safe_msg)
@@ -41,7 +43,18 @@ def _chat_with_memory(
         chat_memory_service.sync_from_client(sme_id, history)
     prefix = chat_memory_service.context_prefix(sme_id)
     enriched = f"{prefix}Current question: {safe_msg}" if prefix else safe_msg
-    result = rag_service.rag_query(db, sme_id, enriched, persona, language=language)
+    mem_hist = [{"role": h.role, "text": h.text} for h in chat_memory_service.get_history(sme_id)]
+    result = rag_service.rag_query(
+        db,
+        sme_id,
+        enriched,
+        persona,
+        language=language,
+        raw_question=safe_msg,
+        history=mem_hist,
+        purchase_amount=purchase_amount,
+        purchase_category=purchase_category,
+    )
     chat_memory_service.append_turn(sme_id, "user", message)
     chat_memory_service.append_turn(sme_id, "assistant", result["answer"])
     return ChatResponse(
@@ -60,7 +73,13 @@ def chat(payload: ChatRequest, db: Session = Depends(get_db)):
     if not sme:
         raise HTTPException(404, "SME not found")
     return _chat_with_memory(
-        db, payload.sme_id, payload.message, payload.persona, payload.language
+        db,
+        payload.sme_id,
+        payload.message,
+        payload.persona,
+        payload.language,
+        purchase_amount=payload.purchase_amount,
+        purchase_category=payload.purchase_category,
     )
 
 
@@ -76,6 +95,8 @@ def chat_with_memory(payload: ChatWithMemoryRequest, db: Session = Depends(get_d
         payload.persona,
         payload.language,
         payload.history,
+        purchase_amount=payload.purchase_amount,
+        purchase_category=payload.purchase_category,
     )
 
 
@@ -85,6 +106,8 @@ def chat_stream(
     message: str,
     persona: str | None = None,
     language: str | None = None,
+    purchase_amount: float | None = None,
+    purchase_category: str | None = None,
     db: Session = Depends(get_db),
 ):
     sme = db.query(SMEProfile).filter(SMEProfile.id == sme_id).first()
@@ -92,10 +115,21 @@ def chat_stream(
         raise HTTPException(404, "SME not found")
     prefix = chat_memory_service.context_prefix(sme_id)
     enriched = f"{prefix}Current question: {message}" if prefix else message
+    mem_hist = [{"role": h.role, "text": h.text} for h in chat_memory_service.get_history(sme_id)]
 
     def generate():
         full: list[str] = []
-        for line in rag_service.rag_stream(db, sme_id, enriched, persona, language):
+        for line in rag_service.rag_stream(
+            db,
+            sme_id,
+            enriched,
+            persona,
+            language,
+            raw_question=message,
+            history=mem_hist,
+            purchase_amount=purchase_amount,
+            purchase_category=purchase_category,
+        ):
             yield line
             if line.startswith("data: "):
                 import json

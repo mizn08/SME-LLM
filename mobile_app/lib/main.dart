@@ -8,6 +8,7 @@ import 'providers/advisor_nav_provider.dart';
 import 'providers/recommendation_provider.dart';
 import 'providers/settings_provider.dart';
 import 'providers/session_provider.dart';
+import 'providers/shell_nav_provider.dart';
 import 'screens/profile_quiz_screen.dart';
 import 'screens/shell_screen.dart';
 import 'services/push_notification_service.dart';
@@ -27,6 +28,7 @@ Future<void> main() async {
         ChangeNotifierProvider<SettingsProvider>.value(value: settings),
         ChangeNotifierProvider(create: (_) => RecommendationProvider()),
         ChangeNotifierProvider(create: (_) => AdvisorNavProvider()),
+        ChangeNotifierProvider(create: (_) => ShellNavProvider()),
       ],
       child: const BnplAdvisorApp(),
     ),
@@ -40,7 +42,7 @@ class BnplAdvisorApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final settings = context.watch<SettingsProvider>();
     return MaterialApp(
-      title: 'SME Advisor',
+      title: 'SME LLM BNPL Advisor',
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
       themeMode: settings.themeMode,

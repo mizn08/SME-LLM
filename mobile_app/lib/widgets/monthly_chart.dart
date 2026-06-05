@@ -37,12 +37,12 @@ class MonthlyCashChart extends StatelessWidget {
         // Legend
         Row(
           children: [
-            _legendDot(AppTheme.teal, 'Revenue'),
+            _legendDot(AppTheme.sage, 'Revenue'),
             const SizedBox(width: 16),
-            _legendDot(Colors.orange.shade600, 'Expenses'),
+            _legendDot(AppTheme.peachDeep, 'Expenses'),
             if (forecastNet != null && forecastNet!.isNotEmpty) ...[
               const SizedBox(width: 16),
-              _legendDot(Colors.purple.shade400, 'Forecast net'),
+              _legendDot(AppTheme.lavenderDeep, 'Forecast net'),
             ],
           ],
         ),
@@ -57,11 +57,11 @@ class MonthlyCashChart extends StatelessWidget {
                 maxX: last.length > 1 ? (last.length - 1).toDouble() : 1,
                 lineTouchData: LineTouchData(
                   touchTooltipData: LineTouchTooltipData(
-                    getTooltipColor: (_) => AppTheme.tealDark,
+                    getTooltipColor: (_) => AppTheme.sageDark,
                     tooltipRoundedRadius: 12,
                     tooltipPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     getTooltipItems: (spots) => spots.map((s) {
-                      final color = s.barIndex == 0 ? AppTheme.tealAccent : Colors.orange.shade200;
+                      final color = s.barIndex == 0 ? AppTheme.sageLight : AppTheme.peach;
                       final label = s.barIndex == 0 ? 'Rev' : 'Exp';
                       return LineTooltipItem(
                         '$label: RM ${(s.y * 1000).toStringAsFixed(0)}',
@@ -119,13 +119,13 @@ class MonthlyCashChart extends StatelessWidget {
                       for (var i = 0; i < last.length; i++)
                         FlSpot(i.toDouble(), last[i].revenueRm / 1000),
                     ],
-                    gradient: const LinearGradient(colors: [AppTheme.teal, AppTheme.tealLight]),
+                    gradient: const LinearGradient(colors: [AppTheme.sage, AppTheme.sageLight]),
                     barWidth: 3,
                     dotData: FlDotData(
                       show: true,
                       getDotPainter: (_, __, ___, ____) => FlDotCirclePainter(
                         radius: 4,
-                        color: AppTheme.teal,
+                        color: AppTheme.sage,
                         strokeWidth: 2,
                         strokeColor: Colors.white,
                       ),
@@ -135,7 +135,7 @@ class MonthlyCashChart extends StatelessWidget {
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [AppTheme.teal.withOpacity(0.15), AppTheme.teal.withOpacity(0.0)],
+                        colors: [AppTheme.sage.withOpacity(0.2), AppTheme.sage.withOpacity(0.0)],
                       ),
                     ),
                   ),
@@ -144,13 +144,13 @@ class MonthlyCashChart extends StatelessWidget {
                       for (var i = 0; i < last.length; i++)
                         FlSpot(i.toDouble(), last[i].expenseRm / 1000),
                     ],
-                    color: Colors.orange.shade600,
+                    color: AppTheme.peachDeep,
                     barWidth: 3,
                     dotData: FlDotData(
                       show: true,
                       getDotPainter: (_, __, ___, ____) => FlDotCirclePainter(
                         radius: 3,
-                        color: Colors.orange.shade600,
+                        color: AppTheme.peachDeep,
                         strokeWidth: 2,
                         strokeColor: Colors.white,
                       ),
@@ -160,7 +160,7 @@ class MonthlyCashChart extends StatelessWidget {
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [Colors.orange.withOpacity(0.1), Colors.orange.withOpacity(0.0)],
+                        colors: [AppTheme.peach.withOpacity(0.35), AppTheme.peach.withOpacity(0.0)],
                       ),
                     ),
                   ),
@@ -170,7 +170,7 @@ class MonthlyCashChart extends StatelessWidget {
                         for (var i = 0; i < forecastNet!.length; i++)
                           FlSpot((last.length + i).toDouble(), forecastNet![i] / 1000),
                       ],
-                      color: Colors.purple.shade400,
+                      color: AppTheme.lavenderDeep,
                       barWidth: 2,
                       dashArray: [6, 4],
                       dotData: const FlDotData(show: false),

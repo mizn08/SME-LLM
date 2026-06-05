@@ -59,7 +59,7 @@ class KPICard extends StatelessWidget {
               padding: const EdgeInsets.only(top: 4),
               child: Text(
                 subtitle!,
-                style: TextStyle(color: Colors.grey.shade500, fontSize: 12),
+                style: const TextStyle(color: AppTheme.textSecondary, fontSize: 12),
               ),
             ),
         ],
@@ -113,11 +113,11 @@ class _HealthScoreGaugeState extends State<HealthScoreGauge> with SingleTickerPr
   Widget build(BuildContext context) {
     final Color scoreColor;
     if (widget.score >= 75) {
-      scoreColor = AppTheme.accentGreen;
+      scoreColor = AppTheme.successFg;
     } else if (widget.score >= 55) {
-      scoreColor = AppTheme.gold;
+      scoreColor = AppTheme.peachDeep;
     } else {
-      scoreColor = Colors.red.shade400;
+      scoreColor = AppTheme.criticalFg;
     }
 
     return AnimatedBuilder(
@@ -129,7 +129,7 @@ class _HealthScoreGaugeState extends State<HealthScoreGauge> with SingleTickerPr
           child: CustomPaint(
             painter: _GaugePainter(
               progress: _anim.value * (widget.score / 100.0),
-              trackColor: Colors.grey.shade100,
+              trackColor: AppTheme.mint,
               progressColor: scoreColor,
             ),
             child: Center(

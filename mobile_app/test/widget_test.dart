@@ -1,30 +1,25 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:bnpl_advisor_mobile/models/dashboard.dart';
 
-import 'package:bnpl_advisor_mobile/main.dart';
-
+/// App shell requires API/session; model tests cover client parsing consistency.
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('health fields are optional until dashboard loads', () {
+    final json = {
+      'sme_id': 1,
+      'business_name': 'Test',
+      'industry': 'Retail',
+      'kpis': {
+        'current_ratio': 1.0,
+        'days_cash_on_hand': 30.0,
+        'burn_rate_monthly_rm': 1000.0,
+        'revenue_mtd_rm': 500.0,
+        'expense_mtd_rm': 400.0,
+        'net_operating_cash_rm': 100.0,
+      },
+      'monthly_series': [],
+    };
+    final d = DashboardData.fromJson(json);
+    expect(d.healthScore, isNull);
+    expect(d.netOperatingCashRm, 100.0);
   });
 }

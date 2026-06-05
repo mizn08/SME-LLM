@@ -1,5 +1,12 @@
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  exclude:
+    - build/**
+    - .dart_tool/**
+    - ../flutter/**
+    - ../flutter_plugin_1/**
+
 linter:
   rules:
     prefer_const_constructors: true

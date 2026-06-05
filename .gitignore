@@ -15,6 +15,12 @@ venv/
 *.db
 bnpl_local.db
 backend/bnpl_local.db
+backend/bnpl_local.db.*
+backend/*.corrupt.bak
+
+# Local uploads / vector store (regenerated at runtime)
+backend/data/uploads/
+backend/data/chroma/
 
 # Flutter SDK (install separately; do not commit ~1GB SDK)
 flutter/

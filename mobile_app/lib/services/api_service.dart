@@ -27,8 +27,8 @@ class ApiService {
           BaseOptions(
             baseUrl: resolveApiBase(),
             connectTimeout: const Duration(seconds: 90),
-            receiveTimeout: const Duration(seconds: 90),
-            sendTimeout: const Duration(seconds: 60),
+            receiveTimeout: const Duration(seconds: 180),
+            sendTimeout: const Duration(seconds: 90),
           ),
         );
 
@@ -38,8 +38,22 @@ class ApiService {
 
   static String friendlyError(Object e) {
     if (e is DioException && isNotFound(e)) {
-      return 'This feature needs API v5. Use a local backend (run_local.ps1) '
-          'or redeploy Render with the latest code.';
+      return 'This feature needs the latest API. Run backend\\run_local.ps1 locally '
+          'or redeploy Render (sme-advisor-api-pp6d).';
+    }
+    if (e is DioException &&
+        (e.type == DioExceptionType.connectionError ||
+            e.type == DioExceptionType.unknown ||
+            (e.message ?? '').contains('XMLHttpRequest'))) {
+      return 'Cannot reach API at ${resolveApiBase()}. '
+          'Start backend: cd backend → .\\run_local.ps1 (keep that window open).';
+    }
+    if (e is DioException && e.response?.statusCode == 500) {
+      return 'Server error — restart backend to load latest code (run_local.ps1).';
+    }
+    if (e is DioException && e.type == DioExceptionType.receiveTimeout) {
+      return 'Request timed out — Chutes AI may be busy. Wait a minute and retry, '
+          'or check backend\\run_local.ps1 is running.';
     }
     if (e is DioException) return e.message ?? e.toString();
     return e.toString();
@@ -135,12 +149,16 @@ class ApiService {
     String? persona,
     String? language,
     List<Map<String, String>>? history,
+    double? purchaseAmount,
+    String? purchaseCategory,
   }) async {
     final data = {
       'sme_id': smeId,
       'message': message,
       if (persona != null) 'persona': persona,
       if (language != null) 'language': language,
+      if (purchaseAmount != null && purchaseAmount > 0) 'purchase_amount': purchaseAmount,
+      if (purchaseCategory != null) 'purchase_category': purchaseCategory,
     };
     final res = history != null && history.isNotEmpty
         ? await _dio.post<Map<String, dynamic>>(
@@ -161,6 +179,8 @@ class ApiService {
     required String message,
     String? persona,
     String? language,
+    double? purchaseAmount,
+    String? purchaseCategory,
   }) async* {
     final Response<ResponseBody> res;
     try {
@@ -171,6 +191,8 @@ class ApiService {
           'message': message,
           if (persona != null) 'persona': persona,
           if (language != null) 'language': language,
+          if (purchaseAmount != null && purchaseAmount > 0) 'purchase_amount': purchaseAmount,
+          if (purchaseCategory != null) 'purchase_category': purchaseCategory,
         },
         options: Options(responseType: ResponseType.stream),
       );
@@ -314,18 +336,31 @@ class ApiService {
     return SpendingCategoryResponse.fromJson(res.data ?? {});
   }
 
-  Future<LenderDirectoryResponse> fetchLenders({bool islamicOnly = false}) async {
+  Future<LenderDirectoryResponse> fetchLenders({
+    bool islamicOnly = false,
+    String? query,
+  }) async {
     final res = await _dio.get<Map<String, dynamic>>(
       '/lenders',
-      queryParameters: {'islamic_only': islamicOnly},
+      queryParameters: {
+        'islamic_only': islamicOnly,
+        if (query != null && query.trim().isNotEmpty) 'q': query.trim(),
+      },
     );
     return LenderDirectoryResponse.fromJson(res.data ?? {});
   }
 
-  Future<List<LenderItem>> fetchMatchedLenders(int smeId, {bool islamicOnly = false}) async {
+  Future<List<LenderItem>> fetchMatchedLenders(
+    int smeId, {
+    bool islamicOnly = false,
+    String? query,
+  }) async {
     final res = await _dio.get<Map<String, dynamic>>(
       '/sme/$smeId/lenders/matched',
-      queryParameters: {'islamic_only': islamicOnly},
+      queryParameters: {
+        'islamic_only': islamicOnly,
+        if (query != null && query.trim().isNotEmpty) 'q': query.trim(),
+      },
     );
     return ((res.data?['matched'] as List<dynamic>? ?? [])
         .map((e) => LenderItem.fromJson(e as Map<String, dynamic>))
@@ -446,6 +481,11 @@ class ApiService {
 
   Future<Map<String, dynamic>> fetchFinancingTimeline(int smeId) async {
     final res = await _dio.get<Map<String, dynamic>>('/sme/$smeId/financing-timeline');
+    return res.data ?? {};
+  }
+
+  Future<Map<String, dynamic>> fetchSmeProfile(int smeId) async {
+    final res = await _dio.get<Map<String, dynamic>>('/sme/$smeId/profile');
     return res.data ?? {};
   }
 
@@ -570,6 +610,17 @@ class ApiService {
     return res.data ?? {};
   }
 
+  Future<Map<String, dynamic>> parseClientTranscript({
+    required List<int> bytes,
+    required String fileName,
+  }) async {
+    final form = FormData.fromMap({
+      'file': MultipartFile.fromBytes(bytes, filename: fileName),
+    });
+    final res = await _dio.post<Map<String, dynamic>>('/sales-agent/parse-client-transcript', data: form);
+    return res.data ?? {};
+  }
+
   Future<Map<String, dynamic>> runSalesAgent({
     required int smeId,
     String? briefText,
@@ -584,6 +635,10 @@ class ApiService {
         if (requirements != null) 'requirements': requirements,
         'location': location,
       },
+      options: Options(
+        receiveTimeout: const Duration(minutes: 10),
+        sendTimeout: const Duration(minutes: 2),
+      ),
     );
     return res.data ?? {};
   }
@@ -601,8 +656,8 @@ class ApiService {
     return (res.data ?? []).map((e) => Map<String, dynamic>.from(e as Map)).toList();
   }
 
-  /// Upload CSV from raw bytes (works on web and mobile).
-  Future<Map<String, dynamic>> uploadCsvBytes({
+  /// Upload any file from raw bytes (works on web and mobile).
+  Future<Map<String, dynamic>> uploadFileBytes({
     required int smeId,
     required Uint8List bytes,
     required String fileName,
@@ -611,7 +666,21 @@ class ApiService {
       'sme_id': smeId,
       'file': MultipartFile.fromBytes(bytes, filename: fileName),
     });
-    final res = await _dio.post<Map<String, dynamic>>('/upload-csv', data: form);
+    final res = await _dio.post<Map<String, dynamic>>('/upload', data: form);
     return res.data ?? {};
   }
+
+  /// Re-import all files already saved under data/uploads/{smeId}.
+  Future<Map<String, dynamic>> reprocessUploads(int smeId) async {
+    final res = await _dio.post<Map<String, dynamic>>('/sme/$smeId/reprocess-uploads');
+    return res.data ?? {};
+  }
+
+  /// @deprecated Use [uploadFileBytes].
+  Future<Map<String, dynamic>> uploadCsvBytes({
+    required int smeId,
+    required Uint8List bytes,
+    required String fileName,
+  }) =>
+      uploadFileBytes(smeId: smeId, bytes: bytes, fileName: fileName);
 }

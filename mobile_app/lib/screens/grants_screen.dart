@@ -62,16 +62,16 @@ class _GrantsScreenState extends State<GrantsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Funding Options',
+                'Funding options',
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.w700,
                       color: AppTheme.textPrimary,
                     ),
               ),
               const SizedBox(height: 4),
-              Text(
-                'Compare BNPL with government grants and concessionary schemes.',
-                style: TextStyle(color: Colors.grey.shade500, height: 1.4),
+              const Text(
+                'Step 4 — grants and loans matched to your profile.',
+                style: TextStyle(color: AppTheme.textSecondary, height: 1.4, fontSize: 13),
               ),
             ],
           ),

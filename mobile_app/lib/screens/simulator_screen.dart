@@ -3,8 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../data/malaysia_bnpl_plans.dart';
+import '../providers/advisor_nav_provider.dart';
 import '../providers/recommendation_provider.dart';
 import '../providers/session_provider.dart';
+import '../providers/shell_nav_provider.dart';
 import '../services/api_service.dart';
 import '../services/pdf_report_service.dart' show PdfReportService, writePdfBytes;
 import '../theme/app_theme.dart';
@@ -40,6 +42,14 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
   void initState() {
     super.initState();
     _loadBnplPlans();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      context.read<RecommendationProvider>().setResult(
+            null,
+            purchaseAmount: 50000,
+            purchaseCategory: 'equipment',
+          );
+    });
   }
 
   Future<void> _loadBnplPlans() async {
@@ -218,18 +228,28 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'BNPL Purchase Simulator',
+            'Financing simulator',
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w700,
                   color: AppTheme.textPrimary,
                 ),
           ),
           const SizedBox(height: 6),
-          Text(
-            'Model the impact of your next major business purchase.',
-            style: TextStyle(color: Colors.grey.shade600, height: 1.4),
+          const Text(
+            'Step 2 — finance a purchase after Autonomous Sales Engineer quotes it, '
+            'or enter an amount manually. Syncs to BNPL Advisor Chat automatically.',
+            style: TextStyle(color: AppTheme.textSecondary, height: 1.4, fontSize: 13),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 12),
+          OutlinedButton.icon(
+            onPressed: () {
+              context.read<AdvisorNavProvider>().openSubTab(4);
+              context.read<ShellNavProvider>().goToTab(2);
+            },
+            icon: const Icon(Icons.engineering_outlined, size: 18),
+            label: const Text('Start with requirements brief (Sales Engineer)'),
+          ),
+          const SizedBox(height: 16),
 
           // ── Form card ──
           PremiumCard(
@@ -287,11 +307,11 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                       Container(
                         padding: const EdgeInsets.all(14),
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [AppTheme.teal.withOpacity(0.06), AppTheme.tealLight.withOpacity(0.04)],
+                          gradient: const LinearGradient(
+                            colors: [AppTheme.peach, AppTheme.surfaceElevated],
                           ),
                           borderRadius: BorderRadius.circular(14),
-                          border: Border.all(color: AppTheme.teal.withOpacity(0.15)),
+                          border: Border.all(color: AppTheme.borderColor),
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -299,16 +319,16 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                             Container(
                               padding: const EdgeInsets.all(6),
                               decoration: BoxDecoration(
-                                color: AppTheme.teal.withOpacity(0.1),
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              child: const Icon(Icons.auto_awesome_rounded, color: AppTheme.teal, size: 18),
+                              child: const Icon(Icons.auto_awesome_rounded, color: AppTheme.ember, size: 18),
                             ),
                             const SizedBox(width: 12),
-                            Expanded(
+                            const Expanded(
                               child: Text(
-                                'AI engine analyses this purchase against your historical cash flow, limits, and market conditions.',
-                                style: TextStyle(color: Colors.grey.shade700, fontSize: 13, height: 1.4),
+                                'Uses your live SME cash flow — same KPIs as BNPL Advisor Chat.',
+                                style: TextStyle(color: AppTheme.textSecondary, fontSize: 13, height: 1.4),
                               ),
                             ),
                           ],
@@ -338,7 +358,7 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                                 child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
                               )
                             : const Icon(Icons.lightbulb_rounded),
-                        label: Text(_busy ? 'Calculating…' : 'Calculate AI Recommendation'),
+                        label: Text(_busy ? 'Calculating…' : 'Run BNPL financing model'),
                         style: FilledButton.styleFrom(
                           backgroundColor: AppTheme.tealDark,
                           foregroundColor: Colors.white,

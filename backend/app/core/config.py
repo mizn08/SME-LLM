@@ -32,27 +32,56 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str | None = None
     OPENAI_MODEL: str = "gpt-4o-mini"
 
-    # Chutes.ai — OpenAI-compatible inference (takes priority over OpenAI when set)
+    # Chutes.ai — OpenAI-compatible POST https://llm.chutes.ai/v1/chat/completions
+    # Docs use CHUTES_API_TOKEN; we accept that or CHUTES_API_KEY in .env
     CHUTES_API_KEY: str | None = None
+    CHUTES_API_TOKEN: str | None = None
     CHUTES_API_KEY_1: str | None = None
     CHUTES_API_KEY_2: str | None = None
     CHUTES_BASE_URL: str = "https://llm.chutes.ai/v1"
     CHUTES_MODEL: str = "deepseek-ai/DeepSeek-V3.2-TEE"
+    CHUTES_CHAT_MODEL: str = "deepseek-ai/DeepSeek-V3.2-TEE"
+    CHUTES_FALLBACK_MODEL: str | None = "deepseek-ai/DeepSeek-V3.2-TEE"
+    CHUTES_MAX_RETRIES: int = 4
+    CHUTES_CHAT_TIMEOUT_SEC: int = 90
+    CHUTES_MAX_TOKENS: int = 1024
+    CHUTES_TEMPERATURE: float = 0.7
+
+    @property
+    def chutes_api_keys(self) -> list[str]:
+        seen: set[str] = set()
+        keys: list[str] = []
+        for key in (
+            self.CHUTES_API_KEY,
+            self.CHUTES_API_TOKEN,
+            self.CHUTES_API_KEY_1,
+            self.CHUTES_API_KEY_2,
+        ):
+            if key and key not in seen:
+                seen.add(key)
+                keys.append(key)
+        return keys
 
     @property
     def active_llm_api_key(self) -> str | None:
-        """Returns the active LLM API key: Chutes first, then OpenAI."""
-        return self.CHUTES_API_KEY or self.OPENAI_API_KEY
+        """Chutes first, then OpenAI."""
+        keys = self.chutes_api_keys
+        if keys:
+            return keys[0]
+        return self.OPENAI_API_KEY
 
     @property
     def active_llm_base_url(self) -> str | None:
-        """Returns the base URL override for Chutes; None falls back to OpenAI default."""
-        return self.CHUTES_BASE_URL if self.CHUTES_API_KEY else None
+        """Chutes OpenAI-compatible base URL (LangChain appends /chat/completions)."""
+        return self.CHUTES_BASE_URL if self.chutes_api_keys else None
 
     @property
     def active_llm_model(self) -> str:
-        """Returns the model name to use: Chutes model if Chutes key is set, else OpenAI model."""
-        return self.CHUTES_MODEL if self.CHUTES_API_KEY else self.OPENAI_MODEL
+        return self.CHUTES_MODEL if self.chutes_api_keys else self.OPENAI_MODEL
+
+    @property
+    def uses_chutes(self) -> bool:
+        return bool(self.chutes_api_keys)
 
     # AWS / production hints (used by deploy docs and health)
     AWS_REGION: str = "ap-southeast-1"

@@ -34,7 +34,16 @@ _SERVICE_LEVEL_MULTIPLIER = {"economy": 1.0, "standard": 1.25, "express": 1.6}
 
 
 def _region_key(location: str) -> str:
-    return (location or "kuala lumpur").strip().lower()
+    key = (location or "kuala lumpur").strip().lower()
+    if "johor" in key:
+        return "johor"
+    if "kuala lumpur" in key or key == "kl":
+        return "kuala lumpur"
+    if "penang" in key:
+        return "penang"
+    if "perak" in key:
+        return "penang"
+    return key
 
 
 def _calc_shipping(weight_kg: float, distance_km: float, service_level: str) -> float:

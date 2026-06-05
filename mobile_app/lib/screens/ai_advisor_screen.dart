@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../models/chat_message.dart';
 import '../models/prediction.dart';
+import '../l10n/app_strings.dart';
 import '../providers/recommendation_provider.dart';
 import '../providers/advisor_nav_provider.dart';
 import '../providers/session_provider.dart';
@@ -11,6 +12,8 @@ import '../services/api_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/lead_score_meter.dart';
 import '../widgets/recommendation_result.dart';
+import '../widgets/active_profile_badge.dart';
+import '../widgets/formatted_chat_text.dart';
 import '../widgets/sales_engineer_tab.dart';
 import 'guided_advisory_screen.dart';
 
@@ -39,9 +42,8 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
       ChatTurn(
         role: 'assistant',
         text:
-            'Ask about your cash flow, BNPL options, or Malaysian government grants. '
-            'Answers use RAG over your transactions and scheme catalog. '
-            'Use the Sales Engineer tab to generate a quote — results sync here automatically.',
+            'Hi — I\'m your SME LLM BNPL Advisor. Ask about cash flow, grants, BNPL instalments, or financing after a quote. '
+            'Answers use your live SME profile and sync with Design & Finance.',
       ),
     );
     WidgetsBinding.instance.addPostFrameCallback((_) => _applyPendingSubTab());
@@ -57,7 +59,7 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
 
   void _syncRagFromSalesEngineer(String brief, String ragAnswer, List<ChatSource> sources) {
     setState(() {
-      _history.add(ChatTurn(role: 'user', text: 'Sales brief: $brief'));
+      _history.add(ChatTurn(role: 'user', text: 'SME purchase brief: $brief'));
       _history.add(ChatTurn(role: 'assistant', text: ragAnswer, sources: sources));
     });
     if (!mounted) return;
@@ -84,6 +86,9 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
     });
     final sid = context.read<SessionProvider>().smeId;
     final lang = context.read<SettingsProvider>().locale.languageCode;
+    final rec = context.read<RecommendationProvider>();
+    final purchaseAmt = rec.lastPurchaseAmount;
+    final purchaseCat = rec.lastPurchaseCategory;
     final mem = _history
         .where((t) => t.role == 'user' || t.role == 'assistant')
         .map((t) => {'role': t.role, 'text': t.text})
@@ -101,6 +106,8 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
           message: text,
           persona: _persona,
           language: lang,
+          purchaseAmount: purchaseAmt,
+          purchaseCategory: purchaseCat,
         )) {
           streamed = true;
           if (!mounted || assistantIdx < 0) return;
@@ -114,13 +121,15 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
       } catch (_) {
         streamed = false;
       }
-      if (!streamed) {
+      if (!streamed || _history[assistantIdx].text.isEmpty) {
         final res = await _api.chat(
           smeId: sid,
           message: text,
           persona: _persona,
           language: lang,
           history: mem,
+          purchaseAmount: purchaseAmt,
+          purchaseCategory: purchaseCat,
         );
         if (!mounted) return;
         setState(() {
@@ -136,7 +145,7 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
         _history.removeAt(assistantIdx);
       }
       if (!mounted) return;
-      setState(() => _err = e.toString());
+      setState(() => _err = ApiService.friendlyError(e));
     } finally {
       if (mounted) setState(() => _chatBusy = false);
     }
@@ -144,7 +153,7 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
 
   Future<void> _runAgents() async {
     final rec = context.read<RecommendationProvider>();
-    final amt = rec.lastPurchaseAmount ?? 5000;
+    final amt = rec.lastPurchaseAmount ?? 50000;
     final cat = rec.lastPurchaseCategory ?? 'equipment';
     setState(() {
       _agentBusy = true;
@@ -162,7 +171,7 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
       setState(() => _agentAdvice = advice);
     } catch (e) {
       if (!mounted) return;
-      setState(() => _err = e.toString());
+      setState(() => _err = ApiService.friendlyError(e));
     } finally {
       if (mounted) setState(() => _agentBusy = false);
     }
@@ -170,25 +179,27 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
 
   @override
   Widget build(BuildContext context) {
+    final s = AppStrings(context.watch<SettingsProvider>().locale);
     return Column(
       children: [
         Material(
-          color: Colors.white,
+          color: AppTheme.surfaceCard,
           child: TabBar(
             controller: _tabs,
-            labelColor: AppTheme.teal,
-            unselectedLabelColor: Colors.grey.shade500,
-            indicatorColor: AppTheme.teal,
+            labelColor: AppTheme.midnight,
+            unselectedLabelColor: AppTheme.mutedForeground,
+            indicatorColor: AppTheme.ember,
             isScrollable: true,
-            tabs: const [
-              Tab(text: 'RAG Chat'),
-              Tab(text: 'Agents'),
-              Tab(text: 'ML Insight'),
-              Tab(text: 'Guided'),
-              Tab(text: 'Sales Engineer'),
+            tabs: [
+              Tab(text: s.tabRagChat),
+              Tab(text: s.tabAgents),
+              Tab(text: s.tabMlInsight),
+              Tab(text: s.tabGuided),
+              Tab(text: s.tabSalesEngineer),
             ],
           ),
         ),
+        const ActiveProfileBadge(),
         if (_err != null)
           Padding(
             padding: const EdgeInsets.all(8),
@@ -220,14 +231,31 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
       label: Text(label, style: const TextStyle(fontSize: 12)),
       selected: selected,
       onSelected: (v) => setState(() => _persona = v ? id : null),
-      selectedColor: AppTheme.teal.withOpacity(0.2),
-      checkmarkColor: AppTheme.teal,
+      selectedColor: AppTheme.surfaceElevated,
+      checkmarkColor: AppTheme.midnight,
     );
   }
 
   Widget _chatTab() {
+    final rec = context.watch<RecommendationProvider>();
+    final amt = rec.lastPurchaseAmount ?? 50000;
+    final cat = rec.lastPurchaseCategory ?? 'equipment';
     return Column(
       children: [
+        Container(
+          width: double.infinity,
+          margin: const EdgeInsets.fromLTRB(12, 8, 12, 0),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          decoration: BoxDecoration(
+            color: AppTheme.surfaceElevated,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: AppTheme.borderGlow),
+          ),
+          child: Text(
+            'Synced with Financing Simulator: RM ${amt.toStringAsFixed(0)} · $cat',
+            style: const TextStyle(fontSize: 11, color: AppTheme.textSecondary, height: 1.3),
+          ),
+        ),
         Expanded(
           child: ListView.builder(
             padding: const EdgeInsets.all(12),
@@ -242,16 +270,22 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
                   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                   constraints: BoxConstraints(maxWidth: MediaQuery.sizeOf(context).width * 0.85),
                   decoration: BoxDecoration(
-                    color: isUser ? AppTheme.teal.withOpacity(0.12) : Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(16),
+                    color: isUser ? const Color(0xFFE8EDF5) : AppTheme.surfaceCard,
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(
+                      color: isUser ? AppTheme.midnight.withOpacity(0.35) : AppTheme.borderColor,
+                    ),
+                    boxShadow: isUser ? null : AppTheme.cardShadow,
                   ),
-                  child: Text(t.text, style: const TextStyle(fontSize: 14, height: 1.45)),
+                  child: isUser
+                      ? Text(t.text, style: const TextStyle(fontSize: 14, height: 1.45))
+                      : FormattedChatText(text: t.text),
                 ),
               );
             },
           ),
         ),
-        if (_chatBusy) const LinearProgressIndicator(minHeight: 2),
+        if (_chatBusy) const LinearProgressIndicator(minHeight: 2, color: AppTheme.ember),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Wrap(
@@ -275,7 +309,7 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
                     decoration: InputDecoration(
                       hintText: 'e.g. Which grant fits digital purchases?',
                       filled: true,
-                      fillColor: Colors.grey.shade50,
+                      fillColor: Colors.white,
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
                       contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                     ),
@@ -286,7 +320,7 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
                 IconButton.filled(
                   onPressed: _chatBusy ? null : _sendChat,
                   icon: const Icon(Icons.send_rounded),
-                  style: IconButton.styleFrom(backgroundColor: AppTheme.teal),
+                  style: IconButton.styleFrom(backgroundColor: AppTheme.midnight),
                 ),
               ],
             ),
@@ -361,7 +395,7 @@ class _AiAdvisorScreenState extends State<AiAdvisorScreen> with SingleTickerProv
             child: Padding(
               padding: const EdgeInsets.all(32),
               child: Text(
-                'Run Simulate first for ML + SHAP insight.',
+                'Run Financing Simulator first for ML + SHAP insight.',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey.shade500),
               ),

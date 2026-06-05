@@ -77,9 +77,13 @@ def _langchain_agent_run(db: Session, sme_id: int, goal: str, amount: float, cat
     if not safety.safe:
         return None, [{"step": "guardrail_block", "detail": safety.reason}]
     try:
+        import time
+
         from langchain.agents import AgentExecutor, create_openai_tools_agent
         from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
         from langchain_openai import ChatOpenAI
+
+        from app.services.llm_client import chutes_api_keys, is_rate_limited
 
         tools = make_tools(db, sme_id)
         prompt = ChatPromptTemplate.from_messages(
@@ -93,31 +97,47 @@ def _langchain_agent_run(db: Session, sme_id: int, goal: str, amount: float, cat
                 MessagesPlaceholder("agent_scratchpad"),
             ]
         )
-        llm = ChatOpenAI(
-            model=settings.active_llm_model,
-            temperature=0.2,
-            api_key=settings.active_llm_api_key,
-            base_url=settings.active_llm_base_url,
-        )
-        agent = create_openai_tools_agent(llm, tools, prompt)
-        executor = AgentExecutor(agent=agent, tools=tools, verbose=False, max_iterations=4, return_intermediate_steps=True)
         user_input = (
             f"Goal: {sanitized_goal}. Purchase RM {amount:,.0f}, category: {category}. "
             "Call tools and give a unified recommendation."
         )
-        result = executor.invoke({"input": user_input})
-        trace = [
-            {"step": "agent_start", "detail": "LangChain tool agent invoked"},
-            {
-                "step": "tool_iterations",
-                "detail": str(len(result.get("intermediate_steps", []))),
-            },
-        ]
-        for idx, item in enumerate(result.get("intermediate_steps", []), start=1):
-            action = getattr(item[0], "tool", "unknown_tool")
-            trace.append({"step": f"tool_{idx}", "detail": str(action)})
-        final_output = guardrail_service.sanitize_text(str(result.get("output", "")), max_len=1200)
-        return final_output, trace
+        keys = chutes_api_keys(settings) if settings.CHUTES_API_KEY else [settings.active_llm_api_key]
+        last_exc: Exception | None = None
+        for attempt, api_key in enumerate(keys):
+            try:
+                llm = ChatOpenAI(
+                    model=settings.CHUTES_CHAT_MODEL or settings.active_llm_model,
+                    temperature=0.2,
+                    api_key=api_key,
+                    base_url=settings.active_llm_base_url,
+                    max_retries=0,
+                    request_timeout=int(getattr(settings, "CHUTES_CHAT_TIMEOUT_SEC", 90)),
+                )
+                agent = create_openai_tools_agent(llm, tools, prompt)
+                executor = AgentExecutor(
+                    agent=agent, tools=tools, verbose=False, max_iterations=4, return_intermediate_steps=True
+                )
+                result = executor.invoke({"input": user_input})
+                trace = [
+                    {"step": "agent_start", "detail": "LangChain tool agent invoked"},
+                    {
+                        "step": "tool_iterations",
+                        "detail": str(len(result.get("intermediate_steps", []))),
+                    },
+                ]
+                for idx, item in enumerate(result.get("intermediate_steps", []), start=1):
+                    action = getattr(item[0], "tool", "unknown_tool")
+                    trace.append({"step": f"tool_{idx}", "detail": str(action)})
+                final_output = guardrail_service.sanitize_text(str(result.get("output", "")), max_len=1200)
+                return final_output, trace
+            except Exception as exc:  # noqa: BLE001
+                last_exc = exc
+                if is_rate_limited(exc) and attempt < len(keys) - 1:
+                    time.sleep(min(2 ** attempt, 8))
+                    continue
+                raise
+        if last_exc:
+            raise last_exc
     except Exception as exc:  # noqa: BLE001
         return None, [{"step": "llm_error", "detail": f"{type(exc).__name__}: {exc}"}]
 
@@ -158,13 +178,21 @@ def run_multi_agent(
         "cash_preserved_rm": decision.cash_preserved_rm,
     }
 
-    rag = rag_service.rag_query(db, sme_id, f"{goal} {purchase_category}")
-    rag_snippet = rag["answer"][:400] if rag else None
+    rag = rag_service.financing_quote_advice(
+        db,
+        sme_id,
+        quote_total_rm=float(purchase_amount),
+        purchase_amount=float(purchase_amount),
+        purchase_category=purchase_category,
+    )
+    rag_answer = rag.get("answer") or ""
+    rag_snippet = rag_answer[:600] if rag_answer else None
 
     trace: list[dict[str, Any]] = [
         {"step": "route", "detail": f"lead_agent={lead}"},
         {"step": "specialists", "detail": "grant,bnpl,cash"},
         {"step": "engine_decision", "detail": recommendation["recommendation_type"]},
+        {"step": "rag_sync", "detail": rag.get("mode") or "none"},
     ]
     llm_summary, llm_trace = _langchain_agent_run(db, sme_id, goal, purchase_amount, purchase_category)
     trace.extend(llm_trace)

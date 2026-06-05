@@ -14,4 +14,4 @@ Set-Location $mobile
 Write-Host "API: http://127.0.0.1:8000" -ForegroundColor Cyan
 Write-Host "Starting Flutter web in Chrome..." -ForegroundColor Cyan
 & $flutterBat pub get
-& $flutterBat run -d chrome --dart-define=API_BASE=http://127.0.0.1:8000
+& $flutterBat run -d chrome --dart-define=API_BASE=http://localhost:8000

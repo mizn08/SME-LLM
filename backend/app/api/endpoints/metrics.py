@@ -7,10 +7,15 @@ router = APIRouter(tags=["metrics"])
 
 @router.get("/model-metrics")
 def model_metrics():
-    """Static transparency payload for demo UI (live metrics come from training notebook)."""
+    """Training-benchmark transparency payload — not live accuracy for your SME."""
     return {
+        "disclaimer": (
+            "These figures come from the offline training benchmark (synthetic + SME dataset). "
+            "They do not measure live accuracy on your uploaded transactions."
+        ),
+        "metric_scope": "training_benchmark",
         "overall_accuracy": 0.942,
-        "accuracy_trend": "+0.4% from last epoch",
+        "accuracy_trend": "+0.4% from last training epoch",
         "f1_score": 0.91,
         "data_points_analyzed": "2.4M+",
         "feature_importance": [

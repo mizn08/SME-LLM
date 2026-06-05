@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-/// Jump to a sub-tab inside AI Advisor (e.g. Sales Engineer from drawer).
+/// Jump to a sub-tab inside AI Advisor (e.g. SME Quote from drawer).
 class AdvisorNavProvider extends ChangeNotifier {
   int? pendingSubTab;
 

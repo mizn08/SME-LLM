@@ -1,10 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../models/dashboard.dart';
+import '../providers/advisor_nav_provider.dart';
 import '../providers/session_provider.dart';
 import '../services/api_service.dart';
 import '../services/pdf_report_service.dart' show PdfReportService, writePdfBytes;
@@ -18,12 +18,17 @@ import '../models/spending_category.dart';
 import '../widgets/monthly_chart.dart';
 import '../widgets/nudge_banner.dart';
 import '../widgets/spending_donut_chart.dart';
+import '../widgets/workflow_guide.dart';
 import 'benchmark_screen.dart';
 import 'digest_screen.dart';
 import 'nudges_screen.dart';
+import 'upload_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+  const DashboardScreen({super.key, this.onNavigateTab});
+
+  /// Switch shell bottom nav (0=Home … 4=History).
+  final void Function(int tabIndex)? onNavigateTab;
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -87,71 +92,92 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
     }
   }
 
-  int _healthScore(DashboardData d) {
-    final liquidity = (d.currentRatio / 2).clamp(0.0, 1.0);
-    final cash = (d.daysCashOnHand / 90).clamp(0.0, 1.0);
-    final burnOk = d.burnRateMonthlyRm > 0 ? (1 - (d.expenseMtdRm / (d.burnRateMonthlyRm + 1)).clamp(0.0, 0.5)) : 0.5;
-    final raw = (0.4 * liquidity + 0.45 * cash + 0.15 * burnOk) * 100;
-    return raw.round().clamp(0, 100);
-  }
-
-  String _healthLabel(int s) {
-    if (s >= 75) return 'GOOD';
-    if (s >= 55) return 'FAIR';
-    return 'WATCH';
-  }
-
-  String _letterGrade(int s) {
-    if (s >= 90) return 'A';
-    if (s >= 80) return 'B';
-    if (s >= 70) return 'C';
-    if (s >= 60) return 'D';
-    if (s >= 50) return 'E';
-    return 'F';
-  }
-
   @override
   Widget build(BuildContext context) {
     final currency = NumberFormat.currency(symbol: 'RM ', decimalDigits: 2);
     return RefreshIndicator(
-      color: AppTheme.teal,
+      color: AppTheme.sage,
       onRefresh: _load,
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
+            child: Container(
+              decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Financial Overview',
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          fontWeight: FontWeight.w700,
-                          color: AppTheme.textPrimary,
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          data != null ? 'Hi, ${data!.businessName}' : 'Hi there',
+                          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                fontWeight: FontWeight.w700,
+                                color: AppTheme.textPrimary,
+                              ),
                         ),
-                  ),
-                  const SizedBox(height: 4),
-                  Row(
-                    children: [
+                        const SizedBox(height: 4),
+                        const Text(
+                          'SME LLM BNPL Advisor — cashflow pulse synced for quotes and financing.',
+                          style: TextStyle(color: AppTheme.textSecondary, fontSize: 13, height: 1.4),
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          children: [
                       Container(
                         width: 8,
                         height: 8,
-                        decoration: const BoxDecoration(color: AppTheme.accentGreen, shape: BoxShape.circle),
+                        decoration: const BoxDecoration(color: AppTheme.successFg, shape: BoxShape.circle),
                       ),
-                      const SizedBox(width: 6),
-                      Text(
-                        'Live · Data synced as of today',
-                        style: TextStyle(color: Colors.grey.shade500, fontSize: 13),
-                      ),
-                    ],
+                            const SizedBox(width: 6),
+                            const Text(
+                              'Live data · synced with BNPL Advisor',
+                              style: TextStyle(color: AppTheme.mutedForeground, fontSize: 12),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
+                  WorkflowGuide(
+                    currentStep: 0,
+                    onStepTap: widget.onNavigateTab == null
+                        ? null
+                        : (step) {
+                            switch (step) {
+                              case 1:
+                                context.read<AdvisorNavProvider>().openSubTab(4);
+                                widget.onNavigateTab!(2);
+                                break;
+                              case 2:
+                                context.read<AdvisorNavProvider>().openSubTab(0);
+                                widget.onNavigateTab!(2);
+                                break;
+                              case 3:
+                                widget.onNavigateTab!(3);
+                                break;
+                              default:
+                                widget.onNavigateTab!(0);
+                            }
+                          },
+                  ),
+                  if (widget.onNavigateTab != null)
+                    QuickActionGrid(
+                      onAskAi: () => widget.onNavigateTab!(2),
+                      onSimulate: () => widget.onNavigateTab!(1),
+                      onGrants: () => widget.onNavigateTab!(3),
+                      onUpload: () => Navigator.of(context).push(
+                        MaterialPageRoute<void>(builder: (_) => const UploadScreen()),
+                      ),
+                    ),
                 ],
               ),
             ),
           ),
           if (loading)
-            const SliverFillRemaining(child: Center(child: CircularProgressIndicator(color: AppTheme.teal)))
+            const SliverFillRemaining(child: Center(child: CircularProgressIndicator(color: AppTheme.sage)))
           else if (error != null)
             SliverFillRemaining(
               child: Center(
@@ -208,9 +234,9 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
   }
 
   Widget _body(BuildContext context, DashboardData d, NumberFormat currency) {
-    final score = d.healthScore ?? _healthScore(d);
-    final label = d.healthLabel ?? _healthLabel(score);
-    final grade = d.healthGrade ?? _letterGrade(score);
+    final score = d.healthScore ?? 0;
+    final label = d.healthLabel ?? '—';
+    final grade = d.healthGrade ?? '—';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -228,8 +254,11 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Card(
+              color: AppTheme.infoBg,
+              elevation: 0,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: const BorderSide(color: AppTheme.borderColor)),
               child: ListTile(
-                leading: const Icon(Icons.calendar_today, color: AppTheme.teal),
+                leading: const Icon(Icons.calendar_today_rounded, color: AppTheme.infoFg),
                 title: const Text('This week in your business'),
                 subtitle: Text(digest!.summary, maxLines: 2, overflow: TextOverflow.ellipsis),
                 trailing: const Icon(Icons.chevron_right),
@@ -241,11 +270,11 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Material(
-              color: Colors.orange.shade50,
-              borderRadius: BorderRadius.circular(12),
+              color: AppTheme.warningBg,
+              borderRadius: BorderRadius.circular(16),
               child: ListTile(
-                leading: Icon(Icons.warning_amber_rounded, color: Colors.orange.shade800),
-                title: Text(d.alerts.first, style: TextStyle(fontSize: 13, color: Colors.orange.shade900)),
+                leading: const Icon(Icons.warning_amber_rounded, color: AppTheme.warningFg),
+                title: Text(d.alerts.first, style: const TextStyle(fontSize: 13, color: AppTheme.warningFg, fontWeight: FontWeight.w600)),
                 subtitle: d.runwayDaysEst != null
                     ? Text('Runway ~${d.runwayDaysEst!.toStringAsFixed(0)} days · ${d.anomalyCount} anomalies')
                     : null,
@@ -262,9 +291,9 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 4),
-              Text(
+              const Text(
                 'Like a credit score for financial readiness',
-                style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+                style: TextStyle(fontSize: 12, color: AppTheme.textSecondary),
               ),
               const SizedBox(height: 8),
               HealthScoreGauge(score: score, label: label, letterGrade: grade),
@@ -273,40 +302,36 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
                 onPressed: () => _downloadReport(context, d),
                 icon: const Icon(Icons.picture_as_pdf_outlined, size: 18),
                 label: const Text('Generate bank / grant PDF'),
-                style: FilledButton.styleFrom(backgroundColor: AppTheme.teal),
               ),
             ],
           ),
         ),
         // ── Cash posture ──
         KPICard(
-          title: '30-day cash posture',
+          title: '90-day cash posture',
           value: currency.format(d.netOperatingCashRm),
-          subtitle: 'Net operating cash (90d window)',
+          subtitle: 'Net operating cash (same as AI Advisor)',
           leading: Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: AppTheme.teal.withOpacity(0.1),
+              color: AppTheme.mint,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: const Icon(Icons.account_balance_wallet_rounded, color: AppTheme.teal, size: 20),
+            child: const Icon(Icons.account_balance_wallet_rounded, color: AppTheme.midnight, size: 20),
           ),
           trend: Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-              color: Colors.green.shade50,
+              color: d.netOperatingCashRm >= 0 ? AppTheme.successBg : AppTheme.criticalBg,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.trending_up_rounded, color: Colors.green.shade600, size: 16),
-                const SizedBox(width: 4),
-                Text(
-                  '${d.revenueMtdRm > d.expenseMtdRm ? '+' : ''}MTD',
-                  style: TextStyle(color: Colors.green.shade700, fontSize: 12, fontWeight: FontWeight.w600),
-                ),
-              ],
+            child: Text(
+              d.netOperatingCashRm >= 0 ? 'Positive' : 'Negative',
+              style: TextStyle(
+                color: d.netOperatingCashRm >= 0 ? AppTheme.successFg : AppTheme.criticalFg,
+                fontSize: 11,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ),
@@ -323,10 +348,10 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
                   leading: Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: AppTheme.teal.withOpacity(0.1),
+                      color: AppTheme.sky,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Icon(Icons.water_drop_rounded, color: AppTheme.teal, size: 20),
+                    child: const Icon(Icons.water_drop_rounded, color: AppTheme.midnightLight, size: 20),
                   ),
                 ),
               ),
@@ -338,10 +363,10 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
                   leading: Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: AppTheme.teal.withOpacity(0.1),
+                      color: AppTheme.peach,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Icon(Icons.shield_rounded, color: AppTheme.teal, size: 20),
+                    child: const Icon(Icons.shield_rounded, color: AppTheme.ember, size: 20),
                   ),
                 ),
               ),
@@ -361,10 +386,10 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppTheme.teal.withOpacity(0.08),
+                  color: AppTheme.mint,
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Text('12M', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: AppTheme.teal)),
+                child: const Text('12M', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: AppTheme.midnight)),
               ),
             ],
           ),

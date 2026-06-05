@@ -46,8 +46,12 @@ def search_products(
         )
         if style_l and style_l not in blob:
             continue
-        if q and q not in blob and not any(q in t for t in p.get("tags", [])):
-            continue
+        if q:
+            tokens = [t for t in q.split() if len(t) > 2]
+            if tokens and not any(
+                tok in blob or any(tok in tag for tag in p.get("tags", [])) for tok in tokens
+            ):
+                continue
         out.append(dict(p))
     return out[:12] if out else items[:6]
 

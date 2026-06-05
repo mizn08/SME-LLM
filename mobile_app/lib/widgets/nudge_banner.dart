@@ -10,42 +10,50 @@ class NudgeBanner extends StatelessWidget {
   final VoidCallback? onTap;
   final VoidCallback? onDismiss;
 
-  Color get _color {
-    switch (nudge.severity) {
-      case 'critical':
-        return Colors.red.shade700;
-      case 'warning':
-        return Colors.orange.shade800;
-      default:
-        return AppTheme.teal;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    final bg = AppTheme.severityBackground(nudge.severity);
+    final fg = AppTheme.severityForeground(nudge.severity);
+
     return Material(
-      color: _color.withOpacity(0.12),
-      borderRadius: BorderRadius.circular(12),
+      color: bg,
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(12),
-        child: Padding(
-          padding: const EdgeInsets.all(12),
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: fg.withOpacity(0.25)),
+          ),
+          padding: const EdgeInsets.all(14),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(Icons.notifications_active_rounded, color: _color),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.6),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Icon(Icons.notifications_active_rounded, color: fg, size: 22),
+              ),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(nudge.title, style: TextStyle(fontWeight: FontWeight.w700, color: _color)),
-                    Text(nudge.body, style: const TextStyle(fontSize: 12)),
+                    Text(nudge.title, style: TextStyle(fontWeight: FontWeight.w700, color: fg, fontSize: 14)),
+                    const SizedBox(height: 4),
+                    Text(nudge.body, style: const TextStyle(fontSize: 12, height: 1.4, color: AppTheme.textPrimary)),
                   ],
                 ),
               ),
               if (onDismiss != null)
-                IconButton(icon: const Icon(Icons.close, size: 18), onPressed: onDismiss),
+                IconButton(
+                  icon: Icon(Icons.close_rounded, size: 20, color: fg.withOpacity(0.7)),
+                  onPressed: onDismiss,
+                ),
             ],
           ),
         ),

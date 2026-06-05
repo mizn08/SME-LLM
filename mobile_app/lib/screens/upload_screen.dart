@@ -8,7 +8,7 @@ import '../providers/session_provider.dart';
 import '../services/api_service.dart';
 import '../theme/app_theme.dart';
 
-/// CSV upload — minimalist layout aligned with Nielsen usability heuristics.
+/// Data import — accepts any file; server stores and preprocesses later.
 class UploadScreen extends StatefulWidget {
   const UploadScreen({super.key});
 
@@ -38,7 +38,7 @@ class _UploadScreenState extends State<UploadScreen> {
   List<String> report = [];
   String? err;
   bool busy = false;
-  bool _showFormatHelp = false;
+  bool _canReprocess = false;
 
   Future<void> _pickAndUpload() async {
     setState(() {
@@ -50,8 +50,7 @@ class _UploadScreenState extends State<UploadScreen> {
     try {
       final sid = context.read<SessionProvider>().smeId;
       final res = await FilePicker.platform.pickFiles(
-        type: FileType.custom,
-        allowedExtensions: ['csv'],
+        type: FileType.any,
         withData: true,
       );
       if (res == null || res.files.isEmpty) {
@@ -65,9 +64,9 @@ class _UploadScreenState extends State<UploadScreen> {
       final file = res.files.single;
 
       if (file.bytes == null) {
-        throw Exception('Could not read the selected file. Try again or use a smaller CSV.');
+        throw Exception('Could not read the selected file. Try again or use a smaller file.');
       }
-      final body = await ApiService().uploadCsvBytes(
+      final body = await ApiService().uploadFileBytes(
         smeId: sid,
         bytes: file.bytes!,
         fileName: file.name,
@@ -75,8 +74,8 @@ class _UploadScreenState extends State<UploadScreen> {
 
       setState(() {
         progress = 1;
-        report = List<String>.from((body['cleaning_report'] as List<dynamic>? ?? []).map((e) => '$e'));
-        report.insert(0, 'Imported ${body['transactions_imported']} transactions.');
+        report = _reportLines(body);
+        _canReprocess = (body['transactions_imported'] as int? ?? 0) == 0;
       });
     } catch (e) {
       setState(() => err = _friendlyError(e));
@@ -85,6 +84,26 @@ class _UploadScreenState extends State<UploadScreen> {
         busy = false;
         progress = null;
       });
+    }
+  }
+
+  Future<void> _reprocessSaved() async {
+    setState(() {
+      err = null;
+      report = [];
+      busy = true;
+    });
+    try {
+      final sid = context.read<SessionProvider>().smeId;
+      final body = await ApiService().reprocessUploads(sid);
+      setState(() {
+        report = _reportLines(body);
+        _canReprocess = (body['transactions_imported'] as int? ?? 0) == 0;
+      });
+    } catch (e) {
+      setState(() => err = _friendlyError(e));
+    } finally {
+      setState(() => busy = false);
     }
   }
 
@@ -98,20 +117,34 @@ class _UploadScreenState extends State<UploadScreen> {
       final sid = context.read<SessionProvider>().smeId;
       final data = await rootBundle.loadString('assets/sample_transactions.csv');
       final bytes = Uint8List.fromList(data.codeUnits);
-      final body = await ApiService().uploadCsvBytes(
+      final body = await ApiService().uploadFileBytes(
         smeId: sid,
         bytes: bytes,
         fileName: 'sample_transactions.csv',
       );
       setState(() {
-        report = List<String>.from((body['cleaning_report'] as List<dynamic>? ?? []).map((e) => '$e'));
-        report.insert(0, 'Imported ${body['transactions_imported']} rows from sample data.');
+        report = _reportLines(body);
+        _canReprocess = false;
       });
     } catch (e) {
       setState(() => err = _friendlyError(e));
     } finally {
       setState(() => busy = false);
     }
+  }
+
+  List<String> _reportLines(Map<String, dynamic> body) {
+    final status = body['status'] as String? ?? 'stored';
+    final imported = body['transactions_imported'] as int? ?? 0;
+    final lines = List<String>.from(
+      (body['cleaning_report'] as List<dynamic>? ?? []).map((e) => '$e'),
+    );
+    if (status == 'imported' && imported > 0) {
+      lines.insert(0, 'Imported $imported transactions.');
+    } else {
+      lines.insert(0, 'File received — preprocessing will run on the server.');
+    }
+    return lines;
   }
 
   String _friendlyError(Object e) {
@@ -160,6 +193,7 @@ class _UploadScreenState extends State<UploadScreen> {
                 _buildPrimaryAction(),
                 const SizedBox(height: 12),
                 _buildSecondaryAction(),
+                if (_canReprocess) ...[const SizedBox(height: 12), _buildReprocessAction()],
                 if (report.isNotEmpty) ...[const SizedBox(height: 32), _buildSuccessReport()],
               ],
             ),
@@ -170,10 +204,10 @@ class _UploadScreenState extends State<UploadScreen> {
   }
 
   Widget _buildHeader() {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'DATA IMPORT',
           style: TextStyle(
             fontSize: 11,
@@ -183,17 +217,13 @@ class _UploadScreenState extends State<UploadScreen> {
             decoration: TextDecoration.none,
           ),
         ),
-        const SizedBox(height: 10),
-        const Text('Upload transactions', style: _titleStyle),
-        const SizedBox(height: 10),
-        const Text(
-          'Import your bookkeeping CSV to refresh KPIs and recommendations.',
+        SizedBox(height: 10),
+        Text('Upload transactions', style: _titleStyle),
+        SizedBox(height: 10),
+        Text(
+          'Upload any bookkeeping export (CSV, Excel, PDF, etc.). '
+          'We save it on the server and preprocess it to refresh your KPIs.',
           style: _bodyStyle,
-        ),
-        const SizedBox(height: 20),
-        _FormatHelpCard(
-          expanded: _showFormatHelp,
-          onToggle: () => setState(() => _showFormatHelp = !_showFormatHelp),
         ),
       ],
     );
@@ -223,7 +253,7 @@ class _UploadScreenState extends State<UploadScreen> {
               ),
               const SizedBox(width: 12),
               const Text(
-                'Uploading and validating…',
+                'Uploading…',
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
@@ -286,7 +316,7 @@ class _UploadScreenState extends State<UploadScreen> {
       child: FilledButton.icon(
         onPressed: busy ? null : _pickAndUpload,
         icon: const Icon(Icons.upload_file_rounded, size: 20),
-        label: const Text('Choose CSV file'),
+        label: const Text('Choose file'),
         style: FilledButton.styleFrom(
           backgroundColor: AppTheme.teal,
           foregroundColor: Colors.white,
@@ -298,6 +328,22 @@ class _UploadScreenState extends State<UploadScreen> {
             fontWeight: FontWeight.w600,
             decoration: TextDecoration.none,
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildReprocessAction() {
+    return SizedBox(
+      width: double.infinity,
+      child: OutlinedButton.icon(
+        onPressed: busy ? null : _reprocessSaved,
+        icon: const Icon(Icons.sync_rounded, size: 18),
+        label: const Text('Import saved files'),
+        style: OutlinedButton.styleFrom(
+          foregroundColor: AppTheme.teal,
+          side: const BorderSide(color: AppTheme.teal),
+          padding: const EdgeInsets.symmetric(vertical: 14),
         ),
       ),
     );
@@ -337,7 +383,7 @@ class _UploadScreenState extends State<UploadScreen> {
               Icon(Icons.check_circle_rounded, color: AppTheme.accentGreen, size: 22),
               SizedBox(width: 10),
               Text(
-                'Import complete',
+                'Upload complete',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -363,133 +409,11 @@ class _UploadScreenState extends State<UploadScreen> {
             ),
           const SizedBox(height: 8),
           Text(
-            'Open Health to view updated KPIs.',
+            'Open Health and pull down to refresh — KPIs update after import.',
             style: TextStyle(
               fontSize: 13,
               color: AppTheme.teal,
               fontWeight: FontWeight.w500,
-              decoration: TextDecoration.none,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _FormatHelpCard extends StatelessWidget {
-  const _FormatHelpCard({required this.expanded, required this.onToggle});
-
-  final bool expanded;
-  final VoidCallback onToggle;
-
-  static const _columns = [
-    ('date', 'Required'),
-    ('amount', 'Required'),
-    ('category', 'Required'),
-    ('description', 'Optional'),
-    ('is_expense', 'Optional'),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white,
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: Colors.grey.shade200),
-      ),
-      child: InkWell(
-        onTap: onToggle,
-        borderRadius: BorderRadius.circular(12),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Icon(Icons.help_outline_rounded, size: 18, color: Colors.grey.shade600),
-                  const SizedBox(width: 8),
-                  const Expanded(
-                    child: Text(
-                      'CSV format',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: AppTheme.textPrimary,
-                        decoration: TextDecoration.none,
-                      ),
-                    ),
-                  ),
-                  Icon(
-                    expanded ? Icons.expand_less_rounded : Icons.expand_more_rounded,
-                    color: Colors.grey.shade600,
-                  ),
-                ],
-              ),
-              if (expanded) ...[
-                const SizedBox(height: 14),
-                const Text(
-                  'Use these column headers (case-insensitive):',
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: AppTheme.textSecondary,
-                    decoration: TextDecoration.none,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: [
-                    for (final (name, tag) in _columns) _ColumnChip(name: name, tag: tag),
-                  ],
-                ),
-              ],
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ColumnChip extends StatelessWidget {
-  const _ColumnChip({required this.name, required this.tag});
-
-  final String name;
-  final String tag;
-
-  @override
-  Widget build(BuildContext context) {
-    final required = tag == 'Required';
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      decoration: BoxDecoration(
-        color: required ? AppTheme.teal.withOpacity(0.08) : Colors.grey.shade100,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            name,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              fontFamily: 'monospace',
-              color: required ? AppTheme.teal : AppTheme.textSecondary,
-              decoration: TextDecoration.none,
-            ),
-          ),
-          const SizedBox(width: 6),
-          Text(
-            tag,
-            style: TextStyle(
-              fontSize: 10,
-              color: required ? AppTheme.teal : Colors.grey.shade600,
               decoration: TextDecoration.none,
             ),
           ),

@@ -38,6 +38,7 @@ class DashboardResponse(BaseModel):
     health_score: int | None = None
     health_grade: str | None = None
     health_label: str | None = None
+    transaction_count: int = 0
 
 
 class PredictRequest(BaseModel):
@@ -119,6 +120,8 @@ class ChatRequest(BaseModel):
         description="Advisor tone: banker | towkay | mdec",
     )
     language: str | None = Field(default=None, description="en | ms (Bahasa Malaysia)")
+    purchase_amount: float | None = Field(default=None, gt=0, description="From Simulate tab — keeps RAG in sync")
+    purchase_category: str | None = Field(default=None, description="equipment | digital | etc.")
 
 
 class ChatSource(BaseModel):
@@ -327,6 +330,11 @@ class BusinessValueMetrics(BaseModel):
     within_budget_rate: float
     human_error_rate_benchmark: float
     hourly_rate_rm: float
+    quote_cycle_time_reduction_pct: float = 0.0
+    error_reduction_pct: float = 0.0
+    assumed_quotes_per_month: int = 0
+    annual_time_saved_hours: float = 0.0
+    annual_cost_saved_rm: float = 0.0
 
 
 class SalesAgentRunRequest(BaseModel):
@@ -340,6 +348,7 @@ class SalesAgentRunResponse(BaseModel):
     sme_id: int
     requirements: dict[str, Any]
     task_complete: bool
+    agent_mode: str = "rule_fallback"
     agent_trace: list[dict[str, Any]] = []
     reasoning_summary: str = ""
     quote: QuoteResponse | None = None
@@ -347,6 +356,7 @@ class SalesAgentRunResponse(BaseModel):
     rag_answer: str | None = None
     rag_mode: str | None = None
     rag_sources: list[ChatSource] = []
+    error: str | None = None
 
 
 class TokenRequest(BaseModel):
@@ -542,6 +552,8 @@ class ChatWithMemoryRequest(BaseModel):
     message: str = Field(min_length=1, max_length=2000)
     persona: str | None = None
     language: str | None = None
+    purchase_amount: float | None = Field(default=None, gt=0)
+    purchase_category: str | None = None
     history: list[ChatMemoryTurn] = []
 
 

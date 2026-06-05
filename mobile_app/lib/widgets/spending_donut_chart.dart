@@ -9,14 +9,7 @@ class SpendingDonutChart extends StatelessWidget {
 
   final List<SpendingCategoryItem> categories;
 
-  static const _colors = [
-    AppTheme.teal,
-    Color(0xFF26A69A),
-    Colors.orange,
-    Colors.deepPurple,
-    Colors.blueGrey,
-    Colors.pink,
-  ];
+  static final _colors = AppTheme.chartPalette;
 
   @override
   Widget build(BuildContext context) {
